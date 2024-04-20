@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:cod_barrel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hascod": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:cod_barrel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hascod",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:cod_barrel"
+    ]
+  },
+  "sends_telemetry_event": false
+}

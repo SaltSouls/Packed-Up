@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:glowstone_dust_bag"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasglowstone_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:glowstone_dust_bag"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasglowstone_dust",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:glowstone_dust_bag"
+    ]
+  },
+  "sends_telemetry_event": false
+}

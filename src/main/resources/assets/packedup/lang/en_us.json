@@ -1,0 +1,31 @@
+{
+  "itemGroup.packedup": "Packed Up",
+
+  "block.packedup.sweet_berry_basket": "Basket of Sweet Berries",
+  "block.packedup.glow_berry_basket": "Basket of Glow Berries",
+  "block.packedup.apple_basket": "Basket of Apples",
+  "block.packedup.golden_apple_basket": "Basket of Golden Apples",
+
+  "block.packedup.cod_barrel": "Barrel of Cod",
+  "block.packedup.salmon_barrel": "Barrel of Salmon",
+
+  "block.packedup.cocoa_bean_bag": "Bag of Cocoa Beans",
+  "block.packedup.sugar_bag": "Bag of Sugar",
+  "block.packedup.nether_wart_bag": "Bag of Nether Wart",
+  "block.packedup.glowstone_dust_bag": "Bag of Glowstone Dust",
+
+  "block.packedup.dirt_bag": "Bag of Dirt",
+  "block.packedup.rooted_dirt_bag": "Bag of Rooted Dirt",
+  "block.packedup.coarse_dirt_bag": "Bag of Coarse Dirt",
+  "block.packedup.gravel_bag": "Bag of Gravel",
+
+  "block.packedup.golden_carrot_crate": "Golden Carrot Crate",
+  "block.packedup.egg_crate": "Egg Crate",
+  "block.packedup.cobblestone_crate": "Cobblestone Crate",
+  "block.packedup.cobbled_deepslate_crate": "Cobbled Deepslate Crate",
+  "block.packedup.raw_copper_crate": "Raw Copper Crate",
+  "block.packedup.raw_iron_crate": "Raw Iron Crate",
+  "block.packedup.raw_gold_crate": "Raw Gold Crate",
+  "block.packedup.gunpowder_crate": "Gunpowder Crate"
+
+}

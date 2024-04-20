@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:cocoa_bean_bag"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hascocoa_beans": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:cocoa_bean_bag"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hascocoa_beans",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:cocoa_bean_bag"
+    ]
+  },
+  "sends_telemetry_event": false
+}

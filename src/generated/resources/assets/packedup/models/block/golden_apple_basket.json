@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "packedup:block/basket_bottom",
+    "particle": "packedup:block/golden_apple_basket_top",
+    "side": "packedup:block/golden_apple_basket_side",
+    "top": "packedup:block/golden_apple_basket_top"
+  }
+}

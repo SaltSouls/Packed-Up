@@ -1,0 +1,6 @@
+{
+  "parent": "packedup:block/template_crate",
+  "textures": {
+    "pile": "packedup:block/cobbled_deepslate_pile"
+  }
+}

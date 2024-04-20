@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:apple_basket"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasapple": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:apple_basket"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasapple",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:apple_basket"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:salmon_barrel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hassalmon": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:salmon_barrel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hassalmon",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:salmon_barrel"
+    ]
+  },
+  "sends_telemetry_event": false
+}

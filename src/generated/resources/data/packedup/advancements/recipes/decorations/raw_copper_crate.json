@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:raw_copper_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasraw_copper_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:raw_copper_crate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasraw_copper_block",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:raw_copper_crate"
+    ]
+  },
+  "sends_telemetry_event": false
+}

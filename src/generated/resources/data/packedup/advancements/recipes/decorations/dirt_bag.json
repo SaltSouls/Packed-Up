@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:dirt_bag"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasdirt": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:dirt_bag"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasdirt",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:dirt_bag"
+    ]
+  },
+  "sends_telemetry_event": false
+}

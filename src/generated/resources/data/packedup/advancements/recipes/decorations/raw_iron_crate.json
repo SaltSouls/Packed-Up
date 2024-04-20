@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:raw_iron_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasraw_iron_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:raw_iron_crate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasraw_iron_block",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:raw_iron_crate"
+    ]
+  },
+  "sends_telemetry_event": false
+}

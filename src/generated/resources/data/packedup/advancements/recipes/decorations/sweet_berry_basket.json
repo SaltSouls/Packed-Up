@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:sweet_berry_basket"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hassweet_berries": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:sweet_berry_basket"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hassweet_berries",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:sweet_berry_basket"
+    ]
+  },
+  "sends_telemetry_event": false
+}

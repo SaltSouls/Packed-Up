@@ -1,0 +1,36 @@
+{
+	"render_type": "minecraft:cutout",
+	"parent": "minecraft:block/cube",
+	"textures": {
+		"particle": "#top",
+		"top": "packedup:block/glowstone_dust_bag_top",
+		"top_e": "packedup:block/glowstone_dust_bag_top_e",
+		"side_tied": "farmersdelight:block/rice_bag_side_tied",
+		"side": "farmersdelight:block/rice_bag_side",
+		"bottom": "farmersdelight:block/rice_bag_bottom"
+	},
+	"elements": [
+		{
+			"name": "overlay",
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"forge_data": {"block_light": 15}, 
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "texture": "#top_e"}
+			}
+		},
+		{
+			"name": "main",
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#side_tied", "cullface": "north"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#side", "cullface": "east"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#side_tied", "cullface": "south"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#side", "cullface": "west"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#top", "cullface": "up"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#bottom", "cullface": "down"}
+			}
+		}
+	]
+}

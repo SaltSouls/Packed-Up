@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:golden_apple_basket"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasgolden_apple": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:golden_apple_basket"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasgolden_apple",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:golden_apple_basket"
+    ]
+  },
+  "sends_telemetry_event": false
+}

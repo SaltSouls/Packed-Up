@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:nether_wart_bag"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasnether_wart": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:nether_wart_bag"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasnether_wart",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:nether_wart_bag"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:gunpowder_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasgunpowder": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:gunpowder_crate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasgunpowder",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:gunpowder_crate"
+    ]
+  },
+  "sends_telemetry_event": false
+}
