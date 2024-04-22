@@ -77,12 +77,10 @@ public class BlocksStates extends BlockStateProvider {
         for (Block crate : resourceCrates) {
             this.simpleBlock(crate, withRandomRotation(resourceCrate(crate)));
         }
+        String gunpowder_crate = blockName(PUBlocks.GUNPOWDER_CRATE.get());
         this.simpleBlock(PUBlocks.GUNPOWDER_CRATE.get(), withRandomRotation(
-                models().cubeBottomTop(
-                        "gunpowder_crate",
-                        blockLocation("crate_side"),
-                        fdBlockLocation("crate_bottom"),
-                        blockLocation("gunpowder_crate_top"))));
+                models().withExistingParent(gunpowder_crate, parent("template_crate"))
+                        .texture("top", blockLocation("gunpowder_crate_top"))));
 
         // produce crates
         simpleCrate(PUBlocks.GOLDEN_CARROT_CRATE.get());
@@ -147,7 +145,7 @@ public class BlocksStates extends BlockStateProvider {
         String name = blockName(block);
         String resource = nameFromSplit(name, "_bag");
 
-        return models().withExistingParent(name, parent("template_bag"))
+        return models().withExistingParent(name, parent("template_resource_bag"))
                 .texture("pile", blockLocation(resource + "_pile"));
     }
 
@@ -169,7 +167,7 @@ public class BlocksStates extends BlockStateProvider {
         String name = blockName(block);
         String resource = nameFromSplit(name, "_crate");
 
-        return models().withExistingParent(name, parent("template_crate"))
+        return models().withExistingParent(name, parent("template_resource_crate"))
                 .texture("pile", blockLocation(resource + "_pile"));
     }
 

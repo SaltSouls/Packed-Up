@@ -1,8 +1,6 @@
 {
-  "parent": "minecraft:block/cube_bottom_top",
+  "parent": "packedup:block/template_crate",
   "textures": {
-    "bottom": "farmersdelight:block/crate_bottom",
-    "side": "packedup:block/crate_side",
     "top": "packedup:block/gunpowder_crate_top"
   }
 }
