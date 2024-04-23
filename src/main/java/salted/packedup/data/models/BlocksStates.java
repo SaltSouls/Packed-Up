@@ -29,11 +29,10 @@ public class BlocksStates extends BlockStateProvider {
     }
 
     /**
-     * Splits the string and returns everything before or after the split.
+     * Splits the string and returns everything before the split.
      *
      * @param name      the name of the {@link Block} we are using
      * @param substring the string at which the split occurs
-     * @return The desired half of the string array.
      */
     private String nameFromSplit(String name, String substring) {
         return Arrays.stream(name.split(substring)).findFirst().get();
