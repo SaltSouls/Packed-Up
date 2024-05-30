@@ -117,6 +117,6 @@ run-data/
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
-src/main/resources/assets/packedup/raws/
+raws/
 src/generated/resources/.cache/
 src/main/resources/assets/farmersdelight/
