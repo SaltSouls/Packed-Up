@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "packedup:calcite_pallet_from_pallet"
+        "recipe": "packedup:calcite_pile_from_pallet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "packedup:calcite_pallet_from_pallet"
+      "packedup:calcite_pile_from_pallet"
     ]
   },
   "sends_telemetry_event": false

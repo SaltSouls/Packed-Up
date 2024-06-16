@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_calcite_pallet": {
+    "has_calcite_pile": {
       "conditions": {
         "items": [
           {
             "items": [
-              "packedup:calcite_pallet"
+              "packedup:calcite_pile"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_calcite_pallet",
+      "has_calcite_pile",
       "has_the_recipe"
     ]
   ],
