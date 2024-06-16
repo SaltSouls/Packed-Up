@@ -14,8 +14,8 @@ import java.util.stream.Collectors;
 
 import static vectorwing.farmersdelight.data.ItemModels.takeAll;
 
-public class ItemModels extends ItemModelProvider {
-    public ItemModels(PackOutput output, ExistingFileHelper existingFileHelper) {
+public class PUItemModels extends ItemModelProvider {
+    public PUItemModels(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, PackedUp.MODID, existingFileHelper);
     }
 

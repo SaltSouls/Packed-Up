@@ -13,6 +13,6 @@ public class RecipeBuilder extends RecipeProvider {
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
-        CraftingRecipes.register(consumer);
+        PUCraftingRecipes.register(consumer);
     }
 }

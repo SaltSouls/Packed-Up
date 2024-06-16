@@ -20,7 +20,7 @@ import java.util.function.Consumer;
 
 import static net.minecraft.advancements.critereon.InventoryChangeTrigger.TriggerInstance.hasItems;
 
-public class CraftingRecipes {
+public class PUCraftingRecipes {
     protected static ResourceLocation recipeDir(String modID, String path) {
         return new ResourceLocation(modID, path);
     }

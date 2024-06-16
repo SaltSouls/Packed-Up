@@ -24,11 +24,11 @@ import java.util.Set;
 import java.util.function.Function;
 
 
-public class BlocksStates extends BlockStateProvider {
+public class PUBlockStates extends BlockStateProvider {
     private static final int DEFAULT_HORIZONTAL_OFFSET = 180;
     static Logger log = PackedUp.LOGGER;
 
-    public BlocksStates(PackOutput output, ExistingFileHelper exFileHelper) {
+    public PUBlockStates(PackOutput output, ExistingFileHelper exFileHelper) {
         super(output, PackedUp.MODID, exFileHelper);
     }
 

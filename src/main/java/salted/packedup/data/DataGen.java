@@ -11,8 +11,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import salted.packedup.PackedUp;
 import salted.packedup.data.loot.PUBlockLoot;
-import salted.packedup.data.models.BlocksStates;
-import salted.packedup.data.models.ItemModels;
+import salted.packedup.data.models.PUBlockStates;
+import salted.packedup.data.models.PUItemModels;
 import salted.packedup.data.recipes.RecipeBuilder;
 import salted.packedup.data.tags.PUBlockTags;
 import salted.packedup.data.tags.PUItemTags;
@@ -35,9 +35,9 @@ public class DataGen {
         generator.addProvider(event.includeServer(), blockTags);
         generator.addProvider(event.includeServer(), new PUItemTags(output, lookupProvider, blockTags.contentsGetter(), helper));
 
-        BlocksStates blocksStates = new BlocksStates(output, helper);
-        generator.addProvider(event.includeServer(), blocksStates);
-        generator.addProvider(event.includeServer(), new ItemModels(output, blocksStates.models().existingFileHelper));
+        PUBlockStates blockStates = new PUBlockStates(output, helper);
+        generator.addProvider(event.includeServer(), blockStates);
+        generator.addProvider(event.includeServer(), new PUItemModels(output, blockStates.models().existingFileHelper));
 
         generator.addProvider(event.includeServer(), new LootTableProvider(output, Collections.emptySet(), List.of(
                 new LootTableProvider.SubProviderEntry(PUBlockLoot::new, LootContextParamSets.BLOCK)
