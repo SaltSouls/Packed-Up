@@ -1,28 +1,28 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "packedup:coarse_dirt_bag"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "hascoarse_dirt": {
+    "has_coarse_dirt": {
       "conditions": {
         "items": [
           {
             "items": [
-              "packedup:coarse_dirt_bag"
+              "minecraft:coarse_dirt"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:coarse_dirt_bag"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "hascoarse_dirt",
+      "has_coarse_dirt",
       "has_the_recipe"
     ]
   ],

@@ -1,28 +1,28 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "packedup:glow_berry_basket"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "hasglow_berries": {
+    "has_glow_berries": {
       "conditions": {
         "items": [
           {
             "items": [
-              "packedup:glow_berry_basket"
+              "minecraft:glow_berries"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:glow_berry_basket"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "hasglow_berries",
+      "has_glow_berries",
       "has_the_recipe"
     ]
   ],

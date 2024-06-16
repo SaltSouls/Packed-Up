@@ -1,28 +1,28 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "packedup:reinforced_cobblestone_crate"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "hascobblestone_crate": {
+    "has_cobblestone_crate": {
       "conditions": {
         "items": [
           {
             "items": [
-              "packedup:reinforced_cobblestone_crate"
+              "packedup:cobblestone_crate"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:reinforced_cobblestone_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "hascobblestone_crate",
+      "has_cobblestone_crate",
       "has_the_recipe"
     ]
   ],

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_netherite_block": {
+    "has_iron_nugget": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:netherite_block"
+              "minecraft:iron_nugget"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "packedup:netherite_pallet"
+        "recipe": "packedup:crate_lid"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_netherite_block",
+      "has_iron_nugget",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "packedup:netherite_pallet"
+      "packedup:crate_lid"
     ]
   },
   "sends_telemetry_event": false

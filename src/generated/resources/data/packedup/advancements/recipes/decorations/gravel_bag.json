@@ -1,28 +1,28 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "packedup:gravel_bag"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "hasgravel": {
+    "has_gravel": {
       "conditions": {
         "items": [
           {
             "items": [
-              "packedup:gravel_bag"
+              "minecraft:gravel"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:gravel_bag"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "hasgravel",
+      "has_gravel",
       "has_the_recipe"
     ]
   ],

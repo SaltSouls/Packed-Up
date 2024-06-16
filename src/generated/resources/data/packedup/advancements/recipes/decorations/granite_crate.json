@@ -1,28 +1,28 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "packedup:granite_crate"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "hasgranite": {
+    "has_granite": {
       "conditions": {
         "items": [
           {
             "items": [
-              "packedup:granite_crate"
+              "minecraft:granite"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:granite_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "hasgranite",
+      "has_granite",
       "has_the_recipe"
     ]
   ],

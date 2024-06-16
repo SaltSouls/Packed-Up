@@ -7,12 +7,12 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "hastuff": {
+    "has_tuff": {
       "conditions": {
         "items": [
           {
             "items": [
-              "packedup:tuff_crate"
+              "minecraft:tuff"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "hastuff",
+      "has_tuff",
       "has_the_recipe"
     ]
   ],

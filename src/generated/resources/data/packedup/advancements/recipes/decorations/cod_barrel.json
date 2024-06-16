@@ -1,28 +1,28 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "packedup:cod_barrel"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "hascod": {
+    "has_cod": {
       "conditions": {
         "items": [
           {
             "items": [
-              "packedup:cod_barrel"
+              "minecraft:cod"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:cod_barrel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "hascod",
+      "has_cod",
       "has_the_recipe"
     ]
   ],

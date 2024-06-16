@@ -1,28 +1,28 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "packedup:reinforced_blackstone_crate"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "hasblackstone_crate": {
+    "has_blackstone_crate": {
       "conditions": {
         "items": [
           {
             "items": [
-              "packedup:reinforced_blackstone_crate"
+              "packedup:blackstone_crate"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:reinforced_blackstone_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "hasblackstone_crate",
+      "has_blackstone_crate",
       "has_the_recipe"
     ]
   ],

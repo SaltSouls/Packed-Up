@@ -1,28 +1,28 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "packedup:cobbled_deepslate_crate"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "hascobbled_deepslate": {
+    "has_cobbled_deepslate": {
       "conditions": {
         "items": [
           {
             "items": [
-              "packedup:cobbled_deepslate_crate"
+              "minecraft:cobbled_deepslate"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:cobbled_deepslate_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "hascobbled_deepslate",
+      "has_cobbled_deepslate",
       "has_the_recipe"
     ]
   ],

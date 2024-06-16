@@ -5,12 +5,13 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.slf4j.Logger;
 import salted.packedup.PackedUp;
 import salted.packedup.common.registry.PUItems;
 
@@ -20,10 +21,13 @@ import java.util.function.Consumer;
 import static net.minecraft.advancements.critereon.InventoryChangeTrigger.TriggerInstance.hasItems;
 
 public class CraftingRecipes {
-    static Logger log = PackedUp.LOGGER;
+    protected static ResourceLocation recipeDir(String modID, String path) {
+        return new ResourceLocation(modID, path);
+    }
 
     public static void register(Consumer<FinishedRecipe> consumer) {
         recipesCompacting(consumer);
+        recipesUnique(consumer);
         recipesModifiedVanilla(consumer);
     }
 
@@ -115,6 +119,24 @@ public class CraftingRecipes {
         modifiedCombined(Items.NETHER_WART_BLOCK, Items.NETHER_WART, consumer);
     }
 
+    private static void recipesUnique(Consumer<FinishedRecipe> consumer) {
+        // crate lid
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, PUItems.CRATE_LID.get(), 1)
+                .pattern(" I ")
+                .pattern("ITI")
+                .pattern(" I ")
+                .define('T', ItemTags.WOODEN_TRAPDOORS)
+                .define('I', Tags.Items.NUGGETS_IRON)
+                .unlockedBy("has_iron_nugget", hasItems(Items.IRON_NUGGET))
+                .save(consumer);
+        // reinforced crate lid
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, PUItems.REINFORCED_CRATE_LID.get(), 1)
+                .requires(PUItems.CRATE_LID.get())
+                .requires(Tags.Items.INGOTS_IRON)
+                .unlockedBy("has_iron_ingot", hasItems(Items.IRON_INGOT))
+                .save(consumer);
+    }
+
     // combined compacting/unpacking
     private static void simpleCombined(ItemLike input, ItemLike output, Consumer<FinishedRecipe> consumer) {
         simpleCompact(input, output, consumer);
@@ -132,61 +154,53 @@ public class CraftingRecipes {
     }
 
     // easy shaped recipes
-    private static void simpleCompact(ItemLike input, ItemLike output, Consumer<FinishedRecipe> consumer) {
-        String resource = itemName((Item) output);
+    private static void simpleCompact(ItemLike output, ItemLike input, Consumer<FinishedRecipe> consumer) {
+        String resource = itemName((Item) input);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, input, 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, output, 1)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
-                .define('#', output)
-                .unlockedBy("has" + resource, hasItems(input))
+                .define('#', input)
+                .unlockedBy("has_" + resource, hasItems(input))
                 .save(consumer);
     }
 
-    private static void modifiedCompact(ItemLike input, ItemLike output, Consumer<FinishedRecipe> consumer) {
-        String resource = itemName((Item) output);
+    private static void modifiedCompact(ItemLike output, ItemLike input, Consumer<FinishedRecipe> consumer) {
+        String resource = itemName((Item) input);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, input, 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, output, 1)
                 .pattern("##")
                 .pattern("##")
-                .define('#', output)
-                .unlockedBy("has" + resource, hasItems(input))
+                .define('#', input)
+                .unlockedBy("has_" + resource, hasItems(input))
                 .save(consumer);
     }
 
     // easy shapeless recipes
     private static void simpleShapeless(ItemLike input, ItemLike output, Consumer<FinishedRecipe> consumer) {
-        log.debug("recipe type: simpleShapeless");
         String item = itemName((Item) input);
-        log.debug("item: {}", item);
         String resource = itemName((Item) output);
-        log.debug("resource: {}", resource);
         String type = nameFromSplit(item, resource, false);
-        log.debug("type: {}", type);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, output, 9)
                 .requires(input)
                 .unlockedBy("has_" + item, hasItems(input))
-                .save(consumer, new ResourceLocation(PackedUp.MODID, resource + "_from" + type));
+                .save(consumer, recipeDir(PackedUp.MODID, resource + "_from" + type));
     }
 
     private static void simpleShapeless(ItemLike input, ItemLike output, boolean before, String type, Consumer<FinishedRecipe> consumer) {
-        log.debug("recipe type: simpleShapeless with type: {}", type);
         String item = itemName((Item) input);
-        log.debug("item: {}", item);
         String resource = itemName((Item) output);
-        log.debug("resource: {}", resource);
         String prefix = "";
         if (before) {
             prefix = nameFromSplit(item, resource, true);
-            log.debug("prefix: {}", prefix);
         }
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, output, 9)
                 .requires(input)
                 .unlockedBy("has_" + item, hasItems(input))
-                .save(consumer, new ResourceLocation(PackedUp.MODID, resource + "_from_" + prefix + type));
+                .save(consumer, recipeDir(PackedUp.MODID, resource + "_from_" + prefix + type));
     }
 
     private static void modifiedShapeless(ItemLike input, ItemLike output, Consumer<FinishedRecipe> consumer) {
@@ -196,7 +210,7 @@ public class CraftingRecipes {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, output, 4)
                 .requires(input)
                 .unlockedBy("has_" + item, hasItems(input))
-                .save(consumer, new ResourceLocation(PackedUp.MODID, resource + "_from_" + input));
+                .save(consumer, recipeDir(PackedUp.MODID, resource + "_from_" + input));
     }
 
 }

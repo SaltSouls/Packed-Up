@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "tag": "forge:nuggets/iron"
+    },
+    "T": {
+      "tag": "minecraft:wooden_trapdoors"
+    }
+  },
+  "pattern": [
+    " I ",
+    "ITI",
+    " I "
+  ],
+  "result": {
+    "item": "packedup:crate_lid"
+  },
+  "show_notification": true
+}

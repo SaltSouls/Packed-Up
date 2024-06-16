@@ -1,28 +1,28 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "packedup:cobblestone_crate"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "hascobblestone": {
+    "has_cobblestone": {
       "conditions": {
         "items": [
           {
             "items": [
-              "packedup:cobblestone_crate"
+              "minecraft:cobblestone"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:cobblestone_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "hascobblestone",
+      "has_cobblestone",
       "has_the_recipe"
     ]
   ],

@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "packedup:calcite_pallet"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "hascalcite_pallet": {
+    "has_calcite_pallet": {
       "conditions": {
         "items": [
           {
@@ -18,11 +12,17 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:calcite_pallet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "hascalcite_pallet",
+      "has_calcite_pallet",
       "has_the_recipe"
     ]
   ],

@@ -1,28 +1,28 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "packedup:golden_carrot_crate"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "hasgolden_carrot": {
+    "has_golden_carrot": {
       "conditions": {
         "items": [
           {
             "items": [
-              "packedup:golden_carrot_crate"
+              "minecraft:golden_carrot"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:golden_carrot_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "hasgolden_carrot",
+      "has_golden_carrot",
       "has_the_recipe"
     ]
   ],

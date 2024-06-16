@@ -1,28 +1,28 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "packedup:brown_mushroom_crate"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "hasbrown_mushroom": {
+    "has_brown_mushroom": {
       "conditions": {
         "items": [
           {
             "items": [
-              "packedup:brown_mushroom_crate"
+              "minecraft:brown_mushroom"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:brown_mushroom_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "hasbrown_mushroom",
+      "has_brown_mushroom",
       "has_the_recipe"
     ]
   ],

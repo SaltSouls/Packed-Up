@@ -1,28 +1,28 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "packedup:egg_crate"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "hasegg": {
+    "has_egg": {
       "conditions": {
         "items": [
           {
             "items": [
-              "packedup:egg_crate"
+              "minecraft:egg"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:egg_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "hasegg",
+      "has_egg",
       "has_the_recipe"
     ]
   ],

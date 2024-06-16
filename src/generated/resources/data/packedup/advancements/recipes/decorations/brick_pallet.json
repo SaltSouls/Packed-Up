@@ -1,28 +1,28 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "packedup:brick_pallet"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "hasbrick_pile": {
+    "has_brick_pile": {
       "conditions": {
         "items": [
           {
             "items": [
-              "packedup:brick_pallet"
+              "packedup:brick_pile"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:brick_pallet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "hasbrick_pile",
+      "has_brick_pile",
       "has_the_recipe"
     ]
   ],
