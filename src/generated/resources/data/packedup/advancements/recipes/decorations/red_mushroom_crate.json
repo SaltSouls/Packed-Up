@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:red_mushroom_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasred_mushroom": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:red_mushroom_crate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasred_mushroom",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:red_mushroom_crate"
+    ]
+  },
+  "sends_telemetry_event": false
+}

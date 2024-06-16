@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "packedup:reinforced_cobbled_deepslate_crate"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "packedup:cobbled_deepslate_crate"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "packedup:reinforced_diorite_crate"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "packedup:diorite_crate"
+  }
+}

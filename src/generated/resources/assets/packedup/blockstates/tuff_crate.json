@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "packedup:block/tuff_crate"
+      },
+      {
+        "model": "packedup:block/tuff_crate",
+        "y": 90
+      },
+      {
+        "model": "packedup:block/tuff_crate",
+        "y": 180
+      },
+      {
+        "model": "packedup:block/tuff_crate",
+        "y": 270
+      }
+    ]
+  }
+}

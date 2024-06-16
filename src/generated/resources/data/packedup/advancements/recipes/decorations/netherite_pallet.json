@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:netherite_pallet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasnetherite_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:netherite_pallet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasnetherite_block",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:netherite_pallet"
+    ]
+  },
+  "sends_telemetry_event": false
+}

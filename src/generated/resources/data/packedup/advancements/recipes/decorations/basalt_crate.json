@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:basalt_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasbasalt": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:basalt_crate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasbasalt",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:basalt_crate"
+    ]
+  },
+  "sends_telemetry_event": false
+}

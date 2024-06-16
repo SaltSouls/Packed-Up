@@ -1,0 +1,36 @@
+{
+	"author": "TwinSouls",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"particle": "#top",
+		"top": "packedup:block/pallet_top",
+		"side": "packedup:block/pallet_side",
+		"bottom": "packedup:block/pallet_bottom"
+	},
+	"elements": [
+		{
+			"name": "top",
+			"from": [0, 4, 0],
+			"to": [16, 8, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 4], "texture": "#side", "cullface": "north"},
+				"east": {"uv": [0, 4, 16, 8], "texture": "#side", "cullface": "east"},
+				"south": {"uv": [0, 0, 16, 4], "texture": "#side", "cullface": "south"},
+				"west": {"uv": [0, 4, 16, 8], "texture": "#side", "cullface": "west"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#top"}
+			}
+		},
+		{
+			"name": "bottom",
+			"from": [0, 0, 0],
+			"to": [16, 4, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 4], "texture": "#side", "cullface": "north"},
+				"east": {"uv": [0, 4, 16, 8], "texture": "#side", "cullface": "east"},
+				"south": {"uv": [0, 0, 16, 4], "texture": "#side", "cullface": "south"},
+				"west": {"uv": [0, 4, 16, 8], "texture": "#side", "cullface": "west"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#bottom", "cullface": "down"}
+			}
+		}
+	]
+}

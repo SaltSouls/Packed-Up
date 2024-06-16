@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:copper_pallet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hascopper_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:copper_pallet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hascopper_block",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:copper_pallet"
+    ]
+  },
+  "sends_telemetry_event": false
+}

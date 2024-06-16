@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "packedup:block/nether_brick_pile",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "packedup:block/nether_brick_pile"
+    },
+    "facing=south": {
+      "model": "packedup:block/nether_brick_pile",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "packedup:block/nether_brick_pile",
+      "y": 270
+    }
+  }
+}

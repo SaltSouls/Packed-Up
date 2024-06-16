@@ -1,0 +1,6 @@
+{
+  "parent": "packedup:block/template_bag",
+  "textures": {
+    "top": "packedup:block/gravel_bag_top"
+  }
+}

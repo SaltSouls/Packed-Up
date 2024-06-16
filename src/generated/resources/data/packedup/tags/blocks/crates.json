@@ -1,7 +1,14 @@
 {
   "values": [
+    "packedup:crate_lid",
     "packedup:cobblestone_crate",
     "packedup:cobbled_deepslate_crate",
+    "packedup:andesite_crate",
+    "packedup:diorite_crate",
+    "packedup:granite_crate",
+    "packedup:tuff_crate",
+    "packedup:blackstone_crate",
+    "packedup:basalt_crate",
     "packedup:raw_copper_crate",
     "packedup:raw_iron_crate",
     "packedup:raw_gold_crate",
@@ -12,6 +19,8 @@
     "farmersdelight:cabbage_crate",
     "farmersdelight:tomato_crate",
     "farmersdelight:onion_crate",
-    "packedup:egg_crate"
+    "packedup:egg_crate",
+    "packedup:red_mushroom_crate",
+    "packedup:brown_mushroom_crate"
   ]
 }

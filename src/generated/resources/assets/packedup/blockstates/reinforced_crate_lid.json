@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "packedup:block/reinforced_crate_lid",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "packedup:block/reinforced_crate_lid"
+    },
+    "facing=south": {
+      "model": "packedup:block/reinforced_crate_lid",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "packedup:block/reinforced_crate_lid",
+      "y": 270
+    }
+  }
+}

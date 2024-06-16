@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:gold_pallet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasgold_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:gold_pallet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasgold_block",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:gold_pallet"
+    ]
+  },
+  "sends_telemetry_event": false
+}

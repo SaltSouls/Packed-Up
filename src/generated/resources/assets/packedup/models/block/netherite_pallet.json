@@ -1,0 +1,8 @@
+{
+  "parent": "packedup:block/template_resource_pallet",
+  "textures": {
+    "front": "packedup:block/netherite_pallet_front",
+    "side": "packedup:block/netherite_pallet_side",
+    "top": "packedup:block/netherite_pallet_top"
+  }
+}

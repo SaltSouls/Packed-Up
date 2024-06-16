@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "packedup:block/reinforced_granite_crate"
+      },
+      {
+        "model": "packedup:block/reinforced_granite_crate",
+        "y": 90
+      },
+      {
+        "model": "packedup:block/reinforced_granite_crate",
+        "y": 180
+      },
+      {
+        "model": "packedup:block/reinforced_granite_crate",
+        "y": 270
+      }
+    ]
+  }
+}

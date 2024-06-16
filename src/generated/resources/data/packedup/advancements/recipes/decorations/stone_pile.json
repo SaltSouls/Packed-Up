@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:stone_pile"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:stone_pile"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasstone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:stone_pile"
+    ]
+  },
+  "sends_telemetry_event": false
+}

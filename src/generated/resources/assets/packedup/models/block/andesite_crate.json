@@ -1,0 +1,6 @@
+{
+  "parent": "packedup:block/template_resource_crate",
+  "textures": {
+    "pile": "packedup:block/andesite_pile"
+  }
+}

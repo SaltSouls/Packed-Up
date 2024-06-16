@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:diorite_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasdiorite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:diorite_crate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasdiorite",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:diorite_crate"
+    ]
+  },
+  "sends_telemetry_event": false
+}

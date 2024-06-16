@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_nether_brick_pallet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:nether_brick_pallet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:nether_brick_pile_from_pallet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_nether_brick_pallet",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:nether_brick_pile_from_pallet"
+    ]
+  },
+  "sends_telemetry_event": false
+}

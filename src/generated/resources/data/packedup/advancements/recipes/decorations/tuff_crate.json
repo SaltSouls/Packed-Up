@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:tuff_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hastuff": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:tuff_crate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hastuff",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:tuff_crate"
+    ]
+  },
+  "sends_telemetry_event": false
+}

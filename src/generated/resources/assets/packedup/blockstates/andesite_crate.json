@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "packedup:block/andesite_crate"
+      },
+      {
+        "model": "packedup:block/andesite_crate",
+        "y": 90
+      },
+      {
+        "model": "packedup:block/andesite_crate",
+        "y": 180
+      },
+      {
+        "model": "packedup:block/andesite_crate",
+        "y": 270
+      }
+    ]
+  }
+}

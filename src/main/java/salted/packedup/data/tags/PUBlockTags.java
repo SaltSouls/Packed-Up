@@ -42,9 +42,16 @@ public class PUBlockTags extends BlockTagsProvider {
         );
 
         tag(PUTags.CRATE_BLOCKS).add(
+                PUBlocks.CRATE_LID.get(),
                 // resources
                 PUBlocks.COBBLESTONE_CRATE.get(),
                 PUBlocks.COBBLED_DEEPSLATE_CRATE.get(),
+                PUBlocks.ANDESITE_CRATE.get(),
+                PUBlocks.DIORITE_CRATE.get(),
+                PUBlocks.GRANITE_CRATE.get(),
+                PUBlocks.TUFF_CRATE.get(),
+                PUBlocks.BLACKSTONE_CRATE.get(),
+                PUBlocks.BASALT_CRATE.get(),
                 PUBlocks.RAW_COPPER_CRATE.get(),
                 PUBlocks.RAW_IRON_CRATE.get(),
                 PUBlocks.RAW_GOLD_CRATE.get(),
@@ -56,7 +63,42 @@ public class PUBlockTags extends BlockTagsProvider {
                 ModBlocks.CABBAGE_CRATE.get(),
                 ModBlocks.TOMATO_CRATE.get(),
                 ModBlocks.ONION_CRATE.get(),
-                PUBlocks.EGG_CRATE.get()
+                PUBlocks.EGG_CRATE.get(),
+                PUBlocks.RED_MUSHROOM_CRATE.get(),
+                PUBlocks.BROWN_MUSHROOM_CRATE.get()
+        );
+
+        tag(PUTags.REINFORCED_CRATE_BLOCKS).add(
+                PUBlocks.REINFORCED_CRATE_LID.get(),
+                // resources
+                PUBlocks.REINFORCED_COBBLESTONE_CRATE.get(),
+                PUBlocks.REINFORCED_COBBLED_DEEPSLATE_CRATE.get(),
+                PUBlocks.REINFORCED_ANDESITE_CRATE.get(),
+                PUBlocks.REINFORCED_DIORITE_CRATE.get(),
+                PUBlocks.REINFORCED_GRANITE_CRATE.get(),
+                PUBlocks.REINFORCED_TUFF_CRATE.get(),
+                PUBlocks.REINFORCED_BLACKSTONE_CRATE.get(),
+                PUBlocks.REINFORCED_BASALT_CRATE.get()
+        );
+
+        tag(PUTags.RESOURCE_PILE_BLOCKS).add(
+                PUBlocks.BRICK_PILE.get(),
+                PUBlocks.NETHER_BRICK_PILE.get(),
+                PUBlocks.STONE_PILE.get(),
+                PUBlocks.DEEPSLATE_PILE.get(),
+                PUBlocks.CALCITE_PILE.get()
+        );
+
+        tag(PUTags.RESOURCE_PALLET_BLOCKS).add(
+                PUBlocks.BRICK_PALLET.get(),
+                PUBlocks.NETHER_BRICK_PALLET.get(),
+                PUBlocks.STONE_PALLET.get(),
+                PUBlocks.DEEPSLATE_PALLET.get(),
+                PUBlocks.CALCITE_PALLET.get(),
+                PUBlocks.COPPER_PALLET.get(),
+                PUBlocks.IRON_PALLET.get(),
+                PUBlocks.GOLD_PALLET.get(),
+                PUBlocks.NETHERITE_PALLET.get()
         );
 
         tag(PUTags.BAG_BLOCKS).add(
@@ -86,6 +128,11 @@ public class PUBlockTags extends BlockTagsProvider {
                 .addTag(PUTags.BASKET_BLOCKS)
                 .addTag(PUTags.BARREL_BLOCKS)
                 .addTag(PUTags.CRATE_BLOCKS);
+
+        tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .addTag(PUTags.REINFORCED_CRATE_BLOCKS)
+                .addTag(PUTags.RESOURCE_PILE_BLOCKS)
+                .addTag(PUTags.RESOURCE_PALLET_BLOCKS);
 
         tag(ModTags.MINEABLE_WITH_KNIFE)
                 .addTag(PUTags.BAG_BLOCKS);

@@ -1,0 +1,8 @@
+{
+  "parent": "packedup:block/template_brick_pile",
+  "textures": {
+    "front": "packedup:block/nether_brick_pile_front",
+    "side": "packedup:block/nether_brick_pile_side",
+    "top": "packedup:block/nether_brick_pallet_top"
+  }
+}

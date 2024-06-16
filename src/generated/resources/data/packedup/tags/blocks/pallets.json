@@ -1,0 +1,13 @@
+{
+  "values": [
+    "packedup:brick_pallet",
+    "packedup:nether_brick_pallet",
+    "packedup:stone_pallet",
+    "packedup:deepslate_pallet",
+    "packedup:calcite_pallet",
+    "packedup:copper_pallet",
+    "packedup:iron_pallet",
+    "packedup:gold_pallet",
+    "packedup:netherite_pallet"
+  ]
+}

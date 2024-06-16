@@ -10,10 +10,10 @@ public class PUSoundsTypes {
             1.0F,
             1.0F,
             () -> SoundEvents.WOOD_BREAK,
-            () -> SoundEvents.NETHERRACK_STEP,
+            () -> SoundEvents.POLISHED_DEEPSLATE_STEP,
             () -> SoundEvents.WOOD_PLACE,
             () -> SoundEvents.WOOD_HIT,
-            () -> SoundEvents.NETHERRACK_FALL);
+            () -> SoundEvents.POLISHED_DEEPSLATE_FALL);
     public static final SoundType GUNPOWDER_CRATE = new ForgeSoundType(
             1.0F,
             1.0F,

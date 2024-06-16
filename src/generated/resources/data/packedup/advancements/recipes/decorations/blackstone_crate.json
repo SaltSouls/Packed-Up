@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:blackstone_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasblackstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:blackstone_crate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasblackstone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:blackstone_crate"
+    ]
+  },
+  "sends_telemetry_event": false
+}

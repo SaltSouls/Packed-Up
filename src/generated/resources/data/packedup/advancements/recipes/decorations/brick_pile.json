@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:brick_pile"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasbrick": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:brick_pile"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasbrick",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:brick_pile"
+    ]
+  },
+  "sends_telemetry_event": false
+}

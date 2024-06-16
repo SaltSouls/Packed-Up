@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "packedup:block/gold_pallet",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "packedup:block/gold_pallet"
+    },
+    "facing=south": {
+      "model": "packedup:block/gold_pallet",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "packedup:block/gold_pallet",
+      "y": 270
+    }
+  }
+}

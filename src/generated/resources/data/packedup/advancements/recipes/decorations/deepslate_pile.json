@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:deepslate_pile"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasdeepslate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:deepslate_pile"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasdeepslate",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:deepslate_pile"
+    ]
+  },
+  "sends_telemetry_event": false
+}

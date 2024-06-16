@@ -1,71 +1,10 @@
 {
-	"author": "TwinSouls",
-	"credit": "Made with Blockbench",
-	"ambientocclusion": false,
+	"parent": "packedup:block/resource_crate_all",
 	"textures": {
 		"particle": "#pile",
 		"pile": "#pile",
-		"top": "packedup:block/crate_top_open",
+		"top": "packedup:block/crate_top",
 		"side": "packedup:block/crate_side",
 		"bottom": "farmersdelight:block/crate_bottom"
-	},
-	"elements": [
-		{
-			"name": "pile",
-			"from": [2, 16, 2],
-			"to": [14, 18, 14],
-			"faces": {
-				"north": {"uv": [2, 13, 14, 15], "texture": "#pile", "cullface": "up"},
-				"east": {"uv": [1, 2, 3, 14], "rotation": 270, "texture": "#pile", "cullface": "up"},
-				"south": {"uv": [2, 3, 14, 1], "texture": "#pile", "cullface": "up"},
-				"west": {"uv": [13, 2, 15, 14], "rotation": 90, "texture": "#pile", "cullface": "up"},
-				"up": {"uv": [2, 2, 14, 14], "texture": "#pile", "cullface": "up"}
-			}
-		},
-		{
-			"name": "crate",
-			"from": [0, 0, 0],
-			"to": [16, 16, 16],
-			
-			"faces": {
-				"north": {"uv": [0, 0, 16, 16], "texture": "#side", "cullface": "north"},
-				"east": {"uv": [16, 0, 0, 16], "texture": "#side", "cullface": "east"},
-				"south": {"uv": [0, 0, 16, 16], "texture": "#side", "cullface": "south"},
-				"west": {"uv": [16, 0, 0, 16], "texture": "#side", "cullface": "west"},
-				"up": {"uv": [0, 0, 16, 16], "texture": "#top", "cullface": "up"},
-				"down": {"uv": [0, 0, 16, 16], "texture": "#bottom", "cullface": "down"}
-			}
-		}
-	],
-	"display": {
-		"thirdperson_righthand": {
-			"rotation": [75, 45, 0],
-			"translation": [0, 2.5, 0],
-			"scale": [0.375, 0.375, 0.375]
-		},
-		"thirdperson_lefthand": {
-			"rotation": [75, 45, 0],
-			"translation": [0, 2.5, 0],
-			"scale": [0.375, 0.375, 0.375]
-		},
-		"firstperson_righthand": {
-			"rotation": [0, 45, 0],
-			"scale": [0.4, 0.4, 0.4]
-		},
-		"firstperson_lefthand": {
-			"rotation": [0, 225, 0],
-			"scale": [0.4, 0.4, 0.4]
-		},
-		"ground": {
-			"translation": [0, 3, 0],
-			"scale": [0.25, 0.25, 0.25]
-		},
-		"gui": {
-			"rotation": [30, 225, 0],
-			"scale": [0.625, 0.625, 0.625]
-		},
-		"fixed": {
-			"scale": [0.5, 0.5, 0.5]
-		}
 	}
 }

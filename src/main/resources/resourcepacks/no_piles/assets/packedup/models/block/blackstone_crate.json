@@ -1,0 +1,6 @@
+{
+  "parent": "packedup:block/template_crate",
+  "textures": {
+    "top": "packedup:block/blackstone_crate_top"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "packedup:block/basalt_crate"
+      },
+      {
+        "model": "packedup:block/basalt_crate",
+        "y": 90
+      },
+      {
+        "model": "packedup:block/basalt_crate",
+        "y": 180
+      },
+      {
+        "model": "packedup:block/basalt_crate",
+        "y": 270
+      }
+    ]
+  }
+}

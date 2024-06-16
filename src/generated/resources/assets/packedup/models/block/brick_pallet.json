@@ -1,0 +1,8 @@
+{
+  "parent": "packedup:block/template_resource_pallet",
+  "textures": {
+    "front": "packedup:block/brick_pallet_front",
+    "side": "packedup:block/brick_pallet_side",
+    "top": "packedup:block/brick_pallet_top"
+  }
+}

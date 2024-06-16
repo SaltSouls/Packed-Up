@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:reinforced_andesite_crate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasandesite_crate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:reinforced_andesite_crate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasandesite_crate",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:reinforced_andesite_crate"
+    ]
+  },
+  "sends_telemetry_event": false
+}

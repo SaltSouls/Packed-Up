@@ -1,0 +1,6 @@
+{
+  "parent": "packedup:block/template_bag",
+  "textures": {
+    "top": "packedup:block/rooted_dirt_bag_top"
+  }
+}
