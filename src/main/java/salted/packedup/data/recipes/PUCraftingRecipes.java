@@ -67,6 +67,7 @@ public class PUCraftingRecipes {
         simpleCombined(PUItems.TUFF_CRATE.get(), Items.TUFF, consumer);
         simpleCombined(PUItems.BLACKSTONE_CRATE.get(), Items.BLACKSTONE, consumer);
         simpleCombined(PUItems.BASALT_CRATE.get(), Items.BASALT, consumer);
+        simpleCombined(PUItems.NETHERRACK_CRATE.get(), Items.NETHERRACK, consumer);
         simpleCombined(PUItems.RAW_COPPER_CRATE.get(), Items.RAW_COPPER_BLOCK, false, "crate", consumer);
         simpleCombined(PUItems.RAW_IRON_CRATE.get(), Items.RAW_IRON_BLOCK, false, "crate", consumer);
         simpleCombined(PUItems.RAW_GOLD_CRATE.get(), Items.RAW_GOLD_BLOCK, false, "crate", consumer);
@@ -79,6 +80,7 @@ public class PUCraftingRecipes {
         simpleCombined(PUItems.REINFORCED_TUFF_CRATE.get(), PUItems.TUFF_CRATE.get(), true, "crate", consumer);
         simpleCombined(PUItems.REINFORCED_BLACKSTONE_CRATE.get(), PUItems.BLACKSTONE_CRATE.get(), true, "crate", consumer);
         simpleCombined(PUItems.REINFORCED_BASALT_CRATE.get(), PUItems.BASALT_CRATE.get(), true, "crate", consumer);
+        simpleCombined(PUItems.REINFORCED_NETHERRACK_CRATE.get(), PUItems.NETHERRACK_CRATE.get(), true, "crate", consumer);
         // misc crates
         simpleCombined(PUItems.GUNPOWDER_CRATE.get(), Items.GUNPOWDER, consumer);
         // produce crates

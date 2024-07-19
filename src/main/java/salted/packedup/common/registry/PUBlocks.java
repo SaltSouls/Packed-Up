@@ -56,6 +56,11 @@ public class PUBlocks {
                     .mapColor(MapColor.COLOR_BLACK)
                     .strength(4.0F, 8.0F)
                     .sound(PUSoundsTypes.RESOURCE_CRATE)));
+    public static final RegistryObject<Block> NETHERRACK_CRATE = BLOCKS.register("netherrack_crate",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.NETHER)
+                    .strength(4.0F, 8.0F)
+                    .sound(PUSoundsTypes.RESOURCE_CRATE)));
     public static final RegistryObject<Block> RAW_COPPER_CRATE = BLOCKS.register("raw_copper_crate",
             () -> new Block(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_ORANGE)
@@ -110,6 +115,11 @@ public class PUBlocks {
     public static final RegistryObject<Block> REINFORCED_BASALT_CRATE = BLOCKS.register("reinforced_basalt_crate",
             () -> new Block(BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLACK)
+                    .strength(4.0F, 16.0F)
+                    .sound(PUSoundsTypes.RESOURCE_CRATE)));
+    public static final RegistryObject<Block> REINFORCED_NETHERRACK_CRATE = BLOCKS.register("reinforced_netherrack_crate",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.NETHER)
                     .strength(4.0F, 16.0F)
                     .sound(PUSoundsTypes.RESOURCE_CRATE)));
     // misc crates

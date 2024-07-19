@@ -96,6 +96,7 @@ public class PUBlockStates extends BlockStateProvider {
                 PUBlocks.TUFF_CRATE.get(),
                 PUBlocks.BLACKSTONE_CRATE.get(),
                 PUBlocks.BASALT_CRATE.get(),
+                PUBlocks.NETHERRACK_CRATE.get(),
                 PUBlocks.RAW_COPPER_CRATE.get(),
                 PUBlocks.RAW_IRON_CRATE.get(),
                 PUBlocks.RAW_GOLD_CRATE.get()
@@ -112,7 +113,8 @@ public class PUBlockStates extends BlockStateProvider {
                 PUBlocks.REINFORCED_GRANITE_CRATE.get(),
                 PUBlocks.REINFORCED_TUFF_CRATE.get(),
                 PUBlocks.REINFORCED_BLACKSTONE_CRATE.get(),
-                PUBlocks.REINFORCED_BASALT_CRATE.get()
+                PUBlocks.REINFORCED_BASALT_CRATE.get(),
+                PUBlocks.REINFORCED_NETHERRACK_CRATE.get()
         );
         for (Block crate : reinforcedCrates) {
             this.simpleBlock(crate, withRandomRotation(reinforcedCrate(crate, false)));

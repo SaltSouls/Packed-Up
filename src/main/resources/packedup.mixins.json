@@ -2,7 +2,7 @@
   "required": true,
   "minVersion": "0.8",
   "package": "salted.packedup.mixin",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_16",
   "refmap": "PackedUp.refmap.json",
   "mixins": [
   ],

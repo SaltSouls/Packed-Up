@@ -97,6 +97,10 @@ public class PUItems {
             () -> new BlockItem(PUBlocks.BASALT_CRATE.get(), basicItem()));
     public static final RegistryObject<Item> REINFORCED_BASALT_CRATE = registerWithTab("reinforced_basalt_crate",
             () -> new BlockItem(PUBlocks.REINFORCED_BASALT_CRATE.get(), basicItem()));
+    public static final RegistryObject<Item> NETHERRACK_CRATE = registerWithTab("netherrack_crate",
+            () -> new BlockItem(PUBlocks.NETHERRACK_CRATE.get(), basicItem()));
+    public static final RegistryObject<Item> REINFORCED_NETHERRACK_CRATE = registerWithTab("reinforced_netherrack_crate",
+            () -> new BlockItem(PUBlocks.REINFORCED_NETHERRACK_CRATE.get(), basicItem()));
     public static final RegistryObject<Item> RAW_COPPER_CRATE = registerWithTab("raw_copper_crate",
             () -> new BlockItem(PUBlocks.RAW_COPPER_CRATE.get(), basicItem()));
     public static final RegistryObject<Item> RAW_IRON_CRATE = registerWithTab("raw_iron_crate",

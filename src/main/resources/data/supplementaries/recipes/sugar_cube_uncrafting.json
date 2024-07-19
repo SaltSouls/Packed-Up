@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "pattern": [
+    "0"
+  ],
+  "key": {
+    "0": {
+      "item": "supplementaries:sugar_cube"
+    }
+  },
+  "result": {
+    "item": "minecraft:sugar",
+    "count": 4
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "supplementaries"
+    },
+    {
+      "type": "supplementaries:flag",
+      "flag": "sugar_cube"
+    }
+  ]
+}

@@ -33,3 +33,9 @@ configBackground = "minecraft:textures/block/spruce_planks.png"
    versionRange="${fd_version_range}"
    ordering="BEFORE"
    side="BOTH"
+[[dependencies."${mod_id}"]]
+   modId="supplementaries"
+   mandatory=false
+   versionRange="${sup_version_range}"
+   ordering="BEFORE"
+   side="BOTH"

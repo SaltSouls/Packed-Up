@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "packedup:block/netherrack_crate"
+      },
+      {
+        "model": "packedup:block/netherrack_crate",
+        "y": 90
+      },
+      {
+        "model": "packedup:block/netherrack_crate",
+        "y": 180
+      },
+      {
+        "model": "packedup:block/netherrack_crate",
+        "y": 270
+      }
+    ]
+  }
+}
