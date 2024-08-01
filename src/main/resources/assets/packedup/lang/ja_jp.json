@@ -65,5 +65,7 @@
   "block.packedup.copper_pallet": "銅のパレット",
   "block.packedup.iron_pallet": "鉄のパレット",
   "block.packedup.gold_pallet": "金のパレット",
+  "block.packedup.diamond_pallet": "ダイヤモンドのパレット",
+  "block.packedup.emerald_pallet": "エメラルドのパレット",
   "block.packedup.netherite_pallet": "ネザライトのパレット"
 }
