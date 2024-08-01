@@ -13,6 +13,7 @@
   "block.packedup.sugar_bag": "砂糖の袋",
   "block.packedup.nether_wart_bag": "ネザーウォートの収穫袋",
   "block.packedup.glowstone_dust_bag": "グロウストーンダストの袋",
+  "block.packedup.ender_pearl_bag": "エンダーパールの袋",
 
   "block.packedup.dirt_bag": "土袋",
   "block.packedup.rooted_dirt_bag": "根付いた土袋",
@@ -44,6 +45,9 @@
   "block.packedup.reinforced_basalt_crate": "頑丈な玄武岩入り木箱",
   "block.packedup.netherrack_crate": "ネザーラック入り木箱",
   "block.packedup.reinforced_netherrack_crate": "頑丈なネザーラック入り木箱",
+  "block.packedup.quartz_crate": "ネザークォーツ入り木箱",
+  "block.packedup.amethyst_crate": "アメジスト入り木箱",
+  "block.packedup.echo_shard_crate": "残響の欠片入り木箱",
   "block.packedup.raw_copper_crate": "銅の原石入り木箱",
   "block.packedup.raw_iron_crate": "鉄の原石入り木箱",
   "block.packedup.raw_gold_crate": "金の原石入り木箱",
@@ -61,5 +65,7 @@
   "block.packedup.copper_pallet": "銅のパレット",
   "block.packedup.iron_pallet": "鉄のパレット",
   "block.packedup.gold_pallet": "金のパレット",
+  "block.packedup.diamond_pallet": "ダイヤモンドのパレット",
+  "block.packedup.emerald_pallet": "エメラルドのパレット",
   "block.packedup.netherite_pallet": "ネザライトのパレット"
 }
