@@ -8,6 +8,8 @@
     "packedup:copper_pallet",
     "packedup:iron_pallet",
     "packedup:gold_pallet",
+    "packedup:diamond_pallet",
+    "packedup:emerald_pallet",
     "packedup:netherite_pallet"
   ]
 }

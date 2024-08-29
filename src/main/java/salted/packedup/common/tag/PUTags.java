@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.Block;
 import salted.packedup.PackedUp;
 
 public class PUTags {
+    public static final TagKey<Item> BOOK_BUNDLES = modItemTag("books");
     public static final TagKey<Block> BASKET_BLOCKS = modBlockTag("baskets");
     public static final TagKey<Block> BARREL_BLOCKS = modBlockTag("barrels");
     public static final TagKey<Block> CRATE_BLOCKS = modBlockTag("crates");

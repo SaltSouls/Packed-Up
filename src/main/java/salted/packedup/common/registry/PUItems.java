@@ -14,6 +14,109 @@ import java.util.function.Supplier;
 public class PUItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, PackedUp.MODID);
     public static LinkedHashSet<RegistryObject<Item>> TAB_ITEMS = Sets.newLinkedHashSet();
+    // books
+    public static final RegistryObject<Item> BOOK_BUNDLE = registerWithTab("book_bundle",
+            () -> new BlockItem(PUBlocks.BOOK_BUNDLE.get(), basicItem()));
+    public static final RegistryObject<Item> BOOK_BUNDLE_SLAB = registerWithTab("book_bundle_slab",
+            () -> new BlockItem(PUBlocks.BOOK_BUNDLE_SLAB.get(), basicItem()));
+    public static final RegistryObject<Item> BOOK_PILE = registerWithTab("book_pile",
+            () -> new BlockItem(PUBlocks.BOOK_PILE.get(), basicItem()));
+    public static final RegistryObject<Item> WHITE_BOOK_BUNDLE = registerWithTab("white_book_bundle",
+            () -> new BlockItem(PUBlocks.WHITE_BOOK_BUNDLE.get(), basicItem()));
+    public static final RegistryObject<Item> WHITE_BOOK_BUNDLE_SLAB = registerWithTab("white_book_bundle_slab",
+            () -> new BlockItem(PUBlocks.WHITE_BOOK_BUNDLE_SLAB.get(), basicItem()));
+    public static final RegistryObject<Item> WHITE_BOOK_PILE = registerWithTab("white_book_pile",
+            () -> new BlockItem(PUBlocks.WHITE_BOOK_PILE.get(), basicItem()));
+    public static final RegistryObject<Item> LIGHT_GRAY_BOOK_BUNDLE = registerWithTab("light_gray_book_bundle",
+            () -> new BlockItem(PUBlocks.LIGHT_GRAY_BOOK_BUNDLE.get(), basicItem()));
+    public static final RegistryObject<Item> LIGHT_GRAY_BOOK_BUNDLE_SLAB = registerWithTab("light_gray_book_bundle_slab",
+            () -> new BlockItem(PUBlocks.LIGHT_GRAY_BOOK_BUNDLE_SLAB.get(), basicItem()));
+    public static final RegistryObject<Item> LIGHT_GRAY_BOOK_PILE = registerWithTab("light_gray_book_pile",
+            () -> new BlockItem(PUBlocks.LIGHT_GRAY_BOOK_PILE.get(), basicItem()));
+    public static final RegistryObject<Item> GRAY_BOOK_BUNDLE = registerWithTab("gray_book_bundle",
+            () -> new BlockItem(PUBlocks.GRAY_BOOK_BUNDLE.get(), basicItem()));
+    public static final RegistryObject<Item> GRAY_BOOK_BUNDLE_SLAB = registerWithTab("gray_book_bundle_slab",
+            () -> new BlockItem(PUBlocks.GRAY_BOOK_BUNDLE_SLAB.get(), basicItem()));
+    public static final RegistryObject<Item> GRAY_BOOK_PILE = registerWithTab("gray_book_pile",
+            () -> new BlockItem(PUBlocks.GRAY_BOOK_PILE.get(), basicItem()));
+    public static final RegistryObject<Item> BLACK_BOOK_BUNDLE = registerWithTab("black_book_bundle",
+            () -> new BlockItem(PUBlocks.BLACK_BOOK_BUNDLE.get(), basicItem()));
+    public static final RegistryObject<Item> BLACK_BOOK_BUNDLE_SLAB = registerWithTab("black_book_bundle_slab",
+            () -> new BlockItem(PUBlocks.BLACK_BOOK_BUNDLE_SLAB.get(), basicItem()));
+    public static final RegistryObject<Item> BLACK_BOOK_PILE = registerWithTab("black_book_pile",
+            () -> new BlockItem(PUBlocks.BLACK_BOOK_PILE.get(), basicItem()));
+    public static final RegistryObject<Item> BROWN_BOOK_BUNDLE = registerWithTab("brown_book_bundle",
+            () -> new BlockItem(PUBlocks.BROWN_BOOK_BUNDLE.get(), basicItem()));
+    public static final RegistryObject<Item> BROWN_BOOK_BUNDLE_SLAB = registerWithTab("brown_book_bundle_slab",
+            () -> new BlockItem(PUBlocks.BROWN_BOOK_BUNDLE_SLAB.get(), basicItem()));
+    public static final RegistryObject<Item> BROWN_BOOK_PILE = registerWithTab("brown_book_pile",
+            () -> new BlockItem(PUBlocks.BROWN_BOOK_PILE.get(), basicItem()));
+    public static final RegistryObject<Item> RED_BOOK_BUNDLE = registerWithTab("red_book_bundle",
+            () -> new BlockItem(PUBlocks.RED_BOOK_BUNDLE.get(), basicItem()));
+    public static final RegistryObject<Item> RED_BOOK_BUNDLE_SLAB = registerWithTab("red_book_bundle_slab",
+            () -> new BlockItem(PUBlocks.RED_BOOK_BUNDLE_SLAB.get(), basicItem()));
+    public static final RegistryObject<Item> RED_BOOK_PILE = registerWithTab("red_book_pile",
+            () -> new BlockItem(PUBlocks.RED_BOOK_PILE.get(), basicItem()));
+    public static final RegistryObject<Item> ORANGE_BOOK_BUNDLE = registerWithTab("orange_book_bundle",
+            () -> new BlockItem(PUBlocks.ORANGE_BOOK_BUNDLE.get(), basicItem()));
+    public static final RegistryObject<Item> ORANGE_BOOK_BUNDLE_SLAB = registerWithTab("orange_book_bundle_slab",
+            () -> new BlockItem(PUBlocks.ORANGE_BOOK_BUNDLE_SLAB.get(), basicItem()));
+    public static final RegistryObject<Item> ORANGE_BOOK_PILE = registerWithTab("orange_book_pile",
+            () -> new BlockItem(PUBlocks.ORANGE_BOOK_PILE.get(), basicItem()));
+    public static final RegistryObject<Item> YELLOW_BOOK_BUNDLE = registerWithTab("yellow_book_bundle",
+            () -> new BlockItem(PUBlocks.YELLOW_BOOK_BUNDLE.get(), basicItem()));
+    public static final RegistryObject<Item> YELLOW_BOOK_BUNDLE_SLAB = registerWithTab("yellow_book_bundle_slab",
+            () -> new BlockItem(PUBlocks.YELLOW_BOOK_BUNDLE_SLAB.get(), basicItem()));
+    public static final RegistryObject<Item> YELLOW_BOOK_PILE = registerWithTab("yellow_book_pile",
+            () -> new BlockItem(PUBlocks.YELLOW_BOOK_PILE.get(), basicItem()));
+    public static final RegistryObject<Item> LIME_BOOK_BUNDLE = registerWithTab("lime_book_bundle",
+            () -> new BlockItem(PUBlocks.LIME_BOOK_BUNDLE.get(), basicItem()));
+    public static final RegistryObject<Item> LIME_BOOK_BUNDLE_SLAB = registerWithTab("lime_book_bundle_slab",
+            () -> new BlockItem(PUBlocks.LIME_BOOK_BUNDLE_SLAB.get(), basicItem()));
+    public static final RegistryObject<Item> LIME_BOOK_PILE = registerWithTab("lime_book_pile",
+            () -> new BlockItem(PUBlocks.LIME_BOOK_PILE.get(), basicItem()));
+    public static final RegistryObject<Item> GREEN_BOOK_BUNDLE = registerWithTab("green_book_bundle",
+            () -> new BlockItem(PUBlocks.GREEN_BOOK_BUNDLE.get(), basicItem()));
+    public static final RegistryObject<Item> GREEN_BOOK_BUNDLE_SLAB = registerWithTab("green_book_bundle_slab",
+            () -> new BlockItem(PUBlocks.GREEN_BOOK_BUNDLE_SLAB.get(), basicItem()));
+    public static final RegistryObject<Item> GREEN_BOOK_PILE = registerWithTab("green_book_pile",
+            () -> new BlockItem(PUBlocks.GREEN_BOOK_PILE.get(), basicItem()));
+    public static final RegistryObject<Item> CYAN_BOOK_BUNDLE = registerWithTab("cyan_book_bundle",
+            () -> new BlockItem(PUBlocks.CYAN_BOOK_BUNDLE.get(), basicItem()));
+    public static final RegistryObject<Item> CYAN_BOOK_BUNDLE_SLAB = registerWithTab("cyan_book_bundle_slab",
+            () -> new BlockItem(PUBlocks.CYAN_BOOK_BUNDLE_SLAB.get(), basicItem()));
+    public static final RegistryObject<Item> CYAN_BOOK_PILE = registerWithTab("cyan_book_pile",
+            () -> new BlockItem(PUBlocks.CYAN_BOOK_PILE.get(), basicItem()));
+    public static final RegistryObject<Item> LIGHT_BLUE_BOOK_BUNDLE = registerWithTab("light_blue_book_bundle",
+            () -> new BlockItem(PUBlocks.LIGHT_BLUE_BOOK_BUNDLE.get(), basicItem()));
+    public static final RegistryObject<Item> LIGHT_BLUE_BOOK_BUNDLE_SLAB = registerWithTab("light_blue_book_bundle_slab",
+            () -> new BlockItem(PUBlocks.LIGHT_BLUE_BOOK_BUNDLE_SLAB.get(), basicItem()));
+    public static final RegistryObject<Item> LIGHT_BLUE_BOOK_PILE = registerWithTab("light_blue_book_pile",
+            () -> new BlockItem(PUBlocks.LIGHT_BLUE_BOOK_PILE.get(), basicItem()));
+    public static final RegistryObject<Item> BLUE_BOOK_BUNDLE = registerWithTab("blue_book_bundle",
+            () -> new BlockItem(PUBlocks.BLUE_BOOK_BUNDLE.get(), basicItem()));
+    public static final RegistryObject<Item> BLUE_BOOK_BUNDLE_SLAB = registerWithTab("blue_book_bundle_slab",
+            () -> new BlockItem(PUBlocks.BLUE_BOOK_BUNDLE_SLAB.get(), basicItem()));
+    public static final RegistryObject<Item> BLUE_BOOK_PILE = registerWithTab("blue_book_pile",
+            () -> new BlockItem(PUBlocks.BLUE_BOOK_PILE.get(), basicItem()));
+    public static final RegistryObject<Item> PURPLE_BOOK_BUNDLE = registerWithTab("purple_book_bundle",
+            () -> new BlockItem(PUBlocks.PURPLE_BOOK_BUNDLE.get(), basicItem()));
+    public static final RegistryObject<Item> PURPLE_BOOK_BUNDLE_SLAB = registerWithTab("purple_book_bundle_slab",
+            () -> new BlockItem(PUBlocks.PURPLE_BOOK_BUNDLE_SLAB.get(), basicItem()));
+    public static final RegistryObject<Item> PURPLE_BOOK_PILE = registerWithTab("purple_book_pile",
+            () -> new BlockItem(PUBlocks.PURPLE_BOOK_PILE.get(), basicItem()));
+    public static final RegistryObject<Item> MAGENTA_BOOK_BUNDLE = registerWithTab("magenta_book_bundle",
+            () -> new BlockItem(PUBlocks.MAGENTA_BOOK_BUNDLE.get(), basicItem()));
+    public static final RegistryObject<Item> MAGENTA_BOOK_BUNDLE_SLAB = registerWithTab("magenta_book_bundle_slab",
+            () -> new BlockItem(PUBlocks.MAGENTA_BOOK_BUNDLE_SLAB.get(), basicItem()));
+    public static final RegistryObject<Item> MAGENTA_BOOK_PILE = registerWithTab("magenta_book_pile",
+            () -> new BlockItem(PUBlocks.MAGENTA_BOOK_PILE.get(), basicItem()));
+    public static final RegistryObject<Item> PINK_BOOK_BUNDLE = registerWithTab("pink_book_bundle",
+            () -> new BlockItem(PUBlocks.PINK_BOOK_BUNDLE.get(), basicItem()));
+    public static final RegistryObject<Item> PINK_BOOK_BUNDLE_SLAB = registerWithTab("pink_book_bundle_slab",
+            () -> new BlockItem(PUBlocks.PINK_BOOK_BUNDLE_SLAB.get(), basicItem()));
+    public static final RegistryObject<Item> PINK_BOOK_PILE = registerWithTab("pink_book_pile",
+            () -> new BlockItem(PUBlocks.PINK_BOOK_PILE.get(), basicItem()));
     // baskets
     public static final RegistryObject<Item> SWEET_BERRY_BASKET = registerWithTab("sweet_berry_basket",
             () -> new BlockItem(PUBlocks.SWEET_BERRY_BASKET.get(), basicItem()));
@@ -38,6 +141,8 @@ public class PUItems {
     // misc bags
     public static final RegistryObject<Item> GLOWSTONE_DUST_BAG = registerWithTab("glowstone_dust_bag",
             () -> new BlockItem(PUBlocks.GLOWSTONE_DUST_BAG.get(), basicItem()));
+    public static final RegistryObject<Item> ENDER_PEARL_BAG = registerWithTab("ender_pearl_bag",
+            () -> new BlockItem(PUBlocks.ENDER_PEARL_BAG.get(), basicItem()));
     // resource bags
     public static final RegistryObject<Item> DIRT_BAG = registerWithTab("dirt_bag",
             () -> new BlockItem(PUBlocks.DIRT_BAG.get(), basicItem()));
@@ -101,13 +206,26 @@ public class PUItems {
             () -> new BlockItem(PUBlocks.NETHERRACK_CRATE.get(), basicItem()));
     public static final RegistryObject<Item> REINFORCED_NETHERRACK_CRATE = registerWithTab("reinforced_netherrack_crate",
             () -> new BlockItem(PUBlocks.REINFORCED_NETHERRACK_CRATE.get(), basicItem()));
+    public static final RegistryObject<Item> QUARTZ_CRATE = registerWithTab("quartz_crate",
+            () -> new BlockItem(PUBlocks.QUARTZ_CRATE.get(), basicItem()));
+    public static final RegistryObject<Item> AMETHYST_CRATE = registerWithTab("amethyst_crate",
+            () -> new BlockItem(PUBlocks.AMETHYST_CRATE.get(), basicItem()));
+    public static final RegistryObject<Item> ECHO_SHARD_CRATE = registerWithTab("echo_shard_crate",
+            () -> new BlockItem(PUBlocks.ECHO_SHARD_CRATE.get(), basicItem()));
     public static final RegistryObject<Item> RAW_COPPER_CRATE = registerWithTab("raw_copper_crate",
             () -> new BlockItem(PUBlocks.RAW_COPPER_CRATE.get(), basicItem()));
     public static final RegistryObject<Item> RAW_IRON_CRATE = registerWithTab("raw_iron_crate",
             () -> new BlockItem(PUBlocks.RAW_IRON_CRATE.get(), basicItem()));
     public static final RegistryObject<Item> RAW_GOLD_CRATE = registerWithTab("raw_gold_crate",
             () -> new BlockItem(PUBlocks.RAW_GOLD_CRATE.get(), basicItem()));
+//    // unused crates
+//    public static final RegistryObject<Item> DIAMOND_CRATE = registerWithTab("diamond_crate",
+//            () -> new BlockItem(PUBlocks.DIAMOND_CRATE.get(), basicItem()));
+//    public static final RegistryObject<Item> EMERALD_CRATE = registerWithTab("emerald_crate",
+//            () -> new BlockItem(PUBlocks.EMERALD_CRATE.get(), basicItem()));
     // piles/pallets
+    public static final RegistryObject<Item> PALLET = registerWithTab("pallet",
+            () -> new BlockItem(PUBlocks.PALLET.get(), basicItem()));
     public static final RegistryObject<Item> BRICK_PILE = registerWithTab("brick_pile",
             () -> new BlockItem(PUBlocks.BRICK_PILE.get(), basicItem()));
     public static final RegistryObject<Item> BRICK_PALLET = registerWithTab("brick_pallet",
@@ -134,6 +252,10 @@ public class PUItems {
             () -> new BlockItem(PUBlocks.IRON_PALLET.get(), basicItem()));
     public static final RegistryObject<Item> GOLD_PALLET = registerWithTab("gold_pallet",
             () -> new BlockItem(PUBlocks.GOLD_PALLET.get(), basicItem()));
+    public static final RegistryObject<Item> DIAMOND_PALLET = registerWithTab("diamond_pallet",
+            () -> new BlockItem(PUBlocks.DIAMOND_PALLET.get(), basicItem()));
+    public static final RegistryObject<Item> EMERALD_PALLET = registerWithTab("emerald_pallet",
+            () -> new BlockItem(PUBlocks.EMERALD_PALLET.get(), basicItem()));
     public static final RegistryObject<Item> NETHERITE_PALLET = registerWithTab("netherite_pallet",
             () -> new BlockItem(PUBlocks.NETHERITE_PALLET.get(), basicItem().fireResistant()));
 

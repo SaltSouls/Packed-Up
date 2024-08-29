@@ -1,0 +1,21 @@
+{
+  "values": [
+    "packedup:book_bundle",
+    "packedup:white_book_bundle",
+    "packedup:light_gray_book_bundle",
+    "packedup:gray_book_bundle",
+    "packedup:black_book_bundle",
+    "packedup:brown_book_bundle",
+    "packedup:red_book_bundle",
+    "packedup:orange_book_bundle",
+    "packedup:yellow_book_bundle",
+    "packedup:lime_book_bundle",
+    "packedup:green_book_bundle",
+    "packedup:cyan_book_bundle",
+    "packedup:light_blue_book_bundle",
+    "packedup:blue_book_bundle",
+    "packedup:purple_book_bundle",
+    "packedup:magenta_book_bundle",
+    "packedup:pink_book_bundle"
+  ]
+}

@@ -21,6 +21,10 @@
     "farmersdelight:onion_crate",
     "packedup:egg_crate",
     "packedup:red_mushroom_crate",
-    "packedup:brown_mushroom_crate"
+    "packedup:brown_mushroom_crate",
+    "packedup:gunpowder_crate",
+    "packedup:quartz_crate",
+    "packedup:amethyst_crate",
+    "packedup:echo_shard_crate"
   ]
 }

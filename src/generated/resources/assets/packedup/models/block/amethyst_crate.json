@@ -1,0 +1,6 @@
+{
+  "parent": "packedup:block/template_crate",
+  "textures": {
+    "top": "packedup:block/amethyst_crate_top"
+  }
+}

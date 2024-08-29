@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "packedup:emerald_pallet"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "minecraft:emerald_block"
+  }
+}

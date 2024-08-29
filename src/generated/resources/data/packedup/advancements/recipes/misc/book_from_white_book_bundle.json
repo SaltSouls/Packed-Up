@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:book_from_white_book_bundle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_white_book_bundle": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:white_book_bundle"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_white_book_bundle",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:book_from_white_book_bundle"
+    ]
+  },
+  "sends_telemetry_event": false
+}

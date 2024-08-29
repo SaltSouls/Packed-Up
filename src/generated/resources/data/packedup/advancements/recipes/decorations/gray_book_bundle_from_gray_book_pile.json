@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gray_book_pile": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:gray_book_pile"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:gray_book_bundle_from_gray_book_pile"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_gray_book_pile",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:gray_book_bundle_from_gray_book_pile"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -13,7 +13,8 @@ import salted.packedup.PackedUp;
 import salted.packedup.data.loot.PUBlockLoot;
 import salted.packedup.data.models.PUBlockStates;
 import salted.packedup.data.models.PUItemModels;
-import salted.packedup.data.recipes.RecipeBuilder;
+import salted.packedup.data.recipes.PUCraftingRecipes;
+import salted.packedup.data.recipes.PURecipeBuilder;
 import salted.packedup.data.tags.PUBlockTags;
 import salted.packedup.data.tags.PUItemTags;
 
@@ -43,7 +44,7 @@ public class DataGen {
                 new LootTableProvider.SubProviderEntry(PUBlockLoot::new, LootContextParamSets.BLOCK)
         )));
 
-        generator.addProvider(event.includeServer(), new RecipeBuilder(output));
+        generator.addProvider(event.includeServer(), new PUCraftingRecipes(output));
 
     }
 }

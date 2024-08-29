@@ -15,7 +15,7 @@
 			"name": "overlay",
 			"from": [0, 0, 0],
 			"to": [16, 16, 16],
-			"forge_data": {"block_light": 15}, 
+			"forge_data": { "block_light": 15 }, 
 			"faces": {
 				"up": {"uv": [0, 0, 16, 16], "texture": "#top_e"}
 			}

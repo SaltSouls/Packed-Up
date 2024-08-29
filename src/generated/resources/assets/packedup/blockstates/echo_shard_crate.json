@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "packedup:block/echo_shard_crate"
+      },
+      {
+        "model": "packedup:block/echo_shard_crate",
+        "y": 90
+      },
+      {
+        "model": "packedup:block/echo_shard_crate",
+        "y": 180
+      },
+      {
+        "model": "packedup:block/echo_shard_crate",
+        "y": 270
+      }
+    ]
+  }
+}

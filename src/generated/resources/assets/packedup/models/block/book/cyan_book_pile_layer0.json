@@ -1,0 +1,10 @@
+{
+  "parent": "packedup:block/book/template_colored_book_pile_layer0",
+  "textures": {
+    "bottom": "packedup:block/book/cyan_book_pile_bottom",
+    "front": "packedup:block/book/cyan_book_pile_front",
+    "left": "packedup:block/book/cyan_book_pile_left",
+    "right": "packedup:block/book/cyan_book_pile_right",
+    "top": "packedup:block/book/cyan_book_pile_top"
+  }
+}

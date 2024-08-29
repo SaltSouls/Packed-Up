@@ -1,0 +1,126 @@
+{
+  "variants": {
+    "facing=east": [
+      {
+        "model": "packedup:block/book/book_bundle",
+        "weight": 30,
+        "y": 90
+      },
+      {
+        "model": "packedup:block/book/alt1/book_bundle",
+        "weight": 25,
+        "y": 90
+      },
+      {
+        "model": "packedup:block/book/alt2/book_bundle",
+        "weight": 25,
+        "y": 90
+      },
+      {
+        "model": "packedup:block/book/alt3/book_bundle",
+        "weight": 5,
+        "y": 90
+      },
+      {
+        "model": "packedup:block/book/alt4/book_bundle",
+        "weight": 5,
+        "y": 90
+      },
+      {
+        "model": "packedup:block/book/alt5/book_bundle",
+        "weight": 5,
+        "y": 90
+      }
+    ],
+    "facing=north": [
+      {
+        "model": "packedup:block/book/book_bundle",
+        "weight": 30
+      },
+      {
+        "model": "packedup:block/book/alt1/book_bundle",
+        "weight": 25
+      },
+      {
+        "model": "packedup:block/book/alt2/book_bundle",
+        "weight": 25
+      },
+      {
+        "model": "packedup:block/book/alt3/book_bundle",
+        "weight": 5
+      },
+      {
+        "model": "packedup:block/book/alt4/book_bundle",
+        "weight": 5
+      },
+      {
+        "model": "packedup:block/book/alt5/book_bundle",
+        "weight": 5
+      }
+    ],
+    "facing=south": [
+      {
+        "model": "packedup:block/book/book_bundle",
+        "weight": 30,
+        "y": 180
+      },
+      {
+        "model": "packedup:block/book/alt1/book_bundle",
+        "weight": 25,
+        "y": 180
+      },
+      {
+        "model": "packedup:block/book/alt2/book_bundle",
+        "weight": 25,
+        "y": 180
+      },
+      {
+        "model": "packedup:block/book/alt3/book_bundle",
+        "weight": 5,
+        "y": 180
+      },
+      {
+        "model": "packedup:block/book/alt4/book_bundle",
+        "weight": 5,
+        "y": 180
+      },
+      {
+        "model": "packedup:block/book/alt5/book_bundle",
+        "weight": 5,
+        "y": 180
+      }
+    ],
+    "facing=west": [
+      {
+        "model": "packedup:block/book/book_bundle",
+        "weight": 30,
+        "y": 270
+      },
+      {
+        "model": "packedup:block/book/alt1/book_bundle",
+        "weight": 25,
+        "y": 270
+      },
+      {
+        "model": "packedup:block/book/alt2/book_bundle",
+        "weight": 25,
+        "y": 270
+      },
+      {
+        "model": "packedup:block/book/alt3/book_bundle",
+        "weight": 5,
+        "y": 270
+      },
+      {
+        "model": "packedup:block/book/alt4/book_bundle",
+        "weight": 5,
+        "y": 270
+      },
+      {
+        "model": "packedup:block/book/alt5/book_bundle",
+        "weight": 5,
+        "y": 270
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "packedup:block/book/lime_book_bundle",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "packedup:block/book/lime_book_bundle"
+    },
+    "facing=south": {
+      "model": "packedup:block/book/lime_book_bundle",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "packedup:block/book/lime_book_bundle",
+      "y": 270
+    }
+  }
+}

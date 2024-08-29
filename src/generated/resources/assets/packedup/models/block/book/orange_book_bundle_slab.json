@@ -1,0 +1,10 @@
+{
+  "parent": "packedup:block/book/template_colored_book_bundle_slab",
+  "textures": {
+    "bottom": "packedup:block/book/orange_book_pile_bottom",
+    "front": "packedup:block/book/orange_book_pile_front",
+    "left": "packedup:block/book/orange_book_pile_left",
+    "right": "packedup:block/book/orange_book_pile_right",
+    "top": "packedup:block/book/orange_book_pile_top"
+  }
+}

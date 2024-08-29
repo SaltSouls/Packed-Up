@@ -65,7 +65,12 @@ public class PUBlockTags extends BlockTagsProvider {
                 ModBlocks.ONION_CRATE.get(),
                 PUBlocks.EGG_CRATE.get(),
                 PUBlocks.RED_MUSHROOM_CRATE.get(),
-                PUBlocks.BROWN_MUSHROOM_CRATE.get()
+                PUBlocks.BROWN_MUSHROOM_CRATE.get(),
+                // misc crates
+                PUBlocks.GUNPOWDER_CRATE.get(),
+                PUBlocks.QUARTZ_CRATE.get(),
+                PUBlocks.AMETHYST_CRATE.get(),
+                PUBlocks.ECHO_SHARD_CRATE.get()
         );
 
         tag(PUTags.REINFORCED_CRATE_BLOCKS).add(
@@ -98,6 +103,8 @@ public class PUBlockTags extends BlockTagsProvider {
                 PUBlocks.COPPER_PALLET.get(),
                 PUBlocks.IRON_PALLET.get(),
                 PUBlocks.GOLD_PALLET.get(),
+                PUBlocks.DIAMOND_PALLET.get(),
+                PUBlocks.EMERALD_PALLET.get(),
                 PUBlocks.NETHERITE_PALLET.get()
         );
 
@@ -112,7 +119,8 @@ public class PUBlockTags extends BlockTagsProvider {
                 PUBlocks.COCOA_BEAN_BAG.get(),
                 PUBlocks.SUGAR_BAG.get(),
                 PUBlocks.NETHER_WART_BAG.get(),
-                PUBlocks.GLOWSTONE_DUST_BAG.get()
+                PUBlocks.GLOWSTONE_DUST_BAG.get(),
+                PUBlocks.ENDER_PEARL_BAG.get()
         );
     }
 
@@ -124,7 +132,9 @@ public class PUBlockTags extends BlockTagsProvider {
                         ModBlocks.BEETROOT_CRATE.get(),
                         ModBlocks.CABBAGE_CRATE.get(),
                         ModBlocks.TOMATO_CRATE.get(),
-                        ModBlocks.ONION_CRATE.get())
+                        ModBlocks.ONION_CRATE.get()
+                )
+                .add(PUBlocks.PALLET.get())
                 .addTag(PUTags.BASKET_BLOCKS)
                 .addTag(PUTags.BARREL_BLOCKS)
                 .addTag(PUTags.CRATE_BLOCKS);
@@ -136,5 +146,6 @@ public class PUBlockTags extends BlockTagsProvider {
 
         tag(ModTags.MINEABLE_WITH_KNIFE)
                 .addTag(PUTags.BAG_BLOCKS);
+
     }
 }

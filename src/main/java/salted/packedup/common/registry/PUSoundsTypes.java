@@ -22,6 +22,22 @@ public class PUSoundsTypes {
             () -> SoundEvents.WOOD_PLACE,
             () -> SoundEvents.WOOD_HIT,
             () -> SoundEvents.SAND_FALL);
+    public static final SoundType CRYSTAL_CRATE = new ForgeSoundType(
+            1.0F,
+            1.0F,
+            () -> SoundEvents.WOOD_BREAK,
+            () -> SoundEvents.AMETHYST_BLOCK_STEP,
+            () -> SoundEvents.WOOD_PLACE,
+            () -> SoundEvents.WOOD_HIT,
+            () -> SoundEvents.AMETHYST_BLOCK_FALL);
+    public static final SoundType SHARD_CRATE = new ForgeSoundType(
+            1.0F,
+            1.0F,
+            () -> SoundEvents.WOOD_BREAK,
+            () -> SoundEvents.SCULK_CATALYST_STEP,
+            () -> SoundEvents.WOOD_PLACE,
+            () -> SoundEvents.WOOD_HIT,
+            () -> SoundEvents.SCULK_CATALYST_FALL);
     public static final SoundType RESOURCE_BAG_DIRT = new ForgeSoundType(
             1.0F,
             1.0F,
@@ -70,6 +86,14 @@ public class PUSoundsTypes {
             () -> SoundEvents.WOOL_PLACE,
             () -> SoundEvents.WOOL_HIT,
             () -> SoundEvents.SAND_FALL);
+    public static final SoundType GLASS_BAG = new ForgeSoundType(
+            1.0F,
+            1.0F,
+            () -> SoundEvents.WOOL_BREAK,
+            () -> SoundEvents.SCULK_CATALYST_STEP,
+            () -> SoundEvents.WOOL_PLACE,
+            () -> SoundEvents.WOOL_HIT,
+            () -> SoundEvents.SCULK_CATALYST_FALL);
     public static final SoundType FISH_BARREL = new ForgeSoundType(
             1.0F,
             1.0F,
@@ -78,4 +102,12 @@ public class PUSoundsTypes {
             () -> SoundEvents.WOOD_PLACE,
             () -> SoundEvents.WOOL_HIT,
             () -> SoundEvents.MUD_FALL);
+    public static final SoundType BOOKS = new ForgeSoundType(
+            1.0F,
+            1.0F,
+            () -> SoundEvents.CHISELED_BOOKSHELF_PICKUP,
+            () -> SoundEvents.BOOK_PUT,
+            () -> SoundEvents.CHISELED_BOOKSHELF_INSERT,
+            () -> SoundEvents.BOOK_PUT,
+            () -> SoundEvents.BOOK_PUT);
 }

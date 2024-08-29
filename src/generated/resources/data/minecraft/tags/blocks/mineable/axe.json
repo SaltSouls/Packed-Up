@@ -8,6 +8,7 @@
     "farmersdelight:onion_crate"
   ],
   "values": [
+    "packedup:pallet",
     "#packedup:baskets",
     "#packedup:barrels",
     "#packedup:crates"

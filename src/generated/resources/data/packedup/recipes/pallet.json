@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "minecraft:wooden_slabs"
+    },
+    "l": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "lll",
+    "###",
+    "lll"
+  ],
+  "result": {
+    "count": 12,
+    "item": "packedup:pallet"
+  },
+  "show_notification": true
+}

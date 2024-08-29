@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "packedup:block/amethyst_crate"
+      },
+      {
+        "model": "packedup:block/amethyst_crate",
+        "y": 90
+      },
+      {
+        "model": "packedup:block/amethyst_crate",
+        "y": 180
+      },
+      {
+        "model": "packedup:block/amethyst_crate",
+        "y": 270
+      }
+    ]
+  }
+}

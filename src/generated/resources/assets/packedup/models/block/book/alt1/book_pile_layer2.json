@@ -1,0 +1,11 @@
+{
+  "parent": "packedup:block/book/template_book_pile_layer2",
+  "textures": {
+    "back": "packedup:block/book/alt1/book_pile_back",
+    "bottom": "packedup:block/book/alt1/book_pile_bottom",
+    "front": "packedup:block/book/alt1/book_pile_front",
+    "left": "packedup:block/book/alt1/book_pile_left",
+    "right": "packedup:block/book/alt1/book_pile_right",
+    "top": "packedup:block/book/alt1/book_pile_top_layer2"
+  }
+}

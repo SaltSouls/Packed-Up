@@ -1,5 +1,5 @@
 {
-  "parent": "packedup:block/template_brick_pile",
+  "parent": "packedup:block/template_resource_pile",
   "textures": {
     "front": "packedup:block/brick_pile_front",
     "side": "packedup:block/brick_pile_side",
