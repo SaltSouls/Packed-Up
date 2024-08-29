@@ -14,7 +14,6 @@ import salted.packedup.data.loot.PUBlockLoot;
 import salted.packedup.data.models.PUBlockStates;
 import salted.packedup.data.models.PUItemModels;
 import salted.packedup.data.recipes.PUCraftingRecipes;
-import salted.packedup.data.recipes.PURecipeBuilder;
 import salted.packedup.data.tags.PUBlockTags;
 import salted.packedup.data.tags.PUItemTags;
 

@@ -1,17 +1,16 @@
 package salted.packedup.data.recipes;
 
 import com.google.common.collect.Sets;
-import com.mojang.datafixers.types.templates.Tag;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.*;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagFile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.common.Tags;
-import salted.packedup.common.registry.PUBlocks;
 import salted.packedup.common.registry.PUItems;
-import salted.packedup.common.tag.PUTags;
 
 import java.util.Set;
 import java.util.function.Consumer;
