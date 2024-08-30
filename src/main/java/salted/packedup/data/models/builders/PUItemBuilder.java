@@ -44,7 +44,7 @@ public class PUItemBuilder extends ItemModelProvider {
         withExistingParent(itemName(item), bookLocation(itemName(item)));
     }
 
-    public void quarterSlabBasedModel(Item item, Boolean isBook) {
+    public void quarterSlabBasedModel(Item item, boolean isBook) {
         if (!isBook) { withExistingParent(itemName(item), blockLocation(itemName(item)) + "_layer0"); }
         else { withExistingParent(itemName(item), bookLocation(itemName(item)) + "_layer0"); }
     }

@@ -9,7 +9,8 @@ import net.minecraft.world.level.block.Block;
 import salted.packedup.PackedUp;
 
 public class PUTags {
-    public static final TagKey<Item> BOOK_BUNDLES = modItemTag("books");
+    public static final TagKey<Block> BOOK_BLOCKS = modBlockTag("book_blocks");
+    public static final TagKey<Item> BOOK_BUNDLES = modItemTag("book_bundles");
     public static final TagKey<Block> BASKET_BLOCKS = modBlockTag("baskets");
     public static final TagKey<Block> BARREL_BLOCKS = modBlockTag("barrels");
     public static final TagKey<Block> CRATE_BLOCKS = modBlockTag("crates");
@@ -17,6 +18,7 @@ public class PUTags {
     public static final TagKey<Block> BAG_BLOCKS = modBlockTag("bags");
     public static final TagKey<Block> RESOURCE_PILE_BLOCKS = modBlockTag("piles");
     public static final TagKey<Block> RESOURCE_PALLET_BLOCKS = modBlockTag("pallets");
+    public static final TagKey<Block> MINEABLE_WITH_SHEARS = modBlockTag("mineable/shears");
 
     // tag creators
     private static TagKey<Block> modBlockTag(String path) {

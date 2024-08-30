@@ -3,11 +3,13 @@ package salted.packedup.data.tags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import salted.packedup.PackedUp;
 import salted.packedup.common.registry.PUBlocks;
+import salted.packedup.common.registry.PUItems;
 import salted.packedup.common.tag.PUTags;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 import vectorwing.farmersdelight.common.tag.ModTags;
@@ -122,6 +124,60 @@ public class PUBlockTags extends BlockTagsProvider {
                 PUBlocks.GLOWSTONE_DUST_BAG.get(),
                 PUBlocks.ENDER_PEARL_BAG.get()
         );
+
+        tag(PUTags.BOOK_BLOCKS).add(
+                PUBlocks.BOOK_BUNDLE.get(),
+                PUBlocks.BOOK_BUNDLE_SLAB.get(),
+                PUBlocks.BOOK_PILE.get(),
+                PUBlocks.WHITE_BOOK_BUNDLE.get(),
+                PUBlocks.WHITE_BOOK_BUNDLE_SLAB.get(),
+                PUBlocks.WHITE_BOOK_PILE.get(),
+                PUBlocks.LIGHT_GRAY_BOOK_BUNDLE.get(),
+                PUBlocks.LIGHT_GRAY_BOOK_BUNDLE_SLAB.get(),
+                PUBlocks.LIGHT_GRAY_BOOK_PILE.get(),
+                PUBlocks.GRAY_BOOK_BUNDLE.get(),
+                PUBlocks.GRAY_BOOK_BUNDLE_SLAB.get(),
+                PUBlocks.GRAY_BOOK_PILE.get(),
+                PUBlocks.BLACK_BOOK_BUNDLE.get(),
+                PUBlocks.BLACK_BOOK_BUNDLE_SLAB.get(),
+                PUBlocks.BLACK_BOOK_PILE.get(),
+                PUBlocks.BROWN_BOOK_BUNDLE.get(),
+                PUBlocks.BROWN_BOOK_BUNDLE_SLAB.get(),
+                PUBlocks.BROWN_BOOK_PILE.get(),
+                PUBlocks.RED_BOOK_BUNDLE.get(),
+                PUBlocks.RED_BOOK_BUNDLE_SLAB.get(),
+                PUBlocks.RED_BOOK_PILE.get(),
+                PUBlocks.ORANGE_BOOK_BUNDLE.get(),
+                PUBlocks.ORANGE_BOOK_BUNDLE_SLAB.get(),
+                PUBlocks.ORANGE_BOOK_PILE.get(),
+                PUBlocks.YELLOW_BOOK_BUNDLE.get(),
+                PUBlocks.YELLOW_BOOK_BUNDLE_SLAB.get(),
+                PUBlocks.YELLOW_BOOK_PILE.get(),
+                PUBlocks.LIME_BOOK_BUNDLE.get(),
+                PUBlocks.LIME_BOOK_BUNDLE_SLAB.get(),
+                PUBlocks.LIME_BOOK_PILE.get(),
+                PUBlocks.GREEN_BOOK_BUNDLE.get(),
+                PUBlocks.GREEN_BOOK_BUNDLE_SLAB.get(),
+                PUBlocks.GREEN_BOOK_PILE.get(),
+                PUBlocks.CYAN_BOOK_BUNDLE.get(),
+                PUBlocks.CYAN_BOOK_BUNDLE_SLAB.get(),
+                PUBlocks.CYAN_BOOK_PILE.get(),
+                PUBlocks.LIGHT_BLUE_BOOK_BUNDLE.get(),
+                PUBlocks.LIGHT_BLUE_BOOK_BUNDLE_SLAB.get(),
+                PUBlocks.LIGHT_BLUE_BOOK_PILE.get(),
+                PUBlocks.BLUE_BOOK_BUNDLE.get(),
+                PUBlocks.BLUE_BOOK_BUNDLE_SLAB.get(),
+                PUBlocks.BLUE_BOOK_PILE.get(),
+                PUBlocks.PURPLE_BOOK_BUNDLE.get(),
+                PUBlocks.PURPLE_BOOK_BUNDLE_SLAB.get(),
+                PUBlocks.PURPLE_BOOK_PILE.get(),
+                PUBlocks.MAGENTA_BOOK_BUNDLE.get(),
+                PUBlocks.MAGENTA_BOOK_BUNDLE_SLAB.get(),
+                PUBlocks.MAGENTA_BOOK_PILE.get(),
+                PUBlocks.PINK_BOOK_BUNDLE.get(),
+                PUBlocks.PINK_BOOK_BUNDLE_SLAB.get(),
+                PUBlocks.PINK_BOOK_PILE.get()
+        );
     }
 
     protected void registerEffectiveTools() {
@@ -146,6 +202,9 @@ public class PUBlockTags extends BlockTagsProvider {
 
         tag(ModTags.MINEABLE_WITH_KNIFE)
                 .addTag(PUTags.BAG_BLOCKS);
+
+        tag(PUTags.MINEABLE_WITH_SHEARS)
+                .addTag(PUTags.BOOK_BLOCKS);
 
     }
 }

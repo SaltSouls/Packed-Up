@@ -53,7 +53,7 @@ public class PUBlockBuilder extends BlockStateProvider {
      * @param before    the position at which the split occurs
      * @return The desired half of the string array.
      */
-    private String nameFromSplit(String name, String substring, Boolean before) {
+    private String nameFromSplit(String name, String substring, boolean before) {
         if (before) {
             return Arrays.stream(name.split(substring)).findFirst().get();
         } else return Arrays.stream(name.split(substring)).toList().get(1);

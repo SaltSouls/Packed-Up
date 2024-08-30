@@ -45,7 +45,7 @@ public class PURecipeBuilder extends RecipeProvider {
      * @param before    the half of the string gotten
      * @return The desired half of the string array.
      */
-    private static String nameFromSplit(String name, String substring, Boolean before) {
+    private static String nameFromSplit(String name, String substring, boolean before) {
         if (before) {
             return Arrays.stream(name.split(substring)).findFirst().get();
         } else return Arrays.stream(name.split(substring)).toList().get(1);
@@ -53,12 +53,12 @@ public class PURecipeBuilder extends RecipeProvider {
 
     // recipe builders
     // combined compacting/unpacking
-    protected static void simpleCombined(ItemLike product, ItemLike resource, Boolean split, Consumer<FinishedRecipe> consumer) {
+    protected static void simpleCombined(ItemLike product, ItemLike resource, boolean split, Consumer<FinishedRecipe> consumer) {
         simpleCompact(resource, product, consumer);
         simpleShapeless(product, resource, split, consumer);
     }
 
-    protected static void simpleCombined(ItemLike product, ItemLike resource, Boolean before, String type, Consumer<FinishedRecipe> consumer) {
+    protected static void simpleCombined(ItemLike product, ItemLike resource, boolean before, String type, Consumer<FinishedRecipe> consumer) {
         simpleCompact(resource, product, consumer);
         simpleShapeless(product, resource, before, type, consumer);
     }
@@ -127,7 +127,7 @@ public class PURecipeBuilder extends RecipeProvider {
     }
 
     // easy shapeless recipes
-    protected static void simpleShapeless(ItemLike input, ItemLike output, Boolean split, Consumer<FinishedRecipe> consumer) {
+    protected static void simpleShapeless(ItemLike input, ItemLike output, boolean split, Consumer<FinishedRecipe> consumer) {
         String item = itemName(input.asItem());
         String resource = itemName(output.asItem());
         String type = "_" + item;
@@ -141,7 +141,7 @@ public class PURecipeBuilder extends RecipeProvider {
                 .save(consumer, recipeDir(PackedUp.MODID, resource + "_from" + type));
     }
 
-    protected static void simpleShapeless(ItemLike input, ItemLike output, Boolean before, String type, Consumer<FinishedRecipe> consumer) {
+    protected static void simpleShapeless(ItemLike input, ItemLike output, boolean before, String type, Consumer<FinishedRecipe> consumer) {
         String item = itemName(input.asItem());
         String resource = itemName(output.asItem());
         String prefix = "";

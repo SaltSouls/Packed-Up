@@ -30,6 +30,6 @@ public class PackedUp {
     }
 
     public static ResourceLocation resLoc(String path) {
-        return new ResourceLocation(MODID, "path");
+        return new ResourceLocation(MODID, path);
     }
 }
