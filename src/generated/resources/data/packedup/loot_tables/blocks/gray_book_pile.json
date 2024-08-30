@@ -14,7 +14,7 @@
                   "block": "packedup:gray_book_pile",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "layer": "2"
+                    "layers": "2"
                   }
                 }
               ],
@@ -28,7 +28,7 @@
                   "block": "packedup:gray_book_pile",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "layer": "3"
+                    "layers": "3"
                   }
                 }
               ],
@@ -42,7 +42,7 @@
                   "block": "packedup:gray_book_pile",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "layer": "4"
+                    "layers": "4"
                   }
                 }
               ],

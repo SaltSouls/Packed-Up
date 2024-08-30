@@ -1,62 +1,62 @@
 {
   "variants": {
-    "facing=east,layer=1": {
+    "facing=east,layers=1": {
       "model": "packedup:block/book/lime_book_pile_layer0",
       "y": 90
     },
-    "facing=east,layer=2": {
+    "facing=east,layers=2": {
       "model": "packedup:block/book/lime_book_pile_layer1",
       "y": 90
     },
-    "facing=east,layer=3": {
+    "facing=east,layers=3": {
       "model": "packedup:block/book/lime_book_pile_layer2",
       "y": 90
     },
-    "facing=east,layer=4": {
+    "facing=east,layers=4": {
       "model": "packedup:block/book/lime_book_pile_layer3",
       "y": 90
     },
-    "facing=north,layer=1": {
+    "facing=north,layers=1": {
       "model": "packedup:block/book/lime_book_pile_layer0"
     },
-    "facing=north,layer=2": {
+    "facing=north,layers=2": {
       "model": "packedup:block/book/lime_book_pile_layer1"
     },
-    "facing=north,layer=3": {
+    "facing=north,layers=3": {
       "model": "packedup:block/book/lime_book_pile_layer2"
     },
-    "facing=north,layer=4": {
+    "facing=north,layers=4": {
       "model": "packedup:block/book/lime_book_pile_layer3"
     },
-    "facing=south,layer=1": {
+    "facing=south,layers=1": {
       "model": "packedup:block/book/lime_book_pile_layer0",
       "y": 180
     },
-    "facing=south,layer=2": {
+    "facing=south,layers=2": {
       "model": "packedup:block/book/lime_book_pile_layer1",
       "y": 180
     },
-    "facing=south,layer=3": {
+    "facing=south,layers=3": {
       "model": "packedup:block/book/lime_book_pile_layer2",
       "y": 180
     },
-    "facing=south,layer=4": {
+    "facing=south,layers=4": {
       "model": "packedup:block/book/lime_book_pile_layer3",
       "y": 180
     },
-    "facing=west,layer=1": {
+    "facing=west,layers=1": {
       "model": "packedup:block/book/lime_book_pile_layer0",
       "y": 270
     },
-    "facing=west,layer=2": {
+    "facing=west,layers=2": {
       "model": "packedup:block/book/lime_book_pile_layer1",
       "y": 270
     },
-    "facing=west,layer=3": {
+    "facing=west,layers=3": {
       "model": "packedup:block/book/lime_book_pile_layer2",
       "y": 270
     },
-    "facing=west,layer=4": {
+    "facing=west,layers=4": {
       "model": "packedup:block/book/lime_book_pile_layer3",
       "y": 270
     }
