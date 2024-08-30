@@ -176,5 +176,5 @@ public class PURecipeBuilder extends RecipeProvider {
                 .unlockedBy("has_book_bundle", hasItems(PUItems.BOOK_BUNDLE.get()))
                 .save(consumer);
     }
-    
+
 }
