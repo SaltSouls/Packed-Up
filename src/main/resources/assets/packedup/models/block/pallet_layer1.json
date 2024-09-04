@@ -2,7 +2,7 @@
 	"author": "TwinSouls",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"particle": "packedup:block/pallet_top",
+		"particle": "#top",
 		"top": "packedup:block/pallet_top",
 		"front": "packedup:block/pallet_front",
 		"side": "packedup:block/pallet_side",

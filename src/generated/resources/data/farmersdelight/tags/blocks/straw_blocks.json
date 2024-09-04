@@ -2,5 +2,8 @@
   "remove": [
     "farmersdelight:rice_bag"
   ],
-  "values": []
+  "values": [
+    "packedup:grass_bundle",
+    "packedup:grass_thatch"
+  ]
 }

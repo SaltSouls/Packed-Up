@@ -31,21 +31,6 @@ public class BookPileBlock extends QuarterSlabBlock {
     }
 
     @Override
-    public boolean canBeReplaced(BlockState state, BlockPlaceContext ctx) {
-        int layer = state.getValue(LAYERS);
-
-        if (ctx.getItemInHand().is(this.asItem()) && layer < MAX_HEIGHT) {
-            if (ctx.replacingClickedOnBlock()) {
-                return ctx.getClickedFace() == Direction.UP;
-            } else {
-                return true;
-            }
-        } else {
-            return false;
-        }
-    }
-
-    @Override
     public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
         BlockState blockstate = world.getBlockState(pos.below());
         return Block.isFaceFull(blockstate.getCollisionShape(world, pos.below()), Direction.UP) || blockstate.is(this) && blockstate.getValue(LAYERS) == 4;
@@ -61,19 +46,19 @@ public class BookPileBlock extends QuarterSlabBlock {
     public BlockState getStateForPlacement(BlockPlaceContext ctx) {
         BlockPos pos = ctx.getClickedPos();
         Level level = ctx.getLevel();
-        BlockState blockstate = ctx.getLevel().getBlockState(pos);
+        BlockState state = ctx.getLevel().getBlockState(pos);
         FluidState fluid = level.getFluidState(pos);
         boolean flag = fluid.getType() == Fluids.WATER;
 
-        if (blockstate.is(this)) {
-            int layer = blockstate.getValue(LAYERS);
-            Direction direction = blockstate.getValue(FACING);
+        if (state.is(this)) {
+            int layer = state.getValue(LAYERS);
+            Direction direction = state.getValue(FACING);
             if (layer == 3) {
-                return blockstate.setValue(LAYERS, 4)
+                return state.setValue(LAYERS, 4)
                         .setValue(FACING, direction)
                         .setValue(WATERLOGGED, false);
             } else {
-                return blockstate.setValue(LAYERS, layer + 1)
+                return state.setValue(LAYERS, layer + 1)
                         .setValue(FACING, direction)
                         .setValue(WATERLOGGED, flag);
             }

@@ -36,9 +36,7 @@ public class PUBuiltinResources {
                         id -> new PUPackResources(id, modFile, "resourcepacks/no_piles"),
                         PackType.CLIENT_RESOURCES, Pack.Position.TOP, PackSource.BUILT_IN);
                 PackedUp.LOGGER.debug("Pack = {}", pack);
-                if (pack != null) {
-                    consumer.accept(pack);
-                }
+                if (pack != null) { consumer.accept(pack); }
             });
         }
     }

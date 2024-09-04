@@ -2,6 +2,7 @@ package salted.packedup.common.registry;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.HayBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
@@ -411,5 +412,23 @@ public class PUBlocks {
             () -> new BookPileBlock(BlockBehaviour.Properties.copy(Blocks.MAGENTA_WOOL).sound(PUSoundsTypes.BOOKS)));
     public static RegistryObject<BookPileBlock> PINK_BOOK_PILE = BLOCKS.register("pink_book_pile",
             () -> new BookPileBlock(BlockBehaviour.Properties.copy(Blocks.PINK_WOOL).sound(PUSoundsTypes.BOOKS)));
+    // turf
+    public static RegistryObject<TurfBlock> GRASS_TURF = BLOCKS.register("grass_turf",
+            () -> new TurfBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK)));
+    public static RegistryObject<TurfLayerBlock> GRASS_TURF_LAYER = BLOCKS.register("grass_turf_layer",
+            () -> new TurfLayerBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK)));
+    public static RegistryObject<TurfBlock> PODZOL_TURF = BLOCKS.register("podzol_turf",
+            () -> new TurfBlock(BlockBehaviour.Properties.copy(Blocks.PODZOL)));
+    public static RegistryObject<TurfLayerBlock> PODZOL_TURF_LAYER = BLOCKS.register("podzol_turf_layer",
+            () -> new TurfLayerBlock(BlockBehaviour.Properties.copy(Blocks.PODZOL)));
+    public static RegistryObject<TurfBlock> MYCELIUM_TURF = BLOCKS.register("mycelium_turf",
+            () -> new TurfBlock(BlockBehaviour.Properties.copy(Blocks.MYCELIUM)));
+    public static RegistryObject<TurfLayerBlock> MYCELIUM_TURF_LAYER = BLOCKS.register("mycelium_turf_layer",
+            () -> new TurfLayerBlock(BlockBehaviour.Properties.copy(Blocks.MYCELIUM)));
+    // grass bundle/thatch
+    public static RegistryObject<Block> GRASS_BUNDLE = BLOCKS.register("grass_bundle",
+            () -> new Block(Block.Properties.copy(Blocks.GRASS_BLOCK)));
+    public static RegistryObject<HayBlock> GRASS_THATCH = BLOCKS.register("grass_thatch",
+            () -> new HayBlock(Block.Properties.copy(Blocks.HAY_BLOCK)));
 
 }

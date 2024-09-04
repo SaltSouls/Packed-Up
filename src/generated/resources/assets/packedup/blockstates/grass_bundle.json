@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "packedup:block/grass_bundle"
+      },
+      {
+        "model": "packedup:block/grass_bundle",
+        "y": 90
+      },
+      {
+        "model": "packedup:block/grass_bundle",
+        "y": 180
+      },
+      {
+        "model": "packedup:block/grass_bundle",
+        "y": 270
+      }
+    ]
+  }
+}

@@ -21,13 +21,45 @@ public class PUBlockTags extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+        this.updateVanillaTags();
         this.registerModTags();
         this.registerEffectiveTools();
+    }
+
+    protected void updateVanillaTags() {
+        tag(BlockTags.DIRT)
+                .addTag(PUTags.TURF_BLOCKS);
+
+        tag(BlockTags.MUSHROOM_GROW_BLOCK).add(
+                PUBlocks.MYCELIUM_TURF.get(),
+                PUBlocks.MYCELIUM_TURF_LAYER.get(),
+                PUBlocks.PODZOL_TURF.get(),
+                PUBlocks.PODZOL_TURF_LAYER.get()
+        );
+
+        tag(BlockTags.MOOSHROOMS_SPAWNABLE_ON).add(
+                PUBlocks.MYCELIUM_TURF.get(),
+                PUBlocks.MYCELIUM_TURF_LAYER.get()
+        );
     }
 
     protected void registerModTags() {
         // remove from staw_blocks and add to bag_blocks
         tag(ModTags.STRAW_BLOCKS).remove(ModBlocks.RICE_BAG.get());
+
+        tag(ModTags.STRAW_BLOCKS).add(
+                PUBlocks.GRASS_BUNDLE.get(),
+                PUBlocks.GRASS_THATCH.get()
+        );
+
+        tag(PUTags.TURF_BLOCKS).add(
+                PUBlocks.GRASS_TURF.get(),
+                PUBlocks.GRASS_TURF_LAYER.get(),
+                PUBlocks.PODZOL_TURF.get(),
+                PUBlocks.PODZOL_TURF_LAYER.get(),
+                PUBlocks.MYCELIUM_TURF.get(),
+                PUBlocks.MYCELIUM_TURF_LAYER.get()
+        );
 
         tag(PUTags.BASKET_BLOCKS).add(
                 PUBlocks.SWEET_BERRY_BASKET.get(),
@@ -197,6 +229,9 @@ public class PUBlockTags extends BlockTagsProvider {
                 .addTag(PUTags.REINFORCED_CRATE_BLOCKS)
                 .addTag(PUTags.RESOURCE_PILE_BLOCKS)
                 .addTag(PUTags.RESOURCE_PALLET_BLOCKS);
+
+        tag(BlockTags.MINEABLE_WITH_SHOVEL)
+                .addTag(PUTags.TURF_BLOCKS);
 
         tag(ModTags.MINEABLE_WITH_KNIFE)
                 .addTag(PUTags.BAG_BLOCKS);

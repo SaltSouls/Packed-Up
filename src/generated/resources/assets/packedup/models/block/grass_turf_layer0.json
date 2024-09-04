@@ -1,0 +1,8 @@
+{
+  "parent": "packedup:block/template_turf_layer0",
+  "textures": {
+    "overlay": "packedup:block/grass_turf_overlay",
+    "side": "packedup:block/grass_turf_side",
+    "top": "minecraft:block/grass_block_top"
+  }
+}

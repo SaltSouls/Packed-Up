@@ -1,0 +1,8 @@
+{
+  "parent": "packedup:block/template_turf_layer2",
+  "textures": {
+    "overlay": "packedup:block/mycelium_turf_overlay",
+    "side": "packedup:block/mycelium_turf_side",
+    "top": "minecraft:block/mycelium_top"
+  }
+}

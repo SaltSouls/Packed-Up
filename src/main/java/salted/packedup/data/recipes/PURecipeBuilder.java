@@ -6,16 +6,15 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
-import net.minecraftforge.registries.ForgeRegistries;
 import salted.packedup.PackedUp;
 import salted.packedup.common.registry.PUItems;
 import salted.packedup.common.tag.PUTags;
 
-import java.util.Arrays;
 import java.util.function.Consumer;
 
 import static net.minecraft.advancements.critereon.InventoryChangeTrigger.TriggerInstance.hasItems;
+import static salted.packedup.data.utils.NameUtils.itemName;
+import static salted.packedup.data.utils.NameUtils.nameFromSplit;
 
 public class PURecipeBuilder extends RecipeProvider {
     public PURecipeBuilder(PackOutput pOutput) {
@@ -31,24 +30,6 @@ public class PURecipeBuilder extends RecipeProvider {
     // general pathing/convenience functions
     protected static ResourceLocation recipeDir(String modID, String path) {
         return new ResourceLocation(modID, path);
-    }
-
-    private static String itemName(Item item) {
-        return ForgeRegistries.ITEMS.getKey(item).getPath();
-    }
-
-    /**
-     * Splits the string and returns everything before or after the split.
-     *
-     * @param name      the name of the {@link Block} or {@link Item} we are using
-     * @param substring the string at which the split occurs
-     * @param before    the half of the string gotten
-     * @return The desired half of the string array.
-     */
-    private static String nameFromSplit(String name, String substring, boolean before) {
-        if (before) {
-            return Arrays.stream(name.split(substring)).findFirst().get();
-        } else return Arrays.stream(name.split(substring)).toList().get(1);
     }
 
     // recipe builders

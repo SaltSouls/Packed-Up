@@ -1,7 +1,10 @@
 package salted.packedup.common.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
@@ -18,6 +21,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import salted.packedup.common.block.state.PUProperties;
 
+import javax.annotation.Nullable;
 import java.util.Objects;
 
 public class QuarterSlabBlock extends Block implements SimpleWaterloggedBlock {
@@ -54,7 +58,7 @@ public class QuarterSlabBlock extends Block implements SimpleWaterloggedBlock {
     @Override
     public boolean isPathfindable(BlockState state, BlockGetter world, BlockPos pos, PathComputationType type) {
         if (Objects.requireNonNull(type) == PathComputationType.LAND) {
-            return state.getValue(LAYERS) < HEIGHT_PASSABLE;
+            return state.getValue(LAYERS) <= HEIGHT_PASSABLE;
         }
         return false;
     }
@@ -64,14 +68,46 @@ public class QuarterSlabBlock extends Block implements SimpleWaterloggedBlock {
         builder.add(LAYERS, WATERLOGGED);
     }
 
+    @Nullable
     @Override
-    public FluidState getFluidState(BlockState state) {
-        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
+    public BlockState getStateForPlacement(BlockPlaceContext ctx) {
+        BlockPos pos = ctx.getClickedPos();
+        Level level = ctx.getLevel();
+        BlockState blockstate = ctx.getLevel().getBlockState(pos);
+        FluidState fluid = level.getFluidState(pos);
+        boolean flag = fluid.getType() == Fluids.WATER;
+
+        if (blockstate.is(this)) {
+            int layer = blockstate.getValue(LAYERS);
+            if (layer == 3) {
+                return blockstate.setValue(LAYERS, 4).setValue(WATERLOGGED, false);
+            } else {
+                return blockstate.setValue(LAYERS, layer + 1).setValue(WATERLOGGED, flag);
+            }
+        } else {
+            return this.defaultBlockState().setValue(LAYERS, 1).setValue(WATERLOGGED, flag);
+        }
+    }
+
+    @Override
+    public boolean canBeReplaced(BlockState state, BlockPlaceContext ctx) {
+        int layer = state.getValue(LAYERS);
+
+        if (ctx.getItemInHand().is(this.asItem()) && layer < MAX_HEIGHT) {
+            if (ctx.replacingClickedOnBlock()) { return ctx.getClickedFace() == Direction.UP; }
+            else { return true; }
+        }
+        else { return false; }
     }
 
     @Override
     public boolean canPlaceLiquid(BlockGetter level, BlockPos pos, BlockState state, Fluid fluid) {
         return state.getValue(LAYERS) != 4 ? SimpleWaterloggedBlock.super.canPlaceLiquid(level, pos, state, fluid) : false;
+    }
+
+    @Override
+    public FluidState getFluidState(BlockState state) {
+        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
     }
 
     public IntegerProperty getQuarterLayers() {

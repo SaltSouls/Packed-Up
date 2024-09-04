@@ -1,0 +1,72 @@
+{
+  "variants": {
+    "layers=1": [
+      {
+        "model": "packedup:block/podzol_turf_layer0"
+      },
+      {
+        "model": "packedup:block/podzol_turf_layer0",
+        "y": 90
+      },
+      {
+        "model": "packedup:block/podzol_turf_layer0",
+        "y": 180
+      },
+      {
+        "model": "packedup:block/podzol_turf_layer0",
+        "y": 270
+      }
+    ],
+    "layers=2": [
+      {
+        "model": "packedup:block/podzol_turf_layer1"
+      },
+      {
+        "model": "packedup:block/podzol_turf_layer1",
+        "y": 90
+      },
+      {
+        "model": "packedup:block/podzol_turf_layer1",
+        "y": 180
+      },
+      {
+        "model": "packedup:block/podzol_turf_layer1",
+        "y": 270
+      }
+    ],
+    "layers=3": [
+      {
+        "model": "packedup:block/podzol_turf_layer2"
+      },
+      {
+        "model": "packedup:block/podzol_turf_layer2",
+        "y": 90
+      },
+      {
+        "model": "packedup:block/podzol_turf_layer2",
+        "y": 180
+      },
+      {
+        "model": "packedup:block/podzol_turf_layer2",
+        "y": 270
+      }
+    ],
+    "layers=4": [
+      {
+        "model": "packedup:block/podzol_turf"
+      },
+      {
+        "model": "packedup:block/podzol_turf",
+        "y": 90
+      },
+      {
+        "model": "packedup:block/podzol_turf",
+        "y": 180
+      },
+      {
+        "model": "packedup:block/podzol_turf",
+        "y": 270
+      }
+    ]
+  }
+}

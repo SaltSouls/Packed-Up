@@ -3,7 +3,6 @@ package salted.packedup.data.models.builders;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -15,16 +14,15 @@ import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
 import salted.packedup.PackedUp;
-import salted.packedup.common.block.HorizontalBlock;
-import salted.packedup.common.block.HorizontalSlabBlock;
-import salted.packedup.common.block.QuarterSlabBlock;
-import vectorwing.farmersdelight.FarmersDelight;
+import salted.packedup.common.block.*;
+import salted.packedup.common.registry.PUBlocks;
 
-import java.util.Arrays;
 import java.util.function.Function;
+
+import static net.minecraft.data.models.model.TextureMapping.cubeBottomTop;
+import static salted.packedup.data.utils.NameUtils.*;
 
 public class PUBlockBuilder extends BlockStateProvider {
     private static final int DEFAULT_HORIZONTAL_OFFSET = 180;
@@ -41,40 +39,6 @@ public class PUBlockBuilder extends BlockStateProvider {
     }
 
     // general pathing/convenience functions
-    protected String blockName(Block block) {
-        return ForgeRegistries.BLOCKS.getKey(block).getPath();
-    }
-
-    /**
-     * Splits the string and returns everything before or after the split.
-     *
-     * @param name      the name of the {@link Block} or {@link Item} we are using
-     * @param substring the string at which the split occurs
-     * @param before    the position at which the split occurs
-     * @return The desired half of the string array.
-     */
-    private String nameFromSplit(String name, String substring, boolean before) {
-        if (before) {
-            return Arrays.stream(name.split(substring)).findFirst().get();
-        } else return Arrays.stream(name.split(substring)).toList().get(1);
-    }
-
-    public ResourceLocation blockLocation(String path) {
-        return new ResourceLocation(PackedUp.MODID, "block/" + path);
-    }
-
-    public ResourceLocation bookLocation(String path) {
-        return new ResourceLocation(PackedUp.MODID, "block/book/" + path);
-    }
-
-    public ResourceLocation fdBlockLocation(String path) {
-        return new ResourceLocation(FarmersDelight.MODID, "block/" + path);
-    }
-
-    public ResourceLocation mcBlockLocation(String path) {
-        return new ResourceLocation("block/" + path);
-    }
-
     public ModelFile existingModel(Block block) {
         return new ModelFile.ExistingModelFile(blockLocation(blockName(block)), models().existingFileHelper);
     }
@@ -85,6 +49,10 @@ public class PUBlockBuilder extends BlockStateProvider {
 
     public String parent(String model) {
         return existingModel(model).getLocation().toString();
+    }
+
+    public int defaultRotation(Direction dir) {
+        return ((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360;
     }
 
     // block builders
@@ -203,6 +171,7 @@ public class PUBlockBuilder extends BlockStateProvider {
                 blockLocation(name + "_top")));
     }
 
+    // horizontal blocks
     public void horizontalBlock(Block block, Function<BlockState, ModelFile> modelFunc, Property<?>... ignored) {
         getVariantBuilder(block).forAllStatesExcept(state -> ConfiguredModel.builder()
                 .modelFile(modelFunc.apply(state))
@@ -210,7 +179,7 @@ public class PUBlockBuilder extends BlockStateProvider {
                 .build(), ignored);
     }
 
-    public void quarterSlabBlock(QuarterSlabBlock block, Property<?>... ignored) {
+    public void horizontalQuarterSlabBlock(QuarterSlabBlock block, Property<?>... ignored) {
         getVariantBuilder(block).forAllStatesExcept(state -> {
             IntegerProperty layersProperty = block.getQuarterLayers();
             Direction dir = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
@@ -220,20 +189,71 @@ public class PUBlockBuilder extends BlockStateProvider {
 
             return ConfiguredModel.builder()
                     .modelFile(existingModel(blockName(block) + suffix))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(defaultRotation(dir))
                     .build();
         }, ignored);
     }
 
+    // quarter slab blocks
+    public BlockModelBuilder quarterSlabBlock(QuarterSlabBlock block, int layer, boolean bottomTop) {
+        String name = nameFromSplit(blockName(block), "_layer", true);
+        String suffix = "_layer" + layer;
+        String parentModel = "template_quarter_slab" + suffix;
+        ResourceLocation topTexture;
+
+        // special rules for turf blocks
+        if (block instanceof TurfLayerBlock) {
+            topTexture = mcBlockLocation(nameFromSplit(name, "_turf", true) + "_top");
+        } else { topTexture = blockLocation(name + "_top"); }
+
+        if (bottomTop) {
+            return models().withExistingParent(blockLocation(name) + suffix, parent(parentModel))
+                    .texture("top", topTexture)
+                    .texture("side", blockLocation(name + "_side"))
+                    .texture("bottom", blockLocation(name + "_bottom"));
+        }
+        return models().withExistingParent(blockLocation(name) + suffix, parent(parentModel))
+                .texture("top", topTexture)
+                .texture("side", blockLocation(name + "_side"))
+                .texture("bottom", topTexture);
+    }
+
+    public void simpleQuarterSlabBlock(QuarterSlabBlock block, boolean randomRotation, boolean bottomTop, Property<?>... ignored) {
+        String name = nameFromSplit(blockName(block), "_layer", true);
+
+        getVariantBuilder(block).forAllStatesExcept(state -> {
+            IntegerProperty layersProperty = block.getQuarterLayers();
+            int layers = state.getValue(layersProperty);
+            ResourceLocation topTexture;
+            ModelFile model;
+
+            // special rules for turf blocks
+            if(layers < 4) { model = quarterSlabBlock(block, layers - 1, bottomTop); }
+            else if(bottomTop && layers == 4) {
+                if (state.getBlock() instanceof TurfLayerBlock) {
+                    topTexture = mcBlockLocation(nameFromSplit(name, "_turf", true) + "_top");
+                } else { topTexture = blockLocation(name + "_top"); }
+                model = models().cubeBottomTop(name, blockLocation(name + "_side"), blockLocation(name + "_bottom"), topTexture);
+            } else {
+                topTexture = blockLocation(name + "_top");
+                model = models().cubeTop(name, blockLocation(name + "_side"), topTexture);
+            }
+
+            if (randomRotation) { return ConfiguredModel.allYRotations(model, 0, false); }
+            return ConfiguredModel.builder()
+                    .modelFile(model)
+                    .build();
+        }, ignored);
+    }
+
+    // book blocks
     public BlockModelBuilder bookPile(QuarterSlabBlock block, int layer, boolean isColored, boolean isAlt, int variant) {
         String name = blockName(block);
         String suffix = "_layer" + layer;
         String prefix = "";
 
         if (!isColored) {
-            if (isAlt) {
-                prefix = "alt" + variant + "/";
-            }
+            if (isAlt) { prefix = "alt" + variant + "/"; }
             String parentModel = "book/" + "template_book_pile" + suffix;
 
             return models().withExistingParent(bookLocation(prefix + name) + suffix, parent(parentModel))
@@ -263,7 +283,7 @@ public class PUBlockBuilder extends BlockStateProvider {
 
             return ConfiguredModel.builder()
                     .modelFile(bookPile(block, layers - 1, true, false, 0))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(defaultRotation(dir))
                     .build();
         }, ignored);
     }
@@ -273,30 +293,31 @@ public class PUBlockBuilder extends BlockStateProvider {
             IntegerProperty layersProperty = block.getQuarterLayers();
             Direction dir = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
             int layers = state.getValue(layersProperty);
+            int rotation = defaultRotation(dir);
 
             return ConfiguredModel.builder()
                     .modelFile(bookPile(block, layers - 1, false, false, 0))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(rotation)
                     .weight(30)
                     .nextModel()
                     .modelFile(bookPile(block, layers - 1, false, true, 1))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(rotation)
                     .weight(25)
                     .nextModel()
                     .modelFile(bookPile(block, layers - 1, false, true, 2))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(rotation)
                     .weight(25)
                     .nextModel()
                     .modelFile(bookPile(block, layers - 1, false, true, 3))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(rotation)
                     .weight(5)
                     .nextModel()
                     .modelFile(bookPile(block, layers - 1, false, true, 4))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(rotation)
                     .weight(5)
                     .nextModel()
                     .modelFile(bookPile(block, layers - 1, false, true, 5))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(rotation)
                     .weight(5)
                     .build();
         }, ignored);
@@ -308,9 +329,7 @@ public class PUBlockBuilder extends BlockStateProvider {
         String prefix = "";
 
         if (!isColored) {
-            if (isAlt) {
-                prefix = "alt" + variant + "/";
-            }
+            if (isAlt) { prefix = "alt" + variant + "/"; }
             String parentModel = "book/" + "template_book_bundle";
 
             return models().withExistingParent(bookLocation(prefix + blockName(block)).toString(), parent(parentModel))
@@ -338,7 +357,7 @@ public class PUBlockBuilder extends BlockStateProvider {
 
             return ConfiguredModel.builder()
                     .modelFile(bookBundle(block, true, false, 0))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(defaultRotation(dir))
                     .build();
         });
     }
@@ -346,29 +365,30 @@ public class PUBlockBuilder extends BlockStateProvider {
     public void simpleBookBundle(HorizontalBlock block) {
         getVariantBuilder(block).forAllStates(state -> {
             Direction dir = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+            int rotation = defaultRotation(dir);
 
             return ConfiguredModel.builder().modelFile(bookBundle(block, false, false, 0))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(rotation)
                     .weight(30)
                     .nextModel()
                     .modelFile(bookBundle(block, false, true, 1))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(rotation)
                     .weight(25)
                     .nextModel()
                     .modelFile(bookBundle(block, false, true, 2))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(rotation)
                     .weight(25)
                     .nextModel()
                     .modelFile(bookBundle(block, false, true, 3))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(rotation)
                     .weight(5)
                     .nextModel()
                     .modelFile(bookBundle(block, false, true, 4))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(rotation)
                     .weight(5)
                     .nextModel()
                     .modelFile(bookBundle(block, false, true, 5))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(rotation)
                     .weight(5)
                     .build();
         });
@@ -424,7 +444,7 @@ public class PUBlockBuilder extends BlockStateProvider {
 
             return ConfiguredModel.builder()
                     .modelFile(bookBundleSlab(block, type, true, false, 0))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(defaultRotation(dir))
                     .build();
         }, ignored);
     }
@@ -433,32 +453,79 @@ public class PUBlockBuilder extends BlockStateProvider {
         getVariantBuilder(block).forAllStatesExcept(state -> {
             Direction dir = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
             SlabType type = state.getValue(BlockStateProperties.SLAB_TYPE);
+            int rotation = defaultRotation(dir);
 
             return ConfiguredModel.builder()
                     .modelFile(bookBundleSlab(block, type, false, false, 0))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(rotation)
                     .weight(30)
                     .nextModel()
                     .modelFile(bookBundleSlab(block, type, false, true, 1))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(rotation)
                     .weight(25)
                     .nextModel()
                     .modelFile(bookBundleSlab(block, type, false, true, 2))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(rotation)
                     .weight(25)
                     .nextModel()
                     .modelFile(bookBundleSlab(block, type, false, true, 3))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(rotation)
                     .weight(5)
                     .nextModel()
                     .modelFile(bookBundleSlab(block, type, false, true, 4))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(rotation)
                     .weight(5)
                     .nextModel()
                     .modelFile(bookBundleSlab(block, type, false, true, 5))
-                    .rotationY(((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .rotationY(rotation)
                     .weight(5)
                     .build();
         }, ignored);
+    }
+
+    // turf blocks
+    public BlockModelBuilder turfBlock(QuarterSlabBlock block, int layer) {
+        String name = nameFromSplit(blockName(block), "_layer", true);
+        String topName = nameFromSplit(name, "_turf", true);
+        ResourceLocation topTexture;
+        String suffix = "_layer" + layer;
+        String parentModel = "template_block_overlay";
+        String blockModel = blockLocation(name).toString();
+
+        if (layer < 3) {
+            parentModel = "template_turf" + suffix;
+            blockModel = blockModel + suffix;
+        }
+
+        // special rules for grass turf
+        if (block.defaultBlockState().is(PUBlocks.GRASS_TURF_LAYER.get())) {
+            topTexture = mcBlockLocation(topName + "_block_top");
+        }
+        else { topTexture = mcBlockLocation(topName + "_top"); }
+
+        return models().withExistingParent(blockModel, parent(parentModel))
+                .texture("top", topTexture)
+                .texture("side", blockLocation(name + "_side"))
+                .texture("overlay", blockLocation(name + "_overlay"));
+    }
+
+    public void simpleTurfBlock(QuarterSlabBlock block, Property<?>... ignored) {
+        getVariantBuilder(block).forAllStatesExcept(state -> {
+            IntegerProperty layersProperty = block.getQuarterLayers();
+            int layers = state.getValue(layersProperty);
+
+            return ConfiguredModel.allYRotations(turfBlock(block, layers - 1), 0, false);
+        }, ignored);
+    }
+
+    // overlay blocks
+    public BlockModelBuilder overlayBlock(Block block, String parentModel) {
+        String name = blockName(block);
+        String blockModel = blockLocation(name).toString();
+
+        return models().withExistingParent(blockModel, parent(parentModel))
+                .texture("top", blockLocation(name + "_top"))
+                .texture("side", blockLocation(name + "_side"))
+                .texture("overlay", blockLocation(name + "_overlay"));
     }
 }

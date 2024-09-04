@@ -5,7 +5,6 @@ import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -110,7 +109,12 @@ public class PUBlockLoot extends BlockLootSubProvider {
                 PUBlocks.BLUE_BOOK_BUNDLE.get(),
                 PUBlocks.PURPLE_BOOK_BUNDLE.get(),
                 PUBlocks.MAGENTA_BOOK_BUNDLE.get(),
-                PUBlocks.PINK_BOOK_BUNDLE.get()
+                PUBlocks.PINK_BOOK_BUNDLE.get(),
+                PUBlocks.GRASS_TURF.get(),
+                PUBlocks.PODZOL_TURF.get(),
+                PUBlocks.MYCELIUM_TURF.get(),
+                PUBlocks.GRASS_BUNDLE.get(),
+                PUBlocks.GRASS_THATCH.get()
         );
         for (Block block : blocks) {
             dropSelf(block);
@@ -157,7 +161,10 @@ public class PUBlockLoot extends BlockLootSubProvider {
                 PUBlocks.BLUE_BOOK_PILE.get(),
                 PUBlocks.PURPLE_BOOK_PILE.get(),
                 PUBlocks.MAGENTA_BOOK_PILE.get(),
-                PUBlocks.PINK_BOOK_PILE.get()
+                PUBlocks.PINK_BOOK_PILE.get(),
+                PUBlocks.GRASS_TURF_LAYER.get(),
+                PUBlocks.PODZOL_TURF_LAYER.get(),
+                PUBlocks.MYCELIUM_TURF_LAYER.get()
         );
         for (Block quarterSlab : quarterSlabs) {
             createQuarterSlabItemTable(quarterSlab);

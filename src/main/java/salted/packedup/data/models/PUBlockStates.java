@@ -3,15 +3,15 @@ package salted.packedup.data.models;
 import com.google.common.collect.Sets;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import salted.packedup.common.block.CrateLidBlock;
-import salted.packedup.common.block.HorizontalBlock;
-import salted.packedup.common.block.HorizontalSlabBlock;
-import salted.packedup.common.block.QuarterSlabBlock;
+import salted.packedup.common.block.*;
 import salted.packedup.common.registry.PUBlocks;
 import salted.packedup.data.models.builders.PUBlockBuilder;
 
 import java.util.Set;
+
+import static salted.packedup.data.utils.NameUtils.*;
 
 
 public class PUBlockStates extends PUBlockBuilder {
@@ -29,7 +29,7 @@ public class PUBlockStates extends PUBlockBuilder {
                 PUBlocks.REINFORCED_CRATE_LID.get()
         );
         for (Block lid : lids) {
-            this.horizontalBlock(lid, $ -> crateLid(lid), CrateLidBlock.WATERLOGGED);
+            this.horizontalBlock(lid, $ -> crateLid(lid), BlockStateProperties.WATERLOGGED);
         }
 
         // resource crates
@@ -132,7 +132,7 @@ public class PUBlockStates extends PUBlockBuilder {
         }
 
         // pallet
-        this.quarterSlabBlock(PUBlocks.PALLET.get(), QuarterSlabBlock.WATERLOGGED);
+        this.horizontalQuarterSlabBlock(PUBlocks.PALLET.get(), BlockStateProperties.WATERLOGGED);
 
         // resource pallets
         Set<Block> resourcePallets = Sets.newHashSet(
@@ -153,7 +153,7 @@ public class PUBlockStates extends PUBlockBuilder {
         }
 
         // book piles
-        this.simpleBookPile(PUBlocks.BOOK_PILE.get(), QuarterSlabBlock.WATERLOGGED);
+        this.simpleBookPile(PUBlocks.BOOK_PILE.get(), BlockStateProperties.WATERLOGGED);
         Set<QuarterSlabBlock> bookPiles = Sets.newHashSet(
                 PUBlocks.WHITE_BOOK_PILE.get(),
                 PUBlocks.LIGHT_GRAY_BOOK_PILE.get(),
@@ -173,7 +173,7 @@ public class PUBlockStates extends PUBlockBuilder {
                 PUBlocks.PINK_BOOK_PILE.get()
         );
         for (QuarterSlabBlock pile : bookPiles) {
-            this.simpleColoredBookPile(pile, QuarterSlabBlock.WATERLOGGED);
+            this.simpleColoredBookPile(pile, BlockStateProperties.WATERLOGGED);
         }
 
         // book bundles
@@ -201,7 +201,7 @@ public class PUBlockStates extends PUBlockBuilder {
         }
 
         // book bundle slabs
-        this.simpleBookBundleSlab(PUBlocks.BOOK_BUNDLE_SLAB.get(), HorizontalSlabBlock.WATERLOGGED);
+        this.simpleBookBundleSlab(PUBlocks.BOOK_BUNDLE_SLAB.get(), BlockStateProperties.WATERLOGGED);
         Set<HorizontalSlabBlock> slabBundles = Sets.newHashSet(
                 PUBlocks.WHITE_BOOK_BUNDLE_SLAB.get(),
                 PUBlocks.LIGHT_GRAY_BOOK_BUNDLE_SLAB.get(),
@@ -221,8 +221,35 @@ public class PUBlockStates extends PUBlockBuilder {
                 PUBlocks.PINK_BOOK_BUNDLE_SLAB.get()
         );
         for (HorizontalSlabBlock slab : slabBundles) {
-            this.simpleColoredBookBundle(slab, HorizontalSlabBlock.WATERLOGGED);
+            this.simpleColoredBookBundle(slab, BlockStateProperties.WATERLOGGED);
         }
+
+        // turf
+        // builds model for both layer and block variants
+        Set<TurfLayerBlock> turfLayerBlocks = Sets.newHashSet(
+                PUBlocks.GRASS_TURF_LAYER.get(),
+                PUBlocks.MYCELIUM_TURF_LAYER.get()
+        );
+        for (TurfLayerBlock turf : turfLayerBlocks) {
+            this.simpleTurfBlock(turf, QuarterSlabBlock.WATERLOGGED);
+        }
+
+        // only need for state construction
+        Set<TurfBlock> turfBlocks = Sets.newHashSet(
+                PUBlocks.GRASS_TURF.get(),
+                PUBlocks.MYCELIUM_TURF.get()
+        );
+        for (TurfBlock turf : turfBlocks) {
+            this.simpleBlock(turf, withRandomRotation(models().withExistingParent(blockName(turf), blockLocation("template_block_overlay"))));
+        }
+
+        String podzolTurf = blockName(PUBlocks.PODZOL_TURF.get());
+        this.simpleBlock(PUBlocks.PODZOL_TURF.get(), withRandomRotation(models().cubeBottomTop(podzolTurf, blockLocation(podzolTurf + "_side"), blockLocation(podzolTurf + "_bottom"), mcBlockLocation("podzol_top"))));
+        this.simpleQuarterSlabBlock(PUBlocks.PODZOL_TURF_LAYER.get(), true, true, BlockStateProperties.WATERLOGGED);
+
+        // grass bundle/thatch
+        this.simpleBlock(PUBlocks.GRASS_BUNDLE.get(), withRandomRotation(overlayBlock(PUBlocks.GRASS_BUNDLE.get(), "template_bundle")));
+        this.simpleBlock(PUBlocks.GRASS_THATCH.get(), withRandomRotation(overlayBlock(PUBlocks.GRASS_THATCH.get(), "template_block_overlay")));
     }
 
 }

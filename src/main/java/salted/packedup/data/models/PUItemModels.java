@@ -29,7 +29,10 @@ public class PUItemModels extends PUItemBuilder {
 
         // layered blocks
         Set<Item> layerItems = Sets.newHashSet(
-                PUItems.PALLET.get()
+                PUItems.PALLET.get(),
+                PUItems.GRASS_TURF_LAYER.get(),
+                PUItems.PODZOL_TURF_LAYER.get(),
+                PUItems.MYCELIUM_TURF_LAYER.get()
         );
         takeAll(items, layerItems.toArray(new Item[0])).forEach(item -> quarterSlabBasedModel(item, false));
 

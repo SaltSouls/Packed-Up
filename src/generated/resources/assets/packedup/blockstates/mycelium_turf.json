@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "packedup:block/mycelium_turf"
+      },
+      {
+        "model": "packedup:block/mycelium_turf",
+        "y": 90
+      },
+      {
+        "model": "packedup:block/mycelium_turf",
+        "y": 180
+      },
+      {
+        "model": "packedup:block/mycelium_turf",
+        "y": 270
+      }
+    ]
+  }
+}

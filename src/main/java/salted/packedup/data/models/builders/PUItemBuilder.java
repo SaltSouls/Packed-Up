@@ -1,13 +1,13 @@
 package salted.packedup.data.models.builders;
 
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
 import salted.packedup.PackedUp;
+
+import static salted.packedup.data.utils.NameUtils.*;
 
 public class PUItemBuilder extends ItemModelProvider {
     static Logger log = PackedUp.LOGGER;
@@ -22,30 +22,17 @@ public class PUItemBuilder extends ItemModelProvider {
         // so that I can separate the builders from the registration.
     }
 
-    // general pathing/convenience functions
-    protected String itemName(Item item) {
-        return ForgeRegistries.ITEMS.getKey(item).getPath();
-    }
-
-    public ResourceLocation blockLocation(String path) {
-        return new ResourceLocation(PackedUp.MODID, "block/" + path);
-    }
-
-    public ResourceLocation bookLocation(String path) {
-        return new ResourceLocation(PackedUp.MODID, "block/book/" + path);
-    }
-
-    public ResourceLocation itemLocation(String path) {
-        return new ResourceLocation(PackedUp.MODID, "item/" + path);
-    }
-
     // item builders
     public void bookBasedModel(Item item) {
         withExistingParent(itemName(item), bookLocation(itemName(item)));
     }
 
     public void quarterSlabBasedModel(Item item, boolean isBook) {
-        if (!isBook) { withExistingParent(itemName(item), blockLocation(itemName(item)) + "_layer0"); }
+        if (!isBook) {
+            String name = itemName(item);
+            if(name.contains("_layer")) { name =nameFromSplit(name, "_layer", true); }
+            withExistingParent(itemName(item), blockLocation(name) + "_layer0");
+        }
         else { withExistingParent(itemName(item), bookLocation(itemName(item)) + "_layer0"); }
     }
 
