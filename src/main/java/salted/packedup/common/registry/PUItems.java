@@ -157,8 +157,8 @@ public class PUItems {
     public static final RegistryObject<Item> MYCELIUM_TURF_LAYER = registerWithTab("mycelium_turf_layer",
             () -> new BlockItem(PUBlocks.MYCELIUM_TURF_LAYER.get(), basicItem()));
     // grass bundle/thatch
-    public static final RegistryObject<Item> GRASS_BUNDLE = registerWithTab("grass_bundle",
-            () -> new BlockItem(PUBlocks.GRASS_BUNDLE.get(), basicItem()));
+    public static final RegistryObject<Item> GRASS_BALE = registerWithTab("grass_bale",
+            () -> new BlockItem(PUBlocks.GRASS_BALE.get(), basicItem()));
     public static final RegistryObject<Item> GRASS_THATCH = registerWithTab("grass_thatch",
             () -> new BlockItem(PUBlocks.GRASS_THATCH.get(), basicItem()));
     // resource bags
@@ -179,6 +179,10 @@ public class PUItems {
             () -> new BlockItem(PUBlocks.RED_MUSHROOM_CRATE.get(), basicItem()));
     public static final RegistryObject<Item> BROWN_MUSHROOM_CRATE = registerWithTab("brown_mushroom_crate",
             () -> new BlockItem(PUBlocks.BROWN_MUSHROOM_CRATE.get(), basicItem()));
+    public static final RegistryObject<Item> CRIMSON_FUNGUS_CRATE = registerWithTab("crimson_fungus_crate",
+            () -> new BlockItem(PUBlocks.CRIMSON_FUNGUS_CRATE.get(), basicItem()));
+    public static final RegistryObject<Item> WARPED_FUNGUS_CRATE = registerWithTab("warped_fungus_crate",
+            () -> new BlockItem(PUBlocks.WARPED_FUNGUS_CRATE.get(), basicItem()));
     // crate lids
     public static final RegistryObject<Item> CRATE_LID = registerWithTab("crate_lid",
             () -> new BlockItem(PUBlocks.CRATE_LID.get(), basicItem()));

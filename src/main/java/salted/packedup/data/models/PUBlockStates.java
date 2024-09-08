@@ -9,6 +9,7 @@ import salted.packedup.common.block.*;
 import salted.packedup.common.registry.PUBlocks;
 import salted.packedup.data.models.builders.PUBlockBuilder;
 
+import javax.script.ScriptEngine;
 import java.util.Set;
 
 import static salted.packedup.data.utils.NameUtils.*;
@@ -84,11 +85,12 @@ public class PUBlockStates extends PUBlockBuilder {
         // mushroom crates
         Set<Block> mushroomCrates = Sets.newHashSet(
                 PUBlocks.RED_MUSHROOM_CRATE.get(),
-                PUBlocks.BROWN_MUSHROOM_CRATE.get()
+                PUBlocks.BROWN_MUSHROOM_CRATE.get(),
+                PUBlocks.CRIMSON_FUNGUS_CRATE.get(),
+                PUBlocks.WARPED_FUNGUS_CRATE.get()
         );
         for (Block crate : mushroomCrates) {
-            String crateName = blockName(crate);
-            this.simpleBlock(crate, models().withExistingParent(crateName, parent(crateName)));
+            this.simpleMushroomCrate(crate);
         }
 
         // resource bags
@@ -221,35 +223,25 @@ public class PUBlockStates extends PUBlockBuilder {
                 PUBlocks.PINK_BOOK_BUNDLE_SLAB.get()
         );
         for (HorizontalSlabBlock slab : slabBundles) {
-            this.simpleColoredBookBundle(slab, BlockStateProperties.WATERLOGGED);
+            this.simpleColoredBookBundleSlab(slab, BlockStateProperties.WATERLOGGED);
         }
 
         // turf
-        // builds model for both layer and block variants
-        Set<TurfLayerBlock> turfLayerBlocks = Sets.newHashSet(
-                PUBlocks.GRASS_TURF_LAYER.get(),
-                PUBlocks.MYCELIUM_TURF_LAYER.get()
-        );
-        for (TurfLayerBlock turf : turfLayerBlocks) {
-            this.simpleTurfBlock(turf, QuarterSlabBlock.WATERLOGGED);
-        }
+        String grassTurf = blockName(PUBlocks.GRASS_TURF.get());
+        this.simpleBlock(PUBlocks.GRASS_TURF.get(), withRandomRotation(models().withExistingParent(grassTurf, blockLocation("template/tinted_overlay_block"))));
+        this.simpleTurfBlock(PUBlocks.GRASS_TURF_LAYER.get(), true, BlockStateProperties.WATERLOGGED);
 
-        // only need for state construction
-        Set<TurfBlock> turfBlocks = Sets.newHashSet(
-                PUBlocks.GRASS_TURF.get(),
-                PUBlocks.MYCELIUM_TURF.get()
-        );
-        for (TurfBlock turf : turfBlocks) {
-            this.simpleBlock(turf, withRandomRotation(models().withExistingParent(blockName(turf), blockLocation("template_block_overlay"))));
-        }
+        String myceliumTurf = blockName(PUBlocks.MYCELIUM_TURF.get());
+        this.simpleBlock(PUBlocks.MYCELIUM_TURF.get(), withRandomRotation(models().withExistingParent(myceliumTurf, blockLocation("template/overlay_block"))));
+        this.simpleTurfBlock(PUBlocks.MYCELIUM_TURF_LAYER.get(), false, BlockStateProperties.WATERLOGGED);
 
         String podzolTurf = blockName(PUBlocks.PODZOL_TURF.get());
         this.simpleBlock(PUBlocks.PODZOL_TURF.get(), withRandomRotation(models().cubeBottomTop(podzolTurf, blockLocation(podzolTurf + "_side"), blockLocation(podzolTurf + "_bottom"), mcBlockLocation("podzol_top"))));
         this.simpleQuarterSlabBlock(PUBlocks.PODZOL_TURF_LAYER.get(), true, true, BlockStateProperties.WATERLOGGED);
 
         // grass bundle/thatch
-        this.simpleBlock(PUBlocks.GRASS_BUNDLE.get(), withRandomRotation(overlayBlock(PUBlocks.GRASS_BUNDLE.get(), "template_bundle")));
-        this.simpleBlock(PUBlocks.GRASS_THATCH.get(), withRandomRotation(overlayBlock(PUBlocks.GRASS_THATCH.get(), "template_block_overlay")));
+        this.grassBaleBlock(PUBlocks.GRASS_BALE.get());
+        this.simpleBlock(PUBlocks.GRASS_THATCH.get(), withRandomRotation(overlayBlock(PUBlocks.GRASS_THATCH.get(), false)));
     }
 
 }

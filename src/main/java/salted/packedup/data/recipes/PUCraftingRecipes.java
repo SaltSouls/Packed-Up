@@ -74,6 +74,8 @@ public class PUCraftingRecipes extends PURecipeBuilder {
         simpleCombined(PUItems.EGG_CRATE.get(), Items.EGG, true, consumer);
         simpleCombined(PUItems.RED_MUSHROOM_CRATE.get(), Items.RED_MUSHROOM, true, consumer);
         simpleCombined(PUItems.BROWN_MUSHROOM_CRATE.get(), Items.BROWN_MUSHROOM, true, consumer);
+        simpleCombined(PUItems.CRIMSON_FUNGUS_CRATE.get(), Items.CRIMSON_FUNGUS, true, consumer);
+        simpleCombined(PUItems.WARPED_FUNGUS_CRATE.get(), Items.WARPED_FUNGUS, true, consumer);
 
         // resource bags
         simpleCombined(PUItems.DIRT_BAG.get(), Items.DIRT, true, consumer);

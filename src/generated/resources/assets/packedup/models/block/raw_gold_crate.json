@@ -1,5 +1,5 @@
 {
-  "parent": "packedup:block/template_resource_crate",
+  "parent": "packedup:block/template/resource_crate",
   "textures": {
     "pile": "packedup:block/raw_gold_pile"
   }

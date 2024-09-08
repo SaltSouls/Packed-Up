@@ -1,5 +1,5 @@
 {
-  "parent": "packedup:block/template_resource_pallet",
+  "parent": "packedup:block/template/resource_pallet",
   "textures": {
     "front": "packedup:block/stone_pallet_front",
     "side": "packedup:block/stone_pallet_side",

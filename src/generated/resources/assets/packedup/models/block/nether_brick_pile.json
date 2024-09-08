@@ -1,5 +1,5 @@
 {
-  "parent": "packedup:block/template_resource_pile",
+  "parent": "packedup:block/template/resource_pile",
   "textures": {
     "front": "packedup:block/nether_brick_pile_front",
     "side": "packedup:block/nether_brick_pile_side",

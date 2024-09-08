@@ -75,6 +75,8 @@ public class PUBlockLoot extends BlockLootSubProvider {
                 PUBlocks.EGG_CRATE.get(),
                 PUBlocks.RED_MUSHROOM_CRATE.get(),
                 PUBlocks.BROWN_MUSHROOM_CRATE.get(),
+                PUBlocks.CRIMSON_FUNGUS_CRATE.get(),
+                PUBlocks.WARPED_FUNGUS_CRATE.get(),
                 PUBlocks.COD_BARREL.get(),
                 PUBlocks.SALMON_BARREL.get(),
                 PUBlocks.BRICK_PILE.get(),
@@ -113,7 +115,7 @@ public class PUBlockLoot extends BlockLootSubProvider {
                 PUBlocks.GRASS_TURF.get(),
                 PUBlocks.PODZOL_TURF.get(),
                 PUBlocks.MYCELIUM_TURF.get(),
-                PUBlocks.GRASS_BUNDLE.get(),
+                PUBlocks.GRASS_BALE.get(),
                 PUBlocks.GRASS_THATCH.get()
         );
         for (Block block : blocks) {

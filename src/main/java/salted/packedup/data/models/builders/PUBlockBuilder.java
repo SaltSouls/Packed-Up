@@ -4,11 +4,9 @@ import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraft.world.level.block.state.properties.Property;
-import net.minecraft.world.level.block.state.properties.SlabType;
+import net.minecraft.world.level.block.state.properties.*;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
@@ -21,7 +19,6 @@ import salted.packedup.common.registry.PUBlocks;
 
 import java.util.function.Function;
 
-import static net.minecraft.data.models.model.TextureMapping.cubeBottomTop;
 import static salted.packedup.data.utils.NameUtils.*;
 
 public class PUBlockBuilder extends BlockStateProvider {
@@ -62,8 +59,10 @@ public class PUBlockBuilder extends BlockStateProvider {
 
     public void simpleBasket(Block block) {
         String name = blockName(block);
+        String blockModel = blockLocation(name).toString();
+        String parentModel = "cube_bottom_top";
 
-        this.simpleBlock(block, models().withExistingParent(name, "cube_bottom_top")
+        simpleBlock(block, models().withExistingParent(blockModel, parentModel)
                 .texture("particle", blockLocation(name + "_top"))
                 .texture("bottom", blockLocation("basket_bottom"))
                 .texture("side", blockLocation(name + "_side"))
@@ -73,8 +72,10 @@ public class PUBlockBuilder extends BlockStateProvider {
 
     public void simpleBarrel(Block block) {
         String name = blockName(block);
+        String blockModel = blockLocation(name).toString();
+        String parentModel = "cube_bottom_top";
 
-        this.simpleBlock(block, models().withExistingParent(name, "cube_bottom_top")
+        simpleBlock(block, models().withExistingParent(blockModel, parentModel)
                 .texture("particle", blockLocation(name + "_top"))
                 .texture("bottom", mcBlockLocation("barrel_bottom"))
                 .texture("side", mcBlockLocation("barrel_side"))
@@ -83,71 +84,71 @@ public class PUBlockBuilder extends BlockStateProvider {
     }
 
     public BlockModelBuilder resourceBag(Block block, boolean alt) {
-        log.debug("resourceBag alt: {}", alt);
         String name = blockName(block);
-        log.debug("name: {}", name);
         String resource = nameFromSplit(name, "_bag", true);
-        log.debug("resource: {}", resource);
 
         if (alt) {
-            return models().withExistingParent(name, parent("template_bag"))
+            return models().withExistingParent(name, parent("template/bag_all"))
                     .texture("top", blockLocation(name + "_top"));
         }
-        return models().withExistingParent(name, parent("template_resource_bag"))
+        return models().withExistingParent(name, parent("template/resource_bag"))
                 .texture("pile", blockLocation(resource + "_pile"));
     }
 
     public void simpleBag(Block block) {
         String name = blockName(block);
+        String blockModel = blockLocation(name).toString();
+        String parentModel = "template/bag";
 
-        this.simpleBlock(block, this.models().withExistingParent(name, parent("template_bag"))
+        simpleBlock(block, models().withExistingParent(blockModel, parent(parentModel))
                 .texture("top", blockLocation(name + "_top")));
     }
 
     public BlockModelBuilder crateLid(Block block) {
         String name = blockName(block);
-        return models().withExistingParent(name, parent("template_crate_lid"))
+        String blockModel = blockLocation(name).toString();
+        String parentModel = "template/crate_lid";
+
+        return models().withExistingParent(blockModel, parent(parentModel))
                 .texture("top", blockLocation(name + "_top"))
                 .texture("side", blockLocation(name + "_side"))
                 .texture("bottom", blockLocation(name + "_bottom"));
     }
 
     public BlockModelBuilder resourceCrate(Block block, boolean alt) {
-        log.debug("resourceCrate alt: {}", alt);
         String name = blockName(block);
-        log.debug("name: {}", name);
+        String blockModel = blockLocation(name).toString();
         String resource = nameFromSplit(name, "_crate", true);
-        log.debug("resource: {}", resource);
 
         if (alt) {
-            return models().withExistingParent(name, parent("template_crate"))
+            return models().withExistingParent(blockModel, parent("template/crate"))
                     .texture("top", blockLocation(name + "_top"));
         }
-        return models().withExistingParent(name, parent("template_resource_crate"))
+        return models().withExistingParent(blockModel, parent("template/resource_crate"))
                 .texture("pile", blockLocation(resource + "_pile"));
     }
 
     public BlockModelBuilder reinforcedCrate(Block block, boolean alt) {
-        log.debug("reinforcedCrate alt: {}", alt);
         String name = blockName(block);
-        log.debug("name: {}", name);
-        String temp = nameFromSplit(name, "_crate", true);
-        String resource = nameFromSplit(temp, "reinforced_", false);
-        log.debug("resource: {}", resource);
+        String blockModel = blockLocation(name).toString();
+        String resource = nameFromSplit(name, "_crate", true);
+        resource = nameFromSplit(resource, "reinforced_", false);
 
         if (alt) {
-            return models().withExistingParent(name, parent("template_reinforced_crate"))
+            return models().withExistingParent(blockModel, parent("template/reinforced_crate"))
                     .texture("top", blockLocation(name + "_top"));
         }
-        return models().withExistingParent(name, parent("template_reinforced_resource_crate"))
+        return models().withExistingParent(blockModel, parent("template/reinforced_resource_crate"))
                 .texture("pile", blockLocation(resource + "_pile"));
     }
 
     public BlockModelBuilder resourcePile(Block block) {
         String name = blockName(block);
         String resource = nameFromSplit(name, "_pile", true);
+        String blockModel = blockLocation(name).toString();
+        String parentModel = "template/resource_pile";
 
-        return models().withExistingParent(name, parent("template_resource_pile"))
+        return models().withExistingParent(blockModel, parent(parentModel))
                 .texture("top", blockLocation(resource + "_pallet_top"))
                 .texture("front", blockLocation(name + "_front"))
                 .texture("side", blockLocation(name + "_side"));
@@ -155,8 +156,10 @@ public class PUBlockBuilder extends BlockStateProvider {
 
     public BlockModelBuilder resourcePallet(Block block) {
         String name = blockName(block);
+        String blockModel = blockLocation(name).toString();
+        String parentModel = "template/resource_pallet";
 
-        return models().withExistingParent(name, parent("template_resource_pallet"))
+        return models().withExistingParent(blockModel, parent(parentModel))
                 .texture("top", blockLocation(name + "_top"))
                 .texture("front", blockLocation(name + "_front"))
                 .texture("side", blockLocation(name + "_side"));
@@ -165,10 +168,21 @@ public class PUBlockBuilder extends BlockStateProvider {
     public void simpleCrate(Block block) {
         String name = blockName(block);
 
-        this.simpleBlock(block, models().cubeBottomTop(blockName(block),
+        simpleBlock(block, models().cubeBottomTop(blockName(block),
                 blockLocation(name + "_side"),
                 fdBlockLocation("crate_bottom"),
                 blockLocation(name + "_top")));
+    }
+
+    public void simpleMushroomCrate(Block block) {
+        String name = blockName(block);
+        String blockModel = blockLocation(name).toString();
+        String parentModel = "template/mushroom_crate";
+
+        simpleBlock(block, models().withExistingParent(blockModel, parent(parentModel))
+                .texture("top", blockLocation(name + "_top"))
+                .texture("side", blockLocation(name + "_side"))
+                .texture("mush", blockLocation(name + "_mushrooms")));
     }
 
     // horizontal blocks
@@ -198,7 +212,7 @@ public class PUBlockBuilder extends BlockStateProvider {
     public BlockModelBuilder quarterSlabBlock(QuarterSlabBlock block, int layer, boolean bottomTop) {
         String name = nameFromSplit(blockName(block), "_layer", true);
         String suffix = "_layer" + layer;
-        String parentModel = "template_quarter_slab" + suffix;
+        String parentModel = "template/quarter_slab" + suffix;
         ResourceLocation topTexture;
 
         // special rules for turf blocks
@@ -254,7 +268,7 @@ public class PUBlockBuilder extends BlockStateProvider {
 
         if (!isColored) {
             if (isAlt) { prefix = "alt" + variant + "/"; }
-            String parentModel = "book/" + "template_book_pile" + suffix;
+            String parentModel = "book/template/" + "book_pile" + suffix;
 
             return models().withExistingParent(bookLocation(prefix + name) + suffix, parent(parentModel))
                     .texture("top", bookLocation(prefix + name + "_top" + suffix))
@@ -264,7 +278,7 @@ public class PUBlockBuilder extends BlockStateProvider {
                     .texture("back", bookLocation(prefix + name + "_back"))
                     .texture("bottom", bookLocation(prefix + name + "_bottom"));
         } else {
-            String parentModel = "book/template_colored_book_pile" + suffix;
+            String parentModel = "book/template/colored_book_pile" + suffix;
 
             return models().withExistingParent(bookLocation(name) + suffix, parent(parentModel))
                     .texture("top", bookLocation(name + "_top"))
@@ -330,7 +344,7 @@ public class PUBlockBuilder extends BlockStateProvider {
 
         if (!isColored) {
             if (isAlt) { prefix = "alt" + variant + "/"; }
-            String parentModel = "book/" + "template_book_bundle";
+            String parentModel = "book/template/book_bundle";
 
             return models().withExistingParent(bookLocation(prefix + blockName(block)).toString(), parent(parentModel))
                     .texture("top", bookLocation(prefix + name + "_top_layer3"))
@@ -340,7 +354,7 @@ public class PUBlockBuilder extends BlockStateProvider {
                     .texture("back", bookLocation(prefix + name + "_back"))
                     .texture("bottom", bookLocation(prefix + name + "_bottom"));
         } else {
-            String parentModel = "book/template_colored_book_bundle";
+            String parentModel = "book/template/colored_book_bundle";
 
             return models().withExistingParent(bookLocation(prefix + blockName(block)).toString(), parent(parentModel))
                     .texture("top", bookLocation(name + "_top"))
@@ -416,7 +430,7 @@ public class PUBlockBuilder extends BlockStateProvider {
             if (isAlt) {
                 prefix = "alt" + variant + "/";
             }
-            String parentModel = "book/" + "template_book_bundle_slab" + slabType;
+            String parentModel = "book/template/book_bundle_slab" + slabType;
 
             return models().withExistingParent(bookLocation(prefix + blockName(block)) + slabType, parent(parentModel))
                     .texture("top", bookLocation(prefix + name + "_top" + layer))
@@ -426,7 +440,7 @@ public class PUBlockBuilder extends BlockStateProvider {
                     .texture("back", bookLocation(prefix + name + "_back"))
                     .texture("bottom", bookLocation(prefix + name + "_bottom" + suffix));
         } else {
-            String parentModel = "book/" + "template_colored_book_bundle_slab" + slabType;
+            String parentModel = "book/template/colored_book_bundle_slab" + slabType;
 
             return models().withExistingParent(bookLocation(blockName(block)) + slabType, parent(parentModel))
                     .texture("top", bookLocation(name + "_top"))
@@ -437,7 +451,7 @@ public class PUBlockBuilder extends BlockStateProvider {
         }
     }
 
-    public void simpleColoredBookBundle(HorizontalSlabBlock block, Property<?>... ignored) {
+    public void simpleColoredBookBundleSlab(HorizontalSlabBlock block, Property<?>... ignored) {
         getVariantBuilder(block).forAllStatesExcept(state -> {
             Direction dir = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
             SlabType type = state.getValue(BlockStateProperties.SLAB_TYPE);
@@ -484,16 +498,19 @@ public class PUBlockBuilder extends BlockStateProvider {
     }
 
     // turf blocks
-    public BlockModelBuilder turfBlock(QuarterSlabBlock block, int layer) {
+    public BlockModelBuilder turfBlock(QuarterSlabBlock block, int layer, boolean tint) {
         String name = nameFromSplit(blockName(block), "_layer", true);
         String topName = nameFromSplit(name, "_turf", true);
         ResourceLocation topTexture;
         String suffix = "_layer" + layer;
-        String parentModel = "template_block_overlay";
+        String parentModel;
+        if (tint) { parentModel = "template/tinted_overlay_block"; }
+        else { parentModel = "template/overlay_block"; }
         String blockModel = blockLocation(name).toString();
 
         if (layer < 3) {
-            parentModel = "template_turf" + suffix;
+            if (tint) { parentModel = "template/tinted_turf" + suffix; }
+            else { parentModel = "template/turf" + suffix; }
             blockModel = blockModel + suffix;
         }
 
@@ -509,23 +526,39 @@ public class PUBlockBuilder extends BlockStateProvider {
                 .texture("overlay", blockLocation(name + "_overlay"));
     }
 
-    public void simpleTurfBlock(QuarterSlabBlock block, Property<?>... ignored) {
+    public void simpleTurfBlock(QuarterSlabBlock block, boolean tint, Property<?>... ignored) {
         getVariantBuilder(block).forAllStatesExcept(state -> {
             IntegerProperty layersProperty = block.getQuarterLayers();
             int layers = state.getValue(layersProperty);
 
-            return ConfiguredModel.allYRotations(turfBlock(block, layers - 1), 0, false);
+            return ConfiguredModel.allYRotations(turfBlock(block, layers - 1, tint), 0, false);
         }, ignored);
     }
 
     // overlay blocks
-    public BlockModelBuilder overlayBlock(Block block, String parentModel) {
+    public BlockModelBuilder overlayBlock(Block block, boolean tint) {
         String name = blockName(block);
+        String parentModel;
+        if (tint) { parentModel = "template/tinted_overlay_block"; }
+        else { parentModel = "template/overlay_block"; }
         String blockModel = blockLocation(name).toString();
 
         return models().withExistingParent(blockModel, parent(parentModel))
                 .texture("top", blockLocation(name + "_top"))
                 .texture("side", blockLocation(name + "_side"))
                 .texture("overlay", blockLocation(name + "_overlay"));
+    }
+
+    public void grassBaleBlock(RotatedPillarBlock block) {
+        String name = blockName(block);
+
+        getVariantBuilder(block).forAllStates(state -> {
+            Direction.Axis dir = state.getValue(BlockStateProperties.AXIS);
+
+            if (dir == Direction.Axis.X) { return ConfiguredModel.builder().modelFile(existingModel(name + "_horizontal")).rotationY(90).build(); }
+            else if (dir == Direction.Axis.Y) { return ConfiguredModel.builder().modelFile(existingModel(name)).build(); }
+            else return ConfiguredModel.builder().modelFile(existingModel(name + "_horizontal")).build();
+        });
+
     }
 }

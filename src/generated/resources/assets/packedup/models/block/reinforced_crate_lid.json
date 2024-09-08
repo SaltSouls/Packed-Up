@@ -1,5 +1,5 @@
 {
-  "parent": "packedup:block/template_crate_lid",
+  "parent": "packedup:block/template/crate_lid",
   "textures": {
     "bottom": "packedup:block/reinforced_crate_lid_bottom",
     "side": "packedup:block/reinforced_crate_lid_side",

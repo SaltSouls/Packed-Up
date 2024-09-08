@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "packedup:block/grass_bale_horizontal",
+      "y": 90
+    },
+    "axis=y": {
+      "model": "packedup:block/grass_bale"
+    },
+    "axis=z": {
+      "model": "packedup:block/grass_bale_horizontal"
+    }
+  }
+}

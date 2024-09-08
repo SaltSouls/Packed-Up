@@ -48,7 +48,7 @@ public class PUBlockTags extends BlockTagsProvider {
         tag(ModTags.STRAW_BLOCKS).remove(ModBlocks.RICE_BAG.get());
 
         tag(ModTags.STRAW_BLOCKS).add(
-                PUBlocks.GRASS_BUNDLE.get(),
+                PUBlocks.GRASS_BALE.get(),
                 PUBlocks.GRASS_THATCH.get()
         );
 
@@ -98,6 +98,8 @@ public class PUBlockTags extends BlockTagsProvider {
                 PUBlocks.EGG_CRATE.get(),
                 PUBlocks.RED_MUSHROOM_CRATE.get(),
                 PUBlocks.BROWN_MUSHROOM_CRATE.get(),
+                PUBlocks.CRIMSON_FUNGUS_CRATE.get(),
+                PUBlocks.WARPED_FUNGUS_CRATE.get(),
                 // misc crates
                 PUBlocks.GUNPOWDER_CRATE.get(),
                 PUBlocks.QUARTZ_CRATE.get(),

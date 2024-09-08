@@ -1,5 +1,5 @@
 {
-  "parent": "packedup:block/template_turf_layer0",
+  "parent": "packedup:block/template/turf_layer0",
   "textures": {
     "overlay": "packedup:block/mycelium_turf_overlay",
     "side": "packedup:block/mycelium_turf_side",

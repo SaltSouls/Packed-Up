@@ -1,8 +1,0 @@
-{
-  "parent": "packedup:block/template_bundle",
-  "textures": {
-    "overlay": "packedup:block/grass_bundle_overlay",
-    "side": "packedup:block/grass_bundle_side",
-    "top": "packedup:block/grass_bundle_top"
-  }
-}

@@ -1,0 +1,40 @@
+{
+	"author": "TwinSouls",
+	"credit": "Made with Blockbench",
+	"render_type": "minecraft:cutout",
+	"parent": "minecraft:block/block",
+	"textures": {
+		"particle": "packedup:block/grass_bundle_top",
+		"top": "packedup:block/grass_bundle_top",
+		"side": "packedup:block/grass_bundle_side",
+		"strap": "packedup:block/grass_bundle_strap"
+	},
+	"elements": [
+		{
+			"name": "main",
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"rotation": {"angle": 0, "axis": "x", "origin": [0, 0, 16]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "rotation": 180, "texture": "#top", "cullface": "north",  "tintindex": 0},
+				"east": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#side", "cullface": "east", "tintindex": 0},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#top", "cullface": "south", "tintindex": 0},
+				"west": {"uv": [0, 0, 16, 16], "rotation": 270, "texture": "#side", "cullface": "west", "tintindex": 0},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#side", "cullface": "up", "tintindex": 0},
+				"down": {"uv": [0, 0, 16, 16], "rotation": 180, "texture": "#side", "cullface": "down", "tintindex": 0}
+			}
+		},
+		{
+			"name": "strap",
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"rotation": {"angle": 0, "axis": "x", "origin": [0, 0, 16]},
+			"faces": {
+				"east": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#strap", "cullface": "east"},
+				"west": {"uv": [0, 0, 16, 16], "rotation": 270, "texture": "#strap", "cullface": "west"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#strap", "cullface": "up"},
+				"down": {"uv": [0, 0, 16, 16], "rotation": 180, "texture": "#strap", "cullface": "down"}
+			}
+		}
+	]
+}

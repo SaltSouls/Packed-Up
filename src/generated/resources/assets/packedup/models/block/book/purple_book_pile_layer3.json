@@ -1,5 +1,5 @@
 {
-  "parent": "packedup:block/book/template_colored_book_pile_layer3",
+  "parent": "packedup:block/book/template/colored_book_pile_layer3",
   "textures": {
     "bottom": "packedup:block/book/purple_book_pile_bottom",
     "front": "packedup:block/book/purple_book_pile_front",

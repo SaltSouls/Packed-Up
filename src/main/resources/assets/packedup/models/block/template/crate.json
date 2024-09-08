@@ -1,0 +1,7 @@
+{
+	"parent": "packedup:block/template/crate_all",
+	"textures": {
+		"side": "packedup:block/crate_side",
+		"bottom": "farmersdelight:block/crate_bottom"
+	}
+}

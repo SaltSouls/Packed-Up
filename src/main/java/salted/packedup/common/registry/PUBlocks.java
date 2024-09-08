@@ -179,6 +179,14 @@ public class PUBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)
                     .strength(2.0F, 3.0F)
                     .sound(SoundType.WOOD)));
+    public static RegistryObject<Block> CRIMSON_FUNGUS_CRATE = BLOCKS.register("crimson_fungus_crate",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)
+                    .strength(2.0F, 3.0F)
+                    .sound(SoundType.WOOD)));
+    public static RegistryObject<Block> WARPED_FUNGUS_CRATE = BLOCKS.register("warped_fungus_crate",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)
+                    .strength(2.0F, 3.0F)
+                    .sound(SoundType.WOOD)));
     // produce baskets
     public static RegistryObject<Block> SWEET_BERRY_BASKET = BLOCKS.register("sweet_berry_basket",
             () -> new Block(BlockBehaviour.Properties.of()
@@ -426,8 +434,8 @@ public class PUBlocks {
     public static RegistryObject<TurfLayerBlock> MYCELIUM_TURF_LAYER = BLOCKS.register("mycelium_turf_layer",
             () -> new TurfLayerBlock(BlockBehaviour.Properties.copy(Blocks.MYCELIUM)));
     // grass bundle/thatch
-    public static RegistryObject<Block> GRASS_BUNDLE = BLOCKS.register("grass_bundle",
-            () -> new Block(Block.Properties.copy(Blocks.GRASS_BLOCK)));
+    public static RegistryObject<HayBlock> GRASS_BALE = BLOCKS.register("grass_bale",
+            () -> new HayBlock(Block.Properties.copy(Blocks.GRASS_BLOCK)));
     public static RegistryObject<HayBlock> GRASS_THATCH = BLOCKS.register("grass_thatch",
             () -> new HayBlock(Block.Properties.copy(Blocks.HAY_BLOCK)));
 

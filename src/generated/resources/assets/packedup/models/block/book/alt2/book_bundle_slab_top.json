@@ -1,5 +1,5 @@
 {
-  "parent": "packedup:block/book/template_book_bundle_slab_top",
+  "parent": "packedup:block/book/template/book_bundle_slab_top",
   "textures": {
     "back": "packedup:block/book/alt2/book_pile_back",
     "bottom": "packedup:block/book/alt2/book_pile_bottom_slab_top",

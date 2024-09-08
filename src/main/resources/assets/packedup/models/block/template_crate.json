@@ -1,9 +1,0 @@
-{
-	"parent": "packedup:block/crate_all",
-	"textures": {
-		"particle": "#top",
-		"top": "#top",
-		"side": "packedup:block/crate_side",
-		"bottom": "farmersdelight:block/crate_bottom"
-	}
-}

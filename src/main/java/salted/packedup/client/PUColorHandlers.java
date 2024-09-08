@@ -18,7 +18,7 @@ public class PUColorHandlers {
     public static void registerBlockColors(RegisterColorHandlersEvent.Block event) {
         event.register((state, level, pos, tintIndex) ->
                 level != null && pos != null ? BiomeColors.getAverageGrassColor(level, pos) :
-                        GrassColor.getDefaultColor(), PUBlocks.GRASS_TURF.get(), PUBlocks.GRASS_TURF_LAYER.get(), PUBlocks.GRASS_BUNDLE.get());
+                        GrassColor.getDefaultColor(), PUBlocks.GRASS_TURF.get(), PUBlocks.GRASS_TURF_LAYER.get(), PUBlocks.GRASS_BALE.get());
     }
 
     @SubscribeEvent
@@ -28,6 +28,6 @@ public class PUColorHandlers {
             BlockState blockstate = ((BlockItem)itemStack.getItem()).getBlock().defaultBlockState();
 
             return blockColors.getColor(blockstate, null, null, tintIndex);
-        }, PUBlocks.GRASS_TURF.get(), PUBlocks.GRASS_TURF_LAYER.get(), PUBlocks.GRASS_BUNDLE.get());
+        }, PUBlocks.GRASS_TURF.get(), PUBlocks.GRASS_TURF_LAYER.get(), PUBlocks.GRASS_BALE.get());
     }
 }

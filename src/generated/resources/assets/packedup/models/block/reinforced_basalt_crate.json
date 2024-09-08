@@ -1,5 +1,5 @@
 {
-  "parent": "packedup:block/template_reinforced_resource_crate",
+  "parent": "packedup:block/template/reinforced_resource_crate",
   "textures": {
     "pile": "packedup:block/basalt_pile"
   }

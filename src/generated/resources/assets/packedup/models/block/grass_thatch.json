@@ -1,5 +1,5 @@
 {
-  "parent": "packedup:block/template_block_overlay",
+  "parent": "packedup:block/template/overlay_block",
   "textures": {
     "overlay": "packedup:block/grass_thatch_overlay",
     "side": "packedup:block/grass_thatch_side",

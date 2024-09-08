@@ -1,5 +1,5 @@
 {
-  "parent": "packedup:block/template_resource_bag",
+  "parent": "packedup:block/template/resource_bag",
   "textures": {
     "pile": "packedup:block/gravel_pile"
   }
