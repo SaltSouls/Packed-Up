@@ -1,5 +1,5 @@
 {
-  "parent": "packedup:block/template/quarter_slab_layer1",
+  "parent": "minecraft:block/slab",
   "textures": {
     "bottom": "packedup:block/podzol_turf_bottom",
     "side": "packedup:block/podzol_turf_side",

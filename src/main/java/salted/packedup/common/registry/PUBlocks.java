@@ -1,9 +1,6 @@
 package salted.packedup.common.registry;
 
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.HayBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.registries.DeferredRegister;
@@ -436,7 +433,11 @@ public class PUBlocks {
     // grass bundle/thatch
     public static RegistryObject<HayBlock> GRASS_BALE = BLOCKS.register("grass_bale",
             () -> new HayBlock(Block.Properties.copy(Blocks.GRASS_BLOCK)));
-    public static RegistryObject<HayBlock> GRASS_THATCH = BLOCKS.register("grass_thatch",
-            () -> new HayBlock(Block.Properties.copy(Blocks.HAY_BLOCK)));
+    public static RegistryObject<Block> GRASS_THATCH = BLOCKS.register("grass_thatch",
+            () -> new Block(Block.Properties.copy(Blocks.HAY_BLOCK)));
+    public static RegistryObject<StairBlock> GRASS_THATCH_STAIRS = BLOCKS.register("grass_thatch_stairs",
+            () -> new StairBlock(Blocks.HAY_BLOCK.defaultBlockState(), Block.Properties.copy(Blocks.HAY_BLOCK)));
+    public static RegistryObject<SlabBlock> GRASS_THATCH_SLAB = BLOCKS.register("grass_thatch_slab",
+            () -> new SlabBlock(Block.Properties.copy(Blocks.HAY_BLOCK)));
 
 }

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "packedup:block/grass_thatch_slab"
+    },
+    "type=double": {
+      "model": "packedup:block/grass_thatch"
+    },
+    "type=top": {
+      "model": "packedup:block/grass_thatch_slab_top"
+    }
+  }
+}

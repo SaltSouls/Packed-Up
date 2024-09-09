@@ -13,7 +13,7 @@
 				"south": {"uv": [0, 8, 16, 16], "texture": "#side", "cullface": "south"},
 				"west": {"uv": [0, 8, 16, 16], "texture": "#side", "cullface": "west"},
 				"up": {"uv": [0, 0, 16, 16], "texture": "#top"},
-				"down": {"uv": [0, 0, 16, 16], "texture": "#bottom", "cullface": "down"}
+				"down": {"uv": [0, 0, 16, 16], "texture": "#top", "cullface": "down"}
 			}
 		},
 		{
@@ -41,7 +41,6 @@
 			"name": "overlay_outer",
 			"from": [-0.01, -4.01, -0.01],
 			"to": [16.01, 0.01, 16.01],
-			"rotation": {"angle": 0, "axis": "y", "origin": [0, -2, 0]},
 			"faces": {
 				"north": {"uv": [0, 0, 16, 4], "texture": "#overlay", "cullface": "north"},
 				"east": {"uv": [0, 0, 16, 4], "texture": "#overlay", "cullface": "east"},
@@ -53,7 +52,6 @@
 			"name": "overlay_inner",
 			"from": [16.01, 0.01, 16.01],
 			"to": [-0.01, -4.01, -0.01],
-			"rotation": {"angle": 0, "axis": "y", "origin": [0, -2, 0]},
 			"faces": {
 				"north": {"uv": [0, 4, 16, 0], "texture": "#overlay", "cullface": "south"},
 				"east": {"uv": [0, 4, 16, 0], "texture": "#overlay", "cullface": "west"},

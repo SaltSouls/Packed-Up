@@ -3,8 +3,7 @@ package salted.packedup.data.models.builders;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
@@ -212,24 +211,27 @@ public class PUBlockBuilder extends BlockStateProvider {
     public BlockModelBuilder quarterSlabBlock(QuarterSlabBlock block, int layer, boolean bottomTop) {
         String name = nameFromSplit(blockName(block), "_layer", true);
         String suffix = "_layer" + layer;
-        String parentModel = "template/quarter_slab" + suffix;
+        String parentModel;
         ResourceLocation topTexture;
+        ResourceLocation bottomTexture;
 
         // special rules for turf blocks
         if (block instanceof TurfLayerBlock) {
-            topTexture = mcBlockLocation(nameFromSplit(name, "_turf", true) + "_top");
-        } else { topTexture = blockLocation(name + "_top"); }
-
-        if (bottomTop) {
-            return models().withExistingParent(blockLocation(name) + suffix, parent(parentModel))
-                    .texture("top", topTexture)
-                    .texture("side", blockLocation(name + "_side"))
-                    .texture("bottom", blockLocation(name + "_bottom"));
+            String parentBlock = nameFromSplit(name, "_turf", true);
+            topTexture = mcBlockLocation(parentBlock + "_top");
         }
-        return models().withExistingParent(blockLocation(name) + suffix, parent(parentModel))
+        else { topTexture = blockLocation(name + "_top"); }
+        if (bottomTop) { bottomTexture = blockLocation(name + "_bottom"); }
+        else { bottomTexture = topTexture; }
+
+        if (layer == 1) { parentModel = "block/slab"; }
+        else parentModel = parent("template/quarter_slab" + suffix);
+
+        return models().withExistingParent(blockLocation(name) + suffix, parentModel)
                 .texture("top", topTexture)
                 .texture("side", blockLocation(name + "_side"))
-                .texture("bottom", topTexture);
+                .texture("bottom", bottomTexture);
+
     }
 
     public void simpleQuarterSlabBlock(QuarterSlabBlock block, boolean randomRotation, boolean bottomTop, Property<?>... ignored) {
@@ -238,23 +240,17 @@ public class PUBlockBuilder extends BlockStateProvider {
         getVariantBuilder(block).forAllStatesExcept(state -> {
             IntegerProperty layersProperty = block.getQuarterLayers();
             int layers = state.getValue(layersProperty);
-            ResourceLocation topTexture;
-            ModelFile model;
 
-            // special rules for turf blocks
-            if(layers < 4) { model = quarterSlabBlock(block, layers - 1, bottomTop); }
-            else if(bottomTop && layers == 4) {
-                if (state.getBlock() instanceof TurfLayerBlock) {
-                    topTexture = mcBlockLocation(nameFromSplit(name, "_turf", true) + "_top");
-                } else { topTexture = blockLocation(name + "_top"); }
-                model = models().cubeBottomTop(name, blockLocation(name + "_side"), blockLocation(name + "_bottom"), topTexture);
-            } else {
-                topTexture = blockLocation(name + "_top");
-                model = models().cubeTop(name, blockLocation(name + "_side"), topTexture);
+            if (layers == 4) {
+                if (randomRotation) { return ConfiguredModel.allYRotations(existingModel(name), 0, false); }
+                else return ConfiguredModel.builder()
+                        .modelFile(existingModel(name))
+                        .build();
             }
+            ModelFile model = quarterSlabBlock(block, layers - 1, bottomTop);
 
             if (randomRotation) { return ConfiguredModel.allYRotations(model, 0, false); }
-            return ConfiguredModel.builder()
+            else return ConfiguredModel.builder()
                     .modelFile(model)
                     .build();
         }, ignored);
@@ -504,14 +500,14 @@ public class PUBlockBuilder extends BlockStateProvider {
         ResourceLocation topTexture;
         String suffix = "_layer" + layer;
         String parentModel;
-        if (tint) { parentModel = "template/tinted_overlay_block"; }
-        else { parentModel = "template/overlay_block"; }
-        String blockModel = blockLocation(name).toString();
+        String blockModel = blockLocation(name) + suffix;
 
-        if (layer < 3) {
+        if (layer == 1) {
+            if (tint) { parentModel = "template/tinted_overlay_slab"; }
+            else { parentModel = "template/overlay_slab"; }
+        } else {
             if (tint) { parentModel = "template/tinted_turf" + suffix; }
             else { parentModel = "template/turf" + suffix; }
-            blockModel = blockModel + suffix;
         }
 
         // special rules for grass turf
@@ -527,28 +523,18 @@ public class PUBlockBuilder extends BlockStateProvider {
     }
 
     public void simpleTurfBlock(QuarterSlabBlock block, boolean tint, Property<?>... ignored) {
+        String parentBlock = nameFromSplit(blockName(block), "_layer", true);
+
         getVariantBuilder(block).forAllStatesExcept(state -> {
             IntegerProperty layersProperty = block.getQuarterLayers();
             int layers = state.getValue(layersProperty);
 
-            return ConfiguredModel.allYRotations(turfBlock(block, layers - 1, tint), 0, false);
+            if (layers == 4) { return ConfiguredModel.allYRotations(existingModel(parentBlock), 0, false); }
+            else return ConfiguredModel.allYRotations(turfBlock(block, layers - 1, tint), 0, false);
         }, ignored);
     }
 
-    // overlay blocks
-    public BlockModelBuilder overlayBlock(Block block, boolean tint) {
-        String name = blockName(block);
-        String parentModel;
-        if (tint) { parentModel = "template/tinted_overlay_block"; }
-        else { parentModel = "template/overlay_block"; }
-        String blockModel = blockLocation(name).toString();
-
-        return models().withExistingParent(blockModel, parent(parentModel))
-                .texture("top", blockLocation(name + "_top"))
-                .texture("side", blockLocation(name + "_side"))
-                .texture("overlay", blockLocation(name + "_overlay"));
-    }
-
+    // grass bale block
     public void grassBaleBlock(RotatedPillarBlock block) {
         String name = blockName(block);
 
@@ -561,4 +547,111 @@ public class PUBlockBuilder extends BlockStateProvider {
         });
 
     }
+
+    // overlay blocks
+    public BlockModelBuilder simpleOverlayBlock(Block block, boolean tint) {
+        String name = blockName(block);
+        String parentModel;
+        ResourceLocation topTexture;
+        if (tint) { parentModel = "template/tinted_overlay_block"; }
+        else { parentModel = "template/overlay_block"; }
+        String blockModel = blockLocation(name).toString();
+
+        // special rules for turf blocks
+        if (block instanceof TurfBlock) {
+            String parentBlock = nameFromSplit(name, "_turf", true);
+            if (block.defaultBlockState().is(PUBlocks.GRASS_TURF.get())) {
+                topTexture = mcBlockLocation(parentBlock + "_block_top");
+            }
+            else topTexture = mcBlockLocation(parentBlock + "_top");
+        }
+        else { topTexture = blockLocation(name + "_top"); }
+
+        return models().withExistingParent(blockModel, parent(parentModel))
+                .texture("top", topTexture)
+                .texture("side", blockLocation(name + "_side"))
+                .texture("overlay", blockLocation(name + "_overlay"));
+    }
+
+    // stairs
+    private BlockModelBuilder overlayStairBlock(StairBlock block, StairsShape shape, Half half) {
+        String name = blockName(block);
+        String parentBlock = nameFromSplit(name, "_stairs", true);
+        String parentModel;
+        String blockModel = blockLocation(name).toString();
+
+        if (shape == StairsShape.INNER_LEFT || shape == StairsShape.INNER_RIGHT) {
+            parentModel = "template/overlay_inner_stairs";
+            blockModel = blockModel + "_inner";
+        } else if (shape == StairsShape.OUTER_LEFT || shape == StairsShape.OUTER_RIGHT) {
+            parentModel = "template/overlay_outer_stairs";
+            blockModel = blockModel + "_outer";
+        } else { parentModel = "template/overlay_stairs"; }
+
+        if (half == Half.TOP) {
+            parentModel = parentModel + "_top";
+            blockModel = blockModel + "_top";
+        }
+
+        return models().withExistingParent(blockModel, parent(parentModel))
+                .texture("top", blockLocation(parentBlock + "_top"))
+                .texture("side", blockLocation(parentBlock + "_side"))
+                .texture("overlay", blockLocation(parentBlock + "_overlay"));
+    }
+
+    public void simpleOverlayStairsBlock(StairBlock block) {
+        getVariantBuilder(block).forAllStatesExcept(state -> {
+            Direction facing = state.getValue(StairBlock.FACING);
+            Half half = state.getValue(StairBlock.HALF);
+            StairsShape shape = state.getValue(StairBlock.SHAPE);
+
+            int yRot = (int) facing.getClockWise().toYRot();
+            if (shape == StairsShape.INNER_LEFT || shape == StairsShape.OUTER_LEFT) { yRot += 270; }
+            if (shape != StairsShape.STRAIGHT && half == Half.TOP) { yRot += 90; }
+
+            yRot %= 360;
+            boolean uvlock = yRot != 0 || half == Half.TOP;
+            return ConfiguredModel.builder()
+                    .modelFile(overlayStairBlock(block, shape, half))
+                    .rotationY(yRot)
+                    .uvLock(uvlock)
+                    .build();
+            }, BlockStateProperties.WATERLOGGED);
+    }
+
+    // slabs
+    private BlockModelBuilder overlaySlabBlock(SlabBlock block, SlabType type) {
+        String name = blockName(block);
+        String parentBlock = nameFromSplit(name, "_slab", true);
+        String parentModel = "template/overlay_slab";
+        String blockModel = blockLocation(name).toString();
+
+        if (type == SlabType.TOP) {
+            parentModel = parentModel + "_top";
+            blockModel = blockModel + "_top";
+        }
+
+        return models().withExistingParent(blockModel, parent(parentModel))
+                .texture("top", blockLocation(parentBlock + "_top"))
+                .texture("side", blockLocation(parentBlock + "_side"))
+                .texture("overlay", blockLocation(parentBlock + "_overlay"));
+    }
+
+    public void simpleOverlaySlabBlock(SlabBlock block) {
+        getVariantBuilder(block).forAllStatesExcept(state -> {
+            String name = blockName(block);
+            String parentBlock = nameFromSplit(name, "_slab", true);
+            SlabType type = state.getValue(SlabBlock.TYPE);
+
+            if (type == SlabType.DOUBLE) {
+                return ConfiguredModel.builder()
+                        .modelFile(existingModel(parentBlock))
+                        .build();
+            }
+            else return ConfiguredModel.builder()
+                    .modelFile(overlaySlabBlock(block, type))
+                    .build();
+        }, BlockStateProperties.WATERLOGGED);
+    }
+
 }

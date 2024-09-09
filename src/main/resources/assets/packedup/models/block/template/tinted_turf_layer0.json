@@ -22,7 +22,6 @@
 			"name": "overlay_inner",
 			"from": [16.01, 0.01, 16.01],
 			"to": [-0.01, -4.01, -0.01],
-			"rotation": {"angle": 0, "axis": "y", "origin": [0, -2, 0]},
 			"faces": {
 				"north": {"uv": [0, 4, 16, 0], "texture": "#overlay", "cullface": "south", "tintindex": 0},
 				"east": {"uv": [0, 4, 16, 0], "texture": "#overlay", "cullface": "west", "tintindex": 0},
@@ -34,7 +33,6 @@
 			"name": "overlay_outer",
 			"from": [-0.01, -4.01, -0.01],
 			"to": [16.01, 0.01, 16.01],
-			"rotation": {"angle": 0, "axis": "y", "origin": [0, -2, 0]},
 			"faces": {
 				"north": {"uv": [0, 0, 16, 4], "texture": "#overlay", "cullface": "north", "tintindex": 0},
 				"east": {"uv": [0, 0, 16, 4], "texture": "#overlay", "cullface": "east", "tintindex": 0},

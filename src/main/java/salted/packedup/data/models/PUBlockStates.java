@@ -227,12 +227,11 @@ public class PUBlockStates extends PUBlockBuilder {
         }
 
         // turf
-        String grassTurf = blockName(PUBlocks.GRASS_TURF.get());
-        this.simpleBlock(PUBlocks.GRASS_TURF.get(), withRandomRotation(models().withExistingParent(grassTurf, blockLocation("template/tinted_overlay_block"))));
+        this.simpleBlock(PUBlocks.GRASS_TURF.get(), withRandomRotation(simpleOverlayBlock(PUBlocks.GRASS_TURF.get(), true)));
         this.simpleTurfBlock(PUBlocks.GRASS_TURF_LAYER.get(), true, BlockStateProperties.WATERLOGGED);
 
         String myceliumTurf = blockName(PUBlocks.MYCELIUM_TURF.get());
-        this.simpleBlock(PUBlocks.MYCELIUM_TURF.get(), withRandomRotation(models().withExistingParent(myceliumTurf, blockLocation("template/overlay_block"))));
+        this.simpleBlock(PUBlocks.MYCELIUM_TURF.get(), withRandomRotation(simpleOverlayBlock(PUBlocks.MYCELIUM_TURF.get(), false)));
         this.simpleTurfBlock(PUBlocks.MYCELIUM_TURF_LAYER.get(), false, BlockStateProperties.WATERLOGGED);
 
         String podzolTurf = blockName(PUBlocks.PODZOL_TURF.get());
@@ -241,7 +240,9 @@ public class PUBlockStates extends PUBlockBuilder {
 
         // grass bundle/thatch
         this.grassBaleBlock(PUBlocks.GRASS_BALE.get());
-        this.simpleBlock(PUBlocks.GRASS_THATCH.get(), withRandomRotation(overlayBlock(PUBlocks.GRASS_THATCH.get(), false)));
+        this.simpleBlock(PUBlocks.GRASS_THATCH.get(), simpleOverlayBlock(PUBlocks.GRASS_THATCH.get(), false));
+        this.simpleOverlayStairsBlock(PUBlocks.GRASS_THATCH_STAIRS.get());
+        this.simpleOverlaySlabBlock(PUBlocks.GRASS_THATCH_SLAB.get());
     }
 
 }

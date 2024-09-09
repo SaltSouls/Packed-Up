@@ -1,21 +1,7 @@
 {
   "variants": {
-    "": [
-      {
-        "model": "packedup:block/grass_thatch"
-      },
-      {
-        "model": "packedup:block/grass_thatch",
-        "y": 90
-      },
-      {
-        "model": "packedup:block/grass_thatch",
-        "y": 180
-      },
-      {
-        "model": "packedup:block/grass_thatch",
-        "y": 270
-      }
-    ]
+    "": {
+      "model": "packedup:block/grass_thatch"
+    }
   }
 }

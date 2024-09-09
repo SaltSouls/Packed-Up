@@ -161,6 +161,10 @@ public class PUItems {
             () -> new BlockItem(PUBlocks.GRASS_BALE.get(), basicItem()));
     public static final RegistryObject<Item> GRASS_THATCH = registerWithTab("grass_thatch",
             () -> new BlockItem(PUBlocks.GRASS_THATCH.get(), basicItem()));
+    public static final RegistryObject<Item> GRASS_THATCH_STAIRS = registerWithTab("grass_thatch_stairs",
+            () -> new BlockItem(PUBlocks.GRASS_THATCH_STAIRS.get(), basicItem()));
+    public static final RegistryObject<Item> GRASS_THATCH_SLAB = registerWithTab("grass_thatch_slab",
+            () -> new BlockItem(PUBlocks.GRASS_THATCH_SLAB.get(), basicItem()));
     // resource bags
     public static final RegistryObject<Item> DIRT_BAG = registerWithTab("dirt_bag",
             () -> new BlockItem(PUBlocks.DIRT_BAG.get(), basicItem()));
