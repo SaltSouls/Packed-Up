@@ -2,7 +2,7 @@
 	"author": "TwinSouls",
 	"credit": "Made with Blockbench",
 	"render_type": "minecraft:cutout",
-	"parent": "packedup:block/template/quarter_slab_all",
+	"parent": "block/thin_block",
 	"textures": { "particle": "#top" },
 	"elements": [
 		{

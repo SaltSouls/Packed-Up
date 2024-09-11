@@ -1,7 +1,7 @@
 {
 	"author": "TwinSouls",
 	"credit": "Made with Blockbench",
-	"parent": "packedup:block/template/quarter_slab_all",
+	"parent": "block/thin_block",
 	"textures": {
 		"particle": "#top",
 		"top": "packedup:block/pallet_top",
