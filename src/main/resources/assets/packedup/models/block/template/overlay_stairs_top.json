@@ -2,35 +2,11 @@
 	"author": "TwinSouls",
 	"credit": "Made with Blockbench",
 	"render_type": "minecraft:cutout",
-	"parent": "block/stairs",
-	"groups": [
-		0,
-		1,
-		{
-			"name": "overlay",
-			"origin": [6, 6, 0],
-			"color": 0,
-			"children": [
-				{
-					"name": "outer",
-					"origin": [6, 6, 0],
-					"color": 0,
-					"children": [2, 3]
-				},
-				{
-					"name": "inner",
-					"origin": [6, 6, 0],
-					"color": 0,
-					"children": [4, 5]
-				}
-			]
-		}
-	],
+	"textures": { "particle": "#top" },
 	"elements": [
 		{
 			"from": [0, 8, 0],
 			"to": [16, 16, 16],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 5, 8]},
 			"faces": {
 				"north": {"uv": [0, 0, 16, 8], "texture": "#side", "cullface": "north"},
 				"east": {"uv": [0, 0, 16, 8], "texture": "#side", "cullface": "east"},
@@ -43,7 +19,6 @@
 		{
 			"from": [8, 0, 0],
 			"to": [16, 8, 16],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 5, 8]},
 			"faces": {
 				"north": {"uv": [0, 8, 8, 16], "texture": "#side", "cullface": "north"},
 				"east": {"uv": [0, 8, 16, 16], "texture": "#side", "cullface": "east"},
@@ -56,7 +31,6 @@
 			"name": "overlay_outer",
 			"from": [-0.01, 3.99, -0.01],
 			"to": [8.01, 8.01, 16.01],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 5, 8]},
 			"faces": {
 				"north": {"uv": [8, 0, 16, 4], "texture": "#overlay", "cullface": "north"},
 				"south": {"uv": [0, 0, 8, 4], "texture": "#overlay", "cullface": "south"},
@@ -67,7 +41,6 @@
 			"name": "overlay_outer",
 			"from": [7.99, -4.01, -0.01],
 			"to": [16.01, 0.01, 16.01],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 5, 8]},
 			"faces": {
 				"north": {"uv": [0, 0, 8, 4], "texture": "#overlay", "cullface": "north"},
 				"east": {"uv": [0, 0, 16, 4], "texture": "#overlay", "cullface": "east"},
@@ -79,7 +52,6 @@
 			"name": "overlay_inner",
 			"from": [8.01, 8.01, 16.01],
 			"to": [-0.01, 3.99, -0.01],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 5, 8]},
 			"faces": {
 				"north": {"uv": [0, 4, 8, 0], "texture": "#overlay", "cullface": "south"},
 				"east": {"uv": [0, 4, 16, 0], "texture": "#overlay", "cullface": "west"},
@@ -90,7 +62,6 @@
 			"name": "overlay_inner",
 			"from": [16.01, 0.01, 16.01],
 			"to": [7.99, -4.01, -0.01],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 5, 8]},
 			"faces": {
 				"north": {"uv": [8, 4, 16, 0], "texture": "#overlay", "cullface": "south"},
 				"east": {"uv": [0, 4, 16, 0], "texture": "#overlay"},

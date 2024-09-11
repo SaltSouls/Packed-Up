@@ -2,7 +2,7 @@
 	"author": "TwinSouls",
 	"credit": "Made with Blockbench",
 	"render_type": "minecraft:cutout",
-	"parent": "block/inner_stairs",
+	"textures": { "particle": "#top" },
 	"elements": [
 		{
 			"from": [0, 0, 0],

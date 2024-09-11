@@ -5,11 +5,13 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import salted.packedup.common.block.*;
+import salted.packedup.common.block.CrateLidBlock;
+import salted.packedup.common.block.HorizontalBlock;
+import salted.packedup.common.block.HorizontalSlabBlock;
+import salted.packedup.common.block.QuarterSlabBlock;
 import salted.packedup.common.registry.PUBlocks;
 import salted.packedup.data.models.builders.PUBlockBuilder;
 
-import javax.script.ScriptEngine;
 import java.util.Set;
 
 import static salted.packedup.data.utils.NameUtils.*;
@@ -25,12 +27,12 @@ public class PUBlockStates extends PUBlockBuilder {
     @Override
     protected void registerStatesAndModels() {
         // crate lids
-        Set<Block> lids = Sets.newHashSet(
+        Set<CrateLidBlock> lids = Sets.newHashSet(
                 PUBlocks.CRATE_LID.get(),
                 PUBlocks.REINFORCED_CRATE_LID.get()
         );
-        for (Block lid : lids) {
-            this.horizontalBlock(lid, $ -> crateLid(lid), BlockStateProperties.WATERLOGGED);
+        for (CrateLidBlock lid : lids) {
+            this.simpleCrateLid(lid, BlockStateProperties.WATERLOGGED);
         }
 
         // resource crates
@@ -90,7 +92,7 @@ public class PUBlockStates extends PUBlockBuilder {
                 PUBlocks.WARPED_FUNGUS_CRATE.get()
         );
         for (Block crate : mushroomCrates) {
-            this.simpleMushroomCrate(crate);
+            this.mushroomCrate(crate);
         }
 
         // resource bags

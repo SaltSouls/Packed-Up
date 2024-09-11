@@ -2,15 +2,14 @@ package salted.packedup.data.recipes;
 
 import com.google.common.collect.Sets;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import salted.packedup.common.registry.PUItems;
+import vectorwing.farmersdelight.data.recipe.SmeltingRecipes;
 
 import java.util.Set;
 import java.util.function.Consumer;
@@ -134,6 +133,7 @@ public class PUCraftingRecipes extends PURecipeBuilder {
         for (Item bundle : bookBundles) {
             simpleShapeless(bundle, Items.BOOK, false, consumer);
         }
+
         // book bundle from pile
         simpleSmallCompact(PUItems.BOOK_PILE.get(), PUItems.BOOK_BUNDLE.get(), consumer);
         simpleSmallCompact(PUItems.WHITE_BOOK_PILE.get(), PUItems.WHITE_BOOK_BUNDLE.get(), consumer);
@@ -152,6 +152,20 @@ public class PUCraftingRecipes extends PURecipeBuilder {
         simpleSmallCompact(PUItems.PURPLE_BOOK_PILE.get(), PUItems.PURPLE_BOOK_BUNDLE.get(), consumer);
         simpleSmallCompact(PUItems.MAGENTA_BOOK_PILE.get(), PUItems.MAGENTA_BOOK_BUNDLE.get(), consumer);
         simpleSmallCompact(PUItems.PINK_BOOK_PILE.get(), PUItems.PINK_BOOK_BUNDLE.get(), consumer);
+
+        // turf blocks
+        simpleCombined(PUItems.GRASS_TURF.get(), Blocks.GRASS_BLOCK, false, consumer);
+        simpleCombined(PUItems.PODZOL_TURF.get(), Blocks.PODZOL, false, consumer);
+        simpleCombined(PUItems.MYCELIUM_TURF.get(), Blocks.MYCELIUM, false, consumer);
+
+        // turf blocks from layer
+        simpleSmallCompact(PUItems.GRASS_TURF_LAYER.get(), PUItems.GRASS_TURF.get(), consumer);
+        simpleSmallCompact(PUItems.PODZOL_TURF_LAYER.get(), PUItems.PODZOL_TURF.get(), consumer);
+        simpleSmallCompact(PUItems.MYCELIUM_TURF_LAYER.get(), PUItems.MYCELIUM_TURF.get(), consumer);
+
+        // grass bale
+        simpleCombined(PUItems.GRASS_BALE.get(), Blocks.GRASS, false, consumer);
+        simpleSmallCompact(Blocks.TALL_GRASS, PUItems.GRASS_BALE.get(), consumer);
     }
 
     private static void recipesModifiedVanilla(Consumer<FinishedRecipe> consumer) {
@@ -183,7 +197,7 @@ public class PUCraftingRecipes extends PURecipeBuilder {
                 .pattern("lll")
                 .define('l', Items.STICK)
                 .define('#', ItemTags.WOODEN_SLABS)
-                .unlockedBy("has_slab", hasItems(Items.STICK))
+                .unlockedBy("has_stick", hasItems(Items.STICK))
                 .save(consumer);
 
         // colored bundles
@@ -203,6 +217,7 @@ public class PUCraftingRecipes extends PURecipeBuilder {
         bookBundleDyeing(Tags.Items.DYES_PURPLE, PUItems.PURPLE_BOOK_BUNDLE.get(), consumer);
         bookBundleDyeing(Tags.Items.DYES_MAGENTA, PUItems.MAGENTA_BOOK_BUNDLE.get(), consumer);
         bookBundleDyeing(Tags.Items.DYES_PINK, PUItems.PINK_BOOK_BUNDLE.get(), consumer);
+
         // bundle slabs
         simpleSlab(PUItems.BOOK_BUNDLE.get(), PUItems.BOOK_BUNDLE_SLAB.get(), consumer);
         simpleSlab(PUItems.WHITE_BOOK_BUNDLE.get(), PUItems.WHITE_BOOK_BUNDLE_SLAB.get(), consumer);
@@ -221,6 +236,7 @@ public class PUCraftingRecipes extends PURecipeBuilder {
         simpleSlab(PUItems.PURPLE_BOOK_BUNDLE.get(), PUItems.PURPLE_BOOK_BUNDLE_SLAB.get(), consumer);
         simpleSlab(PUItems.MAGENTA_BOOK_BUNDLE.get(), PUItems.MAGENTA_BOOK_BUNDLE_SLAB.get(), consumer);
         simpleSlab(PUItems.PINK_BOOK_BUNDLE.get(), PUItems.PINK_BOOK_BUNDLE_SLAB.get(), consumer);
+
         // book bundle slab from pile
         simpleStacked(PUItems.BOOK_PILE.get(), PUItems.BOOK_BUNDLE_SLAB.get(), consumer);
         simpleStacked(PUItems.WHITE_BOOK_PILE.get(), PUItems.WHITE_BOOK_BUNDLE_SLAB.get(), consumer);
@@ -239,6 +255,11 @@ public class PUCraftingRecipes extends PURecipeBuilder {
         simpleStacked(PUItems.PURPLE_BOOK_PILE.get(), PUItems.PURPLE_BOOK_BUNDLE_SLAB.get(), consumer);
         simpleStacked(PUItems.MAGENTA_BOOK_PILE.get(), PUItems.MAGENTA_BOOK_BUNDLE_SLAB.get(), consumer);
         simpleStacked(PUItems.PINK_BOOK_PILE.get(), PUItems.PINK_BOOK_BUNDLE_SLAB.get(), consumer);
+
+        // grass thatch
+        simpleThatch(PUItems.GRASS_BALE.get(), PUItems.GRASS_THATCH.get(), consumer);
+        simpleStairs(PUItems.GRASS_THATCH.get(), PUItems.GRASS_THATCH_STAIRS.get(), consumer);
+        simpleSlab(PUItems.GRASS_THATCH.get(), PUItems.GRASS_THATCH_SLAB.get(), consumer);
     }
 
     @Override

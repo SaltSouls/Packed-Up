@@ -4,13 +4,11 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import org.slf4j.Logger;
 import salted.packedup.PackedUp;
 
 import static salted.packedup.data.utils.NameUtils.*;
 
 public class PUItemBuilder extends ItemModelProvider {
-    static Logger log = PackedUp.LOGGER;
 
     public PUItemBuilder(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, PackedUp.MODID, existingFileHelper);

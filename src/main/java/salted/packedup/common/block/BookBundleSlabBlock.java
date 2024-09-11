@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
-import static salted.packedup.common.util.BundleUtils.shearBundle;
+import static salted.packedup.common.block.utils.BundleUtils.shearBundle;
 
 public class BookBundleSlabBlock extends HorizontalSlabBlock {
 

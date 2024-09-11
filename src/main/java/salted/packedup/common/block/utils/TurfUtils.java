@@ -1,4 +1,4 @@
-package salted.packedup.common.util;
+package salted.packedup.common.block.utils;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

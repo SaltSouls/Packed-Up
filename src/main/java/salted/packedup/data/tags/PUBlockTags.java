@@ -41,6 +41,11 @@ public class PUBlockTags extends BlockTagsProvider {
                 PUBlocks.MYCELIUM_TURF.get(),
                 PUBlocks.MYCELIUM_TURF_LAYER.get()
         );
+
+        tag(BlockTags.COMBINATION_STEP_SOUND_BLOCKS).add(
+                PUBlocks.CRATE_LID.get(),
+                PUBlocks.REINFORCED_CRATE_LID.get()
+        );
     }
 
     protected void registerModTags() {
@@ -49,7 +54,9 @@ public class PUBlockTags extends BlockTagsProvider {
 
         tag(ModTags.STRAW_BLOCKS).add(
                 PUBlocks.GRASS_BALE.get(),
-                PUBlocks.GRASS_THATCH.get()
+                PUBlocks.GRASS_THATCH.get(),
+                PUBlocks.GRASS_THATCH_STAIRS.get(),
+                PUBlocks.GRASS_THATCH_SLAB.get()
         );
 
         tag(PUTags.TURF_BLOCKS).add(

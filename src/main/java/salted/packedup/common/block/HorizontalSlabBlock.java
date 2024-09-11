@@ -35,7 +35,7 @@ public class HorizontalSlabBlock extends SlabBlock {
             BlockState state1 = this.defaultBlockState().setValue(TYPE, SlabType.BOTTOM).setValue(FACING, facing).setValue(WATERLOGGED, flag);
             Direction dir = ctx.getClickedFace();
 
-            return dir != Direction.DOWN && (dir == Direction.UP || !(ctx.getClickLocation().y - (double) pos.getY() > 0.5D)) ? state1 : state1.setValue(TYPE, SlabType.TOP).setValue(FACING, facing);
+            return dir != Direction.DOWN && (dir == Direction.UP || !(ctx.getClickLocation().y - pos.getY() > 0.5D)) ? state1 : state1.setValue(TYPE, SlabType.TOP);
         }
     }
 

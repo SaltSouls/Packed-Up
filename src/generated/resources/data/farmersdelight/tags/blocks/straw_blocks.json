@@ -4,6 +4,8 @@
   ],
   "values": [
     "packedup:grass_bale",
-    "packedup:grass_thatch"
+    "packedup:grass_thatch",
+    "packedup:grass_thatch_stairs",
+    "packedup:grass_thatch_slab"
   ]
 }

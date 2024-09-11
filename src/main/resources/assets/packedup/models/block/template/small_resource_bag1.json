@@ -1,0 +1,61 @@
+{
+	"author": "TwinSouls",
+	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
+	"textures": {
+		"particle": "#pile",
+		"bag": "packedup:block/small_bag"
+	},
+	"elements": [
+		{
+			"name": "pile",
+			"from": [9, 9, 7],
+			"to": [15, 10, 13],
+			"faces": {
+				"north": {"uv": [5, 4, 11, 5], "texture": "#pile"},
+				"east": {"uv": [11, 5, 12, 11], "rotation": 90, "texture": "#pile"},
+				"south": {"uv": [5, 11, 11, 12], "texture": "#pile"},
+				"west": {"uv": [4, 11, 5, 5], "rotation": 90, "texture": "#pile"},
+				"up": {"uv": [5, 5, 11, 11], "texture": "#pile"}
+			}
+		},
+		{
+			"name": "bag",
+			"from": [8, 0, 6],
+			"to": [16, 9, 14],
+			"faces": {
+				"north": {"uv": [8, 7, 16, 16], "texture": "#bag"},
+				"east": {"uv": [8, 7, 16, 16], "texture": "#bag", "cullface": "east"},
+				"south": {"uv": [8, 7, 16, 16], "texture": "#bag"},
+				"west": {"uv": [8, 7, 16, 16], "texture": "#bag"},
+				"up": {"uv": [0, 0, 8, 8], "texture": "#bag"},
+				"down": {"uv": [0, 8, 8, 16], "texture": "#bag", "cullface": "down"}
+			}
+		},
+		{
+			"name": "pile",
+			"from": [1, 9, 3],
+			"to": [7, 10, 9],
+			"faces": {
+				"north": {"uv": [5, 4, 11, 5], "texture": "#pile"},
+				"east": {"uv": [11, 5, 12, 11], "rotation": 90, "texture": "#pile"},
+				"south": {"uv": [5, 11, 11, 12], "texture": "#pile"},
+				"west": {"uv": [4, 11, 5, 5], "rotation": 90, "texture": "#pile"},
+				"up": {"uv": [5, 5, 11, 11], "texture": "#pile"}
+			}
+		},
+		{
+			"name": "bag",
+			"from": [0, 0, 2],
+			"to": [8, 9, 10],
+			"faces": {
+				"north": {"uv": [8, 7, 16, 16], "texture": "#bag"},
+				"east": {"uv": [8, 7, 16, 16], "texture": "#bag"},
+				"south": {"uv": [8, 7, 16, 16], "texture": "#bag"},
+				"west": {"uv": [8, 7, 16, 16], "texture": "#bag", "cullface": "west"},
+				"up": {"uv": [0, 0, 8, 8], "texture": "#bag"},
+				"down": {"uv": [0, 8, 8, 16], "texture": "#bag", "cullface": "down"}
+			}
+		}
+	]
+}

@@ -3,7 +3,10 @@ package salted.packedup.data.models.builders;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
@@ -11,7 +14,6 @@ import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import org.slf4j.Logger;
 import salted.packedup.PackedUp;
 import salted.packedup.common.block.*;
 import salted.packedup.common.registry.PUBlocks;
@@ -22,7 +24,6 @@ import static salted.packedup.data.utils.NameUtils.*;
 
 public class PUBlockBuilder extends BlockStateProvider {
     private static final int DEFAULT_HORIZONTAL_OFFSET = 180;
-    static Logger log = PackedUp.LOGGER;
 
     public PUBlockBuilder(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, PackedUp.MODID, existingFileHelper);
@@ -43,11 +44,11 @@ public class PUBlockBuilder extends BlockStateProvider {
         return new ModelFile.ExistingModelFile(blockLocation(path), models().existingFileHelper);
     }
 
-    public String parent(String model) {
+    private String parent(String model) {
         return existingModel(model).getLocation().toString();
     }
 
-    public int defaultRotation(Direction dir) {
+    private int defaultRotation(Direction dir) {
         return ((int) (dir).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360;
     }
 
@@ -103,15 +104,33 @@ public class PUBlockBuilder extends BlockStateProvider {
                 .texture("top", blockLocation(name + "_top")));
     }
 
-    public BlockModelBuilder crateLid(Block block) {
+    // crate lids
+    public BlockModelBuilder crateLid(CrateLidBlock block, Half half) {
         String name = blockName(block);
         String blockModel = blockLocation(name).toString();
-        String parentModel = "template/crate_lid";
+        String parentModel;
+
+        if (half.equals(Half.TOP)) {
+            parentModel = "template/crate_lid_top";
+            blockModel = blockModel + "_top";
+        }
+        else parentModel = "template/crate_lid";
 
         return models().withExistingParent(blockModel, parent(parentModel))
                 .texture("top", blockLocation(name + "_top"))
                 .texture("side", blockLocation(name + "_side"))
                 .texture("bottom", blockLocation(name + "_bottom"));
+    }
+
+    public void simpleCrateLid(CrateLidBlock block, Property<?>... ignored) {
+        getVariantBuilder(block).forAllStatesExcept(state -> {
+            Half half = state.getValue(BlockStateProperties.HALF);
+
+            return ConfiguredModel.builder()
+                    .modelFile(crateLid(block, half))
+                    .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + DEFAULT_HORIZONTAL_OFFSET) % 360)
+                    .build();
+        }, ignored);
     }
 
     public BlockModelBuilder resourceCrate(Block block, boolean alt) {
@@ -145,7 +164,7 @@ public class PUBlockBuilder extends BlockStateProvider {
         String name = blockName(block);
         String resource = nameFromSplit(name, "_pile", true);
         String blockModel = blockLocation(name).toString();
-        String parentModel = "template/resource_pile";
+        String parentModel = "template/pile";
 
         return models().withExistingParent(blockModel, parent(parentModel))
                 .texture("top", blockLocation(resource + "_pallet_top"))
@@ -173,7 +192,7 @@ public class PUBlockBuilder extends BlockStateProvider {
                 blockLocation(name + "_top")));
     }
 
-    public void simpleMushroomCrate(Block block) {
+    public void mushroomCrate(Block block) {
         String name = blockName(block);
         String blockModel = blockLocation(name).toString();
         String parentModel = "template/mushroom_crate";
@@ -208,7 +227,7 @@ public class PUBlockBuilder extends BlockStateProvider {
     }
 
     // quarter slab blocks
-    public BlockModelBuilder quarterSlabBlock(QuarterSlabBlock block, int layer, boolean bottomTop) {
+    private BlockModelBuilder quarterSlabBlock(QuarterSlabBlock block, int layer, boolean bottomTop) {
         String name = nameFromSplit(blockName(block), "_layer", true);
         String suffix = "_layer" + layer;
         String parentModel;
@@ -257,7 +276,7 @@ public class PUBlockBuilder extends BlockStateProvider {
     }
 
     // book blocks
-    public BlockModelBuilder bookPile(QuarterSlabBlock block, int layer, boolean isColored, boolean isAlt, int variant) {
+    private BlockModelBuilder bookPile(QuarterSlabBlock block, int layer, boolean isColored, boolean isAlt, int variant) {
         String name = blockName(block);
         String suffix = "_layer" + layer;
         String prefix = "";
@@ -333,7 +352,7 @@ public class PUBlockBuilder extends BlockStateProvider {
         }, ignored);
     }
 
-    public BlockModelBuilder bookBundle(HorizontalBlock block, boolean isColored, boolean isAlt, int variant) {
+    private BlockModelBuilder bookBundle(HorizontalBlock block, boolean isColored, boolean isAlt, int variant) {
         String temp = blockName(block);
         String name = nameFromSplit(temp, "_bundle", true) + "_pile";
         String prefix = "";
@@ -404,7 +423,7 @@ public class PUBlockBuilder extends BlockStateProvider {
         });
     }
 
-    public BlockModelBuilder bookBundleSlab(HorizontalSlabBlock block, SlabType type, boolean isColored, boolean isAlt, int variant) {
+    private BlockModelBuilder bookBundleSlab(HorizontalSlabBlock block, SlabType type, boolean isColored, boolean isAlt, int variant) {
         String temp = blockName(block);
         String name = nameFromSplit(temp, "_bundle", true) + "_pile";
         String slabType = "";
@@ -494,7 +513,7 @@ public class PUBlockBuilder extends BlockStateProvider {
     }
 
     // turf blocks
-    public BlockModelBuilder turfBlock(QuarterSlabBlock block, int layer, boolean tint) {
+    private BlockModelBuilder turfBlock(QuarterSlabBlock block, int layer, boolean tint) {
         String name = nameFromSplit(blockName(block), "_layer", true);
         String topName = nameFromSplit(name, "_turf", true);
         ResourceLocation topTexture;

@@ -1,10 +1,12 @@
 package salted.packedup.data.recipes;
 
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import salted.packedup.PackedUp;
 import salted.packedup.common.registry.PUItems;
@@ -107,14 +109,24 @@ public class PURecipeBuilder extends RecipeProvider {
                 .save(consumer);
     }
 
+    protected static void simpleStairs(ItemLike input, ItemLike output, Consumer<FinishedRecipe> consumer) {
+        String item = itemName(input.asItem());
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, output, 4)
+                .pattern("#  ")
+                .pattern("## ")
+                .pattern("###")
+                .define('#', input)
+                .unlockedBy("has_" + item, hasItems(input))
+                .save(consumer);
+    }
+
     // easy shapeless recipes
     protected static void simpleShapeless(ItemLike input, ItemLike output, boolean split, Consumer<FinishedRecipe> consumer) {
         String item = itemName(input.asItem());
         String resource = itemName(output.asItem());
         String type = "_" + item;
-        if (split) {
-            type = nameFromSplit(item, resource, false);
-        }
+        if (split) { type = nameFromSplit(item, resource, false); }
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, output, 9)
                 .requires(input)
@@ -156,6 +168,53 @@ public class PURecipeBuilder extends RecipeProvider {
                 .define('o', dye)
                 .unlockedBy("has_book_bundle", hasItems(PUItems.BOOK_BUNDLE.get()))
                 .save(consumer);
+    }
+
+    // grass thatch smelting
+    protected static void simpleThatch(ItemLike input, ItemLike output, Consumer<FinishedRecipe> consumer) {
+        simpleFunace(input, output, consumer);
+        simpleCampfire(input, output, consumer);
+        simpleSmoking(input, output, consumer);
+    }
+
+    // smelting recipes
+    protected static void simpleFunace(ItemLike input, ItemLike output, Consumer<FinishedRecipe> consumer) {
+        String item = itemName(input.asItem());
+        Ingredient ingredient = Ingredient.of(input);
+
+        SimpleCookingRecipeBuilder.smelting(ingredient, RecipeCategory.DECORATIONS, output, 0.35F, 200)
+                .unlockedBy("has_" + item, hasItems(input))
+                .save(consumer);
+    }
+
+    protected static void simpleSmoking(ItemLike input, ItemLike output, Consumer<FinishedRecipe> consumer) {
+        String item = itemName(input.asItem());
+        String itemOut = PackedUp.resLoc(itemName(output.asItem())).toString();
+        Ingredient ingredient = Ingredient.of(input);
+
+        SimpleCookingRecipeBuilder.smoking(ingredient , RecipeCategory.DECORATIONS, output, 0.35F, 100)
+                .unlockedBy("has_" + item, hasItems(input))
+                .save(consumer, itemOut + "_from_smoking");
+    }
+
+    protected static void simpleBlasting(ItemLike input, ItemLike output, Consumer<FinishedRecipe> consumer) {
+        String item = itemName(input.asItem());
+        String itemOut = PackedUp.resLoc(itemName(output.asItem())).toString();
+        Ingredient ingredient = Ingredient.of(input);
+
+        SimpleCookingRecipeBuilder.blasting(ingredient, RecipeCategory.DECORATIONS, output, 0.35F, 100)
+                .unlockedBy("has_" + item, hasItems(input))
+                .save(consumer, itemOut + "_from_blasting");
+    }
+
+    protected static void simpleCampfire(ItemLike input, ItemLike output, Consumer<FinishedRecipe> consumer) {
+        String item = itemName(input.asItem());
+        String itemOut = PackedUp.resLoc(itemName(output.asItem())).toString();
+        Ingredient ingredient = Ingredient.of(input);
+
+        SimpleCookingRecipeBuilder.campfireCooking(ingredient, RecipeCategory.DECORATIONS, output, 0.35F, 600)
+                .unlockedBy("has_" + item, hasItems(input))
+                .save(consumer, itemOut + "_from_campfire_cooking");
     }
 
 }

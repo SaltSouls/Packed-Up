@@ -116,7 +116,8 @@ public class PUBlockLoot extends BlockLootSubProvider {
                 PUBlocks.PODZOL_TURF.get(),
                 PUBlocks.MYCELIUM_TURF.get(),
                 PUBlocks.GRASS_BALE.get(),
-                PUBlocks.GRASS_THATCH.get()
+                PUBlocks.GRASS_THATCH.get(),
+                PUBlocks.GRASS_THATCH_STAIRS.get()
         );
         for (Block block : blocks) {
             dropSelf(block);
@@ -139,7 +140,8 @@ public class PUBlockLoot extends BlockLootSubProvider {
                 PUBlocks.BLUE_BOOK_BUNDLE_SLAB.get(),
                 PUBlocks.PURPLE_BOOK_BUNDLE_SLAB.get(),
                 PUBlocks.MAGENTA_BOOK_BUNDLE_SLAB.get(),
-                PUBlocks.PINK_BOOK_BUNDLE_SLAB.get()
+                PUBlocks.PINK_BOOK_BUNDLE_SLAB.get(),
+                PUBlocks.GRASS_THATCH_SLAB.get()
         );
         for (Block slab : slabs) {
             createHorizontalSlabItemTable(slab);

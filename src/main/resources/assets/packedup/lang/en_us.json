@@ -67,6 +67,18 @@
   "block.packedup.glowstone_dust_bag": "Bag of Glowstone Dust",
   "block.packedup.ender_pearl_bag": "Bag of Ender Pearls",
 
+  "block.packedup.grass_bale": "Grass Bale",
+  "block.packedup.grass_thatch": "Grass Thatch",
+  "block.packedup.grass_thatch_stairs": "Grass Thatch Stairs",
+  "block.packedup.grass_thatch_slab": "Grass Thatch Slab",
+
+  "block.packedup.grass_turf": "Grass Turf",
+  "block.packedup.grass_turf_layer": "Grass Turf Layer",
+  "block.packedup.podzol_turf": "Podzol Turf",
+  "block.packedup.podzol_turf_layer": "Podzol Turf Layer",
+  "block.packedup.mycelium_turf": "Mycelium Turf",
+  "block.packedup.mycelium_turf_layer": "Mycelium Turf Layer",
+
   "block.packedup.dirt_bag": "Bag of Dirt",
   "block.packedup.rooted_dirt_bag": "Bag of Rooted Dirt",
   "block.packedup.coarse_dirt_bag": "Bag of Coarse Dirt",
@@ -76,6 +88,8 @@
   "block.packedup.egg_crate": "Egg Crate",
   "block.packedup.red_mushroom_crate": "Red Mushroom Crate",
   "block.packedup.brown_mushroom_crate": "Brown Mushroom Crate",
+  "block.packedup.crimson_fungus_crate": "Crimson Fungus Crate",
+  "block.packedup.warped_fungus_crate": "Warped Fungus Crate",
   "block.packedup.crate_lid": "Crate Lid",
   "block.packedup.reinforced_crate_lid": "Reinforced Crate Lid",
   "block.packedup.gunpowder_crate": "Gunpowder Crate",

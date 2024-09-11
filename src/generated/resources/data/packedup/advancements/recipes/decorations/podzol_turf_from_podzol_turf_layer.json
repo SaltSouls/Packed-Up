@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_podzol_turf_layer": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "packedup:podzol_turf_layer"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:podzol_turf_from_podzol_turf_layer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_podzol_turf_layer",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:podzol_turf_from_podzol_turf_layer"
+    ]
+  },
+  "sends_telemetry_event": false
+}

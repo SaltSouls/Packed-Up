@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
-import static salted.packedup.common.util.TurfUtils.*;
+import static salted.packedup.common.block.utils.TurfUtils.*;
 
 public class TurfBlock extends Block implements BonemealableBlock {
 

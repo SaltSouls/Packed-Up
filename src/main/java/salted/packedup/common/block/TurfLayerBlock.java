@@ -16,7 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.common.IPlantable;
 
-import static salted.packedup.common.util.TurfUtils.*;
+import static salted.packedup.common.block.utils.TurfUtils.*;
 
 public class TurfLayerBlock extends QuarterSlabBlock implements BonemealableBlock {
 

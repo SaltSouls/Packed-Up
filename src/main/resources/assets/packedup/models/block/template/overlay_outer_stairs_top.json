@@ -2,35 +2,11 @@
 	"author": "TwinSouls",
 	"credit": "Made with Blockbench",
 	"render_type": "minecraft:cutout",
-	"parent": "block/outer_stairs",
-	"groups": [
-		0,
-		1,
-		{
-			"name": "overlay",
-			"origin": [-8, 6, 0],
-			"color": 0,
-			"children": [
-				{
-					"name": "outer",
-					"origin": [-8, 6, 0],
-					"color": 0,
-					"children": [2, 3, 4, 5]
-				},
-				{
-					"name": "inner",
-					"origin": [-8, 6, 0],
-					"color": 0,
-					"children": [6, 7, 8, 9]
-				}
-			]
-		}
-	],
+	"textures": { "particle": "#top" },
 	"elements": [
 		{
 			"from": [0, 8, 0],
 			"to": [16, 16, 16],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 5, 8]},
 			"faces": {
 				"north": {"uv": [0, 0, 16, 8], "texture": "#side", "cullface": "north"},
 				"east": {"uv": [0, 0, 16, 8], "texture": "#side", "cullface": "east"},
@@ -43,7 +19,6 @@
 		{
 			"from": [8, 0, 0],
 			"to": [16, 8, 8],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 5, 8]},
 			"faces": {
 				"north": {"uv": [0, 8, 8, 16], "texture": "#side", "cullface": "north"},
 				"east": {"uv": [8, 8, 16, 16], "texture": "#side", "cullface": "east"},
@@ -56,7 +31,6 @@
 			"name": "overlay_outer",
 			"from": [-0.01, 3.99, -0.01],
 			"to": [8.01, 8.01, 8.01],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 5, 8]},
 			"faces": {
 				"north": {"uv": [7.98, 0, 16, 4.02], "texture": "#overlay", "cullface": "north"},
 				"west": {"uv": [0, 0, 8.02, 4.02], "texture": "#overlay", "cullface": "west"}
@@ -66,7 +40,6 @@
 			"name": "overlay_outer",
 			"from": [-0.01, 3.99, 7.99],
 			"to": [8.01, 8.01, 16.01],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 5, 8]},
 			"faces": {
 				"south": {"uv": [0, 0, 8.02, 4.02], "texture": "#overlay", "cullface": "south"},
 				"west": {"uv": [7.98, 0, 16, 4.02], "texture": "#overlay", "cullface": "west"}
@@ -76,7 +49,6 @@
 			"name": "overlay_outer",
 			"from": [7.99, 3.99, 7.99],
 			"to": [16.01, 8.01, 16.01],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 5, 8]},
 			"faces": {
 				"east": {"uv": [0, 0, 8.02, 4.02], "texture": "#overlay", "cullface": "east"},
 				"south": {"uv": [7.98, 0, 16, 4.02], "texture": "#overlay", "cullface": "south"}
@@ -86,7 +58,6 @@
 			"name": "overlay_outer",
 			"from": [7.99, -4.01, -0.01],
 			"to": [16.01, 0.01, 8.01],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 5, 8]},
 			"faces": {
 				"north": {"uv": [0, 0, 8.02, 4.02], "texture": "#overlay", "cullface": "north"},
 				"east": {"uv": [7.98, 0, 16, 4.02], "texture": "#overlay", "cullface": "east"},
@@ -98,7 +69,6 @@
 			"name": "overlay_inner",
 			"from": [8.01, 8.01, 8.01],
 			"to": [-0.01, 3.99, -0.01],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 5, 8]},
 			"faces": {
 				"east": {"uv": [0, 4.02, 8.02, 0], "texture": "#overlay", "cullface": "west"},
 				"south": {"uv": [7.98, 4.02, 16, 0], "texture": "#overlay", "cullface": "north"}
@@ -108,7 +78,6 @@
 			"name": "overlay_inner",
 			"from": [8.01, 8.01, 16.01],
 			"to": [-0.01, 3.99, 7.99],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 5, 8]},
 			"faces": {
 				"north": {"uv": [0, 4.02, 8.02, 0], "texture": "#overlay", "cullface": "south"},
 				"east": {"uv": [7.98, 4.02, 16, 0], "texture": "#overlay", "cullface": "west"}
@@ -118,7 +87,6 @@
 			"name": "overlay_inner",
 			"from": [16.01, 8.01, 16.01],
 			"to": [7.99, 3.99, 7.99],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 5, 8]},
 			"faces": {
 				"north": {"uv": [7.98, 4.02, 16, 0], "texture": "#overlay", "cullface": "south"},
 				"west": {"uv": [0, 4.02, 8.02, 0], "texture": "#overlay", "cullface": "east"}
@@ -128,7 +96,6 @@
 			"name": "overlay_inner",
 			"from": [16.01, 0.01, 8.01],
 			"to": [7.99, -4.01, -0.01],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 5, 8]},
 			"faces": {
 				"north": {"uv": [7.98, 4.02, 16, 0], "texture": "#overlay"},
 				"east": {"uv": [0, 4.02, 8.02, 0], "texture": "#overlay"},

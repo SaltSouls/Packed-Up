@@ -143,6 +143,15 @@ public class PUItems {
             () -> new BlockItem(PUBlocks.GLOWSTONE_DUST_BAG.get(), basicItem()));
     public static final RegistryObject<Item> ENDER_PEARL_BAG = registerWithTab("ender_pearl_bag",
             () -> new BlockItem(PUBlocks.ENDER_PEARL_BAG.get(), basicItem()));
+    // grass bundle/thatch
+    public static final RegistryObject<Item> GRASS_BALE = registerWithTab("grass_bale",
+            () -> new BlockItem(PUBlocks.GRASS_BALE.get(), basicItem()));
+    public static final RegistryObject<Item> GRASS_THATCH = registerWithTab("grass_thatch",
+            () -> new BlockItem(PUBlocks.GRASS_THATCH.get(), basicItem()));
+    public static final RegistryObject<Item> GRASS_THATCH_STAIRS = registerWithTab("grass_thatch_stairs",
+            () -> new BlockItem(PUBlocks.GRASS_THATCH_STAIRS.get(), basicItem()));
+    public static final RegistryObject<Item> GRASS_THATCH_SLAB = registerWithTab("grass_thatch_slab",
+            () -> new BlockItem(PUBlocks.GRASS_THATCH_SLAB.get(), basicItem()));
     // turf
     public static final RegistryObject<Item> GRASS_TURF = registerWithTab("grass_turf",
             () -> new BlockItem(PUBlocks.GRASS_TURF.get(), basicItem()));
@@ -156,15 +165,6 @@ public class PUItems {
             () -> new BlockItem(PUBlocks.MYCELIUM_TURF.get(), basicItem()));
     public static final RegistryObject<Item> MYCELIUM_TURF_LAYER = registerWithTab("mycelium_turf_layer",
             () -> new BlockItem(PUBlocks.MYCELIUM_TURF_LAYER.get(), basicItem()));
-    // grass bundle/thatch
-    public static final RegistryObject<Item> GRASS_BALE = registerWithTab("grass_bale",
-            () -> new BlockItem(PUBlocks.GRASS_BALE.get(), basicItem()));
-    public static final RegistryObject<Item> GRASS_THATCH = registerWithTab("grass_thatch",
-            () -> new BlockItem(PUBlocks.GRASS_THATCH.get(), basicItem()));
-    public static final RegistryObject<Item> GRASS_THATCH_STAIRS = registerWithTab("grass_thatch_stairs",
-            () -> new BlockItem(PUBlocks.GRASS_THATCH_STAIRS.get(), basicItem()));
-    public static final RegistryObject<Item> GRASS_THATCH_SLAB = registerWithTab("grass_thatch_slab",
-            () -> new BlockItem(PUBlocks.GRASS_THATCH_SLAB.get(), basicItem()));
     // resource bags
     public static final RegistryObject<Item> DIRT_BAG = registerWithTab("dirt_bag",
             () -> new BlockItem(PUBlocks.DIRT_BAG.get(), basicItem()));
