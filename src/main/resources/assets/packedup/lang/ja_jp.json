@@ -69,8 +69,8 @@
 
   "block.packedup.grass_bale": "草の俵",
   "block.packedup.grass_thatch": "茅葺",
-  "block.packedup.grass_thatch_stairs": "茅葺 Stairs",
-  "block.packedup.grass_thatch_slab": "茅葺 Slab",
+  "block.packedup.grass_thatch_stairs": "茅葺の階段",
+  "block.packedup.grass_thatch_slab": "茅葺のハーフブロック",
 
   "block.packedup.grass_turf": "芝生ブロック",
   "block.packedup.grass_turf_layer": "芝生",
