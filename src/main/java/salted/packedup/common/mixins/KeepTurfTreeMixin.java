@@ -1,4 +1,4 @@
-package salted.packedup.common.mixin;
+package salted.packedup.common.mixins;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;

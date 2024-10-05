@@ -1,9 +1,9 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "salted.packedup.common.mixin",
+  "package": "salted.packedup.common.mixins",
   "compatibilityLevel": "JAVA_17",
-  "refmap": "PackedUp.refmap.json",
+  "refmap": "packedup.refmap.json",
   "mixins": [
     "KeepTurfTreeMixin",
     "KeepTurfGiantTreeMixin"

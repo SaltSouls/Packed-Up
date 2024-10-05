@@ -2,14 +2,16 @@ package salted.packedup.data.recipes;
 
 import com.google.common.collect.Sets;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.*;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import salted.packedup.common.registry.PUItems;
-import vectorwing.farmersdelight.data.recipe.SmeltingRecipes;
 
 import java.util.Set;
 import java.util.function.Consumer;
