@@ -27,21 +27,6 @@ public class PalletBlock extends QuarterSlabBlock {
         builder.add(LAYERS, FACING, WATERLOGGED);
     }
 
-    @Override
-    public boolean canBeReplaced(BlockState state, BlockPlaceContext ctx) {
-        int layer = state.getValue(LAYERS);
-
-        if (ctx.getItemInHand().is(this.asItem()) && layer < MAX_HEIGHT) {
-            if (ctx.replacingClickedOnBlock()) {
-                return ctx.getClickedFace() == Direction.UP;
-            } else {
-                return true;
-            }
-        } else {
-            return false;
-        }
-    }
-
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext ctx) {

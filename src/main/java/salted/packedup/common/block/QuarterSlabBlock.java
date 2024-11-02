@@ -22,7 +22,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import salted.packedup.common.block.state.PUProperties;
 
 import javax.annotation.Nullable;
-import java.util.Objects;
 
 public class QuarterSlabBlock extends Block implements SimpleWaterloggedBlock {
     public static final int MAX_HEIGHT = 4;
@@ -57,7 +56,7 @@ public class QuarterSlabBlock extends Block implements SimpleWaterloggedBlock {
 
     @Override
     public boolean isPathfindable(BlockState state, BlockGetter world, BlockPos pos, PathComputationType type) {
-        if (Objects.requireNonNull(type) == PathComputationType.LAND) {
+        if (type == PathComputationType.LAND) {
             return state.getValue(LAYERS) <= HEIGHT_PASSABLE;
         }
         return false;
@@ -80,12 +79,15 @@ public class QuarterSlabBlock extends Block implements SimpleWaterloggedBlock {
         if (blockstate.is(this)) {
             int layer = blockstate.getValue(LAYERS);
             if (layer == 3) {
-                return blockstate.setValue(LAYERS, 4).setValue(WATERLOGGED, false);
+                return blockstate.setValue(LAYERS, 4)
+                        .setValue(WATERLOGGED, false);
             } else {
-                return blockstate.setValue(LAYERS, layer + 1).setValue(WATERLOGGED, flag);
+                return blockstate.setValue(LAYERS, layer + 1)
+                        .setValue(WATERLOGGED, flag);
             }
         } else {
-            return this.defaultBlockState().setValue(LAYERS, 1).setValue(WATERLOGGED, flag);
+            return this.defaultBlockState().setValue(LAYERS, 1)
+                    .setValue(WATERLOGGED, flag);
         }
     }
 
@@ -102,7 +104,7 @@ public class QuarterSlabBlock extends Block implements SimpleWaterloggedBlock {
 
     @Override
     public boolean canPlaceLiquid(BlockGetter level, BlockPos pos, BlockState state, Fluid fluid) {
-        return state.getValue(LAYERS) != 4 ? SimpleWaterloggedBlock.super.canPlaceLiquid(level, pos, state, fluid) : false;
+        return state.getValue(LAYERS) != 4 && SimpleWaterloggedBlock.super.canPlaceLiquid(level, pos, state, fluid);
     }
 
     @Override

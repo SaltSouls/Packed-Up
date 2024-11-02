@@ -43,6 +43,4 @@ public class HorizontalSlabBlock extends SlabBlock {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(TYPE, FACING, WATERLOGGED);
     }
-
-
 }

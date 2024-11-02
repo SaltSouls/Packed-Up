@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import salted.packedup.common.block.handlers.ShapeHandler;
@@ -81,6 +82,14 @@ public class CrateLidBlock extends Block implements SimpleWaterloggedBlock {
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext ctx) {
         return SHAPES.get(state);
+    }
+
+    @Override
+    public boolean isPathfindable(BlockState state, BlockGetter world, BlockPos pos, PathComputationType type) {
+        if (type == PathComputationType.LAND) {
+            return state.getValue(HALF) != Half.TOP;
+        }
+        return false;
     }
 
     @Override

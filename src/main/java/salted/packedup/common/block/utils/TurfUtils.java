@@ -42,6 +42,12 @@ import static net.minecraft.world.level.block.Block.popResourceFromFace;
 
 public class TurfUtils {
 
+    // once again, not needed, but makes things cleaner
+    private static boolean isTurf(BlockState state, TurfBlock turf, TurfLayerBlock turfLayer) {
+        Block block = state.getBlock();
+        return block == turf || block == turfLayer;
+    }
+
     public static InteractionResult shovelTurf(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult hit) {
         ItemStack item = player.getMainHandItem();
         Block block = state.getBlock();
@@ -193,11 +199,5 @@ public class TurfUtils {
     private static boolean canPropagate(BlockState state, LevelReader world, BlockPos pos) {
         BlockPos blockpos = pos.above();
         return canBeGrass(state, world, pos) && !world.getFluidState(blockpos).is(FluidTags.WATER);
-    }
-
-    // once again, not needed, but makes things cleaner
-    private static boolean isTurf(BlockState state, TurfBlock turf, TurfLayerBlock turfLayer) {
-        Block block = state.getBlock();
-        return block == turf || block == turfLayer;
     }
 }

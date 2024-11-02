@@ -9,7 +9,7 @@ import java.util.Collection;
 
 public class ShapeHandler {
 
-    // huge thanks to Mr. Crayfish for this method
+    // huge thanks to Mr.Crayfish for this method
     public static VoxelShape combineAll(Collection<VoxelShape> shapes) {
         VoxelShape result = Shapes.empty();
         for(VoxelShape shape : shapes) {
