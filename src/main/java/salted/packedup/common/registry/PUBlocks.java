@@ -277,8 +277,8 @@ public class PUBlocks {
             () -> new HorizontalBlock(BlockBehaviour.Properties.copy(Blocks.CALCITE)
                     .strength(2.0F, 6.0F)));
     // pallets
-    public static RegistryObject<PalletBlock> PALLET = BLOCKS.register("pallet",
-            () -> new PalletBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+    public static RegistryObject<HorizontalQuarterSlabBlock> PALLET = BLOCKS.register("pallet",
+            () -> new HorizontalQuarterSlabBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
     public static RegistryObject<HorizontalBlock> BRICK_PALLET = BLOCKS.register("brick_pallet",
             () -> new HorizontalBlock(BlockBehaviour.Properties.copy(Blocks.BRICKS)
                     .strength(4.0F, 12.0F)));

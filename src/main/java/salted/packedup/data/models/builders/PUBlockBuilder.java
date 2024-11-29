@@ -211,7 +211,7 @@ public class PUBlockBuilder extends BlockStateProvider {
                 .build(), ignored);
     }
 
-    public void horizontalQuarterSlabBlock(QuarterSlabBlock block, Property<?>... ignored) {
+    public void horizontalQuarterSlabBlock(HorizontalQuarterSlabBlock block, Property<?>... ignored) {
         getVariantBuilder(block).forAllStatesExcept(state -> {
             IntegerProperty layersProperty = block.getQuarterLayers();
             Direction dir = state.getValue(BlockStateProperties.HORIZONTAL_FACING);

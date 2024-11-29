@@ -5,15 +5,13 @@ import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
-import salted.packedup.common.block.HorizontalSlabBlock;
-import salted.packedup.common.block.QuarterSlabBlock;
+import salted.packedup.common.block.state.PUProperties;
 import salted.packedup.common.registry.PUBlocks;
 
 import java.util.HashSet;
@@ -122,6 +120,7 @@ public class PUBlockLoot extends BlockLootSubProvider {
         for (Block block : blocks) {
             dropSelf(block);
         }
+
         // slabs
         Set<Block> slabs = Sets.newHashSet(
                 PUBlocks.BOOK_BUNDLE_SLAB.get(),
@@ -144,8 +143,9 @@ public class PUBlockLoot extends BlockLootSubProvider {
                 PUBlocks.GRASS_THATCH_SLAB.get()
         );
         for (Block slab : slabs) {
-            createHorizontalSlabItemTable(slab);
+            this.add(slab, createSlabItemTable(slab));
         }
+
         // quarter slabs
         Set<Block> quarterSlabs = Sets.newHashSet(
                 PUBlocks.PALLET.get(),
@@ -171,28 +171,13 @@ public class PUBlockLoot extends BlockLootSubProvider {
                 PUBlocks.MYCELIUM_TURF_LAYER.get()
         );
         for (Block quarterSlab : quarterSlabs) {
-            createQuarterSlabItemTable(quarterSlab);
+            this.add(quarterSlab, createQuarterSlabItemTable(quarterSlab));
         }
     }
 
     // quarter slab loot tables
-    protected LootTable.Builder createQuarterSlabDrops(Block slab) {
-        return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(this.applyExplosionDecay(slab, LootItem.lootTableItem(slab).apply(List.of(2, 3, 4), (layers) ->
-                SetItemCountFunction.setCount(ConstantValue.exactly(layers.floatValue())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(slab).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(QuarterSlabBlock.LAYERS, layers)))
-        ))));
-    }
-    protected void createQuarterSlabItemTable(Block slab) {
-        add(slab, this::createQuarterSlabDrops);
-    }
-
-    // horizontal slab loot tables
-    protected LootTable.Builder createHorizontalSlabDrops(Block slab) {
-        return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(this.applyExplosionDecay(slab, LootItem.lootTableItem(slab).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))
-                .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(slab).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(HorizontalSlabBlock.TYPE, SlabType.DOUBLE)))
-        ))));
-    }
-    protected void createHorizontalSlabItemTable(Block slab) {
-        add(slab, this::createHorizontalSlabDrops);
+    protected LootTable.Builder createQuarterSlabItemTable(Block slab) {
+        return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(this.applyExplosionDecay(slab, LootItem.lootTableItem(slab).apply(List.of(2, 3, 4), (layers) -> SetItemCountFunction.setCount(ConstantValue.exactly(layers.floatValue())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(slab).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PUProperties.QUARTER_LAYERS, layers)))))));
     }
 
     @Override

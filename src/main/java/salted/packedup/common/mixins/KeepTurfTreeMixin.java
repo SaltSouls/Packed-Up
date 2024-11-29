@@ -17,7 +17,7 @@ import java.util.function.BiConsumer;
 @Mixin(TrunkPlacer.class)
 public class KeepTurfTreeMixin {
     /**
-     * Due to how Trees generate, this mixin is needed to prevent Turf blocks from becoming Podzol under a Giant Spruce Tree growth.
+     * Due to how Trees generate, this mixin is needed to prevent Turf blocks from becoming dirt under a Giant Spruce Tree growth.
      */
     @Inject(at = @At(value = "HEAD"), method = "setDirtAt", cancellable = true)
     private static void cancelSetDirtIfTurf(LevelSimulatedReader level, BiConsumer<BlockPos, BlockState> blockSetter, RandomSource random, BlockPos pos, TreeConfiguration config, CallbackInfo ci) {

@@ -14,10 +14,10 @@ import net.minecraft.world.level.material.Fluids;
 
 import javax.annotation.Nullable;
 
-public class PalletBlock extends QuarterSlabBlock {
+public class HorizontalQuarterSlabBlock extends QuarterSlabBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
-    public PalletBlock(Properties properties) {
+    public HorizontalQuarterSlabBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(LAYERS, 1).setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false));
     }
@@ -54,6 +54,5 @@ public class PalletBlock extends QuarterSlabBlock {
                     .setValue(WATERLOGGED, flag);
         }
     }
-
 
 }
