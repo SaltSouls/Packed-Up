@@ -1,4 +1,4 @@
-package salted.packedup.common.block.managers.utils;
+package salted.packedup.common.block.handlers.utils;
 
 import net.minecraft.world.level.block.Block;
 import salted.packedup.common.block.BookBundleBlock;
@@ -13,7 +13,7 @@ public class BundleUtils {
     // all this just to have a usable enum
     protected Bundle getBundleType(Block block) {
         return Arrays.stream(Bundle.values()).filter(bundle ->
-                        bundle.contains(block))
+                bundle.contains(block))
                 .findFirst()
                 .orElse(null);
     }

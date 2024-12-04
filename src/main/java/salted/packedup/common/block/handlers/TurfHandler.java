@@ -1,4 +1,4 @@
-package salted.packedup.common.block.managers;
+package salted.packedup.common.block.handlers;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -26,9 +26,10 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.phys.BlockHitResult;
+import salted.packedup.PackedUp;
 import salted.packedup.common.block.TurfBlock;
 import salted.packedup.common.block.TurfLayerBlock;
-import salted.packedup.common.block.managers.utils.TurfUtils;
+import salted.packedup.common.block.handlers.utils.TurfUtils;
 import salted.packedup.common.block.state.PUProperties;
 
 import java.util.List;
@@ -36,7 +37,7 @@ import java.util.Optional;
 
 import static net.minecraft.world.level.block.Block.popResourceFromFace;
 
-public class TurfManager extends TurfUtils {
+public class TurfHandler extends TurfUtils {
 
     public InteractionResult shovelTurf(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult hit) {
         ItemStack item = player.getMainHandItem();
@@ -69,9 +70,13 @@ public class TurfManager extends TurfUtils {
     // bonemeal functions
     public boolean isBonemealable(BlockState state, LevelReader world, BlockPos pos) {
         Block block = state.getBlock();
-        if (!Turf.GRASS.contains(state.getBlock())) return false;
+        if (!Turf.GRASS.contains(state.getBlock())) {
+            PackedUp.LOGGER.debug("Block: {}, is not bonemealable", block.getName());
+            return false;
+        }
         if (block == Turf.GRASS.getTurfLayer() && !(state.getValue(PUProperties.QUARTER_LAYERS) == 4)) return false;
 
+        PackedUp.LOGGER.debug("Block: {}, is bonemealable", block.getName());
         return world.getBlockState(pos.above()).isAir();
     }
 
@@ -80,8 +85,7 @@ public class TurfManager extends TurfUtils {
         Registry<PlacedFeature> feature = world.registryAccess().registryOrThrow(Registries.PLACED_FEATURE);
         Optional<Holder.Reference<PlacedFeature>> optional = feature.getHolder(VegetationPlacements.GRASS_BONEMEAL);
 
-        bonemeal:
-        for(int i = 0; i < 128; ++i) {
+        bonemeal: for(int i = 0; i < 128; ++i) {
             BlockPos blockpos1 = blockpos;
 
             for(int j = 0; j < i / 16; ++j) {
@@ -101,21 +105,20 @@ public class TurfManager extends TurfUtils {
                 ((BonemealableBlock) state.getBlock()).performBonemeal(world, random, blockpos1, blockstate2);
             }
 
-            if (blockstate2.isAir()) {
-                Holder<PlacedFeature> holder;
-                if (random.nextInt(8) == 0) {
-                    Holder<Biome> biome = world.getBiome(blockpos1);
+            if (!blockstate2.isAir()) { return; }
+            Holder<PlacedFeature> holder;
+            if (random.nextInt(8) == 0) {
+                Holder<Biome> biome = world.getBiome(blockpos1);
 
-                    List<ConfiguredFeature<?, ?>> list = biome.value().getGenerationSettings().getFlowerFeatures();
-                    if (list.isEmpty()) continue;
-                    holder = ((RandomPatchConfiguration)list.get(0).config()).feature();
-                } else {
-                    if (optional.isEmpty()) continue;
-                    holder = optional.get();
-                }
-
-                holder.value().place(world, world.getChunkSource().getGenerator(), random, blockpos1);
+                List<ConfiguredFeature<?, ?>> list = biome.value().getGenerationSettings().getFlowerFeatures();
+                if (list.isEmpty()) continue;
+                holder = ((RandomPatchConfiguration)list.get(0).config()).feature();
+            } else {
+                if (optional.isEmpty()) continue;
+                holder = optional.get();
             }
+
+            holder.value().place(world, world.getChunkSource().getGenerator(), random, blockpos1);
         }
     }
 

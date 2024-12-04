@@ -1,4 +1,4 @@
-<div align="center"><img src="https://cdn.modrinth.com/data/cached_images/5e8c3bb64480f87ad92f1efc807f03ab2eb4976d.png") /></div>
+<div align="center"><img src="https://cdn.modrinth.com/data/cached_images/5e8c3bb64480f87ad92f1efc807f03ab2eb4976d.png" /></div>
 
 <div align="center">
 	<img src="https://img.shields.io/badge/mod%20loader-forge%20%2F%20neoforge-blue?style=flat-square" />
@@ -9,7 +9,7 @@
 
 **Packed Up** is a simple mod based around the concept of packing and storing blocks away. Unlike other mods in the same genre, Packed Up takes a more decorative approach to the problem, making it so you're free to use the new compacted blocks around your builds without worry of them looking out of place.
 
-> _It is largely meant to be used along other mods such as [Farmer's Delight](https://modrinth.com/mod/farmers-delight)(**required**) and [Supplementaries](https://modrinth.com/mod/supplementaries), which add the other storage blocks Packed Up doesn't._
+>  It is largely meant to be used along other mods such as [Farmer's Delight](https://modrinth.com/mod/farmers-delight)(**required**) and [Supplementaries](https://modrinth.com/mod/supplementaries), which add the other storage blocks Packed Up doesn't._
 
 So long dark borders! Let's get packing properly!
 

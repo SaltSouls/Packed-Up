@@ -1,4 +1,4 @@
-package salted.packedup.common.block.managers.utils;
+package salted.packedup.common.block.handlers.utils;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -51,7 +51,7 @@ public class TurfUtils {
 
     protected Turf getTurfType(Block block) {
         return Arrays.stream(Turf.values()).filter(turf ->
-                        turf.contains(block))
+                turf.contains(block))
                 .findFirst()
                 .orElse(null);
     }

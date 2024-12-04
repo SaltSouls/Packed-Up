@@ -1,4 +1,4 @@
-package salted.packedup.common.block.managers;
+package salted.packedup.common.block.handlers;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
@@ -16,10 +16,10 @@ import net.minecraft.world.level.block.state.properties.SlabType;
 import salted.packedup.common.block.BookBundleBlock;
 import salted.packedup.common.block.BookBundleSlabBlock;
 import salted.packedup.common.block.BookPileBlock;
-import salted.packedup.common.block.managers.utils.BundleUtils;
+import salted.packedup.common.block.handlers.utils.BundleUtils;
 import salted.packedup.common.block.state.PUProperties;
 
-public class BundleManager extends BundleUtils {
+public class BundleHandler extends BundleUtils {
 
     private InteractionResult convert(BlockState state, int layers, Level world, BlockPos pos, Player player) {
         ItemStack item = player.getMainHandItem();

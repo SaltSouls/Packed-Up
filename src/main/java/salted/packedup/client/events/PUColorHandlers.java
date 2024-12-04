@@ -1,4 +1,4 @@
-package salted.packedup.client;
+package salted.packedup.client.events;
 
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.renderer.BiomeColors;

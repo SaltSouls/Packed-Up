@@ -31,35 +31,33 @@ public class ShapeHandler {
         return Shapes.box(adjustedValues[0], shape.min(Direction.Axis.Y), adjustedValues[1], adjustedValues[2], shape.max(Direction.Axis.Y), adjustedValues[3]);
     }
 
-    private static double[] adjustValues(Direction direction, double var1, double var2, double var3, double var4) {
+    private static double[] adjustValues(Direction direction, double x1, double z1, double x2, double z2) {
         switch (direction) {
             case WEST -> {
-                double var_temp_1 = var1;
-                var1 = 1.0F - var3;
-                double var_temp_2 = var2;
-                var2 = 1.0F - var4;
-                var3 = 1.0F - var_temp_1;
-                var4 = 1.0F - var_temp_2;
+                double tmpX = x1;
+                x1 = 1.0F - x2;
+                double tmpZ = z1;
+                z1 = 1.0F - z2;
+                x2 = 1.0F - tmpX;
+                z2 = 1.0F - tmpZ;
             }
             case NORTH -> {
-                double var_temp_3 = var1;
-                var1 = var2;
-                var2 = 1.0F - var3;
-                var3 = var4;
-                var4 = 1.0F - var_temp_3;
+                double tmpX = x1;
+                x1 = z1;
+                z1 = 1.0F - x2;
+                x2 = z2;
+                z2 = 1.0F - tmpX;
             }
             case SOUTH -> {
-                double var_temp_4 = var1;
-                var1 = 1.0F - var4;
-                double var_temp_5 = var2;
-                var2 = var_temp_4;
-                double var_temp_6 = var3;
-                var3 = 1.0F - var_temp_5;
-                var4 = var_temp_6;
-            }
-            default -> {
+                double tmpX1 = x1;
+                x1 = 1.0F - z2;
+                double tmpZ = z1;
+                z1 = tmpX1;
+                double tmpX2 = x2;
+                x2 = 1.0F - tmpZ;
+                z2 = tmpX2;
             }
         }
-        return new double[]{var1, var2, var3, var4};
+        return new double[] { x1, z1, x2, z2 };
     }
 }

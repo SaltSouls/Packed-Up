@@ -1,4 +1,4 @@
-package salted.packedup.client;
+package salted.packedup.client.resourcepack;
 
 import net.minecraftforge.forgespi.locating.IModFile;
 import net.minecraftforge.resource.PathPackResources;

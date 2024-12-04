@@ -8,7 +8,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
-import salted.packedup.common.block.managers.BundleManager;
+import salted.packedup.common.block.handlers.BundleHandler;
 
 public class BookBundleSlabBlock extends HorizontalSlabBlock {
 
@@ -21,7 +21,7 @@ public class BookBundleSlabBlock extends HorizontalSlabBlock {
         if (player.isCrouching()) { return InteractionResult.PASS; }
         Block block = this.asBlock();
 
-        BundleManager manager = new BundleManager();
+        BundleHandler manager = new BundleHandler();
         return manager.shearBundle(block, state, world, pos, player);
     }
 }

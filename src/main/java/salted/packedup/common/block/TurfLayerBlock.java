@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.common.IPlantable;
-import salted.packedup.common.block.managers.TurfManager;
+import salted.packedup.common.block.handlers.TurfHandler;
 
 public class TurfLayerBlock extends QuarterSlabBlock implements BonemealableBlock {
 
@@ -26,7 +26,7 @@ public class TurfLayerBlock extends QuarterSlabBlock implements BonemealableBloc
     public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (player.isCrouching()) { return InteractionResult.PASS; }
 
-        TurfManager manager = new TurfManager();
+        TurfHandler manager = new TurfHandler();
         return manager.shovelTurf(state, world, pos, player, hit);
     }
 
@@ -38,7 +38,7 @@ public class TurfLayerBlock extends QuarterSlabBlock implements BonemealableBloc
 
     @Override
     public boolean isValidBonemealTarget(LevelReader world, BlockPos pos, BlockState state, boolean isClient) {
-        TurfManager manager = new TurfManager();
+        TurfHandler manager = new TurfHandler();
         return manager.isBonemealable(state, world, pos);
     }
 
@@ -49,7 +49,7 @@ public class TurfLayerBlock extends QuarterSlabBlock implements BonemealableBloc
 
     @Override
     public void performBonemeal(ServerLevel world, RandomSource random, BlockPos pos, BlockState state) {
-        TurfManager manager = new TurfManager();
+        TurfHandler manager = new TurfHandler();
         manager.bonemealTurf(world, random, pos, state);
     }
 
@@ -57,13 +57,13 @@ public class TurfLayerBlock extends QuarterSlabBlock implements BonemealableBloc
     public void animateTick(BlockState state, Level world, BlockPos pos, RandomSource random) {
         super.animateTick(state, world, pos, random);
 
-        TurfManager manager = new TurfManager();
+        TurfHandler manager = new TurfHandler();
         manager.spawnMyceliumParticles(state, world, pos, random);
     }
 
     @Override
     public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource random) {
-        TurfManager manager = new TurfManager();
+        TurfHandler manager = new TurfHandler();
         manager.spreadGrass(state, world, pos, random);
     }
 }
