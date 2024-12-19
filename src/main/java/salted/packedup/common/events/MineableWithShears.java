@@ -13,6 +13,7 @@ import salted.packedup.common.tag.PUTags;
 @Mod.EventBusSubscriber(modid = PackedUp.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class MineableWithShears {
 
+    // TODO: replace tools that use hardcoded shears mining speed with this method
     private static boolean isCorrectTool(ItemStack item, BlockState state) {
         if(!item.canPerformAction(ToolActions.SHEARS_DIG)) { return false; }
         return state.is(PUTags.MINEABLE_WITH_SHEARS);

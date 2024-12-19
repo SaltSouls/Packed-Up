@@ -10,7 +10,7 @@ import java.util.Collection;
 public class ShapeHandler {
 
     // huge thanks to Mr.Crayfish for this method
-    public static VoxelShape combineAll(Collection<VoxelShape> shapes) {
+    public VoxelShape combineAll(Collection<VoxelShape> shapes) {
         VoxelShape result = Shapes.empty();
         for(VoxelShape shape : shapes) {
             result = Shapes.joinUnoptimized(result, shape, BooleanOp.OR);
@@ -18,7 +18,7 @@ public class ShapeHandler {
         return result.optimize();
     }
 
-    public static VoxelShape[] getRotated(VoxelShape shape) {
+    public VoxelShape[] getRotated(VoxelShape shape) {
         VoxelShape SHAPE_NORTH = rotate(shape, Direction.NORTH);
         VoxelShape SHAPE_EAST = rotate(shape, Direction.EAST);
         VoxelShape SHAPE_SOUTH = rotate(shape, Direction.SOUTH);
@@ -26,7 +26,7 @@ public class ShapeHandler {
         return new VoxelShape[] { SHAPE_SOUTH, SHAPE_WEST, SHAPE_NORTH, SHAPE_EAST };
     }
 
-    public static VoxelShape rotate(VoxelShape shape, Direction direction) {
+    public VoxelShape rotate(VoxelShape shape, Direction direction) {
         double[] adjustedValues = adjustValues(direction, shape.min(Direction.Axis.X), shape.min(Direction.Axis.Z), shape.max(Direction.Axis.X), shape.max(Direction.Axis.Z));
         return Shapes.box(adjustedValues[0], shape.min(Direction.Axis.Y), adjustedValues[1], adjustedValues[2], shape.max(Direction.Axis.Y), adjustedValues[3]);
     }

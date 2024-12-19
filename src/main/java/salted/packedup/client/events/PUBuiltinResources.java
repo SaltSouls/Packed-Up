@@ -41,8 +41,10 @@ public class PUBuiltinResources {
                     PackType.CLIENT_RESOURCES, Pack.Position.TOP, packSource
             );
 
-            PackedUp.LOGGER.debug("Pack = {}", pack.getTitle());
-            if (pack != null) { consumer.accept(pack); }
+            if (pack != null) {
+                PackedUp.LOGGER.debug("Pack = {}", pack.getId());
+                consumer.accept(pack);
+            }
         });
     }
 

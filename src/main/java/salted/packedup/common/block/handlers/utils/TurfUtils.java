@@ -82,7 +82,7 @@ public class TurfUtils {
         }
 
         public boolean contains(Block block) {
-            return block == this.turfBlock || block == this.turfLayer;
+            return block == turfBlock || block == turfLayer;
         }
     }
 }

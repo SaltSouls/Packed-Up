@@ -32,15 +32,16 @@ public class CrateLidBlock extends Block implements SimpleWaterloggedBlock {
     private static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     // block collision
+    private final ShapeHandler handler = new ShapeHandler();
     private final ImmutableMap<BlockState, VoxelShape> SHAPES;
     private static final Direction defaultFacing = Direction.NORTH;
 
     private final VoxelShape BOTTOM = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D);
-    private final VoxelShape[] TOP1 = ShapeHandler.getRotated(ShapeHandler.rotate(Block.box(0.0D, 0.0D, 4.0D, 16.0D, 3.0D, 8.0D), defaultFacing));
-    private final VoxelShape[] TOP2 = ShapeHandler.getRotated(ShapeHandler.rotate(Block.box(0.0D, 3.0D, 3.0D, 16.0D, 6.0D, 7.0D), defaultFacing));
-    private final VoxelShape[] TOP3 = ShapeHandler.getRotated(ShapeHandler.rotate(Block.box(0.0D, 6.0D, 2.0D, 16.0D, 9.0D, 6.0D), defaultFacing));
-    private final VoxelShape[] TOP4 = ShapeHandler.getRotated(ShapeHandler.rotate(Block.box(0.0D, 9.0D, 1.0D, 16.0D, 12.0D, 5.0D), defaultFacing));
-    private final VoxelShape[] TOP5 = ShapeHandler.getRotated(ShapeHandler.rotate(Block.box(0.0D, 12.0D, 0.0D, 16.0D, 15.0D, 4.0D), defaultFacing));
+    private final VoxelShape[] TOP1 = handler.getRotated(handler.rotate(Block.box(0.0D, 0.0D, 4.0D, 16.0D, 3.0D, 8.0D), defaultFacing));
+    private final VoxelShape[] TOP2 = handler.getRotated(handler.rotate(Block.box(0.0D, 3.0D, 3.0D, 16.0D, 6.0D, 7.0D), defaultFacing));
+    private final VoxelShape[] TOP3 = handler.getRotated(handler.rotate(Block.box(0.0D, 6.0D, 2.0D, 16.0D, 9.0D, 6.0D), defaultFacing));
+    private final VoxelShape[] TOP4 = handler.getRotated(handler.rotate(Block.box(0.0D, 9.0D, 1.0D, 16.0D, 12.0D, 5.0D), defaultFacing));
+    private final VoxelShape[] TOP5 = handler.getRotated(handler.rotate(Block.box(0.0D, 12.0D, 0.0D, 16.0D, 15.0D, 4.0D), defaultFacing));
 
     private ImmutableBiMap<BlockState, VoxelShape> shapeConstructor(ImmutableList<BlockState> states) {
         ImmutableBiMap.Builder<BlockState, VoxelShape> shape = new ImmutableBiMap.Builder<>();
@@ -58,7 +59,7 @@ public class CrateLidBlock extends Block implements SimpleWaterloggedBlock {
             }
             else shapes.add(BOTTOM);
 
-            shape.put(state, ShapeHandler.combineAll(shapes));
+            shape.put(state, handler.combineAll(shapes));
         }
         return shape.build();
     }
@@ -116,9 +117,10 @@ public class CrateLidBlock extends Block implements SimpleWaterloggedBlock {
         Direction facing = ctx.getHorizontalDirection().getOpposite();
         FluidState fluid = ctx.getLevel().getFluidState(pos);
         boolean flag = fluid.getType() == Fluids.WATER;
+        boolean isInvalidDir = direction == Direction.DOWN || direction == Direction.UP;
 
         BlockState state = this.defaultBlockState().setValue(FACING, facing).setValue(HALF, Half.BOTTOM).setValue(WATERLOGGED, flag);
-        return direction != Direction.DOWN && (direction == Direction.UP || !(ctx.getClickLocation().y - pos.getY() > 0.5D)) ? state : state.setValue(FACING, direction).setValue(HALF, Half.TOP);
+        return isInvalidDir || !(ctx.getClickLocation().y - pos.getY() > 0.5D) ? state : state.setValue(FACING, direction).setValue(HALF, Half.TOP);
     }
 
     @Override

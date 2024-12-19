@@ -9,14 +9,12 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.common.IPlantable;
 import salted.packedup.common.block.handlers.TurfHandler;
 
-public class TurfLayerBlock extends QuarterSlabBlock implements BonemealableBlock {
+public class TurfLayerBlock extends QuarterSlabBlock implements BonemealableTurfBlock {
 
     public TurfLayerBlock(Properties properties) {
         super(properties);
@@ -32,25 +30,8 @@ public class TurfLayerBlock extends QuarterSlabBlock implements BonemealableBloc
 
     @Override
     public boolean canSustainPlant(BlockState state, BlockGetter world, BlockPos pos, Direction dir, IPlantable plantable) {
-        if (state.is(this) && state.getValue(LAYERS) < 4)  return false;
+        if (state.is(this) && state.getValue(LAYERS) < MAX_HEIGHT) return false;
         return super.canSustainPlant(state, world, pos, dir, plantable);
-    }
-
-    @Override
-    public boolean isValidBonemealTarget(LevelReader world, BlockPos pos, BlockState state, boolean isClient) {
-        TurfHandler manager = new TurfHandler();
-        return manager.isBonemealable(state, world, pos);
-    }
-
-    @Override
-    public boolean isBonemealSuccess(Level world, RandomSource random, BlockPos pos, BlockState state) {
-        return true;
-    }
-
-    @Override
-    public void performBonemeal(ServerLevel world, RandomSource random, BlockPos pos, BlockState state) {
-        TurfHandler manager = new TurfHandler();
-        manager.bonemealTurf(world, random, pos, state);
     }
 
     @Override

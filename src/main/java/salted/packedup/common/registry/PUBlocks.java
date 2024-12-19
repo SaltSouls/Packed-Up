@@ -87,17 +87,6 @@ public class PUBlocks {
                     .mapColor(MapColor.GOLD)
                     .strength(4.0F, 8.0F)
                     .sound(PUSoundsTypes.RESOURCE_CRATE)));
-//    // unused crates
-//    public static final RegistryObject<Block> DIAMOND_CRATE = BLOCKS.register("diamond_crate",
-//            () -> new Block(BlockBehaviour.Properties.of()
-//                    .mapColor(MapColor.DIAMOND)
-//                    .strength(4.0F, 8.0F)
-//                    .sound(PUSoundsTypes.CRYSTAL_CRATE)));
-//    public static final RegistryObject<Block> EMERALD_CRATE = BLOCKS.register("emerald_crate",
-//            () -> new Block(BlockBehaviour.Properties.of()
-//                    .mapColor(MapColor.EMERALD)
-//                    .strength(4.0F, 8.0F)
-//                    .sound(PUSoundsTypes.CRYSTAL_CRATE)));
     // reinforced crates
     public static final RegistryObject<Block> REINFORCED_COBBLESTONE_CRATE = BLOCKS.register("reinforced_cobblestone_crate",
             () -> new Block(BlockBehaviour.Properties.of()
@@ -436,7 +425,7 @@ public class PUBlocks {
     public static RegistryObject<Block> GRASS_THATCH = BLOCKS.register("grass_thatch",
             () -> new Block(Block.Properties.copy(Blocks.HAY_BLOCK)));
     public static RegistryObject<StairBlock> GRASS_THATCH_STAIRS = BLOCKS.register("grass_thatch_stairs",
-            () -> new StairBlock(Blocks.HAY_BLOCK.defaultBlockState(), Block.Properties.copy(Blocks.HAY_BLOCK)));
+            () -> new StairBlock(Blocks.HAY_BLOCK::defaultBlockState, Block.Properties.copy(Blocks.HAY_BLOCK)));
     public static RegistryObject<SlabBlock> GRASS_THATCH_SLAB = BLOCKS.register("grass_thatch_slab",
             () -> new SlabBlock(Block.Properties.copy(Blocks.HAY_BLOCK)));
 

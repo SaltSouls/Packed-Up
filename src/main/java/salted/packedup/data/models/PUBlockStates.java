@@ -232,7 +232,6 @@ public class PUBlockStates extends PUBlockBuilder {
         this.simpleBlock(PUBlocks.GRASS_TURF.get(), withRandomRotation(simpleOverlayBlock(PUBlocks.GRASS_TURF.get(), true)));
         this.simpleTurfBlock(PUBlocks.GRASS_TURF_LAYER.get(), true, BlockStateProperties.WATERLOGGED);
 
-        String myceliumTurf = blockName(PUBlocks.MYCELIUM_TURF.get());
         this.simpleBlock(PUBlocks.MYCELIUM_TURF.get(), withRandomRotation(simpleOverlayBlock(PUBlocks.MYCELIUM_TURF.get(), false)));
         this.simpleTurfBlock(PUBlocks.MYCELIUM_TURF_LAYER.get(), false, BlockStateProperties.WATERLOGGED);
 
