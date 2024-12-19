@@ -75,7 +75,7 @@ public class TurfHandler extends TurfUtils {
         return world.getBlockState(pos.above()).isAir();
     }
 
-    public static void bonemealTurf(ServerLevel world, RandomSource random, BlockPos pos, BlockState state) {
+    public void bonemealTurf(ServerLevel world, RandomSource random, BlockPos pos, BlockState state) {
         BlockPos blockpos = pos.above();
         Registry<PlacedFeature> feature = world.registryAccess().registryOrThrow(Registries.PLACED_FEATURE);
         Optional<Holder.Reference<PlacedFeature>> optional = feature.getHolder(VegetationPlacements.GRASS_BONEMEAL);
