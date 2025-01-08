@@ -2,9 +2,9 @@
 
 <div align="center">
 	<img src="https://img.shields.io/badge/mod%20loader-forge%20%2F%20neoforge-blue?style=flat-square" />
-	<img src="https://img.shields.io/modrinth/game-versions/opsrwaeY?style=flat-square&label=avaliable%20for&color=blue" />
-	<img src="https://img.shields.io/modrinth/dt/opsrwaeY?style=flat-square&logo=modrinth&logoSize=auto&color=4caf50" />
-	<img src="https://img.shields.io/curseforge/dt/1007751?style=flat-square&logo=curseforge&logoSize=auto&color=4caf50" />
+	<img src="https://cf.way2muchnoise.eu/versions/available%20for_1007751_all(555555-007ec6-fff-fff).svg?badge_style=flat">
+	<a href="https://modrinth.com/mod/packed-up"> <img src="https://img.shields.io/modrinth/dt/opsrwaeY?style=flat-square&logo=modrinth&logoSize=auto&color=4caf50"></a>
+	<a href="https://www.curseforge.com/minecraft/mc-mods/packed-up"> <img src="https://img.shields.io/curseforge/dt/1007751?style=flat-square&logo=curseforge&logoSize=auto&color=4caf50"></a>
 </div>
 
 **Packed Up** is a simple mod based around the concept of packing and storing blocks away. Unlike other mods in the same genre, Packed Up takes a more decorative approach to the problem, making it so you're free to use the new compacted blocks around your builds without worry of them looking out of place.
