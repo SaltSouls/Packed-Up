@@ -1,7 +1,7 @@
 <div align="center"><img src="https://cdn.modrinth.com/data/cached_images/5e8c3bb64480f87ad92f1efc807f03ab2eb4976d.png" /></div>
 
 <div align="center">
-	<img src="https://img.shields.io/badge/mod%20loader-forge%20%2F%20neoforge-blue?style=flat-square" />
+	<img src="https://img.shields.io/badge/mod%20loader-forge%20|%20neoforge-blue?style=flat-square" />
 	<img src="https://cf.way2muchnoise.eu/versions/available%20for_1007751_all(555555-007ec6-fff-fff).svg?badge_style=flat">
 	<a href="https://modrinth.com/mod/packed-up"> <img src="https://img.shields.io/modrinth/dt/opsrwaeY?style=flat-square&logo=modrinth&logoSize=auto&color=4caf50"></a>
 	<a href="https://www.curseforge.com/minecraft/mc-mods/packed-up"> <img src="https://img.shields.io/curseforge/dt/1007751?style=flat-square&logo=curseforge&logoSize=auto&color=4caf50"></a>
