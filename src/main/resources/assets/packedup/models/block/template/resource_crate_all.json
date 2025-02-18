@@ -3,9 +3,6 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"ambientocclusion": false,
-	"textures": {
-		"particle": "packedup:block/cobblestone_pile"
-	},
 	"elements": [
 		{
 			"name": "pile",

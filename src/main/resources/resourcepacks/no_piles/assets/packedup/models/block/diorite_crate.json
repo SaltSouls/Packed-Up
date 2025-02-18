@@ -1,5 +1,5 @@
 {
-  "parent": "packedup:block/template_crate",
+  "parent": "packedup:block/template/crate",
   "textures": {
     "top": "packedup:block/diorite_crate_top"
   }

@@ -1,5 +1,5 @@
 {
-  "parent": "packedup:block/template_reinforced_crate",
+  "parent": "packedup:block/template/reinforced_crate",
   "textures": {
     "top": "packedup:block/reinforced_tuff_crate_top"
   }

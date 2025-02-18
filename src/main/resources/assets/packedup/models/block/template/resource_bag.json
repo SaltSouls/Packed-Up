@@ -5,9 +5,9 @@
 	"textures": {
 		"particle": "#pile",
 		"top": "packedup:block/bag_top",
-		"side_tied": "farmersdelight:block/rice_bag_side_tied",
-		"side": "farmersdelight:block/rice_bag_side",
-		"bottom": "farmersdelight:block/rice_bag_bottom"
+		"side_tied": "packedup:block/bag_side_tied",
+		"side": "packedup:block/bag_side",
+		"bottom": "packedup:block/bag_bottom"
 	},
 	"elements": [
 		{

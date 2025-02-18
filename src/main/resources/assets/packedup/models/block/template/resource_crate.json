@@ -4,6 +4,6 @@
 		"particle": "#pile",
 		"top": "packedup:block/crate_top",
 		"side": "packedup:block/crate_side",
-		"bottom": "farmersdelight:block/crate_bottom"
+		"bottom": "packedup:block/crate_bottom"
 	}
 }

@@ -1,5 +1,5 @@
 {
-  "parent": "packedup:block/template_crate",
+  "parent": "packedup:block/template/crate",
   "textures": {
     "top": "packedup:block/cobbled_deepslate_crate_top"
   }

@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "bottom": "farmersdelight:block/crate_bottom",
+    "bottom": "packedup:block/crate_bottom",
     "side": "packedup:block/golden_carrot_crate_side",
     "top": "packedup:block/golden_carrot_crate_top"
   }

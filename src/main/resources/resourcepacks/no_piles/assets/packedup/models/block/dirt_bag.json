@@ -1,5 +1,5 @@
 {
-  "parent": "packedup:block/template_bag",
+  "parent": "packedup:block/template/bag",
   "textures": {
     "top": "packedup:block/dirt_bag_top"
   }

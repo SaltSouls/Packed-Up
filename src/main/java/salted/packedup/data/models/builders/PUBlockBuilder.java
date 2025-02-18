@@ -188,7 +188,7 @@ public class PUBlockBuilder extends BlockStateProvider {
 
         simpleBlock(block, models().cubeBottomTop(blockName(block),
                 blockLocation(name + "_side"),
-                fdBlockLocation("crate_bottom"),
+                blockLocation("crate_bottom"),
                 blockLocation(name + "_top")));
     }
 
