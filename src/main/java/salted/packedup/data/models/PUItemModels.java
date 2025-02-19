@@ -10,10 +10,9 @@ import salted.packedup.PackedUp;
 import salted.packedup.common.registry.PUItems;
 import salted.packedup.data.models.builders.PUItemBuilder;
 
-import java.util.Set;
+import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
-
-import static vectorwing.farmersdelight.data.ItemModels.takeAll;
 
 public class PUItemModels extends PUItemBuilder {
 
@@ -22,7 +21,6 @@ public class PUItemModels extends PUItemBuilder {
     }
 
     // model registration
-    // using FDs function for creating item models
     @Override
     protected void registerModels() {
         Set<Item> items = ForgeRegistries.ITEMS.getValues().stream().filter(i -> PackedUp.MODID.equals(ForgeRegistries.ITEMS.getKey(i).getNamespace())).collect(Collectors.toSet());
@@ -100,5 +98,6 @@ public class PUItemModels extends PUItemBuilder {
         // block based items
         takeAll(items, i -> i instanceof BlockItem).forEach(this::blockBasedModel);
     }
+
 
 }

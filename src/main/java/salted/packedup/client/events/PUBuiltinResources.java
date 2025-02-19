@@ -26,11 +26,15 @@ public class PUBuiltinResources {
             IModFile modFile = modFileInfo.getFile();
 
             addPack(event, "No Piles", PackSource.BUILT_IN, modFile);
+            addPack(event, "Farmer's Textures", PackSource.BUILT_IN, modFile);
+            addPack(event, "Alt Textures", PackSource.BUILT_IN, modFile);
         }
     }
 
     private static void addPack(AddPackFindersEvent event, String name, PackSource packSource, IModFile modFile) {
-        String packId = name.toLowerCase().replace(' ', '_');
+        String packId = name.toLowerCase()
+                .replace(' ', '_')
+                .replace("'", "");
 
         event.addRepositorySource(consumer -> {
             Pack pack = Pack.readMetaAndCreate(

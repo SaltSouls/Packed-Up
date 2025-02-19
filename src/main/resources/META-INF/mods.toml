@@ -29,9 +29,9 @@ configBackground = "minecraft:textures/block/spruce_planks.png"
     side = "BOTH"
 [[dependencies."${mod_id}"]]
     modId = "farmersdelight"
-    mandatory = true
+    mandatory = false
     versionRange = "${fd_version_range}"
-    ordering = "NONE"
+    ordering = "AFTER"
     side = "BOTH"
 [[dependencies."${mod_id}"]]
     modId = "supplementaries"

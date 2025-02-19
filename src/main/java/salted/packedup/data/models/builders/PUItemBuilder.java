@@ -6,6 +6,9 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import salted.packedup.PackedUp;
 
+import java.util.*;
+import java.util.function.Predicate;
+
 import static salted.packedup.data.utils.NameUtils.*;
 
 public class PUItemBuilder extends ItemModelProvider {
@@ -36,5 +39,42 @@ public class PUItemBuilder extends ItemModelProvider {
 
     public void blockBasedModel(Item item) {
         withExistingParent(itemName(item), blockLocation(itemName(item)));
+    }
+
+    // Huge thanks to vectorwing for these methods
+    @SafeVarargs
+    public static <T> Collection<T> takeAll(Set<? extends T> set, T... items) {
+        List<T> list = Arrays.asList(items);
+
+        for(T item : items) {
+            if (!set.contains(item)) {
+                LOGGER.warn("Item {} not found in set", item);
+            }
+        }
+
+        if (!set.removeAll(list)) {
+            LOGGER.warn("takeAll array didn't yield anything ({})", Arrays.toString(items));
+        }
+
+        return list;
+    }
+
+    public static <T> Collection<T> takeAll(Set<T> src, Predicate<T> pred) {
+        List<T> items = new ArrayList<>();
+        Iterator<T> iter = src.iterator();
+
+        while(iter.hasNext()) {
+            T item = (T)iter.next();
+            if (pred.test(item)) {
+                iter.remove();
+                items.add(item);
+            }
+        }
+
+        if (items.isEmpty()) {
+            LOGGER.warn("takeAll predicate yielded nothing", new Throwable());
+        }
+
+        return items;
     }
 }
