@@ -149,7 +149,19 @@ public class PUBlocks {
                     .strength(2.0F, 8.0F)));
     // produce crates
     // TODO: Give these unique map colors/sounds
+    public static RegistryObject<Block> CARROT_CRATE = BLOCKS.register("carrot_crate",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)
+                    .strength(2.0F, 3.0F)
+                    .sound(SoundType.WOOD)));
     public static RegistryObject<Block> GOLDEN_CARROT_CRATE = BLOCKS.register("golden_carrot_crate",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)
+                    .strength(2.0F, 3.0F)
+                    .sound(SoundType.WOOD)));
+    public static RegistryObject<Block> POTATO_CRATE = BLOCKS.register("potato_crate",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)
+                    .strength(2.0F, 3.0F)
+                    .sound(SoundType.WOOD)));
+    public static RegistryObject<Block> BEETROOT_CRATE = BLOCKS.register("beetroot_crate",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)
                     .strength(2.0F, 3.0F)
                     .sound(SoundType.WOOD)));

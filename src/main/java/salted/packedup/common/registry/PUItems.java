@@ -3,6 +3,7 @@ package salted.packedup.common.registry;
 import com.google.common.collect.Sets;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -175,8 +176,14 @@ public class PUItems {
     public static final RegistryObject<Item> GRAVEL_BAG = registerWithTab("gravel_bag",
             () -> new BlockItem(PUBlocks.GRAVEL_BAG.get(), basicItem()));
     // produce crates
+    public static final RegistryObject<Item> CARROT_CRATE = compatRegisterWithTab("farmersdelight", "carrot_crate",
+            () -> new BlockItem(PUBlocks.CARROT_CRATE.get(), basicItem()));
     public static final RegistryObject<Item> GOLDEN_CARROT_CRATE = registerWithTab("golden_carrot_crate",
             () -> new BlockItem(PUBlocks.GOLDEN_CARROT_CRATE.get(), basicItem()));
+    public static final RegistryObject<Item> POTATO_CRATE = compatRegisterWithTab("farmersdelight", "potato_crate",
+            () -> new BlockItem(PUBlocks.POTATO_CRATE.get(), basicItem()));
+    public static final RegistryObject<Item> BEETROOT_CRATE = compatRegisterWithTab("farmersdelight", "beetroot_crate",
+            () -> new BlockItem(PUBlocks.BEETROOT_CRATE.get(), basicItem()));
     public static final RegistryObject<Item> EGG_CRATE = registerWithTab("egg_crate",
             () -> new BlockItem(PUBlocks.EGG_CRATE.get(), basicItem()));
     public static final RegistryObject<Item> RED_MUSHROOM_CRATE = registerWithTab("red_mushroom_crate",
@@ -244,11 +251,6 @@ public class PUItems {
             () -> new BlockItem(PUBlocks.RAW_IRON_CRATE.get(), basicItem()));
     public static final RegistryObject<Item> RAW_GOLD_CRATE = registerWithTab("raw_gold_crate",
             () -> new BlockItem(PUBlocks.RAW_GOLD_CRATE.get(), basicItem()));
-//    // unused crates
-//    public static final RegistryObject<Item> DIAMOND_CRATE = registerWithTab("diamond_crate",
-//            () -> new BlockItem(PUBlocks.DIAMOND_CRATE.get(), basicItem()));
-//    public static final RegistryObject<Item> EMERALD_CRATE = registerWithTab("emerald_crate",
-//            () -> new BlockItem(PUBlocks.EMERALD_CRATE.get(), basicItem()));
     // piles/pallets
     public static final RegistryObject<Item> PALLET = registerWithTab("pallet",
             () -> new BlockItem(PUBlocks.PALLET.get(), basicItem()));
@@ -290,6 +292,12 @@ public class PUItems {
         RegistryObject<Item> block = ITEMS.register(name, supplier);
         TAB_ITEMS.add(block);
         return block;
+    }
+    public static RegistryObject<Item> compatRegisterWithTab(String modID, final String name, final Supplier<Item> supplier) {
+        if (!ModList.get().isLoaded(modID)) {
+            registerWithTab(name, supplier);
+        }
+        return ITEMS.register(name, supplier);
     }
 
     private static Item.Properties basicItem() {

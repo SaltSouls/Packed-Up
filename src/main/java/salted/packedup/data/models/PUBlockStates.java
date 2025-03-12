@@ -81,8 +81,16 @@ public class PUBlockStates extends PUBlockBuilder {
         }
 
         // produce crates
-        this.simpleCrate(PUBlocks.GOLDEN_CARROT_CRATE.get());
-        this.simpleCrate(PUBlocks.EGG_CRATE.get());
+        Set<Block> produceCrates = Sets.newHashSet(
+                PUBlocks.CARROT_CRATE.get(),
+                PUBlocks.GOLDEN_CARROT_CRATE.get(),
+                PUBlocks.POTATO_CRATE.get(),
+                PUBlocks.BEETROOT_CRATE.get(),
+                PUBlocks.EGG_CRATE.get()
+        );
+        for (Block crate : produceCrates) {
+            this.simpleCrate(crate);
+        }
 
         // mushroom crates
         Set<Block> mushroomCrates = Sets.newHashSet(

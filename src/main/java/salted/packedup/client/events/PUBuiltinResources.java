@@ -32,6 +32,7 @@ public class PUBuiltinResources {
     }
 
     private static void addPack(AddPackFindersEvent event, String name, PackSource packSource, IModFile modFile) {
+        // This can probably be done better but eh...
         String packId = name.toLowerCase()
                 .replace(' ', '_')
                 .replace("'", "");

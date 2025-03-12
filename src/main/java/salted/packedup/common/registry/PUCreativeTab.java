@@ -15,6 +15,7 @@ public class PUCreativeTab {
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.packedup"))
                     .icon(() -> new ItemStack(PUBlocks.COBBLESTONE_CRATE.get()))
-                    .displayItems((parameters, output) -> PUItems.TAB_ITEMS.forEach((item) -> output.accept(item.get())))
-                    .build());
+                    .displayItems((parameters, output) -> {
+                            PUItems.TAB_ITEMS.forEach((item) -> output.accept(item.get()));
+                    }).build());
 }

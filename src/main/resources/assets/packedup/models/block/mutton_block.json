@@ -1,82 +1,122 @@
 {
-	"author": "TwinSouls",
-	"credit": "Made with Blockbench",
-	"textures": {
-		"particle": "#meat",
-		"meat": "packedup:block/mutton_block",
-		"skin": "packedup:block/mutton_block_side"
-	},
-	"elements": [
-		{
-			"name": "bone_left",
-			"from": [16, 6, 6],
-			"to": [18, 10, 10],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
-			"faces": {
-				"north": {"uv": [6, 6, 7, 10], "texture": "#meat", "cullface": "east"},
-				"east": {"uv": [6, 6, 10, 10], "texture": "#meat", "cullface": "east"},
-				"south": {"uv": [9, 10, 10, 6], "texture": "#meat", "cullface": "east"},
-				"up": {"uv": [7, 6, 6, 10], "texture": "#meat", "cullface": "east"},
-				"down": {"uv": [9, 6, 10, 10], "texture": "#meat", "cullface": "east"}
-			}
-		},
-		{
-			"name": "bone_right",
-			"from": [-2, 6, 6],
-			"to": [0, 10, 10],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
-			"faces": {
-				"north": {"uv": [9, 10, 10, 6], "texture": "#meat", "cullface": "west"},
-				"south": {"uv": [6, 6, 7, 10], "texture": "#meat", "cullface": "west"},
-				"west": {"uv": [6, 6, 10, 10], "texture": "#meat", "cullface": "west"},
-				"up": {"uv": [7, 6, 6, 10], "texture": "#meat", "cullface": "west"},
-				"down": {"uv": [9, 6, 10, 10], "texture": "#meat", "cullface": "west"}
-			}
-		},
-		{
-			"name": "meat",
-			"from": [0, 0, 0],
-			"to": [16, 16, 16],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
-			"faces": {
-				"north": {"uv": [0, 0, 16, 16], "texture": "#skin", "cullface": "north"},
-				"east": {"uv": [0, 0, 16, 16], "texture": "#meat", "cullface": "east"},
-				"south": {"uv": [16, 0, 0, 16], "texture": "#skin", "cullface": "south"},
-				"west": {"uv": [0, 0, 16, 16], "texture": "#meat", "cullface": "west"},
-				"up": {"uv": [16, 16, 0, 0], "texture": "#skin", "cullface": "up"},
-				"down": {"uv": [16, 16, 0, 0], "texture": "#skin", "cullface": "down"}
-			}
-		}
-	],
-	"display": {
-		"thirdperson_righthand": {
-			"rotation": [75, 45, 0],
-			"translation": [0, 2.5, 0],
-			"scale": [0.375, 0.375, 0.375]
-		},
-		"thirdperson_lefthand": {
-			"rotation": [75, 45, 0],
-			"translation": [0, 2.5, 0],
-			"scale": [0.375, 0.375, 0.375]
-		},
-		"firstperson_righthand": {
-			"rotation": [0, 45, 0],
-			"scale": [0.4, 0.4, 0.4]
-		},
-		"firstperson_lefthand": {
-			"rotation": [0, 45, 0],
-			"scale": [0.4, 0.4, 0.4]
-		},
-		"ground": {
-			"translation": [0, 3, 0],
-			"scale": [0.25, 0.25, 0.25]
-		},
-		"gui": {
-			"rotation": [30, -135, 0],
-			"scale": [0.625, 0.625, 0.625]
-		},
-		"fixed": {
-			"scale": [0.5, 0.5, 0.5]
-		}
-	}
+  "author": "TwinSouls",
+  "credit": "Made with Blockbench",
+  "textures": {
+    "particle": "#meat",
+    "meat": "packedup:block/mutton_block",
+    "skin": "packedup:block/mutton_block_side"
+  },
+  "elements": [
+    {
+      "name": "bone_left",
+      "from": [16, 6, 6],
+      "to": [18, 10, 10],
+      "rotation": { "angle": 0, "axis": "y", "origin": [8, 8, 8] },
+      "faces": {
+        "north": {
+          "uv": [6, 6, 7, 10],
+          "texture": "#meat",
+          "cullface": "east"
+        },
+        "east": {
+          "uv": [6, 6, 10, 10],
+          "texture": "#meat",
+          "cullface": "east"
+        },
+        "south": {
+          "uv": [9, 10, 10, 6],
+          "texture": "#meat",
+          "cullface": "east"
+        },
+        "up": { "uv": [7, 6, 6, 10], "texture": "#meat", "cullface": "east" },
+        "down": { "uv": [9, 6, 10, 10], "texture": "#meat", "cullface": "east" }
+      }
+    },
+    {
+      "name": "bone_right",
+      "from": [-2, 6, 6],
+      "to": [0, 10, 10],
+      "rotation": { "angle": 0, "axis": "y", "origin": [8, 8, 8] },
+      "faces": {
+        "north": {
+          "uv": [9, 10, 10, 6],
+          "texture": "#meat",
+          "cullface": "west"
+        },
+        "south": {
+          "uv": [6, 6, 7, 10],
+          "texture": "#meat",
+          "cullface": "west"
+        },
+        "west": {
+          "uv": [6, 6, 10, 10],
+          "texture": "#meat",
+          "cullface": "west"
+        },
+        "up": { "uv": [7, 6, 6, 10], "texture": "#meat", "cullface": "west" },
+        "down": { "uv": [9, 6, 10, 10], "texture": "#meat", "cullface": "west" }
+      }
+    },
+    {
+      "name": "meat",
+      "from": [0, 0, 0],
+      "to": [16, 16, 16],
+      "rotation": { "angle": 0, "axis": "y", "origin": [8, 8, 8] },
+      "faces": {
+        "north": {
+          "uv": [0, 0, 16, 16],
+          "texture": "#skin",
+          "cullface": "north"
+        },
+        "east": {
+          "uv": [0, 0, 16, 16],
+          "texture": "#meat",
+          "cullface": "east"
+        },
+        "south": {
+          "uv": [16, 0, 0, 16],
+          "texture": "#skin",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [0, 0, 16, 16],
+          "texture": "#meat",
+          "cullface": "west"
+        },
+        "up": { "uv": [16, 16, 0, 0], "texture": "#skin", "cullface": "up" },
+        "down": { "uv": [16, 16, 0, 0], "texture": "#skin", "cullface": "down" }
+      }
+    }
+  ],
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [75, 45, 0],
+      "translation": [0, 2.5, 0],
+      "scale": [0.375, 0.375, 0.375]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [75, 45, 0],
+      "translation": [0, 2.5, 0],
+      "scale": [0.375, 0.375, 0.375]
+    },
+    "firstperson_righthand": {
+      "rotation": [0, 45, 0],
+      "scale": [0.4, 0.4, 0.4]
+    },
+    "firstperson_lefthand": {
+      "rotation": [0, 45, 0],
+      "scale": [0.4, 0.4, 0.4]
+    },
+    "ground": {
+      "translation": [0, 3, 0],
+      "scale": [0.25, 0.25, 0.25]
+    },
+    "gui": {
+      "rotation": [30, -135, 0],
+      "scale": [0.625, 0.625, 0.625]
+    },
+    "fixed": {
+      "scale": [0.5, 0.5, 0.5]
+    }
+  }
 }

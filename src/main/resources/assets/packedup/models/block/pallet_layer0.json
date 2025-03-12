@@ -1,27 +1,47 @@
 {
-	"author": "TwinSouls",
-	"credit": "Made with Blockbench",
-	"parent": "block/thin_block",
-	"textures": {
-		"particle": "#top",
-		"top": "packedup:block/pallet_top",
-		"front": "packedup:block/pallet_front",
-		"side": "packedup:block/pallet_side",
-		"bottom": "packedup:block/pallet_bottom"
-	},
-	"elements": [
-		{
-			"name": "main",
-			"from": [0, 0, 0],
-			"to": [16, 4, 16],
-			"faces": {
-				"north": {"uv": [0, 12, 16, 16], "texture": "#front", "cullface": "north"},
-				"east": {"uv": [0, 12, 16, 16], "texture": "#side", "cullface": "east"},
-				"south": {"uv": [0, 12, 16, 16], "texture": "#front", "cullface": "south"},
-				"west": {"uv": [0, 12, 16, 16], "texture": "#side", "cullface": "west"},
-				"up": {"uv": [0, 0, 16, 16], "texture": "#top"},
-				"down": {"uv": [0, 0, 16, 16], "texture": "#bottom", "cullface": "down"}
-			}
-		}
-	]
+  "author": "TwinSouls",
+  "credit": "Made with Blockbench",
+  "parent": "block/thin_block",
+  "textures": {
+    "particle": "#top",
+    "top": "packedup:block/pallet_top",
+    "front": "packedup:block/pallet_front",
+    "side": "packedup:block/pallet_side",
+    "bottom": "packedup:block/pallet_bottom"
+  },
+  "elements": [
+    {
+      "name": "main",
+      "from": [0, 0, 0],
+      "to": [16, 4, 16],
+      "faces": {
+        "north": {
+          "uv": [0, 12, 16, 16],
+          "texture": "#front",
+          "cullface": "north"
+        },
+        "east": {
+          "uv": [0, 12, 16, 16],
+          "texture": "#side",
+          "cullface": "east"
+        },
+        "south": {
+          "uv": [0, 12, 16, 16],
+          "texture": "#front",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [0, 12, 16, 16],
+          "texture": "#side",
+          "cullface": "west"
+        },
+        "up": { "uv": [0, 0, 16, 16], "texture": "#top" },
+        "down": {
+          "uv": [0, 0, 16, 16],
+          "texture": "#bottom",
+          "cullface": "down"
+        }
+      }
+    }
+  ]
 }

@@ -1,40 +1,74 @@
 {
-	"credit": "Made with Blockbench",
-	"parent": "block/block",
-	"ambientocclusion": false,
-	"textures": {
-		"particle": "#pile",
-		"top": "packedup:block/bag_top",
-		"side_tied": "packedup:block/bag_side_tied",
-		"side": "packedup:block/bag_side",
-		"bottom": "packedup:block/bag_bottom"
-	},
-	"elements": [
-		{
-			"name": "pile",
-			"from": [2, 16, 2],
-			"to": [14, 18, 14],
-			"faces": {
-				"north": {"uv": [14, 3, 2, 1], "texture": "#pile", "cullface": "up"},
-				"east": {"uv": [15, 14, 13, 2], "rotation": 270, "texture": "#pile", "cullface": "up"},
-				"south": {"uv": [2, 13, 14, 15], "texture": "#pile", "cullface": "up"},
-				"west": {"uv": [3, 14, 1, 2], "rotation": 90, "texture": "#pile", "cullface": "up"},
-				"up": {"uv": [2, 2, 14, 14], "texture": "#pile", "cullface": "up"}
-			}
-		},
-		{
-			"name": "crate",
-			"from": [0, 0, 0],
-			"to": [16, 16, 16],
-			"faces": {
-				"north": {"uv": [0, 0, 16, 16], "texture": "#side_tied", "cullface": "north"},
-				"east": {"uv": [0, 0, 16, 16], "texture": "#side", "cullface": "east"},
-				"south": {"uv": [0, 0, 16, 16], "texture": "#side_tied", "cullface": "south"},
-				"west": {"uv": [0, 0, 16, 16], "texture": "#side", "cullface": "west"},
-				"up": {"uv": [0, 0, 16, 16], "texture": "#top", "cullface": "up"},
-				"down": {"uv": [0, 0, 16, 16], "texture": "#bottom", "cullface": "down"}
-			}
-		}
-	],
-	"author": "TwinSouls"
+  "credit": "Made with Blockbench",
+  "parent": "block/block",
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "#pile",
+    "top": "packedup:block/bag_top",
+    "side_tied": "packedup:block/bag_side_tied",
+    "side": "packedup:block/bag_side",
+    "bottom": "packedup:block/bag_bottom"
+  },
+  "elements": [
+    {
+      "name": "pile",
+      "from": [2, 16, 2],
+      "to": [14, 18, 14],
+      "faces": {
+        "north": { "uv": [14, 3, 2, 1], "texture": "#pile", "cullface": "up" },
+        "east": {
+          "uv": [15, 14, 13, 2],
+          "rotation": 270,
+          "texture": "#pile",
+          "cullface": "up"
+        },
+        "south": {
+          "uv": [2, 13, 14, 15],
+          "texture": "#pile",
+          "cullface": "up"
+        },
+        "west": {
+          "uv": [3, 14, 1, 2],
+          "rotation": 90,
+          "texture": "#pile",
+          "cullface": "up"
+        },
+        "up": { "uv": [2, 2, 14, 14], "texture": "#pile", "cullface": "up" }
+      }
+    },
+    {
+      "name": "crate",
+      "from": [0, 0, 0],
+      "to": [16, 16, 16],
+      "faces": {
+        "north": {
+          "uv": [0, 0, 16, 16],
+          "texture": "#side_tied",
+          "cullface": "north"
+        },
+        "east": {
+          "uv": [0, 0, 16, 16],
+          "texture": "#side",
+          "cullface": "east"
+        },
+        "south": {
+          "uv": [0, 0, 16, 16],
+          "texture": "#side_tied",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [0, 0, 16, 16],
+          "texture": "#side",
+          "cullface": "west"
+        },
+        "up": { "uv": [0, 0, 16, 16], "texture": "#top", "cullface": "up" },
+        "down": {
+          "uv": [0, 0, 16, 16],
+          "texture": "#bottom",
+          "cullface": "down"
+        }
+      }
+    }
+  ],
+  "author": "TwinSouls"
 }

@@ -10,8 +10,7 @@ import salted.packedup.PackedUp;
 import salted.packedup.common.registry.PUItems;
 import salted.packedup.data.models.builders.PUItemBuilder;
 
-import java.util.*;
-import java.util.function.Predicate;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class PUItemModels extends PUItemBuilder {

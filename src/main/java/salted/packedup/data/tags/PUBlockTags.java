@@ -96,9 +96,12 @@ public class PUBlockTags extends BlockTagsProvider {
                 PUBlocks.RAW_GOLD_CRATE.get(),
                 // produce
                 ModBlocks.CARROT_CRATE.get(),
+                PUBlocks.CARROT_CRATE.get(),
                 PUBlocks.GOLDEN_CARROT_CRATE.get(),
                 ModBlocks.POTATO_CRATE.get(),
+                PUBlocks.POTATO_CRATE.get(),
                 ModBlocks.BEETROOT_CRATE.get(),
+                PUBlocks.BEETROOT_CRATE.get(),
                 ModBlocks.CABBAGE_CRATE.get(),
                 ModBlocks.TOMATO_CRATE.get(),
                 ModBlocks.ONION_CRATE.get(),

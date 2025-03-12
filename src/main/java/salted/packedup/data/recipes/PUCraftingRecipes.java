@@ -10,7 +10,11 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import net.minecraftforge.common.crafting.conditions.NotCondition;
 import salted.packedup.common.registry.PUItems;
 
 import java.util.Set;
@@ -20,12 +24,17 @@ import static net.minecraft.advancements.critereon.InventoryChangeTrigger.Trigge
 
 public class PUCraftingRecipes extends PURecipeBuilder {
 
-    public PUCraftingRecipes(PackOutput pOutput) { super(pOutput); }
+    public PUCraftingRecipes(PackOutput output) { super(output); }
 
     public static void register(Consumer<FinishedRecipe> consumer) {
         recipesCompacting(consumer);
         recipesUnique(consumer);
         recipesModifiedVanilla(consumer);
+    }
+
+    // conditions
+    private static ICondition notLoaded(String modID) {
+        return new NotCondition(new ModLoadedCondition(modID));
     }
 
     private static void recipesCompacting(Consumer<FinishedRecipe> consumer) {
@@ -71,7 +80,10 @@ public class PUCraftingRecipes extends PURecipeBuilder {
         simpleCombined(PUItems.ECHO_SHARD_CRATE.get(), Items.ECHO_SHARD, true, consumer);
 
         // produce crates
+        simpleConditionalCombined(PUItems.CARROT_CRATE.get(), Items.CARROT, true, notLoaded("farmersdelight"), consumer);
         simpleCombined(PUItems.GOLDEN_CARROT_CRATE.get(), Items.GOLDEN_CARROT, true, consumer);
+        simpleConditionalCombined(PUItems.POTATO_CRATE.get(), Items.POTATO, true, notLoaded("farmersdelight"), consumer);
+        simpleConditionalCombined(PUItems.BEETROOT_CRATE.get(), Items.BEETROOT, true, notLoaded("farmersdelight"), consumer);
         simpleCombined(PUItems.EGG_CRATE.get(), Items.EGG, true, consumer);
         simpleCombined(PUItems.RED_MUSHROOM_CRATE.get(), Items.RED_MUSHROOM, true, consumer);
         simpleCombined(PUItems.BROWN_MUSHROOM_CRATE.get(), Items.BROWN_MUSHROOM, true, consumer);

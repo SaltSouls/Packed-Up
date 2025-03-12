@@ -1,7 +1,7 @@
 {
-	"parent": "packedup:block/template/crate_all",
-	"textures": {
-		"side": "packedup:block/crate_side",
-		"bottom": "packedup:block/crate_bottom"
-	}
+  "parent": "packedup:block/template/crate_all",
+  "textures": {
+    "side": "packedup:block/crate_side",
+    "bottom": "packedup:block/crate_bottom"
+  }
 }

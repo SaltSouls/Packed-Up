@@ -1,90 +1,106 @@
 {
-	"author": "TwinSouls",
-	"credit": "Made with Blockbench",
-	"ambientocclusion": false,
-	"textures": {
-		"particle": "#pile",
-		"bag": "packedup:block/small_bag",
-		"thin": "packedup:block/small_bag_thin"
-	},
-	"elements": [
-		{
-			"name": "pile",
-			"from": [1, 9, 1],
-			"to": [15, 11, 10],
-			"faces": {
-				"north": {"uv": [15, 1, 1, 3], "texture": "#pile"},
-				"east": {"uv": [15, 1, 13, 10], "rotation": 90, "texture": "#pile"},
-				"west": {"uv": [1, 10, 3, 1], "rotation": 90, "texture": "#pile"},
-				"up": {"uv": [1, 1, 15, 10], "texture": "#pile"}
-			}
-		},
-		{
-			"name": "pile",
-			"from": [1, 9, 10],
-			"to": [10, 11, 15],
-			"faces": {
-				"south": {"uv": [1, 15, 10, 13], "texture": "#pile"},
-				"west": {"uv": [1, 15, 3, 10], "rotation": 90, "texture": "#pile"},
-				"up": {"uv": [1, 10, 10, 15], "texture": "#pile"}
-			}
-		},
-		{
-			"name": "bag",
-			"from": [8, 0, 0],
-			"to": [16, 9, 8],
-			"faces": {
-				"north": {"uv": [8, 7, 16, 16], "texture": "#bag", "cullface": "north"},
-				"east": {"uv": [8, 7, 16, 16], "texture": "#bag", "cullface": "east"},
-				"up": {"uv": [0, 0, 8, 8], "texture": "#bag"},
-				"down": {"uv": [0, 8, 8, 16], "texture": "#bag", "cullface": "down"}
-			}
-		},
-		{
-			"name": "bag",
-			"from": [0, 0, 0],
-			"to": [8, 9, 8],
-			"faces": {
-				"north": {"uv": [8, 7, 16, 16], "texture": "#bag", "cullface": "north"},
-				"west": {"uv": [8, 7, 16, 16], "texture": "#bag", "cullface": "west"},
-				"up": {"uv": [0, 0, 8, 8], "texture": "#bag"},
-				"down": {"uv": [0, 8, 8, 16], "texture": "#bag", "cullface": "down"}
-			}
-		},
-		{
-			"name": "bag",
-			"from": [8, 0, 8],
-			"to": [16, 9, 16],
-			"faces": {
-				"east": {"uv": [8, 7, 16, 16], "texture": "#bag", "cullface": "east"},
-				"south": {"uv": [8, 7, 16, 16], "texture": "#bag", "cullface": "south"},
-				"up": {"uv": [0, 0, 8, 8], "texture": "#top"},
-				"down": {"uv": [0, 8, 8, 16], "texture": "#bag", "cullface": "down"}
-			}
-		},
-		{
-			"name": "bag",
-			"from": [0, 0, 8],
-			"to": [8, 9, 16],
-			"faces": {
-				"south": {"uv": [8, 7, 16, 16], "texture": "#bag", "cullface": "south"},
-				"west": {"uv": [8, 7, 16, 16], "texture": "#bag", "cullface": "west"},
-				"up": {"uv": [0, 0, 8, 8], "texture": "#bag"},
-				"down": {"uv": [0, 8, 8, 16], "texture": "#bag", "cullface": "down"}
-			}
-		},
-		{
-			"name": "bag",
-			"from": [2.25, 9, 10],
-			"to": [10.25, 14, 19],
-			"rotation": {"angle": 45, "axis": "y", "origin": [2.25, 9, 8]},
-			"faces": {
-				"north": {"uv": [0, 0, 8, 5], "texture": "#top"},
-				"east": {"uv": [8, 7, 13, 16], "rotation": 90, "texture": "#thin"},
-				"south": {"uv": [0, 11, 8, 16], "texture": "#thin"},
-				"west": {"uv": [13, 16, 8, 7], "rotation": 90, "texture": "#thin"},
-				"up": {"uv": [8, 7, 16, 16], "texture": "#bag"}
-			}
-		}
-	]
+  "author": "TwinSouls",
+  "credit": "Made with Blockbench",
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "#pile",
+    "bag": "packedup:block/small_bag",
+    "thin": "packedup:block/small_bag_thin"
+  },
+  "elements": [
+    {
+      "name": "pile",
+      "from": [1, 9, 1],
+      "to": [15, 11, 10],
+      "faces": {
+        "north": { "uv": [15, 1, 1, 3], "texture": "#pile" },
+        "east": { "uv": [15, 1, 13, 10], "rotation": 90, "texture": "#pile" },
+        "west": { "uv": [1, 10, 3, 1], "rotation": 90, "texture": "#pile" },
+        "up": { "uv": [1, 1, 15, 10], "texture": "#pile" }
+      }
+    },
+    {
+      "name": "pile",
+      "from": [1, 9, 10],
+      "to": [10, 11, 15],
+      "faces": {
+        "south": { "uv": [1, 15, 10, 13], "texture": "#pile" },
+        "west": { "uv": [1, 15, 3, 10], "rotation": 90, "texture": "#pile" },
+        "up": { "uv": [1, 10, 10, 15], "texture": "#pile" }
+      }
+    },
+    {
+      "name": "bag",
+      "from": [8, 0, 0],
+      "to": [16, 9, 8],
+      "faces": {
+        "north": {
+          "uv": [8, 7, 16, 16],
+          "texture": "#bag",
+          "cullface": "north"
+        },
+        "east": { "uv": [8, 7, 16, 16], "texture": "#bag", "cullface": "east" },
+        "up": { "uv": [0, 0, 8, 8], "texture": "#bag" },
+        "down": { "uv": [0, 8, 8, 16], "texture": "#bag", "cullface": "down" }
+      }
+    },
+    {
+      "name": "bag",
+      "from": [0, 0, 0],
+      "to": [8, 9, 8],
+      "faces": {
+        "north": {
+          "uv": [8, 7, 16, 16],
+          "texture": "#bag",
+          "cullface": "north"
+        },
+        "west": { "uv": [8, 7, 16, 16], "texture": "#bag", "cullface": "west" },
+        "up": { "uv": [0, 0, 8, 8], "texture": "#bag" },
+        "down": { "uv": [0, 8, 8, 16], "texture": "#bag", "cullface": "down" }
+      }
+    },
+    {
+      "name": "bag",
+      "from": [8, 0, 8],
+      "to": [16, 9, 16],
+      "faces": {
+        "east": { "uv": [8, 7, 16, 16], "texture": "#bag", "cullface": "east" },
+        "south": {
+          "uv": [8, 7, 16, 16],
+          "texture": "#bag",
+          "cullface": "south"
+        },
+        "up": { "uv": [0, 0, 8, 8], "texture": "#top" },
+        "down": { "uv": [0, 8, 8, 16], "texture": "#bag", "cullface": "down" }
+      }
+    },
+    {
+      "name": "bag",
+      "from": [0, 0, 8],
+      "to": [8, 9, 16],
+      "faces": {
+        "south": {
+          "uv": [8, 7, 16, 16],
+          "texture": "#bag",
+          "cullface": "south"
+        },
+        "west": { "uv": [8, 7, 16, 16], "texture": "#bag", "cullface": "west" },
+        "up": { "uv": [0, 0, 8, 8], "texture": "#bag" },
+        "down": { "uv": [0, 8, 8, 16], "texture": "#bag", "cullface": "down" }
+      }
+    },
+    {
+      "name": "bag",
+      "from": [2.25, 9, 10],
+      "to": [10.25, 14, 19],
+      "rotation": { "angle": 45, "axis": "y", "origin": [2.25, 9, 8] },
+      "faces": {
+        "north": { "uv": [0, 0, 8, 5], "texture": "#top" },
+        "east": { "uv": [8, 7, 13, 16], "rotation": 90, "texture": "#thin" },
+        "south": { "uv": [0, 11, 8, 16], "texture": "#thin" },
+        "west": { "uv": [13, 16, 8, 7], "rotation": 90, "texture": "#thin" },
+        "up": { "uv": [8, 7, 16, 16], "texture": "#bag" }
+      }
+    }
+  ]
 }

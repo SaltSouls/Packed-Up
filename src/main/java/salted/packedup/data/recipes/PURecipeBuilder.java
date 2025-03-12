@@ -7,6 +7,8 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.crafting.ConditionalRecipe;
+import net.minecraftforge.common.crafting.conditions.ICondition;
 import salted.packedup.PackedUp;
 import salted.packedup.common.registry.PUItems;
 import salted.packedup.common.tag.PUTags;
@@ -40,9 +42,19 @@ public class PURecipeBuilder extends RecipeProvider {
         simpleShapeless(product, resource, split, consumer);
     }
 
+    protected static void simpleConditionalCombined(ItemLike product, ItemLike resource, boolean split, ICondition condition, Consumer<FinishedRecipe> consumer) {
+        simpleConditionalCompact(resource, product, condition, consumer);
+        simpleConditionalShapeless(product, resource, split, condition, consumer);
+    }
+
     protected static void simpleCombined(ItemLike product, ItemLike resource, boolean before, String type, Consumer<FinishedRecipe> consumer) {
         simpleCompact(resource, product, consumer);
         simpleShapeless(product, resource, before, type, consumer);
+    }
+
+    protected static void simpleConditionalCombined(ItemLike product, ItemLike resource, boolean before, String type, ICondition condition, Consumer<FinishedRecipe> consumer) {
+        simpleConditionalCompact(resource, product, condition, consumer);
+        simpleConditionalShapeless(product, resource, before, type, condition, consumer);
     }
 
     protected static void modifiedCombined(ItemLike product, ItemLike resource, Consumer<FinishedRecipe> consumer) {
@@ -61,6 +73,14 @@ public class PURecipeBuilder extends RecipeProvider {
                 .define('#', input)
                 .unlockedBy("has_" + item, hasItems(input))
                 .save(consumer);
+    }
+
+    protected static void simpleConditionalCompact(ItemLike input, ItemLike output, ICondition condition, Consumer<FinishedRecipe> consumer) {
+        String item = itemName(output.asItem());
+
+        ConditionalRecipe.builder().addCondition(condition)
+                .addRecipe(recipe -> simpleCompact(input, output, consumer))
+                .build(consumer, PackedUp.MODID, item);
     }
 
     protected static void modifiedCompact(ItemLike input, ItemLike output, Consumer<FinishedRecipe> consumer) {
@@ -133,18 +153,38 @@ public class PURecipeBuilder extends RecipeProvider {
                 .save(consumer, recipeDir(PackedUp.MODID, resource + "_from" + type));
     }
 
+    protected static void simpleConditionalShapeless(ItemLike input, ItemLike output, boolean split, ICondition condition, Consumer<FinishedRecipe> consumer) {
+        String item = itemName(input.asItem());
+        String resource = itemName(output.asItem());
+        String type = "_" + item;
+        if (split) { type = nameFromSplit(item, resource, false); }
+
+        ConditionalRecipe.builder().addCondition(condition)
+                .addRecipe(recipe -> simpleShapeless(input, output, split, consumer))
+                .build(consumer, recipeDir(PackedUp.MODID, resource + "_from" + type));
+    }
+
     protected static void simpleShapeless(ItemLike input, ItemLike output, boolean before, String type, Consumer<FinishedRecipe> consumer) {
         String item = itemName(input.asItem());
         String resource = itemName(output.asItem());
         String prefix = "";
-        if (before) {
-            prefix = nameFromSplit(item, resource, true);
-        }
+        if (before) { prefix = nameFromSplit(item, resource, true); }
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, output, 9)
                 .requires(input)
                 .unlockedBy("has_" + item, hasItems(input))
                 .save(consumer, recipeDir(PackedUp.MODID, resource + "_from_" + prefix + type));
+    }
+
+    protected static void simpleConditionalShapeless(ItemLike input, ItemLike output, boolean before, String type, ICondition condition, Consumer<FinishedRecipe> consumer) {
+        String item = itemName(input.asItem());
+        String resource = itemName(output.asItem());
+        String prefix = "";
+        if (before) { prefix = nameFromSplit(item, resource, true); }
+
+        ConditionalRecipe.builder().addCondition(condition)
+                .addRecipe(recipe -> simpleShapeless(input, output, before, type, consumer))
+                .build(consumer, recipeDir(PackedUp.MODID, resource + "_from_" + prefix + type));
     }
 
     protected static void modifiedShapeless(ItemLike input, ItemLike output, Consumer<FinishedRecipe> consumer) {
