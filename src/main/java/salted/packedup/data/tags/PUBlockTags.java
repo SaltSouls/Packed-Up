@@ -2,6 +2,7 @@ package salted.packedup.data.tags;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -9,8 +10,6 @@ import org.jetbrains.annotations.Nullable;
 import salted.packedup.PackedUp;
 import salted.packedup.common.registry.PUBlocks;
 import salted.packedup.common.tag.PUTags;
-import vectorwing.farmersdelight.common.registry.ModBlocks;
-import vectorwing.farmersdelight.common.tag.ModTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -24,6 +23,10 @@ public class PUBlockTags extends BlockTagsProvider {
         this.updateVanillaTags();
         this.registerModTags();
         this.registerEffectiveTools();
+    }
+
+    private ResourceLocation fdBlock(String block) {
+        return ResourceLocation.fromNamespaceAndPath("farmersdelight", block);
     }
 
     protected void updateVanillaTags() {
@@ -50,13 +53,18 @@ public class PUBlockTags extends BlockTagsProvider {
 
     protected void registerModTags() {
         // remove from staw_blocks and add to bag_blocks
-        tag(ModTags.STRAW_BLOCKS).remove(ModBlocks.RICE_BAG.get());
+        tag(PUTags.STRAW_BLOCKS).remove(fdBlock("rice_bag"));
 
-        tag(ModTags.STRAW_BLOCKS).add(
+        tag(PUTags.STRAW_BLOCKS).add(
                 PUBlocks.GRASS_BALE.get(),
                 PUBlocks.GRASS_THATCH.get(),
                 PUBlocks.GRASS_THATCH_STAIRS.get(),
                 PUBlocks.GRASS_THATCH_SLAB.get()
+        );
+
+        tag(PUTags.CAMPFIRE_SIGNAL_SMOKE).add(
+                PUBlocks.GRASS_BALE.get(),
+                PUBlocks.GRASS_THATCH.get()
         );
 
         tag(PUTags.TURF_BLOCKS).add(
@@ -95,16 +103,10 @@ public class PUBlockTags extends BlockTagsProvider {
                 PUBlocks.RAW_IRON_CRATE.get(),
                 PUBlocks.RAW_GOLD_CRATE.get(),
                 // produce
-                ModBlocks.CARROT_CRATE.get(),
                 PUBlocks.CARROT_CRATE.get(),
                 PUBlocks.GOLDEN_CARROT_CRATE.get(),
-                ModBlocks.POTATO_CRATE.get(),
                 PUBlocks.POTATO_CRATE.get(),
-                ModBlocks.BEETROOT_CRATE.get(),
                 PUBlocks.BEETROOT_CRATE.get(),
-                ModBlocks.CABBAGE_CRATE.get(),
-                ModBlocks.TOMATO_CRATE.get(),
-                ModBlocks.ONION_CRATE.get(),
                 PUBlocks.EGG_CRATE.get(),
                 PUBlocks.RED_MUSHROOM_CRATE.get(),
                 PUBlocks.BROWN_MUSHROOM_CRATE.get(),
@@ -115,7 +117,13 @@ public class PUBlockTags extends BlockTagsProvider {
                 PUBlocks.QUARTZ_CRATE.get(),
                 PUBlocks.AMETHYST_CRATE.get(),
                 PUBlocks.ECHO_SHARD_CRATE.get()
-        );
+        )
+                .addOptional(fdBlock("carrot_crate"))
+                .addOptional(fdBlock("potato_crate"))
+                .addOptional(fdBlock("beetroot_crate"))
+                .addOptional(fdBlock("cabbage_crate"))
+                .addOptional(fdBlock("tomato_crate"))
+                .addOptional(fdBlock("onion_crate"));
 
         tag(PUTags.REINFORCED_CRATE_BLOCKS).add(
                 PUBlocks.REINFORCED_CRATE_LID.get(),
@@ -159,13 +167,12 @@ public class PUBlockTags extends BlockTagsProvider {
                 PUBlocks.COARSE_DIRT_BAG.get(),
                 PUBlocks.GRAVEL_BAG.get(),
                 // produce
-                ModBlocks.RICE_BAG.get(),
                 PUBlocks.COCOA_BEAN_BAG.get(),
                 PUBlocks.SUGAR_BAG.get(),
                 PUBlocks.NETHER_WART_BAG.get(),
                 PUBlocks.GLOWSTONE_DUST_BAG.get(),
                 PUBlocks.ENDER_PEARL_BAG.get()
-        );
+        ).addOptional(fdBlock("rice_bag"));
 
         tag(PUTags.BOOK_BLOCKS).add(
                 PUBlocks.BOOK_BUNDLE.get(),
@@ -225,12 +232,12 @@ public class PUBlockTags extends BlockTagsProvider {
     protected void registerEffectiveTools() {
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .remove(
-                        ModBlocks.CARROT_CRATE.get(),
-                        ModBlocks.POTATO_CRATE.get(),
-                        ModBlocks.BEETROOT_CRATE.get(),
-                        ModBlocks.CABBAGE_CRATE.get(),
-                        ModBlocks.TOMATO_CRATE.get(),
-                        ModBlocks.ONION_CRATE.get()
+                        fdBlock("carrot_crate"),
+                        fdBlock("potato_crate"),
+                        fdBlock("beetroot_crate"),
+                        fdBlock("cabbage_crate"),
+                        fdBlock("tomato_crate"),
+                        fdBlock("onion_crate")
                 )
                 .add(PUBlocks.PALLET.get())
                 .addTag(PUTags.BASKET_BLOCKS)
@@ -245,7 +252,7 @@ public class PUBlockTags extends BlockTagsProvider {
         tag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .addTag(PUTags.TURF_BLOCKS);
 
-        tag(ModTags.MINEABLE_WITH_KNIFE)
+        tag(PUTags.MINEABLE_WITH_KNIFE)
                 .addTag(PUTags.BAG_BLOCKS);
 
         tag(PUTags.MINEABLE_WITH_SHEARS)

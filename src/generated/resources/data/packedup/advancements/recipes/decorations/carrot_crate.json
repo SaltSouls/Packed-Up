@@ -1,35 +1,50 @@
 {
-  "parent": "minecraft:recipes/root",
-  "criteria": {
-    "has_carrot": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:carrot"
-            ]
+  "advancements": [
+    {
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "criteria": {
+          "has_carrot": {
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "minecraft:carrot"
+                  ]
+                }
+              ]
+            },
+            "trigger": "minecraft:inventory_changed"
+          },
+          "has_the_recipe": {
+            "conditions": {
+              "recipe": "packedup:carrot_crate"
+            },
+            "trigger": "minecraft:recipe_unlocked"
           }
-        ]
+        },
+        "requirements": [
+          [
+            "has_carrot",
+            "has_the_recipe"
+          ]
+        ],
+        "rewards": {
+          "recipes": [
+            "packedup:carrot_crate"
+          ]
+        },
+        "sends_telemetry_event": false
       },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "packedup:carrot_crate"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      "conditions": [
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:mod_loaded",
+            "modid": "farmersdelight"
+          }
+        }
+      ]
     }
-  },
-  "requirements": [
-    [
-      "has_carrot",
-      "has_the_recipe"
-    ]
-  ],
-  "rewards": {
-    "recipes": [
-      "packedup:carrot_crate"
-    ]
-  },
-  "sends_telemetry_event": false
+  ]
 }

@@ -12,16 +12,10 @@
     "packedup:raw_copper_crate",
     "packedup:raw_iron_crate",
     "packedup:raw_gold_crate",
-    "farmersdelight:carrot_crate",
     "packedup:carrot_crate",
     "packedup:golden_carrot_crate",
-    "farmersdelight:potato_crate",
     "packedup:potato_crate",
-    "farmersdelight:beetroot_crate",
     "packedup:beetroot_crate",
-    "farmersdelight:cabbage_crate",
-    "farmersdelight:tomato_crate",
-    "farmersdelight:onion_crate",
     "packedup:egg_crate",
     "packedup:red_mushroom_crate",
     "packedup:brown_mushroom_crate",
@@ -30,6 +24,30 @@
     "packedup:gunpowder_crate",
     "packedup:quartz_crate",
     "packedup:amethyst_crate",
-    "packedup:echo_shard_crate"
+    "packedup:echo_shard_crate",
+    {
+      "id": "farmersdelight:carrot_crate",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:potato_crate",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:beetroot_crate",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:cabbage_crate",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:tomato_crate",
+      "required": false
+    },
+    {
+      "id": "farmersdelight:onion_crate",
+      "required": false
+    }
   ]
 }

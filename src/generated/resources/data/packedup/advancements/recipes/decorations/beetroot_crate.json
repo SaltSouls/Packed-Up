@@ -1,35 +1,50 @@
 {
-  "parent": "minecraft:recipes/root",
-  "criteria": {
-    "has_beetroot": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:beetroot"
-            ]
+  "advancements": [
+    {
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "criteria": {
+          "has_beetroot": {
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "minecraft:beetroot"
+                  ]
+                }
+              ]
+            },
+            "trigger": "minecraft:inventory_changed"
+          },
+          "has_the_recipe": {
+            "conditions": {
+              "recipe": "packedup:beetroot_crate"
+            },
+            "trigger": "minecraft:recipe_unlocked"
           }
-        ]
+        },
+        "requirements": [
+          [
+            "has_beetroot",
+            "has_the_recipe"
+          ]
+        ],
+        "rewards": {
+          "recipes": [
+            "packedup:beetroot_crate"
+          ]
+        },
+        "sends_telemetry_event": false
       },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "packedup:beetroot_crate"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      "conditions": [
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:mod_loaded",
+            "modid": "farmersdelight"
+          }
+        }
+      ]
     }
-  },
-  "requirements": [
-    [
-      "has_beetroot",
-      "has_the_recipe"
-    ]
-  ],
-  "rewards": {
-    "recipes": [
-      "packedup:beetroot_crate"
-    ]
-  },
-  "sends_telemetry_event": false
+  ]
 }

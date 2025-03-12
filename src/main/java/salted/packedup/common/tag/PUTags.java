@@ -21,9 +21,18 @@ public class PUTags {
     public static final TagKey<Block> RESOURCE_PALLET_BLOCKS = modBlockTag("pallets");
     public static final TagKey<Block> MINEABLE_WITH_SHEARS = modBlockTag("mineable/shears");
 
+    // farmers delight overrides
+    public static final TagKey<Block> STRAW_BLOCKS = fdBlockTag("straw_blocks");
+    public static final TagKey<Block> MINEABLE_WITH_KNIFE = fdBlockTag("mineable/knife");
+    public static final TagKey<Block> CAMPFIRE_SIGNAL_SMOKE = fdBlockTag("campfire_signal_smoke");
+
     // tag creators
     private static TagKey<Block> modBlockTag(String path) {
         return BlockTags.create(new ResourceLocation(PackedUp.MODID, path));
+    }
+
+    private static TagKey<Block> fdBlockTag(String path) {
+        return BlockTags.create(new ResourceLocation("farmersdelight", path));
     }
 
     private static TagKey<Item> modItemTag(String path) {

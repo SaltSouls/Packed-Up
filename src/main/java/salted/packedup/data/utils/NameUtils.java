@@ -5,7 +5,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.ForgeRegistries;
 import salted.packedup.PackedUp;
-import vectorwing.farmersdelight.FarmersDelight;
 
 import java.util.Arrays;
 
@@ -43,7 +42,7 @@ public class NameUtils {
     }
 
     public static ResourceLocation fdBlockLocation(String path) {
-        return new ResourceLocation(FarmersDelight.MODID, "block/" + path);
+        return new ResourceLocation("farmersdelight", "block/" + path);
     }
 
     public static ResourceLocation mcBlockLocation(String path) {

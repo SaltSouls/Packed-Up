@@ -4,11 +4,14 @@
     "packedup:rooted_dirt_bag",
     "packedup:coarse_dirt_bag",
     "packedup:gravel_bag",
-    "farmersdelight:rice_bag",
     "packedup:cocoa_bean_bag",
     "packedup:sugar_bag",
     "packedup:nether_wart_bag",
     "packedup:glowstone_dust_bag",
-    "packedup:ender_pearl_bag"
+    "packedup:ender_pearl_bag",
+    {
+      "id": "farmersdelight:rice_bag",
+      "required": false
+    }
   ]
 }

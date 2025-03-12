@@ -77,10 +77,12 @@ public class PURecipeBuilder extends RecipeProvider {
 
     protected static void simpleConditionalCompact(ItemLike input, ItemLike output, ICondition condition, Consumer<FinishedRecipe> consumer) {
         String item = itemName(output.asItem());
+        String decorationsDir = "recipes/decorations/";
 
         ConditionalRecipe.builder().addCondition(condition)
-                .addRecipe(recipe -> simpleCompact(input, output, consumer))
-                .build(consumer, PackedUp.MODID, item);
+                .addRecipe(recipe -> simpleCompact(input, output, recipe))
+                .generateAdvancement(recipeDir(PackedUp.MODID, decorationsDir + item))
+                .build(consumer, recipeDir(PackedUp.MODID, item));
     }
 
     protected static void modifiedCompact(ItemLike input, ItemLike output, Consumer<FinishedRecipe> consumer) {
@@ -158,10 +160,13 @@ public class PURecipeBuilder extends RecipeProvider {
         String resource = itemName(output.asItem());
         String type = "_" + item;
         if (split) { type = nameFromSplit(item, resource, false); }
+        String miscDir = "recipes/misc/";
+        String recipeName = resource + "_from" + type;
 
         ConditionalRecipe.builder().addCondition(condition)
-                .addRecipe(recipe -> simpleShapeless(input, output, split, consumer))
-                .build(consumer, recipeDir(PackedUp.MODID, resource + "_from" + type));
+                .addRecipe(recipe -> simpleShapeless(input, output, split, recipe))
+                .generateAdvancement(recipeDir(PackedUp.MODID, miscDir + recipeName))
+                .build(consumer, recipeDir(PackedUp.MODID, recipeName));
     }
 
     protected static void simpleShapeless(ItemLike input, ItemLike output, boolean before, String type, Consumer<FinishedRecipe> consumer) {
@@ -181,10 +186,13 @@ public class PURecipeBuilder extends RecipeProvider {
         String resource = itemName(output.asItem());
         String prefix = "";
         if (before) { prefix = nameFromSplit(item, resource, true); }
+        String miscDir = "recipes/misc/";
+        String recipeName = resource + "_from_" + prefix + type;
 
         ConditionalRecipe.builder().addCondition(condition)
-                .addRecipe(recipe -> simpleShapeless(input, output, before, type, consumer))
-                .build(consumer, recipeDir(PackedUp.MODID, resource + "_from_" + prefix + type));
+                .addRecipe(recipe -> simpleShapeless(input, output, before, type, recipe))
+                .generateAdvancement(recipeDir(PackedUp.MODID, miscDir + recipeName))
+                .build(consumer, recipeDir(PackedUp.MODID, recipeName));
     }
 
     protected static void modifiedShapeless(ItemLike input, ItemLike output, Consumer<FinishedRecipe> consumer) {

@@ -1,35 +1,50 @@
 {
-  "parent": "minecraft:recipes/root",
-  "criteria": {
-    "has_potato_crate": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "packedup:potato_crate"
-            ]
+  "advancements": [
+    {
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "criteria": {
+          "has_potato_crate": {
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "packedup:potato_crate"
+                  ]
+                }
+              ]
+            },
+            "trigger": "minecraft:inventory_changed"
+          },
+          "has_the_recipe": {
+            "conditions": {
+              "recipe": "packedup:potato_from_crate"
+            },
+            "trigger": "minecraft:recipe_unlocked"
           }
-        ]
+        },
+        "requirements": [
+          [
+            "has_potato_crate",
+            "has_the_recipe"
+          ]
+        ],
+        "rewards": {
+          "recipes": [
+            "packedup:potato_from_crate"
+          ]
+        },
+        "sends_telemetry_event": false
       },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "packedup:potato_from_crate"
-      },
-      "trigger": "minecraft:recipe_unlocked"
+      "conditions": [
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:mod_loaded",
+            "modid": "farmersdelight"
+          }
+        }
+      ]
     }
-  },
-  "requirements": [
-    [
-      "has_potato_crate",
-      "has_the_recipe"
-    ]
-  ],
-  "rewards": {
-    "recipes": [
-      "packedup:potato_from_crate"
-    ]
-  },
-  "sends_telemetry_event": false
+  ]
 }

@@ -6,9 +6,9 @@
     "particle": "#top",
     "top": "packedup:block/glowstone_dust_bag_top",
     "top_e": "packedup:block/glowstone_dust_bag_top_e",
-    "side_tied": "farmersdelight:block/rice_bag_side_tied",
-    "side": "farmersdelight:block/rice_bag_side",
-    "bottom": "farmersdelight:block/rice_bag_bottom"
+    "side_tied": "packedup:block/bag_side_tied",
+    "side": "packedup:block/bag_side",
+    "bottom": "packedup:block/bag_bottom"
   },
   "elements": [
     {

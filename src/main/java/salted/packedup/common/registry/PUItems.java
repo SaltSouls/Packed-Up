@@ -295,7 +295,7 @@ public class PUItems {
     }
     public static RegistryObject<Item> compatRegisterWithTab(String modID, final String name, final Supplier<Item> supplier) {
         if (!ModList.get().isLoaded(modID)) {
-            registerWithTab(name, supplier);
+            return registerWithTab(name, supplier);
         }
         return ITEMS.register(name, supplier);
     }

@@ -1,13 +1,29 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "category": "misc",
-  "ingredients": [
+  "type": "forge:conditional",
+  "recipes": [
     {
-      "item": "packedup:beetroot_crate"
+      "conditions": [
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:mod_loaded",
+            "modid": "farmersdelight"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "category": "misc",
+        "ingredients": [
+          {
+            "item": "packedup:beetroot_crate"
+          }
+        ],
+        "result": {
+          "count": 9,
+          "item": "minecraft:beetroot"
+        }
+      }
     }
-  ],
-  "result": {
-    "count": 9,
-    "item": "minecraft:beetroot"
-  }
+  ]
 }
