@@ -18,11 +18,22 @@
         "recipe": "packedup:pallet"
       },
       "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wooden_slabs": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:wooden_slabs"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "has_stick",
+      "has_wooden_slabs",
       "has_the_recipe"
     ]
   ],

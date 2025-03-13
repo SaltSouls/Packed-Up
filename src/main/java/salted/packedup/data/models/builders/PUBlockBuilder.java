@@ -308,10 +308,10 @@ public class PUBlockBuilder extends BlockStateProvider {
         getVariantBuilder(block).forAllStatesExcept(state -> {
             IntegerProperty layersProperty = block.getQuarterLayers();
             Direction dir = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
-            int layers = state.getValue(layersProperty);
+            int layers = state.getValue(layersProperty) - 1;
 
             return ConfiguredModel.builder()
-                    .modelFile(bookPile(block, layers - 1, true, false, 0))
+                    .modelFile(bookPile(block, layers, true, false, 0))
                     .rotationY(defaultRotation(dir))
                     .build();
         }, ignored);
@@ -321,31 +321,31 @@ public class PUBlockBuilder extends BlockStateProvider {
         getVariantBuilder(block).forAllStatesExcept(state -> {
             IntegerProperty layersProperty = block.getQuarterLayers();
             Direction dir = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
-            int layers = state.getValue(layersProperty);
+            int layers = state.getValue(layersProperty) - 1;
             int rotation = defaultRotation(dir);
 
             return ConfiguredModel.builder()
-                    .modelFile(bookPile(block, layers - 1, false, false, 0))
+                    .modelFile(bookPile(block, layers, false, false, 0))
                     .rotationY(rotation)
                     .weight(35)
                     .nextModel()
-                    .modelFile(bookPile(block, layers - 1, false, true, 1))
+                    .modelFile(bookPile(block, layers, false, true, 1))
                     .rotationY(rotation)
                     .weight(25)
                     .nextModel()
-                    .modelFile(bookPile(block, layers - 1, false, true, 2))
+                    .modelFile(bookPile(block, layers, false, true, 2))
                     .rotationY(rotation)
                     .weight(25)
                     .nextModel()
-                    .modelFile(bookPile(block, layers - 1, false, true, 3))
+                    .modelFile(bookPile(block, layers, false, true, 3))
                     .rotationY(rotation)
                     .weight(5)
                     .nextModel()
-                    .modelFile(bookPile(block, layers - 1, false, true, 4))
+                    .modelFile(bookPile(block, layers, false, true, 4))
                     .rotationY(rotation)
                     .weight(5)
                     .nextModel()
-                    .modelFile(bookPile(block, layers - 1, false, true, 5))
+                    .modelFile(bookPile(block, layers, false, true, 5))
                     .rotationY(rotation)
                     .weight(5)
                     .build();

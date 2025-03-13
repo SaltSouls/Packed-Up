@@ -1,6 +1,7 @@
 package salted.packedup.data.recipes;
 
 import com.google.common.collect.Sets;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -9,34 +10,28 @@ import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.crafting.conditions.ICondition;
-import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
-import net.minecraftforge.common.crafting.conditions.NotCondition;
 import salted.packedup.common.registry.PUItems;
 
 import java.util.Set;
 import java.util.function.Consumer;
 
 import static net.minecraft.advancements.critereon.InventoryChangeTrigger.TriggerInstance.hasItems;
+import static salted.packedup.data.utils.ConditionalUtils.*;
 
 public class PUCraftingRecipes extends PURecipeBuilder {
 
     public PUCraftingRecipes(PackOutput output) { super(output); }
 
-    public static void register(Consumer<FinishedRecipe> consumer) {
+    public void register(Consumer<FinishedRecipe> consumer) {
         recipesCompacting(consumer);
         recipesUnique(consumer);
         recipesModifiedVanilla(consumer);
     }
 
-    // conditions
-    private static ICondition notLoaded(String modID) {
-        return new NotCondition(new ModLoadedCondition(modID));
-    }
-
-    private static void recipesCompacting(Consumer<FinishedRecipe> consumer) {
+    private void recipesCompacting(Consumer<FinishedRecipe> consumer) {
         // produce baskets
         simpleCombined(PUItems.SWEET_BERRY_BASKET.get(), Items.SWEET_BERRIES, false, "basket", consumer);
         simpleCombined(PUItems.GLOW_BERRY_BASKET.get(), Items.GLOW_BERRIES, false, "basket", consumer);
@@ -79,10 +74,10 @@ public class PUCraftingRecipes extends PURecipeBuilder {
         simpleCombined(PUItems.ECHO_SHARD_CRATE.get(), Items.ECHO_SHARD, true, consumer);
 
         // produce crates
-        simpleConditionalCombined(PUItems.CARROT_CRATE.get(), Items.CARROT, true, notLoaded("farmersdelight"), consumer);
+        simpleConditionalCombined(PUItems.CARROT_CRATE.get(), Items.CARROT, true, Not(modLoaded("farmersdelight")), consumer);
         simpleCombined(PUItems.GOLDEN_CARROT_CRATE.get(), Items.GOLDEN_CARROT, true, consumer);
-        simpleConditionalCombined(PUItems.POTATO_CRATE.get(), Items.POTATO, true, notLoaded("farmersdelight"), consumer);
-        simpleConditionalCombined(PUItems.BEETROOT_CRATE.get(), Items.BEETROOT, true, notLoaded("farmersdelight"), consumer);
+        simpleConditionalCombined(PUItems.POTATO_CRATE.get(), Items.POTATO, true, Not(modLoaded("farmersdelight")), consumer);
+        simpleConditionalCombined(PUItems.BEETROOT_CRATE.get(), Items.BEETROOT, true, Not(modLoaded("farmersdelight")), consumer);
         simpleCombined(PUItems.EGG_CRATE.get(), Items.EGG, true, consumer);
         simpleCombined(PUItems.RED_MUSHROOM_CRATE.get(), Items.RED_MUSHROOM, true, consumer);
         simpleCombined(PUItems.BROWN_MUSHROOM_CRATE.get(), Items.BROWN_MUSHROOM, true, consumer);
@@ -194,13 +189,16 @@ public class PUCraftingRecipes extends PURecipeBuilder {
                 .pattern(" I ")
                 .define('T', ItemTags.WOODEN_TRAPDOORS)
                 .define('I', Tags.Items.NUGGETS_IRON)
-                .unlockedBy("has_iron_nugget", hasItems(Items.IRON_NUGGET))
+                .unlockedBy("has_wooden_trapdoor", has(ItemTags.WOODEN_TRAPDOORS))
+                .unlockedBy("has_iron_nugget", has(Tags.Items.NUGGETS_IRON))
                 .save(consumer);
+
         // reinforced crate lid
         ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, PUItems.REINFORCED_CRATE_LID.get(), 1)
                 .requires(PUItems.CRATE_LID.get())
                 .requires(Tags.Items.INGOTS_IRON)
-                .unlockedBy("has_iron_ingot", hasItems(Items.IRON_INGOT))
+                .unlockedBy("has_crate_lid", hasItems(PUItems.CRATE_LID.get()))
+                .unlockedBy("has_iron_ingot", has(Tags.Items.INGOTS_IRON))
                 .save(consumer);
 
         // pallet
@@ -211,6 +209,7 @@ public class PUCraftingRecipes extends PURecipeBuilder {
                 .define('l', Items.STICK)
                 .define('#', ItemTags.WOODEN_SLABS)
                 .unlockedBy("has_stick", hasItems(Items.STICK))
+                .unlockedBy("has_wooden_slabs", has(ItemTags.WOODEN_SLABS))
                 .save(consumer);
 
         // colored bundles

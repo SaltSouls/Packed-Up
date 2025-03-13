@@ -64,7 +64,7 @@ public class PUItemBuilder extends ItemModelProvider {
         Iterator<T> iter = src.iterator();
 
         while(iter.hasNext()) {
-            T item = (T)iter.next();
+            T item = iter.next();
             if (pred.test(item)) {
                 iter.remove();
                 items.add(item);

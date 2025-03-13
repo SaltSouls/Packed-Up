@@ -38,7 +38,11 @@ public class NameUtils {
     }
 
     public static ResourceLocation bookLocation(String path) {
-        return new ResourceLocation(PackedUp.MODID, "block/book/" + path);
+        return blockLocation("book/" + path);
+    }
+
+    public static ResourceLocation logLocation(String path) {
+        return blockLocation("log/" + path);
     }
 
     public static ResourceLocation fdBlockLocation(String path) {
