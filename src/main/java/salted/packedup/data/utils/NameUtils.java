@@ -4,56 +4,120 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 import salted.packedup.PackedUp;
 
-import java.util.Arrays;
+import java.util.Objects;
 
 public class NameUtils {
 
-    // general naming functions
-    public static String blockName(Block block) {
-        return ForgeRegistries.BLOCKS.getKey(block).getPath();
-    }
+    // ============================================================
+    // General Naming Functions
+    // ============================================================
 
-    public static String itemName(Item item) {
-        return ForgeRegistries.ITEMS.getKey(item).getPath();
+    /**
+     * Retrieves the registry path of a block.
+     *
+     * @param block The {@link Block} to get the name of.
+     * @return      The path of the block's registry name.
+     * @throws      NullPointerException If the block is not registered.
+     */
+    public static @NotNull String blockName(Block block) {
+        return Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath();
     }
 
     /**
-     * Splits the string and returns everything before or after the split.
+     * Retrieves the registry path of an item.
      *
-     * @param name      the name of the {@link Block} or {@link Item} we are using
-     * @param substring the string at which the split occurs
-     * @param before    the position at which the split occurs
-     * @return The desired half of the string array.
+     * @param item  The {@link Item} to get the name of.
+     * @return      The path of the item's registry name.
+     * @throws      NullPointerException If the item is not registered.
      */
-    public static String nameFromSplit(String name, String substring, boolean before) {
-        if (before) { return Arrays.stream(name.split(substring)).findFirst().get();
-        } else return Arrays.stream(name.split(substring)).toList().get(1);
+    public static @NotNull String itemName(Item item) {
+        return Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item)).getPath();
     }
 
-    // resource location functions
-    public static ResourceLocation blockLocation(String path) {
+    /**
+     * Splits a string and returns the part before or after a specified substring.
+     *
+     * @param name      The original string to split.
+     * @param substring The substring to split the name by.
+     * @param before    If true, returns the part before the substring; otherwise, returns the part after.
+     * @return          The desired part of the string, or the original string if the substring is not found.
+     */
+    public static String nameFromSplit(String name, String substring, boolean before) {
+        String[] parts = name.split(substring);
+        return before ? (parts.length > 0 ? parts[0] : name) : (parts.length > 1 ? parts[1] : name);
+    }
+
+    // ============================================================
+    // Resource Location Functions
+    // ============================================================
+
+    /**
+     * Creates a {@link ResourceLocation} for a block within the mod's namespace.
+     *
+     * @param path  The path of the block.
+     * @return      A {@link ResourceLocation} for the block.
+     */
+    @Contract("_ -> new")
+    public static @NotNull ResourceLocation blockLocation(String path) {
         return new ResourceLocation(PackedUp.MODID, "block/" + path);
     }
 
-    public static ResourceLocation bookLocation(String path) {
+    /**
+     * Creates a {@link ResourceLocation} for a book-related block within the mod's namespace.
+     *
+     * @param path  The path of the book block.
+     * @return      A {@link ResourceLocation} for the book block.
+     */
+    @Contract("_ -> new")
+    public static @NotNull ResourceLocation bookLocation(String path) {
         return blockLocation("book/" + path);
     }
 
-    public static ResourceLocation logLocation(String path) {
+    /**
+     * Creates a {@link ResourceLocation} for a log-related block within the mod's namespace.
+     *
+     * @param path  The path of the log block.
+     * @return      A {@link ResourceLocation} for the log block.
+     */
+    @Contract("_ -> new")
+    public static @NotNull ResourceLocation logLocation(String path) {
         return blockLocation("log/" + path);
     }
 
-    public static ResourceLocation fdBlockLocation(String path) {
+    /**
+     * Creates a {@link ResourceLocation} for a block within the Farmer's Delight mod namespace.
+     *
+     * @param path  The path of the block.
+     * @return      A {@link ResourceLocation} for the block.
+     */
+    @Contract("_ -> new")
+    public static @NotNull ResourceLocation fdBlockLocation(String path) {
         return new ResourceLocation("farmersdelight", "block/" + path);
     }
 
-    public static ResourceLocation mcBlockLocation(String path) {
+    /**
+     * Creates a {@link ResourceLocation} for a block within the Minecraft namespace.
+     *
+     * @param path  The path of the block.
+     * @return      A {@link ResourceLocation} for the block.
+     */
+    @Contract("_ -> new")
+    public static @NotNull ResourceLocation mcBlockLocation(String path) {
         return new ResourceLocation("block/" + path);
     }
 
-    public static ResourceLocation itemLocation(String path) {
+    /**
+     * Creates a {@link ResourceLocation} for an item within the mod's namespace.
+     *
+     * @param path  The path of the item.
+     * @return      A {@link ResourceLocation} for the item.
+     */
+    @Contract("_ -> new")
+    public static @NotNull ResourceLocation itemLocation(String path) {
         return new ResourceLocation(PackedUp.MODID, "item/" + path);
     }
 }

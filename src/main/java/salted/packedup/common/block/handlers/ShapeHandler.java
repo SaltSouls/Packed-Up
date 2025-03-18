@@ -9,55 +9,88 @@ import java.util.Collection;
 
 public class ShapeHandler {
 
-    // huge thanks to Mr.Crayfish for this method
+    /**
+     * Combines multiple VoxelShapes into a single VoxelShape using the BooleanOp.OR operation.
+     * This is useful for merging multiple collision or selection shapes into one.
+     *
+     * @param shapes A collection of VoxelShapes to be combined.
+     * @return A single {@link VoxelShape} representing the union of all input shapes.
+     * <p>
+     * Example Usage:
+     * {@code
+     * Collection<VoxelShape> shapes = Arrays.asList(shape1, shape2, shape3);
+     * VoxelShape combinedShape = combineAll(shapes);
+     * }
+     */
     public VoxelShape combineAll(Collection<VoxelShape> shapes) {
-        VoxelShape result = Shapes.empty();
-        for(VoxelShape shape : shapes) {
-            result = Shapes.joinUnoptimized(result, shape, BooleanOp.OR);
-        }
-        return result.optimize();
+        return shapes.stream()
+                .reduce(Shapes.empty(), (result, shape) -> Shapes.joinUnoptimized(result, shape, BooleanOp.OR))
+                .optimize();
     }
 
+    /**
+     * Returns an array of VoxelShapes, each representing the input shape rotated to face a cardinal direction.
+     * The order of the returned shapes is: SOUTH, WEST, NORTH, EAST.
+     *
+     * @param shape The {@link VoxelShape} to rotate.
+     * @return An array of VoxelShapes, each rotated to face a different cardinal {@link Direction}.
+     * <p>
+     * Example Usage:
+     * {@code
+     * VoxelShape[] rotatedShapes = getRotated(shape);
+     * VoxelShape southShape = rotatedShapes[0]; // Facing SOUTH
+     * VoxelShape westShape = rotatedShapes[1];  // Facing WEST
+     * }
+     */
     public VoxelShape[] getRotated(VoxelShape shape) {
-        VoxelShape SHAPE_NORTH = rotate(shape, Direction.NORTH);
-        VoxelShape SHAPE_EAST = rotate(shape, Direction.EAST);
-        VoxelShape SHAPE_SOUTH = rotate(shape, Direction.SOUTH);
-        VoxelShape SHAPE_WEST = rotate(shape, Direction.WEST);
-        return new VoxelShape[] { SHAPE_SOUTH, SHAPE_WEST, SHAPE_NORTH, SHAPE_EAST };
+        return new VoxelShape[] {
+                rotate(shape, Direction.SOUTH),
+                rotate(shape, Direction.WEST),
+                rotate(shape, Direction.NORTH),
+                rotate(shape, Direction.EAST)
+        };
     }
 
+    /**
+     * Rotates a VoxelShape to face the specified direction.
+     * The rotation is performed by adjusting the X and Z coordinates of the shape.
+     *
+     * @param shape     The {@link VoxelShape} to rotate.
+     * @param direction The {@link Direction} to rotate the shape to face.
+     * @return A new {@link VoxelShape} representing the rotated shape.
+     * <p>
+     * Example Usage:
+     * {@code
+     * VoxelShape rotatedShape = rotate(shape, Direction.NORTH);
+     * }
+     */
     public VoxelShape rotate(VoxelShape shape, Direction direction) {
         double[] adjustedValues = adjustValues(direction, shape.min(Direction.Axis.X), shape.min(Direction.Axis.Z), shape.max(Direction.Axis.X), shape.max(Direction.Axis.Z));
         return Shapes.box(adjustedValues[0], shape.min(Direction.Axis.Y), adjustedValues[1], adjustedValues[2], shape.max(Direction.Axis.Y), adjustedValues[3]);
     }
 
+    /**
+     * Adjusts the X and Z coordinates of a VoxelShape based on the specified rotation direction.
+     * This is a helper method used by the `rotate` function.
+     *
+     * @param direction The {@link Direction} to rotate the shape to face.
+     * @param x1        The minimum X coordinate of the shape.
+     * @param z1        The minimum Z coordinate of the shape.
+     * @param x2        The maximum X coordinate of the shape.
+     * @param z2        The maximum Z coordinate of the shape.
+     * @return An array of adjusted coordinates: [minX, minZ, maxX, maxZ].
+     * <p>
+     * Example Usage:
+     * {@code
+     * double[] adjusted = adjustValues(Direction.WEST, 0.0, 0.0, 1.0, 1.0);
+     * }
+     */
     private static double[] adjustValues(Direction direction, double x1, double z1, double x2, double z2) {
-        switch (direction) {
-            case WEST -> {
-                double tmpX = x1;
-                x1 = 1.0F - x2;
-                double tmpZ = z1;
-                z1 = 1.0F - z2;
-                x2 = 1.0F - tmpX;
-                z2 = 1.0F - tmpZ;
-            }
-            case NORTH -> {
-                double tmpX = x1;
-                x1 = z1;
-                z1 = 1.0F - x2;
-                x2 = z2;
-                z2 = 1.0F - tmpX;
-            }
-            case SOUTH -> {
-                double tmpX1 = x1;
-                x1 = 1.0F - z2;
-                double tmpZ = z1;
-                z1 = tmpX1;
-                double tmpX2 = x2;
-                x2 = 1.0F - tmpZ;
-                z2 = tmpX2;
-            }
-        }
-        return new double[] { x1, z1, x2, z2 };
+        return switch (direction) {
+            case WEST -> new double[] { 1.0 - x2, 1.0 - z2, 1.0 - x1, 1.0 - z1 };
+            case NORTH -> new double[] { z1, 1.0 - x2, z2, 1.0 - x1 };
+            case SOUTH -> new double[] { 1.0 - z2, x1, 1.0 - z1, x2 };
+            default -> new double[] { x1, z1, x2, z2 }; // EAST or no rotation
+        };
     }
 }

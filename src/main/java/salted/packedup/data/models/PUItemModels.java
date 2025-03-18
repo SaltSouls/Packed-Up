@@ -98,5 +98,4 @@ public class PUItemModels extends PUItemBuilder {
         takeAll(items, i -> i instanceof BlockItem).forEach(this::blockBasedModel);
     }
 
-
 }

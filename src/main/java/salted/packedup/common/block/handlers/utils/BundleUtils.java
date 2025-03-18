@@ -7,17 +7,23 @@ import salted.packedup.common.block.BookPileBlock;
 import salted.packedup.common.registry.PUBlocks;
 
 import java.util.Arrays;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class BundleUtils {
 
-    // all this just to have a usable enum
+    // Map for fast lookups
+    private static final Map<Block, Bundle> BUNDLE_MAP = Arrays.stream(Bundle.values())
+            .flatMap(bundle -> Arrays.stream(new Block[]{bundle.getBundleBlock(), bundle.getBundleSlab()})
+                    .map(block -> Map.entry(block, bundle)))
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+    // Lookup method
     protected Bundle getBundleType(Block block) {
-        return Arrays.stream(Bundle.values()).filter(bundle ->
-                bundle.contains(block))
-                .findFirst()
-                .orElse(null);
+        return BUNDLE_MAP.get(block);
     }
 
+    // Enum definition
     protected enum Bundle {
         BASE(PUBlocks.BOOK_BUNDLE.get(), PUBlocks.BOOK_BUNDLE_SLAB.get(), PUBlocks.BOOK_PILE.get()),
         WHITE(PUBlocks.WHITE_BOOK_BUNDLE.get(), PUBlocks.WHITE_BOOK_BUNDLE_SLAB.get(), PUBlocks.WHITE_BOOK_PILE.get()),
@@ -50,15 +56,13 @@ public class BundleUtils {
         public BookBundleBlock getBundleBlock() {
             return this.bundleBlock;
         }
+
         public BookBundleSlabBlock getBundleSlab() {
             return this.bundleSlab;
         }
+
         public BookPileBlock getPile() {
             return this.pile;
-        }
-
-        public boolean contains(Block block) {
-            return block == this.bundleBlock || block == this.bundleSlab;
         }
     }
 }

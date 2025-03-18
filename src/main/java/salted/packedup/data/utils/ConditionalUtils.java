@@ -8,18 +8,32 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.crafting.conditions.*;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 public class ConditionalUtils {
 
-    // conditions
+    // advancement conditions
+    @Contract(value = "_ -> new", pure = true)
+    public static InventoryChangeTrigger.@NotNull TriggerInstance hasItems(ItemPredicate... items) {
+        return InventoryChangeTrigger.TriggerInstance.hasItems(items);
+    }
+
+    @Contract("_ -> new")
+    public static InventoryChangeTrigger.@NotNull TriggerInstance hasItems(ItemLike... items) {
+        return InventoryChangeTrigger.TriggerInstance.hasItems(items);
+    }
+
+    // recipe conditionals
     public static ICondition modLoaded(String modID) {
         return new ModLoadedCondition(modID);
     }
 
-    public static ICondition itemRegistered(String itemID) {
+    public static ICondition itemExists(String itemID) {
         return new ItemExistsCondition(itemID);
     }
 
+    // these are dangerous... probably shouldn't be doing this but oh well.
     public static ICondition Not(ICondition condition) {
         return new NotCondition(condition);
     }
@@ -50,5 +64,4 @@ public class ConditionalUtils {
     private static InventoryChangeTrigger.TriggerInstance inventoryTrigger(ItemPredicate... itemPredicates) {
         return new InventoryChangeTrigger.TriggerInstance(ContextAwarePredicate.ANY, MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY, itemPredicates);
     }
-
 }

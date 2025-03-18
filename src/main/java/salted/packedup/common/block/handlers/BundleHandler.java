@@ -21,37 +21,43 @@ import salted.packedup.common.block.state.PUProperties;
 
 public class BundleHandler extends BundleUtils {
 
+    // Convert bundle to pile maintaining state information
     private InteractionResult convert(BlockState state, int layers, Level world, BlockPos pos, Player player) {
         ItemStack item = player.getMainHandItem();
 
-        if (!(item.getItem() instanceof ShearsItem)) { return InteractionResult.PASS; }
-        if (!player.isCreative()) { item.hurtAndBreak(1, player, (user) -> user.broadcastBreakEvent(EquipmentSlot.MAINHAND)); }
+        if (!(item.getItem() instanceof ShearsItem)) return InteractionResult.PASS;
+        if (!player.isCreative()) { item.hurtAndBreak(1, player, user -> user.broadcastBreakEvent(EquipmentSlot.MAINHAND)); }
 
-        world.setBlock(pos, state.setValue(BlockStateProperties.HORIZONTAL_FACING, state.getValue(BlockStateProperties.HORIZONTAL_FACING))
+        BlockState newState = state.setValue(BlockStateProperties.HORIZONTAL_FACING, state.getValue(BlockStateProperties.HORIZONTAL_FACING))
                 .setValue(PUProperties.QUARTER_LAYERS, layers)
-                .setValue(BlockStateProperties.WATERLOGGED, state.getValue(BlockStateProperties.WATERLOGGED)), 0);
+                .setValue(BlockStateProperties.WATERLOGGED, state.getValue(BlockStateProperties.WATERLOGGED));
+
+        world.setBlock(pos, newState, 0);
         world.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0F, 0.9F);
-        if (world.isClientSide) { return InteractionResult.SUCCESS; }
-        return InteractionResult.CONSUME;
+        return world.isClientSide ? InteractionResult.SUCCESS : InteractionResult.CONSUME;
     }
 
+    // Shear a book bundle or slab
     public InteractionResult shearBundle(Block block, BlockState state, Level world, BlockPos pos, Player player) {
-        int size;
-
-        if (block instanceof BookBundleBlock) { size = BookPileBlock.MAX_HEIGHT; }
-        else if (block instanceof BookBundleSlabBlock) {
-            SlabType type = state.getValue(BlockStateProperties.SLAB_TYPE);
-
-            if (type.equals(SlabType.BOTTOM)) { size = BookPileBlock.MAX_HEIGHT / 2; }
-            else if (type.equals(SlabType.DOUBLE)) { size = BookPileBlock.MAX_HEIGHT; }
-            else return InteractionResult.PASS;
-        } else return InteractionResult.PASS;
+        int size = getBundleSize(block, state);
+        if (size == -1) return InteractionResult.PASS;
 
         Bundle bundle = getBundleType(block);
-        switch (bundle) {
-            case BASE, WHITE, LIGHT_GRAY, GRAY, BLACK, BROWN, RED, ORANGE, YELLOW, LIME, GREEN, CYAN, LIGHT_BLUE,
-                 BLUE, PURPLE, MAGENTA, PINK -> { return convert(bundle.getPile().withPropertiesOf(state), size, world, pos, player); }
-            default -> { return InteractionResult.PASS; }
+        if (bundle == null) return InteractionResult.PASS;
+        return convert(bundle.getPile().withPropertiesOf(state), size, world, pos, player);
+    }
+
+    // Get the size of the bundle based on the block type
+    private int getBundleSize(Block block, BlockState state) {
+        if (block instanceof BookBundleBlock) return BookPileBlock.MAX_HEIGHT;
+        else if (block instanceof BookBundleSlabBlock) {
+            SlabType type = state.getValue(BlockStateProperties.SLAB_TYPE);
+            return switch (type) {
+                case BOTTOM -> BookPileBlock.MAX_HEIGHT / 2;
+                case DOUBLE -> BookPileBlock.MAX_HEIGHT;
+                default -> -1;
+            };
         }
+        else return -1;
     }
 }

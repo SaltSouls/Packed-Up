@@ -14,30 +14,42 @@ import salted.packedup.common.block.TurfLayerBlock;
 import salted.packedup.common.registry.PUBlocks;
 
 import java.util.Arrays;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class TurfUtils {
 
+    // Map for fast lookups
+    private static final Map<Block, Turf> TURF_MAP = Arrays.stream(Turf.values())
+            .flatMap(turf -> Arrays.stream(new Block[]{turf.getTurfBlock(), turf.getTurfLayer()})
+                    .map(block -> Map.entry(block, turf)))
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+    // Lookup method
+    protected Turf getTurfType(Block block) {
+        return TURF_MAP.get(block);
+    }
+
+    // Get turf layer
     protected Block getTurfLayer(Block block) {
         Turf turf = getTurfType(block);
-        return switch (turf) { case GRASS, MYCELIUM, PODZOL -> turf.getTurfLayer(); };
+        return turf != null ? turf.getTurfLayer() : null;
     }
 
+    // Get turf source
     protected BlockState getTurfSource(BlockState state) {
         Block block = state.getBlock();
-
         Turf turf = getTurfType(block);
-        return switch (turf) {
-            case GRASS, MYCELIUM -> turf.getSource();
-            default -> state;
-        };
+        return turf != null ? turf.getSource() : state;
     }
 
+    // Check if turf can propagate
     protected boolean canPropagate(BlockState state, LevelReader world, BlockPos pos) {
         BlockPos blockpos = pos.above();
         return canBeGrass(state, world, pos) && !world.getFluidState(blockpos).is(FluidTags.WATER);
     }
 
-    // copy of forge's functions
+    // Copy of forge's functions
     private boolean canBeGrass(BlockState state, LevelReader worldReader, BlockPos pos) {
         BlockPos blockpos = pos.above();
         BlockState blockstate = worldReader.getBlockState(blockpos);
@@ -49,13 +61,7 @@ public class TurfUtils {
         }
     }
 
-    protected Turf getTurfType(Block block) {
-        return Arrays.stream(Turf.values()).filter(turf ->
-                turf.contains(block))
-                .findFirst()
-                .orElse(null);
-    }
-
+    // Enum definition
     protected enum Turf {
         GRASS(PUBlocks.GRASS_TURF.get(), PUBlocks.GRASS_TURF_LAYER.get(), Blocks.GRASS_BLOCK),
         MYCELIUM(PUBlocks.MYCELIUM_TURF.get(), PUBlocks.MYCELIUM_TURF_LAYER.get(), Blocks.MYCELIUM),
@@ -74,15 +80,13 @@ public class TurfUtils {
         public TurfBlock getTurfBlock() {
             return this.turfBlock;
         }
+
         public TurfLayerBlock getTurfLayer() {
             return this.turfLayer;
         }
+
         public BlockState getSource() {
             return source.defaultBlockState();
-        }
-
-        public boolean contains(Block block) {
-            return block == turfBlock || block == turfLayer;
         }
     }
 }

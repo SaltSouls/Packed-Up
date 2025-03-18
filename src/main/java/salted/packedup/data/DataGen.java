@@ -9,6 +9,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.jetbrains.annotations.NotNull;
 import salted.packedup.PackedUp;
 import salted.packedup.data.loot.PUBlockLoot;
 import salted.packedup.data.models.PUBlockStates;
@@ -25,7 +26,7 @@ import java.util.concurrent.CompletableFuture;
 @Mod.EventBusSubscriber(modid = PackedUp.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGen {
     @SubscribeEvent
-    public static void gatherData(GatherDataEvent event) {
+    public static void gatherData(@NotNull GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         PackOutput output = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
