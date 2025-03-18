@@ -21,10 +21,12 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jetbrains.annotations.NotNull;
 import salted.packedup.common.block.handlers.ShapeHandler;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class CrateLidBlock extends Block implements SimpleWaterloggedBlock {
     private static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
@@ -70,23 +72,26 @@ public class CrateLidBlock extends Block implements SimpleWaterloggedBlock {
         SHAPES = this.shapeConstructor(this.getStateDefinition().getPossibleStates());
     }
 
+    @NotNull
     @Override
-    public RenderShape getRenderShape(BlockState state) {
+    public RenderShape getRenderShape(@NotNull BlockState state) {
         return RenderShape.MODEL;
     }
 
+    @NotNull
     @Override
-    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext ctx) {
-        return SHAPES.get(state);
+    public VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter world, @NotNull BlockPos pos, @NotNull CollisionContext ctx) {
+        return Objects.requireNonNull(SHAPES.get(state));
+    }
+
+    @NotNull
+    @Override
+    public VoxelShape getCollisionShape(@NotNull BlockState state, @NotNull BlockGetter world, @NotNull BlockPos pos, @NotNull CollisionContext ctx) {
+        return Objects.requireNonNull(SHAPES.get(state));
     }
 
     @Override
-    public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext ctx) {
-        return SHAPES.get(state);
-    }
-
-    @Override
-    public boolean isPathfindable(BlockState state, BlockGetter world, BlockPos pos, PathComputationType type) {
+    public boolean isPathfindable(@NotNull BlockState state, @NotNull BlockGetter world, @NotNull BlockPos pos, @NotNull PathComputationType type) {
         if (type == PathComputationType.LAND) {
             return state.getValue(HALF) != Half.TOP;
         }
@@ -105,8 +110,9 @@ public class CrateLidBlock extends Block implements SimpleWaterloggedBlock {
         else return bottomSupport;
     }
 
+    @NotNull
     @Override
-    public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor world, BlockPos blockPos, BlockPos facingPos) {
+    public BlockState updateShape(BlockState state, @NotNull Direction facing, @NotNull BlockState facingState, @NotNull LevelAccessor world, @NotNull BlockPos blockPos, @NotNull BlockPos facingPos) {
         return !state.canSurvive(world, blockPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, facing, facingState, world, blockPos, facingPos);
     }
 
@@ -129,6 +135,7 @@ public class CrateLidBlock extends Block implements SimpleWaterloggedBlock {
         builder.add(FACING, HALF, WATERLOGGED);
     }
 
+    @NotNull
     @Override
     public FluidState getFluidState(BlockState state) {
         return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);

@@ -11,6 +11,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
+import org.jetbrains.annotations.NotNull;
 import salted.packedup.PackedUp;
 import salted.packedup.common.registry.PUItems;
 
@@ -27,7 +28,7 @@ public class PUCraftingRecipes extends PURecipeBuilder {
     }
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
         register(consumer);
     }
 

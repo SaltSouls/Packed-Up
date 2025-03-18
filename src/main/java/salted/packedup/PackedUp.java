@@ -20,6 +20,7 @@ public class PackedUp {
     public static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
 
     public PackedUp() {
+
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.register(this);
 //        modEventBus.addListener(CommonSetup::init);

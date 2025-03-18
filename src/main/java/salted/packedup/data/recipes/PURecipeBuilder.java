@@ -9,6 +9,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.conditions.ICondition;
+import org.jetbrains.annotations.NotNull;
 import salted.packedup.PackedUp;
 import salted.packedup.common.registry.PUItems;
 import salted.packedup.common.tag.PUTags;
@@ -29,7 +30,7 @@ public class PURecipeBuilder extends RecipeProvider {
     }
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
         // This is never used and shouldn't be used. It is only needed
         // so that I can separate the builders from the registration.
     }

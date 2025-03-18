@@ -7,23 +7,24 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 import salted.packedup.common.block.handlers.TurfHandler;
 
 public interface BonemealableTurfBlock extends BonemealableBlock {
 
     @Override
-    default boolean isValidBonemealTarget(LevelReader world, BlockPos pos, BlockState state, boolean isClient) {
+    default boolean isValidBonemealTarget(@NotNull LevelReader world, @NotNull BlockPos pos, @NotNull BlockState state, boolean isClient) {
         TurfHandler manager = new TurfHandler();
         return manager.isBonemealable(state, world, pos);
     }
 
     @Override
-    default boolean isBonemealSuccess(Level world, RandomSource random, BlockPos pos, BlockState state) {
+    default boolean isBonemealSuccess(@NotNull Level world, @NotNull RandomSource random, @NotNull BlockPos pos, @NotNull BlockState state) {
         return true;
     }
 
     @Override
-    default void performBonemeal(ServerLevel world, RandomSource random, BlockPos pos, BlockState state) {
+    default void performBonemeal(@NotNull ServerLevel world, @NotNull RandomSource random, @NotNull BlockPos pos, @NotNull BlockState state) {
         TurfHandler manager = new TurfHandler();
         manager.bonemealTurf(world, random, pos, state);
     }

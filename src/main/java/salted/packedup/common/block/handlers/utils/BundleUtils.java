@@ -12,18 +12,29 @@ import java.util.stream.Collectors;
 
 public class BundleUtils {
 
-    // Map for fast lookups
+    /**
+     * Maps blocks ({@link BookBundleBlock} and {@link BookBundleSlabBlock}) to their corresponding {@link Bundle} type.
+     * This allows for quick retrieval of the {@link Bundle} type based on a {@link Block}.
+     */
     private static final Map<Block, Bundle> BUNDLE_MAP = Arrays.stream(Bundle.values())
             .flatMap(bundle -> Arrays.stream(new Block[]{bundle.getBundleBlock(), bundle.getBundleSlab()})
-                    .map(block -> Map.entry(block, bundle)))
-            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+                    .map(block -> Map.entry(block, bundle)))              // Create a Map.Entry for each block and its corresponding Bundle
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)); // Collect into a Map<Block, Bundle>
 
-    // Lookup method
+    /**
+     * Retrieves the {@link Bundle} type associated with a given {@link Block}.
+     *
+     * @param block The {@link Block} to look up.
+     * @return The {@link Bundle} enum associated with the {@link Block}, or null if the {@link Block} is not a valid {@link BookBundleBlock} or {@link BookBundleSlabBlock}.
+     */
     protected Bundle getBundleType(Block block) {
         return BUNDLE_MAP.get(block);
     }
 
-    // Enum definition
+    /**
+     * Enum representing different types of book bundles and their associated blocks.
+     * Each type has a corresponding {@link BookBundleBlock}, {@link BookBundleSlabBlock}, and {@link BookPileBlock}.
+     */
     protected enum Bundle {
         BASE(PUBlocks.BOOK_BUNDLE.get(), PUBlocks.BOOK_BUNDLE_SLAB.get(), PUBlocks.BOOK_PILE.get()),
         WHITE(PUBlocks.WHITE_BOOK_BUNDLE.get(), PUBlocks.WHITE_BOOK_BUNDLE_SLAB.get(), PUBlocks.WHITE_BOOK_PILE.get()),
@@ -47,6 +58,13 @@ public class BundleUtils {
         private final BookBundleSlabBlock bundleSlab;
         private final BookPileBlock pile;
 
+        /**
+         * Constructor for the {@link Bundle} enum.
+         *
+         * @param bundleBlock The {@link Block} representing the {@link BookBundleBlock}.
+         * @param bundleSlab  The {@link Block} representing the {@link BookBundleSlabBlock}.
+         * @param pile        The {@link Block} representing the {@link BookPileBlock}.
+         */
         Bundle(BookBundleBlock bundleBlock, BookBundleSlabBlock bundleSlab, BookPileBlock pile) {
             this.bundleBlock = bundleBlock;
             this.bundleSlab = bundleSlab;
@@ -56,11 +74,9 @@ public class BundleUtils {
         public BookBundleBlock getBundleBlock() {
             return this.bundleBlock;
         }
-
         public BookBundleSlabBlock getBundleSlab() {
             return this.bundleSlab;
         }
-
         public BookPileBlock getPile() {
             return this.pile;
         }
