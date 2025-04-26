@@ -10,17 +10,11 @@ import java.util.Collection;
 public class ShapeHandler {
 
     /**
-     * Combines multiple VoxelShapes into a single VoxelShape using the BooleanOp.OR operation.
+     * Combines multiple VoxelShapes into a single VoxelShape using the {@link BooleanOp}.OR operation.
      * This is useful for merging multiple collision or selection shapes into one.
      *
      * @param shapes A collection of VoxelShapes to be combined.
      * @return A single {@link VoxelShape} representing the union of all input shapes.
-     * <p>
-     * Example Usage:
-     * {@code
-     * Collection<VoxelShape> shapes = Arrays.asList(shape1, shape2, shape3);
-     * VoxelShape combinedShape = combineAll(shapes);
-     * }
      */
     public VoxelShape combineAll(Collection<VoxelShape> shapes) {
         return shapes.stream()
@@ -34,13 +28,6 @@ public class ShapeHandler {
      *
      * @param shape The {@link VoxelShape} to rotate.
      * @return An array of VoxelShapes, each rotated to face a different cardinal {@link Direction}.
-     * <p>
-     * Example Usage:
-     * {@code
-     * VoxelShape[] rotatedShapes = getRotated(shape);
-     * VoxelShape southShape = rotatedShapes[0]; // Facing SOUTH
-     * VoxelShape westShape = rotatedShapes[1];  // Facing WEST
-     * }
      */
     public VoxelShape[] getRotated(VoxelShape shape) {
         return new VoxelShape[] {
@@ -58,11 +45,6 @@ public class ShapeHandler {
      * @param shape     The {@link VoxelShape} to rotate.
      * @param direction The {@link Direction} to rotate the shape to face.
      * @return A new {@link VoxelShape} representing the rotated shape.
-     * <p>
-     * Example Usage:
-     * {@code
-     * VoxelShape rotatedShape = rotate(shape, Direction.NORTH);
-     * }
      */
     public VoxelShape rotate(VoxelShape shape, Direction direction) {
         double[] adjustedValues = adjustValues(direction, shape.min(Direction.Axis.X), shape.min(Direction.Axis.Z), shape.max(Direction.Axis.X), shape.max(Direction.Axis.Z));
@@ -79,11 +61,6 @@ public class ShapeHandler {
      * @param x2        The maximum X coordinate of the shape.
      * @param z2        The maximum Z coordinate of the shape.
      * @return An array of adjusted coordinates: [minX, minZ, maxX, maxZ].
-     * <p>
-     * Example Usage:
-     * {@code
-     * double[] adjusted = adjustValues(Direction.WEST, 0.0, 0.0, 1.0, 1.0);
-     * }
      */
     private static double[] adjustValues(Direction direction, double x1, double z1, double x2, double z2) {
         return switch (direction) {

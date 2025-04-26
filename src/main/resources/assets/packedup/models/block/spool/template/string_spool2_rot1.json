@@ -1,0 +1,48 @@
+{
+  "author": "TwinSouls",
+  "credit": "Made with Blockbench",
+  "textures": {
+    "particle": "#spool"
+  },
+  "elements": [
+    {
+      "from": [3.5, 0, 8.5],
+      "to": [12.5, 5, 13.5],
+      "rotation": { "angle": -22.5, "axis": "y", "origin": [8, 8, 8] },
+      "faces": {
+        "north": { "uv": [0, 4, 5, 13], "rotation": 90, "texture": "#spool" },
+        "east": { "uv": [0, 0, 5, 5], "rotation": 270, "texture": "#spool" },
+        "south": { "uv": [0, 4, 5, 13], "rotation": 270, "texture": "#spool" },
+        "west": { "uv": [0, 0, 5, 5], "rotation": 270, "texture": "#spool" },
+        "up": { "uv": [0, 4, 5, 13], "rotation": 270, "texture": "#spool" },
+        "down": { "uv": [0, 4, 5, 13], "rotation": 270, "texture": "#spool" }
+      }
+    },
+    {
+      "from": [3.5, 5, 8.5],
+      "to": [12.5, 10, 13.5],
+      "rotation": { "angle": -22.5, "axis": "y", "origin": [8, 8, 8] },
+      "faces": {
+        "north": { "uv": [0, 4, 5, 13], "rotation": 90, "texture": "#spool" },
+        "east": { "uv": [0, 0, 5, 5], "rotation": 270, "texture": "#spool" },
+        "south": { "uv": [0, 4, 5, 13], "rotation": 270, "texture": "#spool" },
+        "west": { "uv": [0, 0, 5, 5], "rotation": 270, "texture": "#spool" },
+        "up": { "uv": [0, 4, 5, 13], "rotation": 270, "texture": "#spool" },
+        "down": { "uv": [0, 4, 5, 13], "rotation": 270, "texture": "#spool" }
+      }
+    },
+    {
+      "from": [5.5, 0, 2.5],
+      "to": [10.5, 9, 7.5],
+      "rotation": { "angle": -22.5, "axis": "y", "origin": [8, 8, 8] },
+      "faces": {
+        "north": { "uv": [0, 4, 5, 13], "texture": "#spool" },
+        "east": { "uv": [0, 4, 5, 13], "texture": "#spool" },
+        "south": { "uv": [0, 4, 5, 13], "texture": "#spool" },
+        "west": { "uv": [0, 4, 5, 13], "texture": "#spool" },
+        "up": { "uv": [0, 0, 5, 5], "texture": "#spool" },
+        "down": { "uv": [0, 0, 5, 5], "texture": "#spool" }
+      }
+    }
+  ]
+}

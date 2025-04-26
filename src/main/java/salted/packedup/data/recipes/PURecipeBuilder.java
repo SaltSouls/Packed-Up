@@ -457,7 +457,7 @@ public class PURecipeBuilder extends RecipeProvider {
     }
 
     private static void shapelessRecipe(ItemLike input, ItemLike output, Consumer<FinishedRecipe> consumer, String suffix) {
-        buildShapelessRecipe(input, output, consumer, recipeDir(PackedUp.MODID, itemName(output.asItem()) + "_from" + suffix));
+        buildShapelessRecipe(input, output, consumer, recipeDir(PackedUp.MODID, itemName(output.asItem()) + "_from_" + suffix));
     }
 
     private static void buildShapelessRecipe(ItemLike input, ItemLike output, Consumer<FinishedRecipe> consumer, ResourceLocation recipeName) {

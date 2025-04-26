@@ -49,7 +49,7 @@ public class TurfHandler extends TurfUtils {
     private static final int SPREAD_ATTEMPTS = 4;         // Number of attempts for grass to spread to nearby blocks
 
     /**
-     * Handles the interaction when a player uses a shovel on a {@link TurfBlock}.
+     * Handles the interaction when a player uses a shovel on a turf block.
      * Reduces the layer count of the turf or converts it to a different type, depending on the current state.
      *
      * @param state  The current {@link BlockState}.
@@ -92,24 +92,24 @@ public class TurfHandler extends TurfUtils {
     }
 
     /**
-     * Checks if a block is eligible for bonemeal application.
-     * Only grass turf with full layers and air above can be bonemealed.
+     * Checks if the block is able to be bonemealed.
      *
      * @param state The current {@link BlockState}.
      * @param world The world ({@link LevelReader}) where the block is located.
      * @param pos   The {@link BlockPos} of the block.
-     * @return True if the block is bonemealable, otherwise false.
+     * @return True if the {@link Block} is bonemealable, otherwise false.
      */
     public boolean isBonemealable(BlockState state, LevelReader world, BlockPos pos) {
-        Turf turf = getTurfType(state.getBlock());
-        // Only grass turf with full layers and air above can be bonemealed
-        return turf == Turf.GRASS
-                && (state.getBlock() != Turf.GRASS.getTurfLayer() || state.getValue(PUProperties.QUARTER_LAYERS) == 4)
+        Block block = state.getBlock();
+        Turf turf = getTurfType(block);
+        // Only grass and grass turf with full layers and air above can be bonemealed
+        return (turf.equals(Turf.GRASS) || block.equals(Turf.GRASS.getSource()))
+                && (!(block.equals(Turf.GRASS.getTurfLayer())) || state.getValue(PUProperties.QUARTER_LAYERS) == 4)
                 && world.getBlockState(pos.above()).isAir();
     }
 
     /**
-     * Applies bonemeal to the {@link TurfBlock}, attempting to grow grass or place features like flowers.
+     * Applies bonemeal to the turf block.
      *
      * @param world  The world ({@link ServerLevel}) where the bonemeal is applied.
      * @param random A {@link RandomSource} for determining outcomes.
@@ -128,8 +128,8 @@ public class TurfHandler extends TurfUtils {
 
             // Adjust the target position based on the number of attempts
             for (int j = 0; j < i / TARGET_ATTEMPTS; ++j) {
+                targetPos = getRandomOffsetPos(targetPos, random);
                 if (!isValidBonemealTarget(world, targetPos)) continue bonemeal;
-                targetPos = getRandomOffsetPos(abovePos, random);
             }
 
             // Apply bonemeal to the target block with a certain chance
@@ -147,17 +147,17 @@ public class TurfHandler extends TurfUtils {
 
     /**
      * Checks if a position is a valid target for bonemeal application.
-     * Only grass turf with non-full collision shape is valid.
      *
      * @param world The world ({@link ServerLevel}) where the check is performed.
      * @param pos   The {@link BlockPos} to check.
      * @return True if the position is a valid bonemeal target, otherwise false.
      */
     private boolean isValidBonemealTarget(ServerLevel world, BlockPos pos) {
-        BlockState belowState = world.getBlockState(pos.below());
-        Turf turf = getTurfType(belowState.getBlock());
-        // Only blocks in the grass turf enum with non-full collision shapes are valid
-        return turf == Turf.GRASS && !world.getBlockState(pos).isCollisionShapeFullBlock(world, pos);
+        Block block = world.getBlockState(pos.below()).getBlock();
+        Turf turf = getTurfType(block);
+        // Returns true if the block is in the grass turf type or source and not a block with collision
+        return (turf == Turf.GRASS || block == Turf.GRASS.getSource())
+                || world.getBlockState(pos).isCollisionShapeFullBlock(world, pos);
     }
 
     /**
@@ -165,7 +165,7 @@ public class TurfHandler extends TurfUtils {
      *
      * @param pos    The base {@link BlockPos}.
      * @param random A {@link RandomSource} for generating offsets.
-     * @return A new BlockPos with a random offset.
+     * @return A new {@link BlockPos} with a random offset.
      */
     private BlockPos getRandomOffsetPos(BlockPos pos, RandomSource random) {
         int x = random.nextInt(3) - 1;
@@ -175,7 +175,7 @@ public class TurfHandler extends TurfUtils {
     }
 
     /**
-     * Places a feature (e.g., grass, flower) at the given position.
+     * Places a feature at the given position.
      *
      * @param world  The world ({@link ServerLevel}) where the feature is placed.
      * @param random A {@link RandomSource} for determining which feature to place.
@@ -205,7 +205,7 @@ public class TurfHandler extends TurfUtils {
     }
 
     /**
-     * Spawns mycelium particles at the given position.
+     * Spawns mycelium particles at a calculated position based on the number of layers.
      *
      * @param state  The current {@link BlockState}.
      * @param world  The world ({@link Level}) where the particles are spawned.

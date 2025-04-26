@@ -22,7 +22,7 @@ import salted.packedup.common.block.state.PUProperties;
 public class BundleHandler extends BundleUtils {
 
     /**
-     * Converts a {@link BookBundleBlock} or {@link BookBundleSlabBlock} into a {@link BookPileBlock} while maintaining {@link BlockState} information.
+     * Converts a bundle or slab into a pile while maintaining block state information.
      *
      * @param state  The current {@link BlockState} of the {@link BookBundleBlock} or {@link BookBundleSlabBlock}.
      * @param layers The number of layers the {@link BookPileBlock} should have.
@@ -52,8 +52,8 @@ public class BundleHandler extends BundleUtils {
     }
 
     /**
-     * Handles the shearing interaction for the {@link BookBundleBlock} or {@link BookBundleSlabBlock}.
-     * Determines the size of the resulting {@link BookPileBlock} and converts the {@link Block}.
+     * Handles the shearing interaction for the bundle or slab block.
+     * Determines the size of the resulting pile and converts the block.
      *
      * @param block  The {@link Block} being sheared (bundle or slab).
      * @param state  The current {@link BlockState}.
@@ -76,7 +76,7 @@ public class BundleHandler extends BundleUtils {
     }
 
     /**
-     * Determines the size of the resulting {@link BookPileBlock} based on the {@link BookBundleBlock} or {@link BookBundleSlabBlock} type.
+     * Determines the size of the resulting pile based on the bundle or slab type.
      *
      * @param block The {@link Block} being sheared.
      * @param state The current {@link BlockState}.

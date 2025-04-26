@@ -14,7 +14,7 @@ public class BundleUtils {
 
     /**
      * Maps blocks ({@link BookBundleBlock} and {@link BookBundleSlabBlock}) to their corresponding {@link Bundle} type.
-     * This allows for quick retrieval of the {@link Bundle} type based on a {@link Block}.
+     * This allows for quick retrieval of the bundle type based on a {@link Block}.
      */
     private static final Map<Block, Bundle> BUNDLE_MAP = Arrays.stream(Bundle.values())
             .flatMap(bundle -> Arrays.stream(new Block[]{bundle.getBundleBlock(), bundle.getBundleSlab()})
@@ -22,10 +22,10 @@ public class BundleUtils {
             .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)); // Collect into a Map<Block, Bundle>
 
     /**
-     * Retrieves the {@link Bundle} type associated with a given {@link Block}.
+     * Retrieves the bundle type associated with a given block.
      *
      * @param block The {@link Block} to look up.
-     * @return The {@link Bundle} enum associated with the {@link Block}, or null if the {@link Block} is not a valid {@link BookBundleBlock} or {@link BookBundleSlabBlock}.
+     * @return The {@link Bundle} type associated with the block, or null if the block is not a valid {@link BookBundleBlock} or {@link BookBundleSlabBlock}.
      */
     protected Bundle getBundleType(Block block) {
         return BUNDLE_MAP.get(block);

@@ -3,7 +3,6 @@ package salted.packedup.common.block.handlers.utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -21,8 +20,8 @@ import java.util.stream.Collectors;
 public class TurfUtils {
 
     /**
-     * Map for fast lookups: Maps blocks ({@link TurfBlock} and {@link TurfLayerBlock}) to their corresponding Turf enum.
-     * This allows for quick retrieval of the Turf type based on a block.
+     * Map for fast lookups: Maps blocks ({@link TurfBlock} and {@link TurfLayerBlock}) to their corresponding {@link Turf} type.
+     * This allows for quick retrieval of the Turf type based on a {@link Block}.
      */
     private static final Map<Block, Turf> TURF_MAP = Arrays.stream(Turf.values())
             .flatMap(turf -> Arrays.stream(new Block[]{turf.getTurfBlock(), turf.getTurfLayer()})
@@ -30,44 +29,40 @@ public class TurfUtils {
             .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)); // Collect into a Map<Block, Turf>
 
     /**
-     * Retrieves the Turf type associated with a given block.
-     * This is used to determine the type of turf (e.g., grass, mycelium, podzol) based on the block.
+     * Retrieves the turf type associated with a given block.
      *
-     * @param block The {@link Block} to look up (e.g., a {@link TurfBlock} or {@link TurfLayerBlock}).
-     * @return The {@link Turf} enum associated with the block, or null if the block is not a valid turf block or layer.
+     * @param block The {@link Block} to look up.
+     * @return The {@link Turf} type associated with the block, or null if the block is not a valid {@link TurfBlock} or {@link TurfLayerBlock}.
      */
     protected Turf getTurfType(Block block) {
-        return TURF_MAP.get(block); // Look up the block in the map
+        return TURF_MAP.get(block);
     }
 
     /**
      * Gets the turf layer block associated with a given turf block.
-     * This is used to retrieve the layer version of a turf block (e.g., grass turf layer).
      *
      * @param block The {@link TurfBlock} to look up.
      * @return The {@link TurfLayerBlock}, or null if the block is not a valid turf block.
      */
     protected Block getTurfLayer(Block block) {
-        Turf turf = getTurfType(block);
+        Turf turf = getTurfType(block); // Get the Turf type for the block
         return turf != null ? turf.getTurfLayer() : null;
     }
 
     /**
      * Gets the source block state for a given turf block.
-     * This is used to retrieve the original block state that the turf represents (e.g., grass block for grass turf).
      *
-     * @param state The {@link BlockState} of the turf block.
+     * @param state The {@link BlockState} of the {@link TurfBlock}.
      * @return The source block state, or the original state if the block is not a valid turf block.
      */
     protected BlockState getTurfSource(BlockState state) {
         Block block = state.getBlock(); // Get the block from the state
         Turf turf = getTurfType(block); // Get the Turf type for the block
-        return turf != null ? turf.getSource() : state;
+        return turf != null ? turf.getSource().defaultBlockState() : state;
     }
 
     /**
-     * Checks if a turf block can propagate (e.g., spread to adjacent blocks).
-     * This is used to determine if the turf can spread under certain conditions.
+     * Checks if a turf block can spread to nearby blocks.
      *
      * @param state The {@link BlockState} of the turf block.
      * @param world The world ({@link LevelReader}) where the block is located.
@@ -80,13 +75,14 @@ public class TurfUtils {
     }
 
     /**
+     * This is a copy of Forge's logic.
+     * <p>
      * Checks if a block can be replaced by grass or similar turf blocks.
-     * This is a copy of Forge's logic for determining if grass can spread.
      *
      * @param state The {@link BlockState} of the turf block.
      * @param world The world ({@link LevelReader}) where the block is located.
      * @param pos   The {@link BlockPos} of the block.
-     * @return True if the block can be replaced by grass, false otherwise.
+     * @return True if the {@link Block} can be replaced by grass, false otherwise.
      */
     private boolean canBeGrass(BlockState state, LevelReader world, BlockPos pos) {
         BlockPos blockpos = pos.above();                       // Get the block position above the current position
@@ -105,7 +101,7 @@ public class TurfUtils {
 
     /**
      * Enum representing different types of turf blocks and their associated layers and source blocks.
-     * Each Turf type has a corresponding {@link TurfBlock}, {@link TurfLayerBlock}, and source block.
+     * Each Turf type has a corresponding {@link TurfBlock}, {@link TurfLayerBlock}, and source {@link Block}.
      */
     protected enum Turf {
         GRASS(PUBlocks.GRASS_TURF.get(), PUBlocks.GRASS_TURF_LAYER.get(), Blocks.GRASS_BLOCK),
@@ -117,11 +113,11 @@ public class TurfUtils {
         private final Block source;
 
         /**
-         * Constructor for the Turf enum.
+         * Constructor for the {@link Turf} enum.
          *
-         * @param turfBlock The block representing the {@link TurfBlock}.
-         * @param turfLayer The block representing the {@link TurfLayerBlock}.
-         * @param source    The block representing the source block that the turf represents (e.g., grass block).
+         * @param turfBlock The {@link Block} representing the {@link TurfBlock}.
+         * @param turfLayer The {@link Block} representing the {@link TurfLayerBlock}.
+         * @param source    The {@link Block} representing the source {@link Block} that the turf represents.
          */
         Turf(TurfBlock turfBlock, TurfLayerBlock turfLayer, Block source) {
             this.turfBlock = turfBlock;
@@ -129,32 +125,14 @@ public class TurfUtils {
             this.source = source;
         }
 
-        /**
-         * Gets the {@link TurfBlock} associated with this Turf type.
-         *
-         * @return The TurfBlock for this Turf type.
-         */
         public TurfBlock getTurfBlock() {
             return this.turfBlock;
         }
-
-        /**
-         * Gets the {@link TurfLayerBlock} associated with this Turf type.
-         *
-         * @return The TurfLayerBlock for this Turf type.
-         */
         public TurfLayerBlock getTurfLayer() {
             return this.turfLayer;
         }
-
-        /**
-         * Gets the source {@link BlockState} associated with this Turf type.
-         * This is the block state that the turf represents (e.g., grass block for grass turf).
-         *
-         * @return The source block state for this Turf type.
-         */
-        public BlockState getSource() {
-            return this.source.defaultBlockState();
+        public Block getSource() {
+            return this.source.defaultBlockState().getBlock();
         }
     }
 }
