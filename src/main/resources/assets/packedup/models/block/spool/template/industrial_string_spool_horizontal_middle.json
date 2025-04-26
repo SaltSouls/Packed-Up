@@ -9,7 +9,6 @@
       "name": "string",
       "from": [1, 1, 0],
       "to": [15, 15, 16],
-      "rotation": { "angle": 0, "axis": "x", "origin": [8, 8, 8] },
       "faces": {
         "east": { "uv": [1, 0, 15, 16], "rotation": 90, "texture": "#string" },
         "west": { "uv": [1, 0, 15, 16], "rotation": 270, "texture": "#string" },

@@ -12,7 +12,6 @@
       "name": "string",
       "from": [1, 2, 1],
       "to": [15, 16, 15],
-      "rotation": { "angle": 0, "axis": "x", "origin": [8, 8, 8] },
       "faces": {
         "north": { "uv": [1, 0, 15, 14], "texture": "#string" },
         "east": { "uv": [1, 0, 15, 14], "texture": "#string" },
@@ -24,7 +23,6 @@
       "name": "spool_bottom",
       "from": [0, 0, 0],
       "to": [16, 2, 16],
-      "rotation": { "angle": 0, "axis": "x", "origin": [8, 8, 8] },
       "faces": {
         "north": {
           "uv": [0, 4, 16, 2],
