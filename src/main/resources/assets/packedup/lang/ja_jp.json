@@ -88,6 +88,8 @@
   "block.packedup.egg_crate": "卵入り木箱",
   "block.packedup.red_mushroom_crate": "赤色のキノコ入り木箱",
   "block.packedup.brown_mushroom_crate": "茶色のキノコ入り木箱",
+  "block.packedup.crimson_fungus_crate": "真紅のキノコ入り木箱",
+  "block.packedup.warped_fungus_crate": "歪んだキノコ入り木箱",
   "block.packedup.crate_lid": "木箱の蓋",
   "block.packedup.reinforced_crate_lid": "頑丈な木箱の蓋",
   "block.packedup.gunpowder_crate": "火薬入り木箱",
