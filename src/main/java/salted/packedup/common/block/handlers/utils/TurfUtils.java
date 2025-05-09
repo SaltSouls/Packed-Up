@@ -25,7 +25,7 @@ public class TurfUtils {
      */
     private static final Map<Block, Turf> TURF_MAP = Arrays.stream(Turf.values())
             .flatMap(turf -> Arrays.stream(new Block[]{turf.getTurfBlock(), turf.getTurfLayer()})
-                    .map(block -> Map.entry(block, turf)))                // Create a Map.Entry for each block and its corresponding Turf
+                    .map(block -> Map.entry(block, turf)))                // Create a Map entry for each block and its corresponding turf
             .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)); // Collect into a Map<Block, Turf>
 
     /**

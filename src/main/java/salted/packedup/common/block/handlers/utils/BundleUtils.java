@@ -18,7 +18,7 @@ public class BundleUtils {
      */
     private static final Map<Block, Bundle> BUNDLE_MAP = Arrays.stream(Bundle.values())
             .flatMap(bundle -> Arrays.stream(new Block[]{bundle.getBundleBlock(), bundle.getBundleSlab()})
-                    .map(block -> Map.entry(block, bundle)))              // Create a Map.Entry for each block and its corresponding Bundle
+                    .map(block -> Map.entry(block, bundle)))              // Create a Map entry for each block and its corresponding bundle
             .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)); // Collect into a Map<Block, Bundle>
 
     /**

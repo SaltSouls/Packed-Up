@@ -2,15 +2,17 @@ package salted.packedup.common.block.state.properties;
 
 import net.minecraft.util.StringRepresentable;
 
-public enum PileShape implements StringRepresentable {
-    UPPER("upper"),
+public enum PillarShape implements StringRepresentable {
+    TOP("top"),
+    BOTTOM("bottom"),
     MIDDLE("middle"),
-    LOWER("lower"),
+    LEFT("left"),
+    RIGHT("right"),
     SINGLE("single");
 
     private final String name;
 
-    PileShape(String name) {
+    PillarShape(String name) {
         this.name = name;
     }
 
@@ -18,10 +20,12 @@ public enum PileShape implements StringRepresentable {
         return this.name;
     }
 
+    @Override
     public String toString() {
         return this.name;
     }
 
+    @Override
     public String getSerializedName() {
         return this.name;
     }

@@ -39,11 +39,11 @@ public class CrateLidBlock extends Block implements SimpleWaterloggedBlock {
     private static final Direction defaultFacing = Direction.NORTH;
 
     private final VoxelShape BOTTOM = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D);
-    private final VoxelShape[] TOP1 = handler.getRotated(handler.rotate(Block.box(0.0D, 0.0D, 4.0D, 16.0D, 3.0D, 8.0D), defaultFacing));
-    private final VoxelShape[] TOP2 = handler.getRotated(handler.rotate(Block.box(0.0D, 3.0D, 3.0D, 16.0D, 6.0D, 7.0D), defaultFacing));
-    private final VoxelShape[] TOP3 = handler.getRotated(handler.rotate(Block.box(0.0D, 6.0D, 2.0D, 16.0D, 9.0D, 6.0D), defaultFacing));
-    private final VoxelShape[] TOP4 = handler.getRotated(handler.rotate(Block.box(0.0D, 9.0D, 1.0D, 16.0D, 12.0D, 5.0D), defaultFacing));
-    private final VoxelShape[] TOP5 = handler.getRotated(handler.rotate(Block.box(0.0D, 12.0D, 0.0D, 16.0D, 15.0D, 4.0D), defaultFacing));
+    private final VoxelShape[] TOP1 = handler.getRotations(handler.rotate(Block.box(0.0D, 0.0D, 4.0D, 16.0D, 3.0D, 8.0D), defaultFacing), false, false);
+    private final VoxelShape[] TOP2 = handler.getRotations(handler.rotate(Block.box(0.0D, 3.0D, 3.0D, 16.0D, 6.0D, 7.0D), defaultFacing), false, false);
+    private final VoxelShape[] TOP3 = handler.getRotations(handler.rotate(Block.box(0.0D, 6.0D, 2.0D, 16.0D, 9.0D, 6.0D), defaultFacing), false, false);
+    private final VoxelShape[] TOP4 = handler.getRotations(handler.rotate(Block.box(0.0D, 9.0D, 1.0D, 16.0D, 12.0D, 5.0D), defaultFacing), false, false);
+    private final VoxelShape[] TOP5 = handler.getRotations(handler.rotate(Block.box(0.0D, 12.0D, 0.0D, 16.0D, 15.0D, 4.0D), defaultFacing), false, false);
 
     private ImmutableBiMap<BlockState, VoxelShape> shapeConstructor(ImmutableList<BlockState> states) {
         ImmutableBiMap.Builder<BlockState, VoxelShape> shape = new ImmutableBiMap.Builder<>();

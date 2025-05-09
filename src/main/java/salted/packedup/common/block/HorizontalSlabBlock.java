@@ -28,7 +28,8 @@ public class HorizontalSlabBlock extends SlabBlock {
         Direction facing = ctx.getHorizontalDirection().getOpposite();
 
         if (state.is(this)) {
-            return state.setValue(TYPE, SlabType.DOUBLE).setValue(FACING, facing).setValue(WATERLOGGED, false);
+            Direction currentFacing = state.getValue(FACING);
+            return state.setValue(TYPE, SlabType.DOUBLE).setValue(FACING, currentFacing).setValue(WATERLOGGED, false);
         } else {
             FluidState fluid = ctx.getLevel().getFluidState(pos);
             Boolean flag = fluid.getType() == Fluids.WATER;
