@@ -1,0 +1,6 @@
+{
+  "parent": "packedup:block/bag/template/bag",
+  "textures": {
+    "top": "packedup:block/bag/nether_wart_bag_top"
+  }
+}

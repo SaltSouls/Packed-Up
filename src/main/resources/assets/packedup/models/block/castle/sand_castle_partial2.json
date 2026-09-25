@@ -1,0 +1,86 @@
+{
+    "format_version": "1.9.0",
+    "author": "TwinSouls",
+    "credit": "Made with Blockbench",
+    "textures": {
+        "particle": "#sand",
+        "sand": "minecraft:block/sand",
+        "front": "packedup:block/castle/sand_castle_partial_front",
+        "side_left": "packedup:block/castle/sand_castle_partial_side_right",
+        "side_right": "packedup:block/castle/sand_castle_partial_side_left",
+        "back": "packedup:block/castle/sand_castle_partial_back"
+    },
+    "groups": [
+        {
+            "name": "castle",
+            "origin": [1, 0, 1],
+            "color": 0,
+            "children": [
+                0,
+                1,
+                {
+                    "name": "tower_front_left",
+                    "origin": [10, 10, 0],
+                    "color": 0,
+                    "children": [2]
+                },
+                {
+                    "name": "tower_front_right",
+                    "origin": [0, 10, 0],
+                    "color": 0,
+                    "children": [3]
+                }
+            ]
+        }
+    ],
+    "elements": [
+        {
+            "name": "upper_body",
+            "from": [5, 8, 5],
+            "to": [11, 13, 11],
+            "faces": {
+                "north": { "uv": [5, 3, 11, 8], "texture": "#front" },
+                "east": { "uv": [5, 3, 11, 8], "texture": "#front" },
+                "south": { "uv": [5, 3, 11, 8], "texture": "#front" },
+                "west": { "uv": [5, 3, 11, 8], "texture": "#front" },
+                "up": { "uv": [5, 5, 11, 11], "texture": "#sand" }
+            }
+        },
+        {
+            "name": "main_body",
+            "from": [2, 0, 2],
+            "to": [14, 8, 14],
+            "faces": {
+                "north": { "uv": [2, 8, 14, 16], "texture": "#front" },
+                "east": { "uv": [2, 8, 14, 16], "texture": "#side_right" },
+                "south": { "uv": [2, 8, 14, 16], "texture": "#back" },
+                "west": { "uv": [2, 8, 14, 16], "texture": "#side_left" },
+                "up": { "uv": [2, 2, 14, 14], "texture": "#sand" }
+            }
+        },
+        {
+            "name": "tower",
+            "from": [12, 0, 1],
+            "to": [15, 10, 4],
+            "faces": {
+                "north": { "uv": [1, 6, 4, 16], "texture": "#front" },
+                "east": { "uv": [12, 6, 15, 16], "texture": "#side_right" },
+                "south": { "uv": [12, 6, 15, 16], "texture": "#side_right" },
+                "west": { "uv": [1, 6, 4, 16], "texture": "#side_left" },
+                "up": { "uv": [1, 12, 4, 15], "texture": "#sand" }
+            }
+        },
+        {
+            "name": "tower",
+            "from": [1, 0, 1],
+            "to": [4, 10, 4],
+            "faces": {
+                "north": { "uv": [12, 6, 15, 16], "texture": "#front" },
+                "east": { "uv": [12, 6, 15, 16], "texture": "#side_right" },
+                "south": { "uv": [1, 6, 4, 16], "texture": "#side_left" },
+                "west": { "uv": [1, 6, 4, 16], "texture": "#side_left" },
+                "up": { "uv": [12, 12, 15, 15], "texture": "#sand" }
+            }
+        }
+    ]
+}

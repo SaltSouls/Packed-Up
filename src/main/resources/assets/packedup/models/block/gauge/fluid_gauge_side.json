@@ -1,0 +1,24 @@
+{
+	"format_version": "1.9.0",
+	"author": "TwinSouls",
+	"credit": "Made with Blockbench",
+	"textures": {
+	  "display": "#display",
+		"sides": "packedup:block/gauge/fluid_guage_sides",
+		"particle": "packedup:block/gauge/fluid_guage_sides"
+	},
+	"elements": [
+		{
+			"from": [4.5, 7.5, 15],
+			"to": [11.5, 14.5, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7.5, 10.5, 14]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#display"},
+				"east": {"uv": [8, 0, 9, 7], "texture": "#sides"},
+				"west": {"uv": [8, 0, 9, 7], "texture": "#sides"},
+				"up": {"uv": [0, 0, 7, 1], "texture": "#sides"},
+				"down": {"uv": [0, 3, 7, 4], "texture": "#sides"}
+			}
+		}
+	]
+}

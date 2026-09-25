@@ -1,8 +1,0 @@
-{
-  "parent": "packedup:block/template/mushroom_crate",
-  "textures": {
-    "mush": "packedup:block/red_mushroom_crate_mushrooms",
-    "side": "packedup:block/red_mushroom_crate_side",
-    "top": "packedup:block/red_mushroom_crate_top"
-  }
-}

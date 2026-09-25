@@ -2,22 +2,20 @@ package salted.packedup.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraft.world.level.material.Fluid;
-import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 import salted.packedup.common.block.handlers.ConnectionHandler;
 import salted.packedup.common.block.state.PUProperties;
@@ -25,11 +23,25 @@ import salted.packedup.common.block.state.properties.PillarShape;
 
 public class ConnectedPillarBlock extends RotatedPillarBlock implements SimpleWaterloggedBlock {
     public static final EnumProperty<PillarShape> SHAPE = PUProperties.PILLAR_SHAPE;
-    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     public ConnectedPillarBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.defaultBlockState().setValue(SHAPE, PillarShape.SINGLE).setValue(WATERLOGGED, false));
+        this.registerDefaultState(this.defaultBlockState().setValue(SHAPE, PillarShape.SINGLE));
+    }
+
+    @Override
+    public RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext ctx) {
+        return Shapes.block();
+    }
+
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext ctx) {
+        return getShape(state, world, pos, ctx);
     }
 
     @NotNull
@@ -38,9 +50,7 @@ public class ConnectedPillarBlock extends RotatedPillarBlock implements SimpleWa
         Direction.Axis axis = context.getClickedFace().getAxis();
         BlockPos pos = context.getClickedPos();
         Level world = context.getLevel();
-        FluidState fluid = world.getFluidState(pos);
-        boolean waterlogged = fluid.is(FluidTags.WATER);
-        BlockState state = this.defaultBlockState().setValue(AXIS, axis).setValue(WATERLOGGED, waterlogged);
+        BlockState state = this.defaultBlockState().setValue(AXIS, axis);
 
         return getPillarShape(world, pos, state);
     }
@@ -51,15 +61,13 @@ public class ConnectedPillarBlock extends RotatedPillarBlock implements SimpleWa
         return getPillarShape(world, pos, state);
     }
 
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> builder) {
-        super.createBlockStateDefinition(builder);
-        builder.add(SHAPE, WATERLOGGED);
-    }
-
-    protected static @NotNull BlockState getPillarShape(LevelAccessor world, BlockPos pos, BlockState state) {
+    @NotNull
+    public BlockState getPillarShape(LevelAccessor world, BlockPos pos, BlockState state) {
+        boolean connectAll = false;
         ConnectionHandler handler = new ConnectionHandler();
-        ConnectionHandler.Part part = handler.getAlongAxis(world, pos, state);
+        ConnectionHandler.Part part;
+        if (connectAll) { part = handler.getAlongAxis(world, pos, state, this.getClass()); }
+        else { part = handler.getAlongAxis(world, pos, state); }
 
         return switch (part) {
             case MIDDLE -> state.setValue(SHAPE, PillarShape.MIDDLE);
@@ -72,14 +80,8 @@ public class ConnectedPillarBlock extends RotatedPillarBlock implements SimpleWa
     }
 
     @Override
-    public boolean canPlaceLiquid(@NotNull BlockGetter level, @NotNull BlockPos pos, BlockState state, @NotNull Fluid fluid) {
-        return true;
+    protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> builder) {
+        super.createBlockStateDefinition(builder);
+        builder.add(SHAPE);
     }
-
-    @NotNull
-    @Override
-    public FluidState getFluidState(BlockState state) {
-        return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
-    }
-
 }

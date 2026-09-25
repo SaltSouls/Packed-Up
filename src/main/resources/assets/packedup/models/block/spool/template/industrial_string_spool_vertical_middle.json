@@ -1,20 +1,21 @@
 {
-  "author": "TwinSouls",
-  "credit": "Made with Blockbench",
-  "textures": {
-    "particle": "#string"
-  },
-  "elements": [
-    {
-      "name": "string",
-      "from": [1, 0, 1],
-      "to": [15, 16, 15],
-      "faces": {
-        "north": { "uv": [1, 0, 15, 16], "texture": "#string" },
-        "east": { "uv": [1, 0, 15, 16], "texture": "#string" },
-        "south": { "uv": [1, 0, 15, 16], "texture": "#string" },
-        "west": { "uv": [1, 0, 15, 16], "texture": "#string" }
-      }
-    }
-  ]
+    "format_version": "1.9.0",
+    "author": "TwinSouls",
+    "credit": "Made with Blockbench",
+    "textures": {
+        "particle": "#string"
+    },
+    "elements": [
+        {
+            "name": "string",
+            "from": [1, 0, 1],
+            "to": [15, 16, 15],
+            "faces": {
+                "north": { "uv": [1, 0, 15, 16], "texture": "#string" },
+                "east": { "uv": [1, 0, 15, 16], "texture": "#string" },
+                "south": { "uv": [1, 0, 15, 16], "texture": "#string" },
+                "west": { "uv": [1, 0, 15, 16], "texture": "#string" }
+            }
+        }
+    ]
 }

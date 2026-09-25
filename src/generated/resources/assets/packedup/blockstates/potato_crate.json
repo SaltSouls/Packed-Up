@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "packedup:block/potato_crate"
+      "model": "packedup:block/crate/potato_crate"
     }
   }
 }

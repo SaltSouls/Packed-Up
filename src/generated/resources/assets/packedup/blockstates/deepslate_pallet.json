@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=east": {
-      "model": "packedup:block/deepslate_pallet",
+      "model": "packedup:block/pallet/deepslate_pallet",
       "y": 90
     },
     "facing=north": {
-      "model": "packedup:block/deepslate_pallet"
+      "model": "packedup:block/pallet/deepslate_pallet"
     },
     "facing=south": {
-      "model": "packedup:block/deepslate_pallet",
+      "model": "packedup:block/pallet/deepslate_pallet",
       "y": 180
     },
     "facing=west": {
-      "model": "packedup:block/deepslate_pallet",
+      "model": "packedup:block/pallet/deepslate_pallet",
       "y": 270
     }
   }

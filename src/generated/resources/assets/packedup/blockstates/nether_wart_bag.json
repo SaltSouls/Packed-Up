@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "packedup:block/nether_wart_bag"
+      "model": "packedup:block/bag/nether_wart_bag"
     }
   }
 }

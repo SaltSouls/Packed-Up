@@ -1,0 +1,25 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "packedup:block/drum/purple_drum_barrel_down"
+    },
+    "facing=east": {
+      "model": "packedup:block/drum/purple_drum_barrel_horizontal",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "packedup:block/drum/purple_drum_barrel_horizontal"
+    },
+    "facing=south": {
+      "model": "packedup:block/drum/purple_drum_barrel_horizontal",
+      "y": 180
+    },
+    "facing=up": {
+      "model": "packedup:block/drum/purple_drum_barrel"
+    },
+    "facing=west": {
+      "model": "packedup:block/drum/purple_drum_barrel_horizontal",
+      "y": 270
+    }
+  }
+}

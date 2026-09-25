@@ -1,8 +1,0 @@
-{
-  "parent": "packedup:block/template/pile",
-  "textures": {
-    "front": "packedup:block/calcite_pile_front",
-    "side": "packedup:block/calcite_pile_side",
-    "top": "packedup:block/calcite_pallet_top"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "packedup:block/template/resource_pallet",
-  "textures": {
-    "front": "packedup:block/iron_pallet_front",
-    "side": "packedup:block/iron_pallet_side",
-    "top": "packedup:block/iron_pallet_top"
-  }
-}

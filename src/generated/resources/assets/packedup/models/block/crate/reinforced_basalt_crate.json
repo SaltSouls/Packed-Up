@@ -1,0 +1,6 @@
+{
+  "parent": "packedup:block/crate/template/reinforced_resource_crate",
+  "textures": {
+    "pile": "packedup:block/crate/pile/basalt_pile"
+  }
+}

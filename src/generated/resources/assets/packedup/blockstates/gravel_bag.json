@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "packedup:block/gravel_bag"
+      "model": "packedup:block/bag/gravel_bag"
     }
   }
 }

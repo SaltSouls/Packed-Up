@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "packedup:block/glowstone_dust_bag"
+      "model": "packedup:block/bag/glowstone_dust_bag"
     }
   }
 }

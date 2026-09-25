@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "packedup:block/grass_thatch"
+      "model": "packedup:block/thatch/grass_thatch"
     }
   }
 }

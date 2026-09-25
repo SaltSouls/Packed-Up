@@ -234,7 +234,7 @@ public class TurfHandler extends TurfUtils {
         if (state.getBlock() != Turf.MYCELIUM.getTurfLayer()) return BASE_OFFSET;
 
         int layers = state.getValue(PUProperties.QUARTER_LAYERS);
-        return layers < 4 ? (OFFSET_FACTOR * layers) - (layers * OFFSET_ADJUSTMENT - OFFSET_ADJUSTMENT) : BASE_OFFSET;
+        return layers < 4 ? (OFFSET_FACTOR * layers) - ((layers * OFFSET_ADJUSTMENT) - OFFSET_ADJUSTMENT) : BASE_OFFSET;
     }
 
     /**

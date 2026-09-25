@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "packedup:block/drum/cyan_drum_bottom",
+    "side": "packedup:block/drum/cyan_drum_side",
+    "top": "packedup:block/drum/cyan_drum_top"
+  }
+}

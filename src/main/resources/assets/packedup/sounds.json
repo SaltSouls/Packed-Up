@@ -1,0 +1,14 @@
+{
+  "block.drum_barrel.knock_empty": {
+    "subtitle": "subtitles.packedup.drum_barrel.knock",
+    "sounds": [
+      "packedup:block/drum/knock_empty"
+    ]
+  },
+  "block.drum_barrel.knock_full": {
+    "subtitle": "subtitles.packedup.drum_barrel.knock",
+    "sounds": [
+      "packedup:block/drum/knock_full"
+    ]
+  }
+}

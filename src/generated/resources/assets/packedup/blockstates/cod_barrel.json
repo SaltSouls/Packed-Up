@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "packedup:block/cod_barrel"
+      "model": "packedup:block/barrel/cod_barrel"
     }
   }
 }

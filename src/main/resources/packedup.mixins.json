@@ -8,8 +8,7 @@
     "KeepTurfGiantTreeMixin",
     "KeepTurfTreeMixin"
   ],
-  "client": [
-  ],
+  "client": [],
   "injectors": {
     "defaultRequire": 1
   }

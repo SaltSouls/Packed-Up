@@ -1,0 +1,8 @@
+{
+  "parent": "packedup:block/template/overlay_slab_top",
+  "textures": {
+    "overlay": "packedup:block/thatch/grass_thatch_overlay",
+    "side": "packedup:block/thatch/grass_thatch_side",
+    "top": "packedup:block/thatch/grass_thatch_top"
+  }
+}

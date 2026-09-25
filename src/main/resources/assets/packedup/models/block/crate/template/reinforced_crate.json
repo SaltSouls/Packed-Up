@@ -1,0 +1,7 @@
+{
+  "parent": "packedup:block/crate/template/crate_all",
+  "textures": {
+    "side": "packedup:block/crate/reinforced_crate_side",
+    "bottom": "packedup:block/crate/reinforced_crate_bottom"
+  }
+}

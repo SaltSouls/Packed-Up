@@ -1,0 +1,105 @@
+{
+    "format_version": "1.9.0",
+    "author": "TwinSouls",
+    "credit": "Made with Blockbench",
+    "render_type": "minecraft:cutout",
+    "parent": "block/slab",
+    "textures": {
+        "particle": "#top",
+        "handle": "packedup:block/basket/basket_handle",
+        "top": "#top",
+        "front": "#front",
+        "side": "#side",
+        "bottom": "packedup:block/basket/basket_bottom"
+    },
+    "groups": [
+        {
+            "name": "handle",
+            "origin": [0, 7, 7],
+            "color": 0,
+            "children": [0, 1]
+        },
+        2
+    ],
+    "elements": [
+        {
+            "name": "outer",
+            "from": [-0.02, 5.98, 6.98],
+            "to": [16.02, 8.02, 14.02],
+            "rotation": { "angle": -22.5, "axis": "x", "origin": [8, 7, 8] },
+            "faces": {
+                "east": {
+                    "uv": [0, 9, 2, 16],
+                    "rotation": 270,
+                    "texture": "#handle",
+                    "cullface": "east"
+                },
+                "south": { "uv": [0, 7, 16, 9], "texture": "#handle" },
+                "west": {
+                    "uv": [14, 9, 16, 16],
+                    "rotation": 90,
+                    "texture": "#handle",
+                    "cullface": "west"
+                }
+            }
+        },
+        {
+            "name": "inner",
+            "from": [16.02, 8.02, 14.02],
+            "to": [-0.02, 5.98, 6.98],
+            "rotation": { "angle": -22.5, "axis": "x", "origin": [8, 7, 8] },
+            "faces": {
+                "north": {
+                    "uv": [16, 7, 0, 9],
+                    "rotation": 180,
+                    "texture": "#handle"
+                },
+                "east": {
+                    "uv": [14, 16, 16, 9],
+                    "rotation": 270,
+                    "texture": "#handle",
+                    "cullface": "west"
+                },
+                "west": {
+                    "uv": [0, 16, 2, 9],
+                    "rotation": 90,
+                    "texture": "#handle",
+                    "cullface": "east"
+                }
+            }
+        },
+        {
+            "name": "basket",
+            "from": [0, 0, 0],
+            "to": [16, 8, 16],
+            "faces": {
+                "north": {
+                    "uv": [0, 8, 16, 16],
+                    "texture": "#front",
+                    "cullface": "north"
+                },
+                "east": {
+                    "uv": [0, 8, 16, 16],
+                    "texture": "#side",
+                    "cullface": "east"
+                },
+                "south": {
+                    "uv": [0, 8, 16, 16],
+                    "texture": "#front",
+                    "cullface": "south"
+                },
+                "west": {
+                    "uv": [0, 8, 16, 16],
+                    "texture": "#side",
+                    "cullface": "west"
+                },
+                "up": { "uv": [0, 0, 16, 16], "texture": "#top" },
+                "down": {
+                    "uv": [0, 0, 16, 16],
+                    "texture": "#bottom",
+                    "cullface": "down"
+                }
+            }
+        }
+    ]
+}

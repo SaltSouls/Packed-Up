@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "packedup:block/golden_carrot_crate"
+      "model": "packedup:block/crate/golden_carrot_crate"
     }
   }
 }

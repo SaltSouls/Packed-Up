@@ -1,0 +1,6 @@
+{
+  "parent": "packedup:block/spool/template/industrial_string_spool_horizontal_left",
+  "textures": {
+    "string": "packedup:block/spool/lime_industrial_string_spool_upper"
+  }
+}

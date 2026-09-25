@@ -2,18 +2,18 @@
   "variants": {
     "": [
       {
-        "model": "packedup:block/podzol_turf"
+        "model": "packedup:block/turf/podzol_turf"
       },
       {
-        "model": "packedup:block/podzol_turf",
+        "model": "packedup:block/turf/podzol_turf",
         "y": 90
       },
       {
-        "model": "packedup:block/podzol_turf",
+        "model": "packedup:block/turf/podzol_turf",
         "y": 180
       },
       {
-        "model": "packedup:block/podzol_turf",
+        "model": "packedup:block/turf/podzol_turf",
         "y": 270
       }
     ]

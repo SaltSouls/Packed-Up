@@ -1,6 +1,0 @@
-{
-  "parent": "packedup:block/template/resource_crate",
-  "textures": {
-    "pile": "packedup:block/diorite_pile"
-  }
-}

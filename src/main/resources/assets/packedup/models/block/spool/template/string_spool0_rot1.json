@@ -1,27 +1,63 @@
 {
-  "author": "TwinSouls",
-  "credit": "Made with Blockbench",
-  "textures": {
-    "particle": "#spool"
-  },
-  "elements": [
-    {
-      "from": [3.5, 0, 5.5],
-      "to": [12.5, 5, 10.5],
-      "rotation": { "angle": -22.5, "axis": "y", "origin": [8, 2.5, 8] },
-      "faces": {
-        "north": { "uv": [0, 4, 5, 13], "rotation": 90, "texture": "#spool" },
-        "east": { "uv": [0, 0, 5, 5], "rotation": 270, "texture": "#spool" },
-        "south": { "uv": [0, 4, 5, 13], "rotation": 270, "texture": "#spool" },
-        "west": { "uv": [0, 0, 5, 5], "rotation": 270, "texture": "#spool" },
-        "up": { "uv": [0, 4, 5, 13], "rotation": 270, "texture": "#spool" },
-        "down": {
-          "uv": [0, 4, 5, 13],
-          "rotation": 270,
-          "texture": "#spool",
-          "cullface": "down"
+    "format_version": "1.9.0",
+    "author": "TwinSouls",
+    "credit": "Made with Blockbench",
+    "textures": { "particle": "#spool" },
+    "elements": [
+        {
+            "name": "spool",
+            "from": [6.5, 0, 3.5],
+            "to": [9.5, 3, 12.5],
+            "rotation": { "angle": -22.5, "axis": "y", "origin": [8, 1.5, 8] },
+            "faces": {
+                "north": {
+                    "uv": [0, 0, 3, 3],
+                    "rotation": 90,
+                    "texture": "#spool"
+                },
+                "east": {
+                    "uv": [3, 3, 6, 12],
+                    "rotation": 270,
+                    "texture": "#spool"
+                },
+                "south": {
+                    "uv": [0, 0, 3, 3],
+                    "rotation": 90,
+                    "texture": "#spool"
+                },
+                "west": {
+                    "uv": [3, 3, 6, 12],
+                    "rotation": 90,
+                    "texture": "#spool"
+                },
+                "up": {
+                    "uv": [0, 3, 3, 12],
+                    "rotation": 180,
+                    "texture": "#spool"
+                },
+                "down": {
+                    "uv": [0, 3, 3, 12],
+                    "texture": "#spool",
+                    "cullface": "down"
+                }
+            }
+        },
+        {
+            "name": "string",
+            "from": [0, 0.25, 0],
+            "to": [16, 0.25, 16],
+            "faces": {
+                "up": {
+                    "uv": [0, 0, 16, 16],
+                    "rotation": 270,
+                    "texture": "#string"
+                },
+                "down": {
+                    "uv": [0, 16, 16, 0],
+                    "rotation": 90,
+                    "texture": "#string"
+                }
+            }
         }
-      }
-    }
-  ]
+    ]
 }

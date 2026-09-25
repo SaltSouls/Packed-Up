@@ -1,0 +1,6 @@
+{
+  "parent": "packedup:block/bag/template/resource_bag",
+  "textures": {
+    "pile": "packedup:block/bag/pile/gravel_pile"
+  }
+}

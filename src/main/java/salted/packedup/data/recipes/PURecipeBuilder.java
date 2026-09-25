@@ -11,7 +11,7 @@ import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import org.jetbrains.annotations.NotNull;
 import salted.packedup.PackedUp;
-import salted.packedup.common.registry.PUItems;
+import salted.packedup.common.registry.PURegistry;
 import salted.packedup.common.tag.PUTags;
 
 import java.util.function.Consumer;
@@ -358,7 +358,7 @@ public class PURecipeBuilder extends RecipeProvider {
                 .pattern("###")
                 .define('#', PUTags.BOOK_BUNDLES)
                 .define('o', dye)
-                .unlockedBy("has_book_bundle", hasItems(PUItems.BOOK_BUNDLE.get()))
+                .unlockedBy("has_book_bundle", hasItems(PURegistry.BOOK_BUNDLE.get().asItem()))
                 .save(consumer);
     }
 

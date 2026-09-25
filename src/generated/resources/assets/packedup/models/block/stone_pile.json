@@ -1,8 +1,0 @@
-{
-  "parent": "packedup:block/template/pile",
-  "textures": {
-    "front": "packedup:block/stone_pile_front",
-    "side": "packedup:block/stone_pile_side",
-    "top": "packedup:block/stone_pallet_top"
-  }
-}

@@ -68,11 +68,13 @@ public class BundleHandler extends BundleUtils {
         if (size == -1) return InteractionResult.PASS;
 
         // Get the bundle type (e.g., base, colored) based on the block
+
         Bundle bundle = getBundleType(block);
+
         if (bundle == null) return InteractionResult.PASS;
 
         // Convert the bundle to a pile, maintaining the original block's properties
-        return convert(bundle.getPile().withPropertiesOf(state), size, world, pos, player);
+        return convert(bundle.getBookPile().withPropertiesOf(state), size, world, pos, player);
     }
 
     /**

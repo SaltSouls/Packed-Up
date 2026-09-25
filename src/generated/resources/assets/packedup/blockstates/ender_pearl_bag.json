@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "packedup:block/ender_pearl_bag"
+      "model": "packedup:block/bag/ender_pearl_bag"
     }
   }
 }

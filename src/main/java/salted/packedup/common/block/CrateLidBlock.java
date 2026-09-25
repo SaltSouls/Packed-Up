@@ -39,11 +39,11 @@ public class CrateLidBlock extends Block implements SimpleWaterloggedBlock {
     private static final Direction defaultFacing = Direction.NORTH;
 
     private final VoxelShape BOTTOM = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D);
-    private final VoxelShape[] STRIP1 = handler.getRotations(Block.box(0.0D, 12.0D, 12.0D, 16.0D, 15.0D, 16.0D), false, false);
-    private final VoxelShape[] STRIP2 = handler.getRotations(Block.box(0.0D, 9.0D, 11.0D, 16.0D, 12.0D, 15.0D), false, false);
-    private final VoxelShape[] STRIP3 = handler.getRotations(Block.box(0.0D, 6.0D, 10.0D, 16.0D, 9.0D, 14.0D), false, false);
-    private final VoxelShape[] STRIP4 = handler.getRotations(Block.box(0.0D, 3.0D, 9.0D, 16.0D, 6.0D, 13.0D), false, false);
-    private final VoxelShape[] STRIP5 = handler.getRotations(Block.box(0.0D, 0.0D, 8.0D, 16.0D, 3.0D, 12.0D), false, false);
+    private final VoxelShape[] STRIP1 = handler.getRotations(0.0D, 12.0D, 12.0D, 16.0D, 15.0D, 16.0D, false, false);
+    private final VoxelShape[] STRIP2 = handler.getRotations(0.0D, 9.0D, 11.0D, 16.0D, 12.0D, 15.0D, false, false);
+    private final VoxelShape[] STRIP3 = handler.getRotations(0.0D, 6.0D, 10.0D, 16.0D, 9.0D, 14.0D, false, false);
+    private final VoxelShape[] STRIP4 = handler.getRotations(0.0D, 3.0D, 9.0D, 16.0D, 6.0D, 13.0D, false, false);
+    private final VoxelShape[] STRIP5 = handler.getRotations(0.0D, 0.0D, 8.0D, 16.0D, 3.0D, 12.0D, false, false);
 
     private ImmutableBiMap<BlockState, VoxelShape> shapeConstructor(ImmutableList<BlockState> states) {
         ImmutableBiMap.Builder<BlockState, VoxelShape> shape = new ImmutableBiMap.Builder<>();

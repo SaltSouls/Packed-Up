@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "packedup:block/sugar_bag"
+      "model": "packedup:block/bag/sugar_bag"
     }
   }
 }

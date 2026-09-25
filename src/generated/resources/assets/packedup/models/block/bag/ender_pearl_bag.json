@@ -1,0 +1,6 @@
+{
+  "parent": "packedup:block/bag/template/bag",
+  "textures": {
+    "top": "packedup:block/bag/ender_pearl_bag_top"
+  }
+}

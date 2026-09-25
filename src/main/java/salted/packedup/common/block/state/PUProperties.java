@@ -11,5 +11,6 @@ public class PUProperties {
     public static IntegerProperty ROPE_DISTANCE = IntegerProperty.create("distance", 0, 4);
 
     public static EnumProperty<PillarShape> PILLAR_SHAPE = EnumProperty.create("shape", PillarShape.class);
-    public static BooleanProperty FULL_SIZE = BooleanProperty.create("full_size");
+    public static BooleanProperty FULL = BooleanProperty.create("full");
+    public static BooleanProperty PROPPED = BooleanProperty.create("propped");
 }

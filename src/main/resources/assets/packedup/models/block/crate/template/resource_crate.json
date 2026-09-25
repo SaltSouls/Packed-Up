@@ -1,0 +1,9 @@
+{
+  "parent": "packedup:block/crate/template/resource_crate_all",
+  "textures": {
+    "particle": "#pile",
+    "top": "packedup:block/crate/crate_top",
+    "side": "packedup:block/crate/crate_side",
+    "bottom": "packedup:block/crate/crate_bottom"
+  }
+}

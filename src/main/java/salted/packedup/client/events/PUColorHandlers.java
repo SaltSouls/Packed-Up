@@ -9,7 +9,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import salted.packedup.common.registry.PUBlocks;
+import salted.packedup.common.registry.PURegistry;
 
 @Mod.EventBusSubscriber(value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class PUColorHandlers {
@@ -18,7 +18,7 @@ public class PUColorHandlers {
     public static void registerBlockColors(RegisterColorHandlersEvent.Block event) {
         event.register((state, level, pos, tintIndex) ->
                 level != null && pos != null ? BiomeColors.getAverageGrassColor(level, pos) :
-                        GrassColor.getDefaultColor(), PUBlocks.GRASS_TURF.get(), PUBlocks.GRASS_TURF_LAYER.get(), PUBlocks.GRASS_BALE.get());
+                        GrassColor.getDefaultColor(), PURegistry.GRASS_TURF.get(), PURegistry.GRASS_TURF_LAYER.get(), PURegistry.GRASS_BALE.get());
     }
 
     @SubscribeEvent
@@ -28,6 +28,6 @@ public class PUColorHandlers {
             BlockState blockstate = ((BlockItem)itemStack.getItem()).getBlock().defaultBlockState();
 
             return blockColors.getColor(blockstate, null, null, tintIndex);
-        }, PUBlocks.GRASS_TURF.get(), PUBlocks.GRASS_TURF_LAYER.get(), PUBlocks.GRASS_BALE.get());
+        }, PURegistry.GRASS_TURF.get(), PURegistry.GRASS_TURF_LAYER.get(), PURegistry.GRASS_BALE.get());
     }
 }

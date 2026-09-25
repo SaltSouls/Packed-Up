@@ -1,0 +1,8 @@
+{
+  "parent": "packedup:block/drum/template/drum_barrel_horizontal",
+  "textures": {
+    "back": "packedup:block/drum/red_drum_bottom",
+    "front": "packedup:block/drum/red_drum_top",
+    "side": "packedup:block/drum/red_drum_side"
+  }
+}

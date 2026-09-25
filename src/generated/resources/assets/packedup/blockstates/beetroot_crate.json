@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "packedup:block/beetroot_crate"
+      "model": "packedup:block/crate/beetroot_crate"
     }
   }
 }

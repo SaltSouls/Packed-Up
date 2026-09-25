@@ -1,0 +1,6 @@
+{
+  "parent": "packedup:block/crate/template/crate",
+  "textures": {
+    "top": "packedup:block/crate/gunpowder_crate_top"
+  }
+}

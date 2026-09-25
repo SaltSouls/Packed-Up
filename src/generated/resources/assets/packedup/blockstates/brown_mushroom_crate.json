@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "packedup:block/brown_mushroom_crate"
+      "model": "packedup:block/crate/brown_mushroom_crate"
     }
   }
 }

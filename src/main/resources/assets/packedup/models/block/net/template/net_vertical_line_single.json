@@ -1,0 +1,50 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "packedup:block/net/white_net",
+		"1": "packedup:block/net/white_net_ends",
+		"particle": "packedup:block/net/white_net"
+	},
+	"elements": [
+		{
+			"name": "net",
+			"from": [1, 0, 8],
+			"to": [15, 16, 8],
+			"rotation": {"angle": 0, "axis": "x", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [1, 0, 15, 16], "rotation": 180, "texture": "#0"},
+				"south": {"uv": [0, 1, 16, 15], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"name": "n",
+			"from": [0, -1, 8],
+			"to": [16, 0, 8],
+			"rotation": {"angle": 0, "axis": "x", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 1], "rotation": 180, "texture": "#1", "cullface": "down"},
+				"south": {"uv": [15, 0, 16, 16], "rotation": 90, "texture": "#1", "cullface": "down"}
+			}
+		},
+		{
+			"name": "s",
+			"from": [0, 16, 8],
+			"to": [16, 17, 8],
+			"rotation": {"angle": 0, "axis": "x", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 15, 16, 16], "rotation": 180, "texture": "#1", "cullface": "up"},
+				"south": {"uv": [0, 0, 1, 16], "rotation": 90, "texture": "#1", "cullface": "up"}
+			}
+		}
+	],
+	"groups": [
+		0,
+		{
+			"name": "ends",
+			"origin": [1, 8, 16],
+			"color": 0,
+			"children": [1, 2]
+		}
+	]
+}

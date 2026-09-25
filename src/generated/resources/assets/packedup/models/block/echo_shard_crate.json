@@ -1,6 +1,0 @@
-{
-  "parent": "packedup:block/template/crate",
-  "textures": {
-    "top": "packedup:block/echo_shard_crate_top"
-  }
-}

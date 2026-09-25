@@ -1,0 +1,52 @@
+{
+    "format_version": "1.9.0",
+    "author": "TwinSouls",
+    "credit": "Made with Blockbench",
+    "textures": {
+        "particle": "#sand",
+        "sand": "minecraft:block/red_sand",
+        "front": "packedup:block/castle/red_sand_castle_partial"
+    },
+    "elements": [
+        {
+            "name": "center_body",
+            "from": [2, 5, 2],
+            "to": [14, 10, 14],
+            "faces": {
+                "north": { "uv": [2, 6, 14, 11], "texture": "#front" },
+                "east": { "uv": [2, 6, 14, 11], "texture": "#front" },
+                "south": { "uv": [2, 6, 14, 11], "texture": "#front" },
+                "west": { "uv": [2, 6, 14, 11], "texture": "#front" },
+                "up": { "uv": [2, 2, 14, 14], "texture": "#sand" }
+            }
+        },
+        {
+            "name": "lower_body",
+            "from": [0, 0, 0],
+            "to": [16, 5, 16],
+            "faces": {
+                "north": {
+                    "uv": [0, 11, 16, 16],
+                    "texture": "#front",
+                    "cullface": "north"
+                },
+                "east": {
+                    "uv": [0, 11, 16, 16],
+                    "texture": "#front",
+                    "cullface": "east"
+                },
+                "south": {
+                    "uv": [0, 11, 16, 16],
+                    "texture": "#front",
+                    "cullface": "south"
+                },
+                "west": {
+                    "uv": [0, 11, 16, 16],
+                    "texture": "#front",
+                    "cullface": "west"
+                },
+                "up": { "uv": [0, 0, 16, 16], "texture": "#sand" }
+            }
+        }
+    ]
+}

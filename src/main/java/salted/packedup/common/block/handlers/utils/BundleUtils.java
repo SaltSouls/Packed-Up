@@ -1,10 +1,11 @@
 package salted.packedup.common.block.handlers.utils;
 
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import salted.packedup.common.block.BookBundleBlock;
 import salted.packedup.common.block.BookBundleSlabBlock;
 import salted.packedup.common.block.BookPileBlock;
-import salted.packedup.common.registry.PUBlocks;
+import salted.packedup.common.registry.PURegistry;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -31,28 +32,40 @@ public class BundleUtils {
         return BUNDLE_MAP.get(block);
     }
 
+    // Fetches the correct book block from the set.
+    protected static BookBundleBlock getBundle(DyeColor color) {
+        return PURegistry.COLORED_BOOKS.get(color).bundle().get();
+    }
+    protected static BookBundleSlabBlock getSlab(DyeColor color) {
+        return PURegistry.COLORED_BOOKS.get(color).slab().get();
+    }
+    protected static BookPileBlock getPile(DyeColor color) {
+        return PURegistry.COLORED_BOOKS.get(color).pile().get();
+    }
+
     /**
      * Enum representing different types of book bundles and their associated blocks.
      * Each type has a corresponding {@link BookBundleBlock}, {@link BookBundleSlabBlock}, and {@link BookPileBlock}.
      */
     protected enum Bundle {
-        BASE(PUBlocks.BOOK_BUNDLE.get(), PUBlocks.BOOK_BUNDLE_SLAB.get(), PUBlocks.BOOK_PILE.get()),
-        WHITE(PUBlocks.WHITE_BOOK_BUNDLE.get(), PUBlocks.WHITE_BOOK_BUNDLE_SLAB.get(), PUBlocks.WHITE_BOOK_PILE.get()),
-        LIGHT_GRAY(PUBlocks.LIGHT_GRAY_BOOK_BUNDLE.get(), PUBlocks.LIGHT_GRAY_BOOK_BUNDLE_SLAB.get(), PUBlocks.LIGHT_GRAY_BOOK_PILE.get()),
-        GRAY(PUBlocks.GRAY_BOOK_BUNDLE.get(), PUBlocks.GRAY_BOOK_BUNDLE_SLAB.get(), PUBlocks.GRAY_BOOK_PILE.get()),
-        BLACK(PUBlocks.BLACK_BOOK_BUNDLE.get(), PUBlocks.BLACK_BOOK_BUNDLE_SLAB.get(), PUBlocks.BLACK_BOOK_PILE.get()),
-        BROWN(PUBlocks.BROWN_BOOK_BUNDLE.get(), PUBlocks.BROWN_BOOK_BUNDLE_SLAB.get(), PUBlocks.BROWN_BOOK_PILE.get()),
-        RED(PUBlocks.RED_BOOK_BUNDLE.get(), PUBlocks.RED_BOOK_BUNDLE_SLAB.get(), PUBlocks.RED_BOOK_PILE.get()),
-        ORANGE(PUBlocks.ORANGE_BOOK_BUNDLE.get(), PUBlocks.ORANGE_BOOK_BUNDLE_SLAB.get(), PUBlocks.ORANGE_BOOK_PILE.get()),
-        YELLOW(PUBlocks.YELLOW_BOOK_BUNDLE.get(), PUBlocks.YELLOW_BOOK_BUNDLE_SLAB.get(), PUBlocks.YELLOW_BOOK_PILE.get()),
-        LIME(PUBlocks.LIME_BOOK_BUNDLE.get(), PUBlocks.LIME_BOOK_BUNDLE_SLAB.get(), PUBlocks.LIME_BOOK_PILE.get()),
-        GREEN(PUBlocks.GREEN_BOOK_BUNDLE.get(), PUBlocks.GREEN_BOOK_BUNDLE_SLAB.get(), PUBlocks.GREEN_BOOK_PILE.get()),
-        CYAN(PUBlocks.CYAN_BOOK_BUNDLE.get(), PUBlocks.CYAN_BOOK_BUNDLE_SLAB.get(), PUBlocks.CYAN_BOOK_PILE.get()),
-        LIGHT_BLUE(PUBlocks.LIGHT_BLUE_BOOK_BUNDLE.get(), PUBlocks.LIGHT_BLUE_BOOK_BUNDLE_SLAB.get(), PUBlocks.LIGHT_BLUE_BOOK_PILE.get()),
-        BLUE(PUBlocks.BLUE_BOOK_BUNDLE.get(), PUBlocks.BLUE_BOOK_BUNDLE_SLAB.get(), PUBlocks.BLUE_BOOK_PILE.get()),
-        PURPLE(PUBlocks.PURPLE_BOOK_BUNDLE.get(), PUBlocks.PURPLE_BOOK_BUNDLE_SLAB.get(), PUBlocks.PURPLE_BOOK_PILE.get()),
-        MAGENTA(PUBlocks.MAGENTA_BOOK_BUNDLE.get(), PUBlocks.MAGENTA_BOOK_BUNDLE_SLAB.get(), PUBlocks.MAGENTA_BOOK_PILE.get()),
-        PINK(PUBlocks.PINK_BOOK_BUNDLE.get(), PUBlocks.PINK_BOOK_BUNDLE_SLAB.get(), PUBlocks.PINK_BOOK_PILE.get());
+        BASE(PURegistry.BOOK_BUNDLE.get(), PURegistry.BOOK_BUNDLE_SLAB.get(), PURegistry.BOOK_PILE.get()),
+
+        WHITE(getBundle(DyeColor.WHITE), getSlab(DyeColor.WHITE), getPile(DyeColor.WHITE)),
+        LIGHT_GRAY(getBundle(DyeColor.LIGHT_GRAY), getSlab(DyeColor.LIGHT_GRAY), getPile(DyeColor.LIGHT_GRAY)),
+        GRAY(getBundle(DyeColor.GRAY), getSlab(DyeColor.GRAY), getPile(DyeColor.GRAY)),
+        BLACK(getBundle(DyeColor.BLACK), getSlab(DyeColor.BLACK), getPile(DyeColor.BLACK)),
+        BROWN(getBundle(DyeColor.BROWN), getSlab(DyeColor.BROWN), getPile(DyeColor.BROWN)),
+        RED(getBundle(DyeColor.RED), getSlab(DyeColor.RED), getPile(DyeColor.RED)),
+        ORANGE(getBundle(DyeColor.ORANGE), getSlab(DyeColor.ORANGE), getPile(DyeColor.ORANGE)),
+        YELLOW(getBundle(DyeColor.YELLOW), getSlab(DyeColor.YELLOW), getPile(DyeColor.YELLOW)),
+        LIME(getBundle(DyeColor.LIME), getSlab(DyeColor.LIME), getPile(DyeColor.LIME)),
+        GREEN(getBundle(DyeColor.GREEN), getSlab(DyeColor.GREEN), getPile(DyeColor.GREEN)),
+        CYAN(getBundle(DyeColor.CYAN), getSlab(DyeColor.CYAN), getPile(DyeColor.CYAN)),
+        LIGHT_BLUE(getBundle(DyeColor.LIGHT_BLUE), getSlab(DyeColor.LIGHT_BLUE), getPile(DyeColor.LIGHT_BLUE)),
+        BLUE(getBundle(DyeColor.BLUE), getSlab(DyeColor.BLUE), getPile(DyeColor.BLUE)),
+        PURPLE(getBundle(DyeColor.PURPLE), getSlab(DyeColor.PURPLE), getPile(DyeColor.PURPLE)),
+        MAGENTA(getBundle(DyeColor.MAGENTA), getSlab(DyeColor.MAGENTA), getPile(DyeColor.MAGENTA)),
+        PINK(getBundle(DyeColor.PINK), getSlab(DyeColor.PINK), getPile(DyeColor.PINK));
 
         private final BookBundleBlock bundleBlock;
         private final BookBundleSlabBlock bundleSlab;
@@ -77,8 +90,14 @@ public class BundleUtils {
         public BookBundleSlabBlock getBundleSlab() {
             return this.bundleSlab;
         }
-        public BookPileBlock getPile() {
+        public BookPileBlock getBookPile() {
             return this.pile;
         }
+    }
+
+    protected enum Type {
+        BUNDLE,
+        SLAB,
+        PILE
     }
 }

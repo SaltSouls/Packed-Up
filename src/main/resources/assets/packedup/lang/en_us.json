@@ -134,5 +134,9 @@
   "block.packedup.gold_pallet": "Pallet of Gold",
   "block.packedup.diamond_pallet": "Pallet of Diamonds",
   "block.packedup.emerald_pallet": "Pallet of Emeralds",
-  "block.packedup.netherite_pallet": "Pallet of Netherite"
+  "block.packedup.netherite_pallet": "Pallet of Netherite",
+
+  "tooltip.packedup.drum_barrel.empty": "Empty",
+  "tooltip.packedup.drum_barrel.fluid": "Contains: %1$s",
+  "tooltip.packedup.drum_barrel.amount": "%1$s / %2$s mB"
 }

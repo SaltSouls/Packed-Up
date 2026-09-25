@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "packedup:block/warped_fungus_crate"
+      "model": "packedup:block/crate/warped_fungus_crate"
     }
   }
 }

@@ -1,0 +1,519 @@
+{
+    "format_version": "1.9.0",
+    "author": "TwinSouls",
+    "credit": "Made with Blockbench",
+    "textures": {
+        "particle": "#sand",
+        "sand": "minecraft:block/red_sand",
+        "front": "packedup:block/castle/red_sand_castle_front",
+        "side": "packedup:block/castle/red_sand_castle_side",
+        "extras": "packedup:block/castle/sand_castle_extras"
+    },
+    "groups": [
+        {
+            "name": "castle",
+            "origin": [4, 10, 4],
+            "color": 0,
+            "children": [
+                {
+                    "name": "upper_body",
+                    "origin": [0, 15, 0],
+                    "color": 0,
+                    "children": [0, 1, 2]
+                },
+                {
+                    "name": "center_body",
+                    "origin": [0, 10, 0],
+                    "color": 0,
+                    "children": [3, 4, 5]
+                },
+                {
+                    "name": "lower_body",
+                    "origin": [0, 5, 0],
+                    "color": 0,
+                    "children": [6, 7, 8]
+                },
+                {
+                    "name": "tower_front_left",
+                    "origin": [9, 12, -4],
+                    "color": 0,
+                    "children": [9, 10, 11]
+                },
+                {
+                    "name": "tower_front_right",
+                    "origin": [-4, 12, -4],
+                    "color": 0,
+                    "children": [12, 13, 14]
+                },
+                {
+                    "name": "tower_back_left",
+                    "origin": [9, 12, 9],
+                    "color": 0,
+                    "children": [15, 16, 17]
+                },
+                {
+                    "name": "tower_back_right",
+                    "origin": [-4, 12, 9],
+                    "color": 0,
+                    "children": [18, 19, 20]
+                }
+            ]
+        },
+        {
+            "name": "extras",
+            "origin": [6.5, 12.5, 6.5],
+            "color": 0,
+            "children": [
+                {
+                    "name": "flag",
+                    "origin": [6.5, 12.5, 6.5],
+                    "color": 0,
+                    "children": [21, 22]
+                },
+                {
+                    "name": "draw_bridge",
+                    "origin": [8, 0, 2],
+                    "color": 0,
+                    "children": [23, 24, 25]
+                }
+            ]
+        }
+    ],
+    "elements": [
+        {
+            "name": "bartizans_outer",
+            "from": [4, 15, 4],
+            "to": [12, 16, 12],
+            "faces": {
+                "north": { "uv": [4, 0, 12, 1], "texture": "#front" },
+                "east": { "uv": [4, 0, 12, 1], "texture": "#side" },
+                "south": { "uv": [4, 0, 12, 1], "texture": "#side" },
+                "west": { "uv": [4, 0, 12, 1], "texture": "#side" }
+            }
+        },
+        {
+            "name": "bartizans_inner",
+            "from": [12, 16, 12],
+            "to": [4, 15, 4],
+            "faces": {
+                "north": { "uv": [4, 1, 12, 0], "texture": "#side" },
+                "east": { "uv": [4, 1, 12, 0], "texture": "#side" },
+                "south": { "uv": [4, 1, 12, 0], "texture": "#front" },
+                "west": { "uv": [4, 1, 12, 0], "texture": "#side" }
+            }
+        },
+        {
+            "name": "upper_body",
+            "from": [4, 10, 4],
+            "to": [12, 15, 12],
+            "faces": {
+                "north": { "uv": [4, 1, 12, 6], "texture": "#front" },
+                "east": { "uv": [4, 1, 12, 6], "texture": "#side" },
+                "south": { "uv": [4, 1, 12, 6], "texture": "#side" },
+                "west": { "uv": [4, 1, 12, 6], "texture": "#side" },
+                "up": { "uv": [4, 4, 12, 12], "texture": "#sand" }
+            }
+        },
+        {
+            "name": "bartizans_outer",
+            "from": [2, 10, 2],
+            "to": [14, 11, 14],
+            "faces": {
+                "north": { "uv": [2, 0, 14, 1], "texture": "#front" },
+                "east": { "uv": [2, 0, 14, 1], "texture": "#side" },
+                "south": { "uv": [2, 0, 14, 1], "texture": "#side" },
+                "west": { "uv": [2, 0, 14, 1], "texture": "#side" }
+            }
+        },
+        {
+            "name": "bartizans_inner",
+            "from": [14, 11, 14],
+            "to": [2, 10, 2],
+            "faces": {
+                "north": { "uv": [2, 1, 14, 0], "texture": "#side" },
+                "east": { "uv": [2, 1, 14, 0], "texture": "#side" },
+                "south": { "uv": [2, 1, 14, 0], "texture": "#front" },
+                "west": { "uv": [2, 1, 14, 0], "texture": "#side" }
+            }
+        },
+        {
+            "name": "center_body",
+            "from": [2, 5, 2],
+            "to": [14, 10, 14],
+            "faces": {
+                "north": { "uv": [2, 6, 14, 11], "texture": "#front" },
+                "east": { "uv": [2, 6, 14, 11], "texture": "#side" },
+                "south": { "uv": [2, 6, 14, 11], "texture": "#side" },
+                "west": { "uv": [2, 6, 14, 11], "texture": "#side" },
+                "up": { "uv": [2, 2, 14, 14], "texture": "#sand" }
+            }
+        },
+        {
+            "name": "bartizans_outer",
+            "from": [0, 5, 0],
+            "to": [16, 6, 16],
+            "faces": {
+                "north": {
+                    "uv": [0, 0, 16, 1],
+                    "texture": "#front",
+                    "cullface": "north"
+                },
+                "east": {
+                    "uv": [0, 0, 16, 1],
+                    "texture": "#side",
+                    "cullface": "east"
+                },
+                "south": {
+                    "uv": [0, 0, 16, 1],
+                    "texture": "#side",
+                    "cullface": "south"
+                },
+                "west": {
+                    "uv": [0, 0, 16, 1],
+                    "texture": "#side",
+                    "cullface": "west"
+                }
+            }
+        },
+        {
+            "name": "bartizans_inner",
+            "from": [16, 6, 16],
+            "to": [0, 5, 0],
+            "faces": {
+                "north": {
+                    "uv": [0, 1, 16, 0],
+                    "texture": "#side",
+                    "cullface": "south"
+                },
+                "east": {
+                    "uv": [0, 1, 16, 0],
+                    "texture": "#side",
+                    "cullface": "west"
+                },
+                "south": {
+                    "uv": [0, 1, 16, 0],
+                    "texture": "#front",
+                    "cullface": "north"
+                },
+                "west": {
+                    "uv": [0, 1, 16, 0],
+                    "texture": "#side",
+                    "cullface": "east"
+                }
+            }
+        },
+        {
+            "name": "lower_body",
+            "from": [0, 0, 0],
+            "to": [16, 5, 16],
+            "faces": {
+                "north": {
+                    "uv": [0, 11, 16, 16],
+                    "texture": "#front",
+                    "cullface": "north"
+                },
+                "east": {
+                    "uv": [0, 11, 16, 16],
+                    "texture": "#side",
+                    "cullface": "east"
+                },
+                "south": {
+                    "uv": [0, 11, 16, 16],
+                    "texture": "#side",
+                    "cullface": "south"
+                },
+                "west": {
+                    "uv": [0, 11, 16, 16],
+                    "texture": "#side",
+                    "cullface": "west"
+                },
+                "up": { "uv": [0, 0, 16, 16], "texture": "#sand" }
+            }
+        },
+        {
+            "name": "bartizans_outer",
+            "from": [13, 12, 0],
+            "to": [16, 13, 3],
+            "faces": {
+                "north": {
+                    "uv": [0, 3, 3, 4],
+                    "texture": "#front",
+                    "cullface": "north"
+                },
+                "east": {
+                    "uv": [13, 3, 16, 4],
+                    "texture": "#side",
+                    "cullface": "east"
+                },
+                "south": { "uv": [13, 3, 16, 4], "texture": "#side" },
+                "west": { "uv": [0, 3, 3, 4], "texture": "#side" }
+            }
+        },
+        {
+            "name": "bartizans_inner",
+            "from": [16, 13, 3],
+            "to": [13, 12, 0],
+            "faces": {
+                "north": { "uv": [13, 4, 16, 3], "texture": "#side" },
+                "east": { "uv": [0, 4, 3, 3], "texture": "#side" },
+                "south": {
+                    "uv": [0, 4, 3, 3],
+                    "texture": "#front",
+                    "cullface": "north"
+                },
+                "west": {
+                    "uv": [13, 4, 16, 3],
+                    "texture": "#side",
+                    "cullface": "east"
+                }
+            }
+        },
+        {
+            "name": "tower",
+            "from": [13, 5, 0],
+            "to": [16, 12, 3],
+            "faces": {
+                "north": {
+                    "uv": [0, 4, 3, 11],
+                    "texture": "#front",
+                    "cullface": "north"
+                },
+                "east": {
+                    "uv": [13, 4, 16, 11],
+                    "texture": "#front",
+                    "cullface": "east"
+                },
+                "south": { "uv": [13, 4, 16, 11], "texture": "#side" },
+                "west": { "uv": [0, 4, 3, 11], "texture": "#side" },
+                "up": { "uv": [0, 13, 3, 16], "texture": "#sand" }
+            }
+        },
+        {
+            "name": "bartizans_outer",
+            "from": [0, 12, 0],
+            "to": [3, 13, 3],
+            "faces": {
+                "north": {
+                    "uv": [13, 3, 16, 4],
+                    "texture": "#front",
+                    "cullface": "north"
+                },
+                "east": { "uv": [13, 3, 16, 4], "texture": "#side" },
+                "south": { "uv": [0, 3, 3, 4], "texture": "#side" },
+                "west": {
+                    "uv": [0, 3, 3, 4],
+                    "texture": "#side",
+                    "cullface": "west"
+                }
+            }
+        },
+        {
+            "name": "bartizans_inner",
+            "from": [3, 13, 3],
+            "to": [0, 12, 0],
+            "faces": {
+                "north": { "uv": [0, 4, 3, 3], "texture": "#side" },
+                "east": {
+                    "uv": [0, 4, 3, 3],
+                    "texture": "#side",
+                    "cullface": "west"
+                },
+                "south": {
+                    "uv": [13, 4, 16, 3],
+                    "texture": "#front",
+                    "cullface": "north"
+                },
+                "west": { "uv": [13, 4, 16, 3], "texture": "#side" }
+            }
+        },
+        {
+            "name": "tower",
+            "from": [0, 5, 0],
+            "to": [3, 12, 3],
+            "faces": {
+                "north": {
+                    "uv": [13, 4, 16, 11],
+                    "texture": "#front",
+                    "cullface": "north"
+                },
+                "east": { "uv": [13, 4, 16, 11], "texture": "#side" },
+                "south": { "uv": [0, 4, 3, 11], "texture": "#side" },
+                "west": {
+                    "uv": [0, 4, 3, 11],
+                    "texture": "#front",
+                    "cullface": "west"
+                },
+                "up": { "uv": [13, 13, 16, 16], "texture": "#sand" }
+            }
+        },
+        {
+            "name": "bartizans_outer",
+            "from": [13, 12, 13],
+            "to": [16, 13, 16],
+            "faces": {
+                "north": { "uv": [0, 3, 3, 4], "texture": "#side" },
+                "east": {
+                    "uv": [0, 3, 3, 4],
+                    "texture": "#side",
+                    "cullface": "east"
+                },
+                "south": {
+                    "uv": [13, 3, 16, 4],
+                    "texture": "#side",
+                    "cullface": "south"
+                },
+                "west": { "uv": [13, 3, 16, 4], "texture": "#side" }
+            }
+        },
+        {
+            "name": "bartizans_inner",
+            "from": [16, 13, 16],
+            "to": [13, 12, 13],
+            "faces": {
+                "north": {
+                    "uv": [13, 4, 16, 3],
+                    "texture": "#side",
+                    "cullface": "south"
+                },
+                "east": { "uv": [13, 4, 16, 3], "texture": "#side" },
+                "south": { "uv": [0, 4, 3, 3], "texture": "#side" },
+                "west": {
+                    "uv": [0, 4, 3, 3],
+                    "texture": "#side",
+                    "cullface": "east"
+                }
+            }
+        },
+        {
+            "name": "tower",
+            "from": [13, 5, 13],
+            "to": [16, 12, 16],
+            "faces": {
+                "north": { "uv": [0, 4, 3, 11], "texture": "#side" },
+                "east": {
+                    "uv": [0, 4, 3, 11],
+                    "texture": "#front",
+                    "cullface": "east"
+                },
+                "south": {
+                    "uv": [13, 4, 16, 11],
+                    "texture": "#front",
+                    "cullface": "south"
+                },
+                "west": { "uv": [13, 4, 16, 11], "texture": "#side" },
+                "up": { "uv": [0, 0, 3, 3], "texture": "#sand" }
+            }
+        },
+        {
+            "name": "bartizans_outer",
+            "from": [0, 12, 13],
+            "to": [3, 13, 16],
+            "faces": {
+                "north": { "uv": [13, 3, 16, 4], "texture": "#side" },
+                "east": { "uv": [0, 3, 3, 4], "texture": "#side" },
+                "south": {
+                    "uv": [0, 3, 3, 4],
+                    "texture": "#side",
+                    "cullface": "south"
+                },
+                "west": {
+                    "uv": [13, 3, 16, 4],
+                    "texture": "#side",
+                    "cullface": "west"
+                }
+            }
+        },
+        {
+            "name": "bartizans_inner",
+            "from": [3, 13, 16],
+            "to": [0, 12, 13],
+            "faces": {
+                "north": {
+                    "uv": [0, 4, 3, 3],
+                    "texture": "#side",
+                    "cullface": "south"
+                },
+                "east": {
+                    "uv": [13, 4, 16, 3],
+                    "texture": "#side",
+                    "cullface": "west"
+                },
+                "south": { "uv": [13, 4, 16, 3], "texture": "#side" },
+                "west": { "uv": [0, 4, 3, 3], "texture": "#side" }
+            }
+        },
+        {
+            "name": "tower",
+            "from": [0, 5, 13],
+            "to": [3, 12, 16],
+            "faces": {
+                "north": { "uv": [13, 4, 16, 11], "texture": "#side" },
+                "east": { "uv": [0, 4, 3, 11], "texture": "#side" },
+                "south": {
+                    "uv": [0, 4, 3, 11],
+                    "texture": "#front",
+                    "cullface": "south"
+                },
+                "west": {
+                    "uv": [13, 4, 16, 11],
+                    "texture": "#front",
+                    "cullface": "west"
+                },
+                "up": { "uv": [13, 0, 16, 3], "texture": "#sand" }
+            }
+        },
+        {
+            "name": "flag",
+            "from": [4.5, 16.5, 8],
+            "to": [7.5, 18.5, 8],
+            "faces": {
+                "north": { "uv": [5, 0, 8, 2], "texture": "#extras" },
+                "south": { "uv": [5, 0, 8, 2], "texture": "#extras" }
+            }
+        },
+        {
+            "name": "pole",
+            "from": [7.5, 14.5, 7.5],
+            "to": [8.5, 18.5, 8.5],
+            "faces": {
+                "north": { "uv": [0, 0, 1, 4], "texture": "#extras" },
+                "east": { "uv": [0, 0, 1, 4], "texture": "#extras" },
+                "south": { "uv": [0, 0, 1, 4], "texture": "#extras" },
+                "west": { "uv": [0, 0, 1, 4], "texture": "#extras" },
+                "up": { "uv": [0, 0, 1, 1], "texture": "#extras" }
+            }
+        },
+        {
+            "name": "chain_left",
+            "from": [10, 2.75, -2.75],
+            "to": [10, 4.75, 0.25],
+            "faces": {
+                "east": { "uv": [3, 4, 0, 6], "texture": "#extras" },
+                "west": { "uv": [0, 4, 3, 6], "texture": "#extras" }
+            }
+        },
+        {
+            "name": "chain_right",
+            "from": [6, 2.75, -2.75],
+            "to": [6, 4.75, 0.25],
+            "faces": {
+                "east": { "uv": [3, 4, 0, 6], "texture": "#extras" },
+                "west": { "uv": [0, 4, 3, 6], "texture": "#extras" }
+            }
+        },
+        {
+            "name": "bridge",
+            "from": [6, 0, -5],
+            "to": [10, 0, 0],
+            "rotation": { "angle": 45, "axis": "x", "origin": [8, 0, 0] },
+            "faces": {
+                "up": { "uv": [0, 6, 4, 11], "texture": "#extras" },
+                "down": {
+                    "uv": [0, 6, 4, 11],
+                    "rotation": 180,
+                    "texture": "#extras"
+                }
+            }
+        }
+    ]
+}

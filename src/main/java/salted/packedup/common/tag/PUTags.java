@@ -19,7 +19,9 @@ public class PUTags {
     public static final TagKey<Block> BAG_BLOCKS = modBlockTag("bags");
     public static final TagKey<Block> RESOURCE_PILE_BLOCKS = modBlockTag("piles");
     public static final TagKey<Block> RESOURCE_PALLET_BLOCKS = modBlockTag("pallets");
+    public static final TagKey<Block> DRUM_BARRELS = modBlockTag("drum_barrels");
     public static final TagKey<Block> MINEABLE_WITH_SHEARS = modBlockTag("mineable/shears");
+    public static final TagKey<Item> DRUM_STRIKERS = modItemTag("drum_strikers");
 
     // farmers delight overrides
     public static final TagKey<Block> STRAW_BLOCKS = fdBlockTag("straw_blocks");

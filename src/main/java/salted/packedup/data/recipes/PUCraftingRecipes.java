@@ -1,25 +1,24 @@
 package salted.packedup.data.recipes;
 
-import com.google.common.collect.Sets;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
 import salted.packedup.PackedUp;
-import salted.packedup.common.registry.PUItems;
+import salted.packedup.common.registry.PURegistry;
+import salted.packedup.common.registry.helpers.Organizer;
 
-import java.util.Set;
 import java.util.function.Consumer;
 
 import static net.minecraft.advancements.critereon.InventoryChangeTrigger.TriggerInstance.hasItems;
-import static salted.packedup.data.utils.ConditionalUtils.*;
+import static salted.packedup.data.utils.ConditionalUtils.Not;
+import static salted.packedup.data.utils.ConditionalUtils.modLoaded;
 
 public class PUCraftingRecipes extends PURecipeBuilder {
 
@@ -90,7 +89,7 @@ public class PUCraftingRecipes extends PURecipeBuilder {
 
     private void recipesUnique(Consumer<FinishedRecipe> consumer) {
         // Crate Lid
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, PUItems.CRATE_LID.get(), 1)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, PURegistry.CRATE_LID.get().asItem(), 1)
                 .pattern(" I ")
                 .pattern("ITI")
                 .pattern(" I ")
@@ -101,14 +100,14 @@ public class PUCraftingRecipes extends PURecipeBuilder {
                 .save(consumer);
 
         // Reinforced Crate Lid
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, PUItems.REINFORCED_CRATE_LID.get(), 1)
-                .requires(PUItems.CRATE_LID.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, PURegistry.REINFORCED_CRATE_LID.get().asItem(), 1)
+                .requires(PURegistry.CRATE_LID.get().asItem())
                 .requires(Tags.Items.INGOTS_IRON)
-                .unlockedBy("has_crate_lid", hasItems(PUItems.CRATE_LID.get()))
+                .unlockedBy("has_crate_lid", hasItems(PURegistry.CRATE_LID.get().asItem()))
                 .save(consumer);
 
         // Pallet
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, PUItems.PALLET.get(), 12)
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, PURegistry.PALLET.get().asItem(), 12)
                 .pattern("lll")
                 .pattern("###")
                 .pattern("lll")
@@ -132,123 +131,104 @@ public class PUCraftingRecipes extends PURecipeBuilder {
     // ============================================================
 
     private void registerBasketRecipes(Consumer<FinishedRecipe> consumer) {
-        simpleCombined(PUItems.SWEET_BERRY_BASKET.get(), Items.SWEET_BERRIES, false, "basket", consumer);
-        simpleCombined(PUItems.GLOW_BERRY_BASKET.get(), Items.GLOW_BERRIES, false, "basket", consumer);
-        simpleCombined(PUItems.APPLE_BASKET.get(), Items.APPLE, true, consumer);
-        simpleCombined(PUItems.GOLDEN_APPLE_BASKET.get(), Items.GOLDEN_APPLE, true, consumer);
+        simpleCombined(PURegistry.SWEET_BERRY_BASKET.get().asItem(), Items.SWEET_BERRIES, false, "basket", consumer);
+        simpleCombined(PURegistry.GLOW_BERRY_BASKET.get().asItem(), Items.GLOW_BERRIES, false, "basket", consumer);
+        simpleCombined(PURegistry.APPLE_BASKET.get().asItem(), Items.APPLE, true, consumer);
+        simpleCombined(PURegistry.GOLDEN_APPLE_BASKET.get().asItem(), Items.GOLDEN_APPLE, true, consumer);
     }
 
     private void registerFishBarrelRecipes(Consumer<FinishedRecipe> consumer) {
-        simpleCombined(PUItems.COD_BARREL.get(), Items.COD, true, consumer);
-        simpleCombined(PUItems.SALMON_BARREL.get(), Items.SALMON, true, consumer);
+        simpleCombined(PURegistry.COD_BARREL.get().asItem(), Items.COD, true, consumer);
+        simpleCombined(PURegistry.SALMON_BARREL.get().asItem(), Items.SALMON, true, consumer);
     }
 
     private void registerResourceCrateRecipes(Consumer<FinishedRecipe> consumer) {
-        simpleCombined(PUItems.COBBLESTONE_CRATE.get(), Items.COBBLESTONE, true, consumer);
-        simpleCombined(PUItems.COBBLED_DEEPSLATE_CRATE.get(), Items.COBBLED_DEEPSLATE, true, consumer);
-        simpleCombined(PUItems.ANDESITE_CRATE.get(), Items.ANDESITE, true, consumer);
-        simpleCombined(PUItems.DIORITE_CRATE.get(), Items.DIORITE, true, consumer);
-        simpleCombined(PUItems.GRANITE_CRATE.get(), Items.GRANITE, true, consumer);
-        simpleCombined(PUItems.TUFF_CRATE.get(), Items.TUFF, true, consumer);
-        simpleCombined(PUItems.BLACKSTONE_CRATE.get(), Items.BLACKSTONE, true, consumer);
-        simpleCombined(PUItems.BASALT_CRATE.get(), Items.BASALT, true, consumer);
-        simpleCombined(PUItems.NETHERRACK_CRATE.get(), Items.NETHERRACK, true, consumer);
-        simpleCombined(PUItems.RAW_COPPER_CRATE.get(), Items.RAW_COPPER_BLOCK, false, "crate", consumer);
-        simpleCombined(PUItems.RAW_IRON_CRATE.get(), Items.RAW_IRON_BLOCK, false, "crate", consumer);
-        simpleCombined(PUItems.RAW_GOLD_CRATE.get(), Items.RAW_GOLD_BLOCK, false, "crate", consumer);
+        simpleCombined(PURegistry.COBBLESTONE_CRATE.get().asItem(), Items.COBBLESTONE, true, consumer);
+        simpleCombined(PURegistry.COBBLED_DEEPSLATE_CRATE.get().asItem(), Items.COBBLED_DEEPSLATE, true, consumer);
+        simpleCombined(PURegistry.ANDESITE_CRATE.get().asItem(), Items.ANDESITE, true, consumer);
+        simpleCombined(PURegistry.DIORITE_CRATE.get().asItem(), Items.DIORITE, true, consumer);
+        simpleCombined(PURegistry.GRANITE_CRATE.get().asItem(), Items.GRANITE, true, consumer);
+        simpleCombined(PURegistry.TUFF_CRATE.get().asItem(), Items.TUFF, true, consumer);
+        simpleCombined(PURegistry.BLACKSTONE_CRATE.get().asItem(), Items.BLACKSTONE, true, consumer);
+        simpleCombined(PURegistry.BASALT_CRATE.get().asItem(), Items.BASALT, true, consumer);
+        simpleCombined(PURegistry.NETHERRACK_CRATE.get().asItem(), Items.NETHERRACK, true, consumer);
+        simpleCombined(PURegistry.RAW_COPPER_CRATE.get().asItem(), Items.RAW_COPPER_BLOCK, false, "crate", consumer);
+        simpleCombined(PURegistry.RAW_IRON_CRATE.get().asItem(), Items.RAW_IRON_BLOCK, false, "crate", consumer);
+        simpleCombined(PURegistry.RAW_GOLD_CRATE.get().asItem(), Items.RAW_GOLD_BLOCK, false, "crate", consumer);
     }
 
     private void registerReinforcedCrateRecipes(Consumer<FinishedRecipe> consumer) {
-        simpleCombined(PUItems.REINFORCED_COBBLESTONE_CRATE.get(), PUItems.COBBLESTONE_CRATE.get(), true, "crate", consumer);
-        simpleCombined(PUItems.REINFORCED_COBBLED_DEEPSLATE_CRATE.get(), PUItems.COBBLED_DEEPSLATE_CRATE.get(), true, "crate", consumer);
-        simpleCombined(PUItems.REINFORCED_ANDESITE_CRATE.get(), PUItems.ANDESITE_CRATE.get(), true, "crate", consumer);
-        simpleCombined(PUItems.REINFORCED_DIORITE_CRATE.get(), PUItems.DIORITE_CRATE.get(), true, "crate", consumer);
-        simpleCombined(PUItems.REINFORCED_GRANITE_CRATE.get(), PUItems.GRANITE_CRATE.get(), true, "crate", consumer);
-        simpleCombined(PUItems.REINFORCED_TUFF_CRATE.get(), PUItems.TUFF_CRATE.get(), true, "crate", consumer);
-        simpleCombined(PUItems.REINFORCED_BLACKSTONE_CRATE.get(), PUItems.BLACKSTONE_CRATE.get(), true, "crate", consumer);
-        simpleCombined(PUItems.REINFORCED_BASALT_CRATE.get(), PUItems.BASALT_CRATE.get(), true, "crate", consumer);
-        simpleCombined(PUItems.REINFORCED_NETHERRACK_CRATE.get(), PUItems.NETHERRACK_CRATE.get(), true, "crate", consumer);
+        simpleCombined(PURegistry.REINFORCED_COBBLESTONE_CRATE.get().asItem(), PURegistry.COBBLESTONE_CRATE.get().asItem(), true, "crate", consumer);
+        simpleCombined(PURegistry.REINFORCED_COBBLED_DEEPSLATE_CRATE.get().asItem(), PURegistry.COBBLED_DEEPSLATE_CRATE.get().asItem(), true, "crate", consumer);
+        simpleCombined(PURegistry.REINFORCED_ANDESITE_CRATE.get().asItem(), PURegistry.ANDESITE_CRATE.get().asItem(), true, "crate", consumer);
+        simpleCombined(PURegistry.REINFORCED_DIORITE_CRATE.get().asItem(), PURegistry.DIORITE_CRATE.get().asItem(), true, "crate", consumer);
+        simpleCombined(PURegistry.REINFORCED_GRANITE_CRATE.get().asItem(), PURegistry.GRANITE_CRATE.get().asItem(), true, "crate", consumer);
+        simpleCombined(PURegistry.REINFORCED_TUFF_CRATE.get().asItem(), PURegistry.TUFF_CRATE.get().asItem(), true, "crate", consumer);
+        simpleCombined(PURegistry.REINFORCED_BLACKSTONE_CRATE.get().asItem(), PURegistry.BLACKSTONE_CRATE.get().asItem(), true, "crate", consumer);
+        simpleCombined(PURegistry.REINFORCED_BASALT_CRATE.get().asItem(), PURegistry.BASALT_CRATE.get().asItem(), true, "crate", consumer);
+        simpleCombined(PURegistry.REINFORCED_NETHERRACK_CRATE.get().asItem(), PURegistry.NETHERRACK_CRATE.get().asItem(), true, "crate", consumer);
     }
 
     private void registerMiscCrateRecipes(Consumer<FinishedRecipe> consumer) {
-        simpleCombined(PUItems.GUNPOWDER_CRATE.get(), Items.GUNPOWDER, true, consumer);
-        simpleCombined(PUItems.QUARTZ_CRATE.get(), Items.QUARTZ, true, consumer);
-        simpleCombined(PUItems.AMETHYST_CRATE.get(), Items.AMETHYST_SHARD, false, "crate", consumer);
-        simpleCombined(PUItems.ECHO_SHARD_CRATE.get(), Items.ECHO_SHARD, true, consumer);
+        simpleCombined(PURegistry.GUNPOWDER_CRATE.get().asItem(), Items.GUNPOWDER, true, consumer);
+        simpleCombined(PURegistry.QUARTZ_CRATE.get().asItem(), Items.QUARTZ, true, consumer);
+        simpleCombined(PURegistry.AMETHYST_CRATE.get().asItem(), Items.AMETHYST_SHARD, false, "crate", consumer);
+        simpleCombined(PURegistry.ECHO_SHARD_CRATE.get().asItem(), Items.ECHO_SHARD, true, consumer);
     }
 
     private void registerProduceCrateRecipes(Consumer<FinishedRecipe> consumer) {
-        simpleConditionalCombined(PUItems.CARROT_CRATE.get(), Items.CARROT, true, Not(modLoaded("farmersdelight")), consumer);
-        simpleCombined(PUItems.GOLDEN_CARROT_CRATE.get(), Items.GOLDEN_CARROT, true, consumer);
-        simpleConditionalCombined(PUItems.POTATO_CRATE.get(), Items.POTATO, true, Not(modLoaded("farmersdelight")), consumer);
-        simpleConditionalCombined(PUItems.BEETROOT_CRATE.get(), Items.BEETROOT, true, Not(modLoaded("farmersdelight")), consumer);
-        simpleCombined(PUItems.EGG_CRATE.get(), Items.EGG, true, consumer);
-        simpleCombined(PUItems.RED_MUSHROOM_CRATE.get(), Items.RED_MUSHROOM, true, consumer);
-        simpleCombined(PUItems.BROWN_MUSHROOM_CRATE.get(), Items.BROWN_MUSHROOM, true, consumer);
-        simpleCombined(PUItems.CRIMSON_FUNGUS_CRATE.get(), Items.CRIMSON_FUNGUS, true, consumer);
-        simpleCombined(PUItems.WARPED_FUNGUS_CRATE.get(), Items.WARPED_FUNGUS, true, consumer);
+        simpleConditionalCombined(PURegistry.CARROT_CRATE.get().asItem(), Items.CARROT, true, Not(modLoaded("farmersdelight")), consumer);
+        simpleCombined(PURegistry.GOLDEN_CARROT_CRATE.get().asItem(), Items.GOLDEN_CARROT, true, consumer);
+        simpleConditionalCombined(PURegistry.POTATO_CRATE.get().asItem(), Items.POTATO, true, Not(modLoaded("farmersdelight")), consumer);
+        simpleConditionalCombined(PURegistry.BEETROOT_CRATE.get().asItem(), Items.BEETROOT, true, Not(modLoaded("farmersdelight")), consumer);
+        simpleCombined(PURegistry.EGG_CRATE.get().asItem(), Items.EGG, true, consumer);
+        simpleCombined(PURegistry.RED_MUSHROOM_CRATE.get().asItem(), Items.RED_MUSHROOM, true, consumer);
+        simpleCombined(PURegistry.BROWN_MUSHROOM_CRATE.get().asItem(), Items.BROWN_MUSHROOM, true, consumer);
+        simpleCombined(PURegistry.CRIMSON_FUNGUS_CRATE.get().asItem(), Items.CRIMSON_FUNGUS, true, consumer);
+        simpleCombined(PURegistry.WARPED_FUNGUS_CRATE.get().asItem(), Items.WARPED_FUNGUS, true, consumer);
     }
 
     private void registerResourceBagRecipes(Consumer<FinishedRecipe> consumer) {
-        simpleCombined(PUItems.DIRT_BAG.get(), Items.DIRT, true, consumer);
-        simpleCombined(PUItems.ROOTED_DIRT_BAG.get(), Items.ROOTED_DIRT, true, consumer);
-        simpleCombined(PUItems.COARSE_DIRT_BAG.get(), Items.COARSE_DIRT, true, consumer);
-        simpleCombined(PUItems.GRAVEL_BAG.get(), Items.GRAVEL, true, consumer);
+        simpleCombined(PURegistry.DIRT_BAG.get().asItem(), Items.DIRT, true, consumer);
+        simpleCombined(PURegistry.ROOTED_DIRT_BAG.get().asItem(), Items.ROOTED_DIRT, true, consumer);
+        simpleCombined(PURegistry.COARSE_DIRT_BAG.get().asItem(), Items.COARSE_DIRT, true, consumer);
+        simpleCombined(PURegistry.GRAVEL_BAG.get().asItem(), Items.GRAVEL, true, consumer);
     }
 
     private void registerMaterialBagRecipes(Consumer<FinishedRecipe> consumer) {
-        simpleCombined(PUItems.COCOA_BEAN_BAG.get(), Items.COCOA_BEANS, false, "bag", consumer);
-        simpleCombined(PUItems.SUGAR_BAG.get(), Items.SUGAR, true, consumer);
-        simpleCombined(PUItems.NETHER_WART_BAG.get(), Items.NETHER_WART, true, consumer);
-        simpleCombined(PUItems.GLOWSTONE_DUST_BAG.get(), Items.GLOWSTONE_DUST, true, consumer);
-        simpleCombined(PUItems.ENDER_PEARL_BAG.get(), Items.ENDER_PEARL, true, consumer);
+        simpleCombined(PURegistry.COCOA_BEAN_BAG.get().asItem(), Items.COCOA_BEANS, false, "bag", consumer);
+        simpleCombined(PURegistry.SUGAR_BAG.get().asItem(), Items.SUGAR, true, consumer);
+        simpleCombined(PURegistry.NETHER_WART_BAG.get().asItem(), Items.NETHER_WART, true, consumer);
+        simpleCombined(PURegistry.GLOWSTONE_DUST_BAG.get().asItem(), Items.GLOWSTONE_DUST, true, consumer);
+        simpleCombined(PURegistry.ENDER_PEARL_BAG.get().asItem(), Items.ENDER_PEARL, true, consumer);
     }
 
     private void registerPileRecipes(Consumer<FinishedRecipe> consumer) {
-        simpleCombined(PUItems.BRICK_PILE.get(), Items.BRICK, true, consumer);
-        simpleCombined(PUItems.NETHER_BRICK_PILE.get(), Items.NETHER_BRICK, true, consumer);
-        simpleCombined(PUItems.STONE_PILE.get(), Items.STONE, true, consumer);
-        simpleCombined(PUItems.DEEPSLATE_PILE.get(), Items.DEEPSLATE, true, consumer);
-        simpleCombined(PUItems.CALCITE_PILE.get(), Items.CALCITE, true, consumer);
+        simpleCombined(PURegistry.BRICK_PILE.get().asItem(), Items.BRICK, true, consumer);
+        simpleCombined(PURegistry.NETHER_BRICK_PILE.get().asItem(), Items.NETHER_BRICK, true, consumer);
+        simpleCombined(PURegistry.STONE_PILE.get().asItem(), Items.STONE, true, consumer);
+        simpleCombined(PURegistry.DEEPSLATE_PILE.get().asItem(), Items.DEEPSLATE, true, consumer);
+        simpleCombined(PURegistry.CALCITE_PILE.get().asItem(), Items.CALCITE, true, consumer);
     }
 
     private void registerResourcePalletRecipes(Consumer<FinishedRecipe> consumer) {
-        simpleCombined(PUItems.BRICK_PALLET.get(), PUItems.BRICK_PILE.get(), false, "pallet", consumer);
-        simpleCombined(PUItems.NETHER_BRICK_PALLET.get(), PUItems.NETHER_BRICK_PILE.get(), false, "pallet", consumer);
-        simpleCombined(PUItems.STONE_PALLET.get(), PUItems.STONE_PILE.get(), false, "pallet", consumer);
-        simpleCombined(PUItems.DEEPSLATE_PALLET.get(), PUItems.DEEPSLATE_PILE.get(), false, "pallet", consumer);
-        simpleCombined(PUItems.CALCITE_PALLET.get(), PUItems.CALCITE_PILE.get(), false, "pallet", consumer);
-        simpleCombined(PUItems.COPPER_PALLET.get(), Items.COPPER_BLOCK, false, "pallet", consumer);
-        simpleCombined(PUItems.IRON_PALLET.get(), Items.IRON_BLOCK, false, "pallet", consumer);
-        simpleCombined(PUItems.GOLD_PALLET.get(), Items.GOLD_BLOCK, false, "pallet", consumer);
-        simpleCombined(PUItems.DIAMOND_PALLET.get(), Items.DIAMOND_BLOCK, false, "pallet", consumer);
-        simpleCombined(PUItems.EMERALD_PALLET.get(), Items.EMERALD_BLOCK, false, "pallet", consumer);
-        simpleCombined(PUItems.NETHERITE_PALLET.get(), Items.NETHERITE_BLOCK, false, "pallet", consumer);
+        simpleCombined(PURegistry.BRICK_PALLET.get().asItem(), PURegistry.BRICK_PILE.get().asItem(), false, "pallet", consumer);
+        simpleCombined(PURegistry.NETHER_BRICK_PALLET.get().asItem(), PURegistry.NETHER_BRICK_PILE.get().asItem(), false, "pallet", consumer);
+        simpleCombined(PURegistry.STONE_PALLET.get().asItem(), PURegistry.STONE_PILE.get().asItem(), false, "pallet", consumer);
+        simpleCombined(PURegistry.DEEPSLATE_PALLET.get().asItem(), PURegistry.DEEPSLATE_PILE.get().asItem(), false, "pallet", consumer);
+        simpleCombined(PURegistry.CALCITE_PALLET.get().asItem(), PURegistry.CALCITE_PILE.get().asItem(), false, "pallet", consumer);
+        simpleCombined(PURegistry.COPPER_PALLET.get().asItem(), Items.COPPER_BLOCK, false, "pallet", consumer);
+        simpleCombined(PURegistry.IRON_PALLET.get().asItem(), Items.IRON_BLOCK, false, "pallet", consumer);
+        simpleCombined(PURegistry.GOLD_PALLET.get().asItem(), Items.GOLD_BLOCK, false, "pallet", consumer);
+        simpleCombined(PURegistry.DIAMOND_PALLET.get().asItem(), Items.DIAMOND_BLOCK, false, "pallet", consumer);
+        simpleCombined(PURegistry.EMERALD_PALLET.get().asItem(), Items.EMERALD_BLOCK, false, "pallet", consumer);
+        simpleCombined(PURegistry.NETHERITE_PALLET.get().asItem(), Items.NETHERITE_BLOCK, false, "pallet", consumer);
     }
 
     private void registerBookBlockRecipes(Consumer<FinishedRecipe> consumer) {
-        simpleCompact(Items.BOOK, PUItems.BOOK_BUNDLE.get(), consumer);
-        Set<Item> bookBundles = Sets.newHashSet(
-                PUItems.BOOK_BUNDLE.get(),
-                PUItems.WHITE_BOOK_BUNDLE.get(),
-                PUItems.LIGHT_GRAY_BOOK_BUNDLE.get(),
-                PUItems.GRAY_BOOK_BUNDLE.get(),
-                PUItems.BLACK_BOOK_BUNDLE.get(),
-                PUItems.BROWN_BOOK_BUNDLE.get(),
-                PUItems.RED_BOOK_BUNDLE.get(),
-                PUItems.ORANGE_BOOK_BUNDLE.get(),
-                PUItems.YELLOW_BOOK_BUNDLE.get(),
-                PUItems.LIME_BOOK_BUNDLE.get(),
-                PUItems.GREEN_BOOK_BUNDLE.get(),
-                PUItems.CYAN_BOOK_BUNDLE.get(),
-                PUItems.LIGHT_BLUE_BOOK_BUNDLE.get(),
-                PUItems.BLUE_BOOK_BUNDLE.get(),
-                PUItems.PURPLE_BOOK_BUNDLE.get(),
-                PUItems.MAGENTA_BOOK_BUNDLE.get(),
-                PUItems.PINK_BOOK_BUNDLE.get()
-        );
-        for (Item bundle : bookBundles) {
-            simpleShapeless(bundle, Items.BOOK, false, consumer);
+        simpleCompact(Items.BOOK, PURegistry.BOOK_BUNDLE.get().asItem(), consumer);
+        for (Organizer.ColoredBookSet set : PURegistry.COLORED_BOOKS.values()) {
+            simpleShapeless(set.bundle().get().asItem(), Items.BOOK, false, consumer);
         }
 
         // Book blocks from pile
@@ -256,107 +236,55 @@ public class PUCraftingRecipes extends PURecipeBuilder {
     }
 
     private void registerBookBlockFromPileRecipes(Consumer<FinishedRecipe> consumer) {
-        simpleSmallCompact(PUItems.BOOK_PILE.get(), PUItems.BOOK_BUNDLE.get(), consumer);
-        simpleSmallCompact(PUItems.WHITE_BOOK_PILE.get(), PUItems.WHITE_BOOK_BUNDLE.get(), consumer);
-        simpleSmallCompact(PUItems.LIGHT_GRAY_BOOK_PILE.get(), PUItems.LIGHT_GRAY_BOOK_BUNDLE.get(), consumer);
-        simpleSmallCompact(PUItems.GRAY_BOOK_PILE.get(), PUItems.GRAY_BOOK_BUNDLE.get(), consumer);
-        simpleSmallCompact(PUItems.BLACK_BOOK_PILE.get(), PUItems.BLACK_BOOK_BUNDLE.get(), consumer);
-        simpleSmallCompact(PUItems.BROWN_BOOK_PILE.get(), PUItems.BROWN_BOOK_BUNDLE.get(), consumer);
-        simpleSmallCompact(PUItems.RED_BOOK_PILE.get(), PUItems.RED_BOOK_BUNDLE.get(), consumer);
-        simpleSmallCompact(PUItems.ORANGE_BOOK_PILE.get(), PUItems.ORANGE_BOOK_BUNDLE.get(), consumer);
-        simpleSmallCompact(PUItems.YELLOW_BOOK_PILE.get(), PUItems.YELLOW_BOOK_BUNDLE.get(), consumer);
-        simpleSmallCompact(PUItems.LIME_BOOK_PILE.get(), PUItems.LIME_BOOK_BUNDLE.get(), consumer);
-        simpleSmallCompact(PUItems.GREEN_BOOK_PILE.get(), PUItems.GREEN_BOOK_BUNDLE.get(), consumer);
-        simpleSmallCompact(PUItems.CYAN_BOOK_PILE.get(), PUItems.CYAN_BOOK_BUNDLE.get(), consumer);
-        simpleSmallCompact(PUItems.LIGHT_BLUE_BOOK_PILE.get(), PUItems.LIGHT_BLUE_BOOK_BUNDLE.get(), consumer);
-        simpleSmallCompact(PUItems.BLUE_BOOK_PILE.get(), PUItems.BLUE_BOOK_BUNDLE.get(), consumer);
-        simpleSmallCompact(PUItems.PURPLE_BOOK_PILE.get(), PUItems.PURPLE_BOOK_BUNDLE.get(), consumer);
-        simpleSmallCompact(PUItems.MAGENTA_BOOK_PILE.get(), PUItems.MAGENTA_BOOK_BUNDLE.get(), consumer);
-        simpleSmallCompact(PUItems.PINK_BOOK_PILE.get(), PUItems.PINK_BOOK_BUNDLE.get(), consumer);
+        simpleSmallCompact(PURegistry.BOOK_PILE.get().asItem(), PURegistry.BOOK_BUNDLE.get().asItem(), consumer);
+        for (Organizer.ColoredBookSet set : PURegistry.COLORED_BOOKS.values()) {
+            simpleSmallCompact(set.getPile().asItem(), set.getBundle().asItem(), consumer);
+        }
     }
 
     private void registerTurfBlockRecipes(Consumer<FinishedRecipe> consumer) {
-        simpleCombined(PUItems.GRASS_TURF.get(), Blocks.GRASS_BLOCK, false, consumer);
-        simpleCombined(PUItems.PODZOL_TURF.get(), Blocks.PODZOL, false, consumer);
-        simpleCombined(PUItems.MYCELIUM_TURF.get(), Blocks.MYCELIUM, false, consumer);
+        simpleCombined(PURegistry.GRASS_TURF.get().asItem(), Blocks.GRASS_BLOCK, false, consumer);
+        simpleCombined(PURegistry.PODZOL_TURF.get().asItem(), Blocks.PODZOL, false, consumer);
+        simpleCombined(PURegistry.MYCELIUM_TURF.get().asItem(), Blocks.MYCELIUM, false, consumer);
 
         // Turf blocks from layer
-        simpleSmallCompact(PUItems.GRASS_TURF_LAYER.get(), PUItems.GRASS_TURF.get(), consumer);
-        simpleSmallCompact(PUItems.PODZOL_TURF_LAYER.get(), PUItems.PODZOL_TURF.get(), consumer);
-        simpleSmallCompact(PUItems.MYCELIUM_TURF_LAYER.get(), PUItems.MYCELIUM_TURF.get(), consumer);
+        simpleSmallCompact(PURegistry.GRASS_TURF_LAYER.get().asItem(), PURegistry.GRASS_TURF.get().asItem(), consumer);
+        simpleSmallCompact(PURegistry.PODZOL_TURF_LAYER.get().asItem(), PURegistry.PODZOL_TURF.get().asItem(), consumer);
+        simpleSmallCompact(PURegistry.MYCELIUM_TURF_LAYER.get().asItem(), PURegistry.MYCELIUM_TURF.get().asItem(), consumer);
     }
 
     private void registerGrassBaleRecipes(Consumer<FinishedRecipe> consumer) {
-        simpleCombined(PUItems.GRASS_BALE.get(), Blocks.GRASS, false, consumer);
-        simpleSmallCompact(Blocks.TALL_GRASS, PUItems.GRASS_BALE.get(), consumer);
+        simpleCombined(PURegistry.GRASS_BALE.get().asItem(), Blocks.GRASS, false, consumer);
+        simpleSmallCompact(Blocks.TALL_GRASS, PURegistry.GRASS_BALE.get().asItem(), consumer);
     }
 
     private void registerColoredBookBlockRecipes(Consumer<FinishedRecipe> consumer) {
-        bookBundleDyeing(Tags.Items.DYES_WHITE, PUItems.WHITE_BOOK_BUNDLE.get(), consumer);
-        bookBundleDyeing(Tags.Items.DYES_LIGHT_GRAY, PUItems.LIGHT_GRAY_BOOK_BUNDLE.get(), consumer);
-        bookBundleDyeing(Tags.Items.DYES_GRAY, PUItems.GRAY_BOOK_BUNDLE.get(), consumer);
-        bookBundleDyeing(Tags.Items.DYES_BLACK, PUItems.BLACK_BOOK_BUNDLE.get(), consumer);
-        bookBundleDyeing(Tags.Items.DYES_BROWN, PUItems.BROWN_BOOK_BUNDLE.get(), consumer);
-        bookBundleDyeing(Tags.Items.DYES_RED, PUItems.RED_BOOK_BUNDLE.get(), consumer);
-        bookBundleDyeing(Tags.Items.DYES_ORANGE, PUItems.ORANGE_BOOK_BUNDLE.get(), consumer);
-        bookBundleDyeing(Tags.Items.DYES_YELLOW, PUItems.YELLOW_BOOK_BUNDLE.get(), consumer);
-        bookBundleDyeing(Tags.Items.DYES_LIME, PUItems.LIME_BOOK_BUNDLE.get(), consumer);
-        bookBundleDyeing(Tags.Items.DYES_GREEN, PUItems.GREEN_BOOK_BUNDLE.get(), consumer);
-        bookBundleDyeing(Tags.Items.DYES_CYAN, PUItems.CYAN_BOOK_BUNDLE.get(), consumer);
-        bookBundleDyeing(Tags.Items.DYES_LIGHT_BLUE, PUItems.LIGHT_BLUE_BOOK_BUNDLE.get(), consumer);
-        bookBundleDyeing(Tags.Items.DYES_BLUE, PUItems.BLUE_BOOK_BUNDLE.get(), consumer);
-        bookBundleDyeing(Tags.Items.DYES_PURPLE, PUItems.PURPLE_BOOK_BUNDLE.get(), consumer);
-        bookBundleDyeing(Tags.Items.DYES_MAGENTA, PUItems.MAGENTA_BOOK_BUNDLE.get(), consumer);
-        bookBundleDyeing(Tags.Items.DYES_PINK, PUItems.PINK_BOOK_BUNDLE.get(), consumer);
+        for (Organizer.ColoredBookSet set : PURegistry.COLORED_BOOKS.values()) {
+            bookBundleDyeing(set.getColor().getTag(), set.getBundle().asItem(), consumer);
+        }
     }
 
     private void registerBookSlabRecipes(Consumer<FinishedRecipe> consumer) {
-        simpleSlab(PUItems.BOOK_BUNDLE.get(), PUItems.BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleSlab(PUItems.WHITE_BOOK_BUNDLE.get(), PUItems.WHITE_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleSlab(PUItems.LIGHT_GRAY_BOOK_BUNDLE.get(), PUItems.LIGHT_GRAY_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleSlab(PUItems.GRAY_BOOK_BUNDLE.get(), PUItems.GRAY_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleSlab(PUItems.BLACK_BOOK_BUNDLE.get(), PUItems.BLACK_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleSlab(PUItems.BROWN_BOOK_BUNDLE.get(), PUItems.BROWN_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleSlab(PUItems.RED_BOOK_BUNDLE.get(), PUItems.RED_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleSlab(PUItems.ORANGE_BOOK_BUNDLE.get(), PUItems.ORANGE_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleSlab(PUItems.YELLOW_BOOK_BUNDLE.get(), PUItems.YELLOW_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleSlab(PUItems.LIME_BOOK_BUNDLE.get(), PUItems.LIME_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleSlab(PUItems.GREEN_BOOK_BUNDLE.get(), PUItems.GREEN_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleSlab(PUItems.CYAN_BOOK_BUNDLE.get(), PUItems.CYAN_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleSlab(PUItems.LIGHT_BLUE_BOOK_BUNDLE.get(), PUItems.LIGHT_BLUE_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleSlab(PUItems.BLUE_BOOK_BUNDLE.get(), PUItems.BLUE_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleSlab(PUItems.PURPLE_BOOK_BUNDLE.get(), PUItems.PURPLE_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleSlab(PUItems.MAGENTA_BOOK_BUNDLE.get(), PUItems.MAGENTA_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleSlab(PUItems.PINK_BOOK_BUNDLE.get(), PUItems.PINK_BOOK_BUNDLE_SLAB.get(), consumer);
+        simpleSlab(PURegistry.BOOK_BUNDLE.get().asItem(), PURegistry.BOOK_BUNDLE_SLAB.get().asItem(), consumer);
+        for (Organizer.ColoredBookSet set : PURegistry.COLORED_BOOKS.values()) {
+            simpleSmallCompact(set.getBundle().asItem(), set.getSlab().asItem(), consumer);
+        }
 
         // Book bundle slab from pile
         registerBookSlabFromPileRecipes(consumer);
     }
 
     private void registerBookSlabFromPileRecipes(Consumer<FinishedRecipe> consumer) {
-        simpleStacked(PUItems.BOOK_PILE.get(), PUItems.BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleStacked(PUItems.WHITE_BOOK_PILE.get(), PUItems.WHITE_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleStacked(PUItems.LIGHT_GRAY_BOOK_PILE.get(), PUItems.LIGHT_GRAY_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleStacked(PUItems.GRAY_BOOK_PILE.get(), PUItems.GRAY_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleStacked(PUItems.BLACK_BOOK_PILE.get(), PUItems.BLACK_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleStacked(PUItems.BROWN_BOOK_PILE.get(), PUItems.BROWN_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleStacked(PUItems.RED_BOOK_PILE.get(), PUItems.RED_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleStacked(PUItems.ORANGE_BOOK_PILE.get(), PUItems.ORANGE_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleStacked(PUItems.YELLOW_BOOK_PILE.get(), PUItems.YELLOW_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleStacked(PUItems.LIME_BOOK_PILE.get(), PUItems.LIME_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleStacked(PUItems.GREEN_BOOK_PILE.get(), PUItems.GREEN_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleStacked(PUItems.CYAN_BOOK_PILE.get(), PUItems.CYAN_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleStacked(PUItems.LIGHT_BLUE_BOOK_PILE.get(), PUItems.LIGHT_BLUE_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleStacked(PUItems.BLUE_BOOK_PILE.get(), PUItems.BLUE_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleStacked(PUItems.PURPLE_BOOK_PILE.get(), PUItems.PURPLE_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleStacked(PUItems.MAGENTA_BOOK_PILE.get(), PUItems.MAGENTA_BOOK_BUNDLE_SLAB.get(), consumer);
-        simpleStacked(PUItems.PINK_BOOK_PILE.get(), PUItems.PINK_BOOK_BUNDLE_SLAB.get(), consumer);
+        simpleStacked(PURegistry.BOOK_PILE.get().asItem(), PURegistry.BOOK_BUNDLE_SLAB.get().asItem(), consumer);
+        for (Organizer.ColoredBookSet set : PURegistry.COLORED_BOOKS.values()) {
+            simpleSmallCompact(set.getPile().asItem(), set.getSlab().asItem(), consumer);
+        }
     }
 
     private void registerGrassThatchRecipes(Consumer<FinishedRecipe> consumer) {
-        simpleThatch(PUItems.GRASS_BALE.get(), PUItems.GRASS_THATCH.get(), consumer);
-        simpleStairs(PUItems.GRASS_THATCH.get(), PUItems.GRASS_THATCH_STAIRS.get(), consumer);
-        simpleSlab(PUItems.GRASS_THATCH.get(), PUItems.GRASS_THATCH_SLAB.get(), consumer);
+        simpleThatch(PURegistry.GRASS_BALE.get().asItem(), PURegistry.GRASS_THATCH.get().asItem(), consumer);
+        simpleStairs(PURegistry.GRASS_THATCH.get().asItem(), PURegistry.GRASS_THATCH_STAIRS.get().asItem(), consumer);
+        simpleSlab(PURegistry.GRASS_THATCH.get().asItem(), PURegistry.GRASS_THATCH_SLAB.get().asItem(), consumer);
     }
 
 }

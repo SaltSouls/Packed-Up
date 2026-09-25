@@ -2,6 +2,7 @@
   "values": [
     "#packedup:reinforced_crates",
     "#packedup:piles",
-    "#packedup:pallets"
+    "#packedup:pallets",
+    "#packedup:drum_barrels"
   ]
 }

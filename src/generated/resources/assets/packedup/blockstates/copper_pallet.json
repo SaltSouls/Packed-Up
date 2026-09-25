@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=east": {
-      "model": "packedup:block/copper_pallet",
+      "model": "packedup:block/pallet/copper_pallet",
       "y": 90
     },
     "facing=north": {
-      "model": "packedup:block/copper_pallet"
+      "model": "packedup:block/pallet/copper_pallet"
     },
     "facing=south": {
-      "model": "packedup:block/copper_pallet",
+      "model": "packedup:block/pallet/copper_pallet",
       "y": 180
     },
     "facing=west": {
-      "model": "packedup:block/copper_pallet",
+      "model": "packedup:block/pallet/copper_pallet",
       "y": 270
     }
   }

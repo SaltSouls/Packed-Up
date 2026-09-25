@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "packedup:block/rooted_dirt_bag"
+      "model": "packedup:block/bag/rooted_dirt_bag"
     }
   }
 }

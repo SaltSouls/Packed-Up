@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "packedup:block/crate_bottom",
-    "side": "packedup:block/beetroot_crate_side",
-    "top": "packedup:block/beetroot_crate_top"
-  }
-}

@@ -1,0 +1,1084 @@
+{
+  "variants": {
+    "face=ceiling,facing=east,fill=0": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_00",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=1": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_01",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=10": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_10",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=11": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_11",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=12": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_12",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=13": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_13",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=14": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_14",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=15": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_15",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=16": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_16",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=17": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_17",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=18": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_18",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=19": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_19",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=2": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_02",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=20": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_20",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=21": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_21",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=22": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_22",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=23": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_23",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=3": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_03",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=4": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_04",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=5": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_05",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=6": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_06",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=7": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_07",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=8": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_08",
+      "y": 90
+    },
+    "face=ceiling,facing=east,fill=9": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_09",
+      "y": 90
+    },
+    "face=ceiling,facing=north,fill=0": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_00"
+    },
+    "face=ceiling,facing=north,fill=1": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_01"
+    },
+    "face=ceiling,facing=north,fill=10": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_10"
+    },
+    "face=ceiling,facing=north,fill=11": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_11"
+    },
+    "face=ceiling,facing=north,fill=12": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_12"
+    },
+    "face=ceiling,facing=north,fill=13": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_13"
+    },
+    "face=ceiling,facing=north,fill=14": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_14"
+    },
+    "face=ceiling,facing=north,fill=15": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_15"
+    },
+    "face=ceiling,facing=north,fill=16": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_16"
+    },
+    "face=ceiling,facing=north,fill=17": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_17"
+    },
+    "face=ceiling,facing=north,fill=18": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_18"
+    },
+    "face=ceiling,facing=north,fill=19": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_19"
+    },
+    "face=ceiling,facing=north,fill=2": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_02"
+    },
+    "face=ceiling,facing=north,fill=20": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_20"
+    },
+    "face=ceiling,facing=north,fill=21": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_21"
+    },
+    "face=ceiling,facing=north,fill=22": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_22"
+    },
+    "face=ceiling,facing=north,fill=23": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_23"
+    },
+    "face=ceiling,facing=north,fill=3": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_03"
+    },
+    "face=ceiling,facing=north,fill=4": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_04"
+    },
+    "face=ceiling,facing=north,fill=5": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_05"
+    },
+    "face=ceiling,facing=north,fill=6": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_06"
+    },
+    "face=ceiling,facing=north,fill=7": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_07"
+    },
+    "face=ceiling,facing=north,fill=8": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_08"
+    },
+    "face=ceiling,facing=north,fill=9": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_09"
+    },
+    "face=ceiling,facing=south,fill=0": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_00",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=1": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_01",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=10": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_10",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=11": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_11",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=12": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_12",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=13": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_13",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=14": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_14",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=15": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_15",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=16": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_16",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=17": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_17",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=18": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_18",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=19": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_19",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=2": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_02",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=20": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_20",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=21": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_21",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=22": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_22",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=23": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_23",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=3": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_03",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=4": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_04",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=5": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_05",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=6": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_06",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=7": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_07",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=8": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_08",
+      "y": 180
+    },
+    "face=ceiling,facing=south,fill=9": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_09",
+      "y": 180
+    },
+    "face=ceiling,facing=west,fill=0": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_00",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=1": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_01",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=10": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_10",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=11": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_11",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=12": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_12",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=13": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_13",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=14": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_14",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=15": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_15",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=16": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_16",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=17": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_17",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=18": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_18",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=19": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_19",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=2": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_02",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=20": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_20",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=21": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_21",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=22": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_22",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=23": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_23",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=3": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_03",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=4": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_04",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=5": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_05",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=6": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_06",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=7": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_07",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=8": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_08",
+      "y": 270
+    },
+    "face=ceiling,facing=west,fill=9": {
+      "model": "packedup:block/gauge/fluid_gauge_bottom_09",
+      "y": 270
+    },
+    "face=floor,facing=east,fill=0": {
+      "model": "packedup:block/gauge/fluid_gauge_top_00",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=1": {
+      "model": "packedup:block/gauge/fluid_gauge_top_01",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=10": {
+      "model": "packedup:block/gauge/fluid_gauge_top_10",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=11": {
+      "model": "packedup:block/gauge/fluid_gauge_top_11",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=12": {
+      "model": "packedup:block/gauge/fluid_gauge_top_12",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=13": {
+      "model": "packedup:block/gauge/fluid_gauge_top_13",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=14": {
+      "model": "packedup:block/gauge/fluid_gauge_top_14",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=15": {
+      "model": "packedup:block/gauge/fluid_gauge_top_15",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=16": {
+      "model": "packedup:block/gauge/fluid_gauge_top_16",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=17": {
+      "model": "packedup:block/gauge/fluid_gauge_top_17",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=18": {
+      "model": "packedup:block/gauge/fluid_gauge_top_18",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=19": {
+      "model": "packedup:block/gauge/fluid_gauge_top_19",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=2": {
+      "model": "packedup:block/gauge/fluid_gauge_top_02",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=20": {
+      "model": "packedup:block/gauge/fluid_gauge_top_20",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=21": {
+      "model": "packedup:block/gauge/fluid_gauge_top_21",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=22": {
+      "model": "packedup:block/gauge/fluid_gauge_top_22",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=23": {
+      "model": "packedup:block/gauge/fluid_gauge_top_23",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=3": {
+      "model": "packedup:block/gauge/fluid_gauge_top_03",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=4": {
+      "model": "packedup:block/gauge/fluid_gauge_top_04",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=5": {
+      "model": "packedup:block/gauge/fluid_gauge_top_05",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=6": {
+      "model": "packedup:block/gauge/fluid_gauge_top_06",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=7": {
+      "model": "packedup:block/gauge/fluid_gauge_top_07",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=8": {
+      "model": "packedup:block/gauge/fluid_gauge_top_08",
+      "y": 90
+    },
+    "face=floor,facing=east,fill=9": {
+      "model": "packedup:block/gauge/fluid_gauge_top_09",
+      "y": 90
+    },
+    "face=floor,facing=north,fill=0": {
+      "model": "packedup:block/gauge/fluid_gauge_top_00"
+    },
+    "face=floor,facing=north,fill=1": {
+      "model": "packedup:block/gauge/fluid_gauge_top_01"
+    },
+    "face=floor,facing=north,fill=10": {
+      "model": "packedup:block/gauge/fluid_gauge_top_10"
+    },
+    "face=floor,facing=north,fill=11": {
+      "model": "packedup:block/gauge/fluid_gauge_top_11"
+    },
+    "face=floor,facing=north,fill=12": {
+      "model": "packedup:block/gauge/fluid_gauge_top_12"
+    },
+    "face=floor,facing=north,fill=13": {
+      "model": "packedup:block/gauge/fluid_gauge_top_13"
+    },
+    "face=floor,facing=north,fill=14": {
+      "model": "packedup:block/gauge/fluid_gauge_top_14"
+    },
+    "face=floor,facing=north,fill=15": {
+      "model": "packedup:block/gauge/fluid_gauge_top_15"
+    },
+    "face=floor,facing=north,fill=16": {
+      "model": "packedup:block/gauge/fluid_gauge_top_16"
+    },
+    "face=floor,facing=north,fill=17": {
+      "model": "packedup:block/gauge/fluid_gauge_top_17"
+    },
+    "face=floor,facing=north,fill=18": {
+      "model": "packedup:block/gauge/fluid_gauge_top_18"
+    },
+    "face=floor,facing=north,fill=19": {
+      "model": "packedup:block/gauge/fluid_gauge_top_19"
+    },
+    "face=floor,facing=north,fill=2": {
+      "model": "packedup:block/gauge/fluid_gauge_top_02"
+    },
+    "face=floor,facing=north,fill=20": {
+      "model": "packedup:block/gauge/fluid_gauge_top_20"
+    },
+    "face=floor,facing=north,fill=21": {
+      "model": "packedup:block/gauge/fluid_gauge_top_21"
+    },
+    "face=floor,facing=north,fill=22": {
+      "model": "packedup:block/gauge/fluid_gauge_top_22"
+    },
+    "face=floor,facing=north,fill=23": {
+      "model": "packedup:block/gauge/fluid_gauge_top_23"
+    },
+    "face=floor,facing=north,fill=3": {
+      "model": "packedup:block/gauge/fluid_gauge_top_03"
+    },
+    "face=floor,facing=north,fill=4": {
+      "model": "packedup:block/gauge/fluid_gauge_top_04"
+    },
+    "face=floor,facing=north,fill=5": {
+      "model": "packedup:block/gauge/fluid_gauge_top_05"
+    },
+    "face=floor,facing=north,fill=6": {
+      "model": "packedup:block/gauge/fluid_gauge_top_06"
+    },
+    "face=floor,facing=north,fill=7": {
+      "model": "packedup:block/gauge/fluid_gauge_top_07"
+    },
+    "face=floor,facing=north,fill=8": {
+      "model": "packedup:block/gauge/fluid_gauge_top_08"
+    },
+    "face=floor,facing=north,fill=9": {
+      "model": "packedup:block/gauge/fluid_gauge_top_09"
+    },
+    "face=floor,facing=south,fill=0": {
+      "model": "packedup:block/gauge/fluid_gauge_top_00",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=1": {
+      "model": "packedup:block/gauge/fluid_gauge_top_01",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=10": {
+      "model": "packedup:block/gauge/fluid_gauge_top_10",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=11": {
+      "model": "packedup:block/gauge/fluid_gauge_top_11",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=12": {
+      "model": "packedup:block/gauge/fluid_gauge_top_12",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=13": {
+      "model": "packedup:block/gauge/fluid_gauge_top_13",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=14": {
+      "model": "packedup:block/gauge/fluid_gauge_top_14",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=15": {
+      "model": "packedup:block/gauge/fluid_gauge_top_15",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=16": {
+      "model": "packedup:block/gauge/fluid_gauge_top_16",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=17": {
+      "model": "packedup:block/gauge/fluid_gauge_top_17",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=18": {
+      "model": "packedup:block/gauge/fluid_gauge_top_18",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=19": {
+      "model": "packedup:block/gauge/fluid_gauge_top_19",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=2": {
+      "model": "packedup:block/gauge/fluid_gauge_top_02",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=20": {
+      "model": "packedup:block/gauge/fluid_gauge_top_20",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=21": {
+      "model": "packedup:block/gauge/fluid_gauge_top_21",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=22": {
+      "model": "packedup:block/gauge/fluid_gauge_top_22",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=23": {
+      "model": "packedup:block/gauge/fluid_gauge_top_23",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=3": {
+      "model": "packedup:block/gauge/fluid_gauge_top_03",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=4": {
+      "model": "packedup:block/gauge/fluid_gauge_top_04",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=5": {
+      "model": "packedup:block/gauge/fluid_gauge_top_05",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=6": {
+      "model": "packedup:block/gauge/fluid_gauge_top_06",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=7": {
+      "model": "packedup:block/gauge/fluid_gauge_top_07",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=8": {
+      "model": "packedup:block/gauge/fluid_gauge_top_08",
+      "y": 180
+    },
+    "face=floor,facing=south,fill=9": {
+      "model": "packedup:block/gauge/fluid_gauge_top_09",
+      "y": 180
+    },
+    "face=floor,facing=west,fill=0": {
+      "model": "packedup:block/gauge/fluid_gauge_top_00",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=1": {
+      "model": "packedup:block/gauge/fluid_gauge_top_01",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=10": {
+      "model": "packedup:block/gauge/fluid_gauge_top_10",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=11": {
+      "model": "packedup:block/gauge/fluid_gauge_top_11",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=12": {
+      "model": "packedup:block/gauge/fluid_gauge_top_12",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=13": {
+      "model": "packedup:block/gauge/fluid_gauge_top_13",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=14": {
+      "model": "packedup:block/gauge/fluid_gauge_top_14",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=15": {
+      "model": "packedup:block/gauge/fluid_gauge_top_15",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=16": {
+      "model": "packedup:block/gauge/fluid_gauge_top_16",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=17": {
+      "model": "packedup:block/gauge/fluid_gauge_top_17",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=18": {
+      "model": "packedup:block/gauge/fluid_gauge_top_18",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=19": {
+      "model": "packedup:block/gauge/fluid_gauge_top_19",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=2": {
+      "model": "packedup:block/gauge/fluid_gauge_top_02",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=20": {
+      "model": "packedup:block/gauge/fluid_gauge_top_20",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=21": {
+      "model": "packedup:block/gauge/fluid_gauge_top_21",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=22": {
+      "model": "packedup:block/gauge/fluid_gauge_top_22",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=23": {
+      "model": "packedup:block/gauge/fluid_gauge_top_23",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=3": {
+      "model": "packedup:block/gauge/fluid_gauge_top_03",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=4": {
+      "model": "packedup:block/gauge/fluid_gauge_top_04",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=5": {
+      "model": "packedup:block/gauge/fluid_gauge_top_05",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=6": {
+      "model": "packedup:block/gauge/fluid_gauge_top_06",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=7": {
+      "model": "packedup:block/gauge/fluid_gauge_top_07",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=8": {
+      "model": "packedup:block/gauge/fluid_gauge_top_08",
+      "y": 270
+    },
+    "face=floor,facing=west,fill=9": {
+      "model": "packedup:block/gauge/fluid_gauge_top_09",
+      "y": 270
+    },
+    "face=wall,facing=east,fill=0": {
+      "model": "packedup:block/gauge/fluid_gauge_side_00",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=1": {
+      "model": "packedup:block/gauge/fluid_gauge_side_01",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=10": {
+      "model": "packedup:block/gauge/fluid_gauge_side_10",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=11": {
+      "model": "packedup:block/gauge/fluid_gauge_side_11",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=12": {
+      "model": "packedup:block/gauge/fluid_gauge_side_12",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=13": {
+      "model": "packedup:block/gauge/fluid_gauge_side_13",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=14": {
+      "model": "packedup:block/gauge/fluid_gauge_side_14",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=15": {
+      "model": "packedup:block/gauge/fluid_gauge_side_15",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=16": {
+      "model": "packedup:block/gauge/fluid_gauge_side_16",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=17": {
+      "model": "packedup:block/gauge/fluid_gauge_side_17",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=18": {
+      "model": "packedup:block/gauge/fluid_gauge_side_18",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=19": {
+      "model": "packedup:block/gauge/fluid_gauge_side_19",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=2": {
+      "model": "packedup:block/gauge/fluid_gauge_side_02",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=20": {
+      "model": "packedup:block/gauge/fluid_gauge_side_20",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=21": {
+      "model": "packedup:block/gauge/fluid_gauge_side_21",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=22": {
+      "model": "packedup:block/gauge/fluid_gauge_side_22",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=23": {
+      "model": "packedup:block/gauge/fluid_gauge_side_23",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=3": {
+      "model": "packedup:block/gauge/fluid_gauge_side_03",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=4": {
+      "model": "packedup:block/gauge/fluid_gauge_side_04",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=5": {
+      "model": "packedup:block/gauge/fluid_gauge_side_05",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=6": {
+      "model": "packedup:block/gauge/fluid_gauge_side_06",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=7": {
+      "model": "packedup:block/gauge/fluid_gauge_side_07",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=8": {
+      "model": "packedup:block/gauge/fluid_gauge_side_08",
+      "y": 90
+    },
+    "face=wall,facing=east,fill=9": {
+      "model": "packedup:block/gauge/fluid_gauge_side_09",
+      "y": 90
+    },
+    "face=wall,facing=north,fill=0": {
+      "model": "packedup:block/gauge/fluid_gauge_side_00"
+    },
+    "face=wall,facing=north,fill=1": {
+      "model": "packedup:block/gauge/fluid_gauge_side_01"
+    },
+    "face=wall,facing=north,fill=10": {
+      "model": "packedup:block/gauge/fluid_gauge_side_10"
+    },
+    "face=wall,facing=north,fill=11": {
+      "model": "packedup:block/gauge/fluid_gauge_side_11"
+    },
+    "face=wall,facing=north,fill=12": {
+      "model": "packedup:block/gauge/fluid_gauge_side_12"
+    },
+    "face=wall,facing=north,fill=13": {
+      "model": "packedup:block/gauge/fluid_gauge_side_13"
+    },
+    "face=wall,facing=north,fill=14": {
+      "model": "packedup:block/gauge/fluid_gauge_side_14"
+    },
+    "face=wall,facing=north,fill=15": {
+      "model": "packedup:block/gauge/fluid_gauge_side_15"
+    },
+    "face=wall,facing=north,fill=16": {
+      "model": "packedup:block/gauge/fluid_gauge_side_16"
+    },
+    "face=wall,facing=north,fill=17": {
+      "model": "packedup:block/gauge/fluid_gauge_side_17"
+    },
+    "face=wall,facing=north,fill=18": {
+      "model": "packedup:block/gauge/fluid_gauge_side_18"
+    },
+    "face=wall,facing=north,fill=19": {
+      "model": "packedup:block/gauge/fluid_gauge_side_19"
+    },
+    "face=wall,facing=north,fill=2": {
+      "model": "packedup:block/gauge/fluid_gauge_side_02"
+    },
+    "face=wall,facing=north,fill=20": {
+      "model": "packedup:block/gauge/fluid_gauge_side_20"
+    },
+    "face=wall,facing=north,fill=21": {
+      "model": "packedup:block/gauge/fluid_gauge_side_21"
+    },
+    "face=wall,facing=north,fill=22": {
+      "model": "packedup:block/gauge/fluid_gauge_side_22"
+    },
+    "face=wall,facing=north,fill=23": {
+      "model": "packedup:block/gauge/fluid_gauge_side_23"
+    },
+    "face=wall,facing=north,fill=3": {
+      "model": "packedup:block/gauge/fluid_gauge_side_03"
+    },
+    "face=wall,facing=north,fill=4": {
+      "model": "packedup:block/gauge/fluid_gauge_side_04"
+    },
+    "face=wall,facing=north,fill=5": {
+      "model": "packedup:block/gauge/fluid_gauge_side_05"
+    },
+    "face=wall,facing=north,fill=6": {
+      "model": "packedup:block/gauge/fluid_gauge_side_06"
+    },
+    "face=wall,facing=north,fill=7": {
+      "model": "packedup:block/gauge/fluid_gauge_side_07"
+    },
+    "face=wall,facing=north,fill=8": {
+      "model": "packedup:block/gauge/fluid_gauge_side_08"
+    },
+    "face=wall,facing=north,fill=9": {
+      "model": "packedup:block/gauge/fluid_gauge_side_09"
+    },
+    "face=wall,facing=south,fill=0": {
+      "model": "packedup:block/gauge/fluid_gauge_side_00",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=1": {
+      "model": "packedup:block/gauge/fluid_gauge_side_01",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=10": {
+      "model": "packedup:block/gauge/fluid_gauge_side_10",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=11": {
+      "model": "packedup:block/gauge/fluid_gauge_side_11",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=12": {
+      "model": "packedup:block/gauge/fluid_gauge_side_12",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=13": {
+      "model": "packedup:block/gauge/fluid_gauge_side_13",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=14": {
+      "model": "packedup:block/gauge/fluid_gauge_side_14",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=15": {
+      "model": "packedup:block/gauge/fluid_gauge_side_15",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=16": {
+      "model": "packedup:block/gauge/fluid_gauge_side_16",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=17": {
+      "model": "packedup:block/gauge/fluid_gauge_side_17",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=18": {
+      "model": "packedup:block/gauge/fluid_gauge_side_18",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=19": {
+      "model": "packedup:block/gauge/fluid_gauge_side_19",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=2": {
+      "model": "packedup:block/gauge/fluid_gauge_side_02",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=20": {
+      "model": "packedup:block/gauge/fluid_gauge_side_20",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=21": {
+      "model": "packedup:block/gauge/fluid_gauge_side_21",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=22": {
+      "model": "packedup:block/gauge/fluid_gauge_side_22",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=23": {
+      "model": "packedup:block/gauge/fluid_gauge_side_23",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=3": {
+      "model": "packedup:block/gauge/fluid_gauge_side_03",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=4": {
+      "model": "packedup:block/gauge/fluid_gauge_side_04",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=5": {
+      "model": "packedup:block/gauge/fluid_gauge_side_05",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=6": {
+      "model": "packedup:block/gauge/fluid_gauge_side_06",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=7": {
+      "model": "packedup:block/gauge/fluid_gauge_side_07",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=8": {
+      "model": "packedup:block/gauge/fluid_gauge_side_08",
+      "y": 180
+    },
+    "face=wall,facing=south,fill=9": {
+      "model": "packedup:block/gauge/fluid_gauge_side_09",
+      "y": 180
+    },
+    "face=wall,facing=west,fill=0": {
+      "model": "packedup:block/gauge/fluid_gauge_side_00",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=1": {
+      "model": "packedup:block/gauge/fluid_gauge_side_01",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=10": {
+      "model": "packedup:block/gauge/fluid_gauge_side_10",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=11": {
+      "model": "packedup:block/gauge/fluid_gauge_side_11",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=12": {
+      "model": "packedup:block/gauge/fluid_gauge_side_12",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=13": {
+      "model": "packedup:block/gauge/fluid_gauge_side_13",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=14": {
+      "model": "packedup:block/gauge/fluid_gauge_side_14",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=15": {
+      "model": "packedup:block/gauge/fluid_gauge_side_15",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=16": {
+      "model": "packedup:block/gauge/fluid_gauge_side_16",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=17": {
+      "model": "packedup:block/gauge/fluid_gauge_side_17",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=18": {
+      "model": "packedup:block/gauge/fluid_gauge_side_18",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=19": {
+      "model": "packedup:block/gauge/fluid_gauge_side_19",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=2": {
+      "model": "packedup:block/gauge/fluid_gauge_side_02",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=20": {
+      "model": "packedup:block/gauge/fluid_gauge_side_20",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=21": {
+      "model": "packedup:block/gauge/fluid_gauge_side_21",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=22": {
+      "model": "packedup:block/gauge/fluid_gauge_side_22",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=23": {
+      "model": "packedup:block/gauge/fluid_gauge_side_23",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=3": {
+      "model": "packedup:block/gauge/fluid_gauge_side_03",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=4": {
+      "model": "packedup:block/gauge/fluid_gauge_side_04",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=5": {
+      "model": "packedup:block/gauge/fluid_gauge_side_05",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=6": {
+      "model": "packedup:block/gauge/fluid_gauge_side_06",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=7": {
+      "model": "packedup:block/gauge/fluid_gauge_side_07",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=8": {
+      "model": "packedup:block/gauge/fluid_gauge_side_08",
+      "y": 270
+    },
+    "face=wall,facing=west,fill=9": {
+      "model": "packedup:block/gauge/fluid_gauge_side_09",
+      "y": 270
+    }
+  }
+}

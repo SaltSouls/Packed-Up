@@ -4,11 +4,14 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import salted.packedup.PackedUp;
-import salted.packedup.common.registry.PUItems;
+import salted.packedup.common.registry.PURegistry;
+import salted.packedup.common.registry.helpers.Organizer;
 import salted.packedup.common.tag.PUTags;
 
 import java.util.concurrent.CompletableFuture;
@@ -19,28 +22,21 @@ public class PUItemTags extends ItemTagsProvider {
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider provider) {
+    protected void addTags(HolderLookup.@NotNull Provider provider) {
         this.registerItemTags();
     }
 
     protected void registerItemTags() {
-        tag(PUTags.BOOK_BUNDLES).add(
-                PUItems.BOOK_BUNDLE.get(),
-                PUItems.WHITE_BOOK_BUNDLE.get(),
-                PUItems.LIGHT_GRAY_BOOK_BUNDLE.get(),
-                PUItems.GRAY_BOOK_BUNDLE.get(),
-                PUItems.BLACK_BOOK_BUNDLE.get(),
-                PUItems.BROWN_BOOK_BUNDLE.get(),
-                PUItems.RED_BOOK_BUNDLE.get(),
-                PUItems.ORANGE_BOOK_BUNDLE.get(),
-                PUItems.YELLOW_BOOK_BUNDLE.get(),
-                PUItems.LIME_BOOK_BUNDLE.get(),
-                PUItems.GREEN_BOOK_BUNDLE.get(),
-                PUItems.CYAN_BOOK_BUNDLE.get(),
-                PUItems.LIGHT_BLUE_BOOK_BUNDLE.get(),
-                PUItems.BLUE_BOOK_BUNDLE.get(),
-                PUItems.PURPLE_BOOK_BUNDLE.get(),
-                PUItems.MAGENTA_BOOK_BUNDLE.get(),
-                PUItems.PINK_BOOK_BUNDLE.get());
+        tag(PUTags.DRUM_STRIKERS).add(
+                Items.STICK,
+                Items.BLAZE_ROD,
+                Items.BONE,
+                Items.BAMBOO);
+
+        var builder = tag(PUTags.BOOK_BUNDLES);
+        builder.add(PURegistry.BOOK_BUNDLE.get().asItem());
+        for (Organizer.ColoredBookSet set : PURegistry.COLORED_BOOKS.values()) {
+            builder.add(set.bundle().get().asItem());
+        }
     }
 }

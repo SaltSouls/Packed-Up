@@ -1,8 +1,0 @@
-{
-  "parent": "packedup:block/template/resource_pallet",
-  "textures": {
-    "front": "packedup:block/deepslate_pallet_front",
-    "side": "packedup:block/deepslate_pallet_side",
-    "top": "packedup:block/deepslate_pallet_top"
-  }
-}

@@ -2,18 +2,18 @@
   "variants": {
     "": [
       {
-        "model": "packedup:block/cobblestone_crate"
+        "model": "packedup:block/crate/cobblestone_crate"
       },
       {
-        "model": "packedup:block/cobblestone_crate",
+        "model": "packedup:block/crate/cobblestone_crate",
         "y": 90
       },
       {
-        "model": "packedup:block/cobblestone_crate",
+        "model": "packedup:block/crate/cobblestone_crate",
         "y": 180
       },
       {
-        "model": "packedup:block/cobblestone_crate",
+        "model": "packedup:block/crate/cobblestone_crate",
         "y": 270
       }
     ]

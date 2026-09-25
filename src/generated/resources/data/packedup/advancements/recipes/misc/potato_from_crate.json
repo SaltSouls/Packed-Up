@@ -18,7 +18,7 @@
           },
           "has_the_recipe": {
             "conditions": {
-              "recipe": "packedup:potato_from_crate"
+              "recipe": "packedup:potato_from__crate"
             },
             "trigger": "minecraft:recipe_unlocked"
           }
@@ -31,7 +31,7 @@
         ],
         "rewards": {
           "recipes": [
-            "packedup:potato_from_crate"
+            "packedup:potato_from__crate"
           ]
         },
         "sends_telemetry_event": false

@@ -1,0 +1,6 @@
+{
+  "parent": "packedup:block/gauge/fluid_gauge_bottom",
+  "textures": {
+    "display": "packedup:block/gauge/fluid_gauge_02"
+  }
+}

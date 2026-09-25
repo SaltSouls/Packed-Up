@@ -1,17 +1,19 @@
 package salted.packedup.data.models;
 
-import com.google.common.collect.Sets;
 import net.minecraft.data.PackOutput;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import salted.packedup.PackedUp;
-import salted.packedup.common.registry.PUItems;
+import salted.packedup.common.registry.PURegistry;
+import salted.packedup.common.registry.helpers.Organizer;
 import salted.packedup.data.models.builders.PUItemBuilder;
+import salted.packedup.data.utils.NameUtils;
 
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import static salted.packedup.data.utils.NameUtils.blockLocation;
 
 public class PUItemModels extends PUItemBuilder {
 
@@ -19,83 +21,98 @@ public class PUItemModels extends PUItemBuilder {
         super(output, existingFileHelper);
     }
 
-    // model registration
     @Override
     protected void registerModels() {
-        Set<Item> items = ForgeRegistries.ITEMS.getValues().stream().filter(i -> PackedUp.MODID.equals(ForgeRegistries.ITEMS.getKey(i).getNamespace())).collect(Collectors.toSet());
+        Set<Item> items = ForgeRegistries.ITEMS.getValues().stream()
+                .filter(i -> PackedUp.MODID.equals(ForgeRegistries.ITEMS.getKey(i).getNamespace()))
+                .collect(Collectors.toSet());
 
-        // layered blocks
-        Set<Item> layerItems = Sets.newHashSet(
-                PUItems.PALLET.get(),
-                PUItems.GRASS_TURF_LAYER.get(),
-                PUItems.PODZOL_TURF_LAYER.get(),
-                PUItems.MYCELIUM_TURF_LAYER.get()
-        );
-        takeAll(items, layerItems.toArray(new Item[0])).forEach(item -> quarterSlabBasedModel(item, false));
+        // ============================================================
+        // Layered blocks
+        // ============================================================
+        takeAll(items, PURegistry.PALLET.get().asItem())
+                .forEach(item -> quarterSlabBasedModel(item, NameUtils::palletLocation));
 
-        // book blocks
-        Set<Item> bookItems = Sets.newHashSet(
-                PUItems.BOOK_BUNDLE.get(),
-                PUItems.BOOK_BUNDLE_SLAB.get(),
-                PUItems.WHITE_BOOK_BUNDLE.get(),
-                PUItems.WHITE_BOOK_BUNDLE_SLAB.get(),
-                PUItems.LIGHT_GRAY_BOOK_BUNDLE.get(),
-                PUItems.LIGHT_GRAY_BOOK_BUNDLE_SLAB.get(),
-                PUItems.GRAY_BOOK_BUNDLE.get(),
-                PUItems.GRAY_BOOK_BUNDLE_SLAB.get(),
-                PUItems.BLACK_BOOK_BUNDLE.get(),
-                PUItems.BLACK_BOOK_BUNDLE_SLAB.get(),
-                PUItems.BROWN_BOOK_BUNDLE.get(),
-                PUItems.BROWN_BOOK_BUNDLE_SLAB.get(),
-                PUItems.RED_BOOK_BUNDLE.get(),
-                PUItems.RED_BOOK_BUNDLE_SLAB.get(),
-                PUItems.ORANGE_BOOK_BUNDLE.get(),
-                PUItems.ORANGE_BOOK_BUNDLE_SLAB.get(),
-                PUItems.YELLOW_BOOK_BUNDLE.get(),
-                PUItems.YELLOW_BOOK_BUNDLE_SLAB.get(),
-                PUItems.LIME_BOOK_BUNDLE.get(),
-                PUItems.LIME_BOOK_BUNDLE_SLAB.get(),
-                PUItems.GREEN_BOOK_BUNDLE.get(),
-                PUItems.GREEN_BOOK_BUNDLE_SLAB.get(),
-                PUItems.CYAN_BOOK_BUNDLE.get(),
-                PUItems.CYAN_BOOK_BUNDLE_SLAB.get(),
-                PUItems.LIGHT_BLUE_BOOK_BUNDLE.get(),
-                PUItems.LIGHT_BLUE_BOOK_BUNDLE_SLAB.get(),
-                PUItems.BLUE_BOOK_BUNDLE.get(),
-                PUItems.BLUE_BOOK_BUNDLE_SLAB.get(),
-                PUItems.PURPLE_BOOK_BUNDLE.get(),
-                PUItems.PURPLE_BOOK_BUNDLE_SLAB.get(),
-                PUItems.MAGENTA_BOOK_BUNDLE.get(),
-                PUItems.MAGENTA_BOOK_BUNDLE_SLAB.get(),
-                PUItems.PINK_BOOK_BUNDLE.get(),
-                PUItems.PINK_BOOK_BUNDLE_SLAB.get()
-        );
-        takeAll(items, bookItems.toArray(new Item[0])).forEach(this::bookBasedModel);
+        Item[] turfLayerItems = {
+                PURegistry.GRASS_TURF_LAYER.get().asItem(),
+                PURegistry.PODZOL_TURF_LAYER.get().asItem(),
+                PURegistry.MYCELIUM_TURF_LAYER.get().asItem()
+        };
+        takeAll(items, turfLayerItems).forEach(item -> quarterSlabBasedModel(item, NameUtils::turfLocation));
 
-        // book pile blocks
-        Set<Item> bookPileItems = Sets.newHashSet(
-                PUItems.BOOK_PILE.get(),
-                PUItems.WHITE_BOOK_PILE.get(),
-                PUItems.LIGHT_GRAY_BOOK_PILE.get(),
-                PUItems.GRAY_BOOK_PILE.get(),
-                PUItems.BLACK_BOOK_PILE.get(),
-                PUItems.BROWN_BOOK_PILE.get(),
-                PUItems.RED_BOOK_PILE.get(),
-                PUItems.ORANGE_BOOK_PILE.get(),
-                PUItems.YELLOW_BOOK_PILE.get(),
-                PUItems.LIME_BOOK_PILE.get(),
-                PUItems.GREEN_BOOK_PILE.get(),
-                PUItems.CYAN_BOOK_PILE.get(),
-                PUItems.LIGHT_BLUE_BOOK_PILE.get(),
-                PUItems.BLUE_BOOK_PILE.get(),
-                PUItems.PURPLE_BOOK_PILE.get(),
-                PUItems.MAGENTA_BOOK_PILE.get(),
-                PUItems.PINK_BOOK_PILE.get()
-        );
-        takeAll(items, bookPileItems.toArray(new Item[0])).forEach(item -> quarterSlabBasedModel(item, true));
+        // ============================================================
+        // Books
+        // ============================================================
+        Item[] defaultBookItems = {
+                PURegistry.BOOK_BUNDLE.get().asItem(),
+                PURegistry.BOOK_BUNDLE_SLAB.get().asItem()
+        };
+        takeAll(items, defaultBookItems).forEach(this::bookBasedModel);
+        takeAll(items, PURegistry.BOOK_PILE.get().asItem())
+                .forEach(item -> quarterSlabBasedModel(item, NameUtils::bookLocation));
 
-        // block based items
-        takeAll(items, i -> i instanceof BlockItem).forEach(this::blockBasedModel);
+        for (Organizer.ColoredBookSet set : PURegistry.COLORED_BOOKS.values()) {
+            takeAll(items, set.getBundle().asItem(), set.getSlab().asItem()).forEach(this::bookBasedModel);
+            takeAll(items, set.getPile().asItem()).forEach(item -> quarterSlabBasedModel(item, NameUtils::bookLocation));
+        }
+
+        // ============================================================
+        // Industrial spools
+        // ============================================================
+        for (var entry : PURegistry.COLORED_SPOOLS.values()) {
+            takeAll(items, entry.get().asItem()).forEach(this::industrialSpoolBasedModel);
+        }
+
+        // ============================================================
+        // Category folders
+        // ============================================================
+        categoryModels(items, NameUtils::crateLocation,
+                PURegistry.RESOURCE_CRATE_ENTRIES,
+                PURegistry.REINFORCED_CRATE_ENTRIES,
+                PURegistry.MISC_CRATE_ENTRIES,
+                PURegistry.PRODUCE_CRATE_ENTRIES,
+                PURegistry.MUSHROOM_CRATE_ENTRIES);
+        takeAll(items, PURegistry.CRATE_LID.get().asItem(), PURegistry.REINFORCED_CRATE_LID.get().asItem())
+                .forEach(item -> blockBasedModel(item, NameUtils::crateLocation));
+
+        categoryModels(items, NameUtils::bagLocation,
+                PURegistry.RESOURCE_BAG_ENTRIES,
+                PURegistry.PRODUCE_BAG_ENTRIES,
+                PURegistry.MISC_BAG_ENTRIES);
+
+        categoryModels(items, NameUtils::barrelLocation, PURegistry.BARREL_ENTRIES);
+        categoryModels(items, NameUtils::basketLocation, PURegistry.BASKET_ENTRIES);
+        categoryModels(items, NameUtils::drumLocation, PURegistry.DRUM_BARREL_ENTRIES);
+        categoryModels(items, NameUtils::pileLocation, PURegistry.PILE_ENTRIES);
+        categoryModels(items, NameUtils::palletLocation, PURegistry.PALLET_ENTRIES);
+
+        Item[] turfItems = {
+                PURegistry.GRASS_TURF.get().asItem(),
+                PURegistry.PODZOL_TURF.get().asItem(),
+                PURegistry.MYCELIUM_TURF.get().asItem()
+        };
+        takeAll(items, turfItems).forEach(item -> blockBasedModel(item, NameUtils::turfLocation));
+
+        Item[] thatchItems = {
+                PURegistry.GRASS_THATCH.get().asItem(),
+                PURegistry.GRASS_THATCH_STAIRS.get().asItem(),
+                PURegistry.GRASS_THATCH_SLAB.get().asItem()
+        };
+        takeAll(items, thatchItems).forEach(item -> blockBasedModel(item, NameUtils::thatchLocation));
+
+        takeAll(items, PURegistry.GRASS_BALE.get().asItem())
+                .forEach(item -> blockBasedModel(item, name -> blockLocation("bundle/" + name)));
+
+        takeAll(items, PURegistry.FLUID_GAUGE.get().asItem()).forEach(this::generatedModel);
+
+        // ============================================================
+        // Anything left has no item model rule. Fail with a clear message
+        // instead of guessing block/<name> and getting "model does not exist".
+        // ============================================================
+        if (!items.isEmpty()) {
+            throw new IllegalStateException("No item model rule for: "
+                    + items.stream().map(NameUtils::itemName).sorted().toList()
+                    + ". Add its category to PUItemModels.");
+        }
     }
-
 }

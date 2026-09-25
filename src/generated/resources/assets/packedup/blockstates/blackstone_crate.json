@@ -2,18 +2,18 @@
   "variants": {
     "": [
       {
-        "model": "packedup:block/blackstone_crate"
+        "model": "packedup:block/crate/blackstone_crate"
       },
       {
-        "model": "packedup:block/blackstone_crate",
+        "model": "packedup:block/crate/blackstone_crate",
         "y": 90
       },
       {
-        "model": "packedup:block/blackstone_crate",
+        "model": "packedup:block/crate/blackstone_crate",
         "y": 180
       },
       {
-        "model": "packedup:block/blackstone_crate",
+        "model": "packedup:block/crate/blackstone_crate",
         "y": 270
       }
     ]

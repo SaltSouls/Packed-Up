@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=east": {
-      "model": "packedup:block/diamond_pallet",
+      "model": "packedup:block/pallet/diamond_pallet",
       "y": 90
     },
     "facing=north": {
-      "model": "packedup:block/diamond_pallet"
+      "model": "packedup:block/pallet/diamond_pallet"
     },
     "facing=south": {
-      "model": "packedup:block/diamond_pallet",
+      "model": "packedup:block/pallet/diamond_pallet",
       "y": 180
     },
     "facing=west": {
-      "model": "packedup:block/diamond_pallet",
+      "model": "packedup:block/pallet/diamond_pallet",
       "y": 270
     }
   }

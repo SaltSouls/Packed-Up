@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "packedup:block/cocoa_bean_bag"
+      "model": "packedup:block/bag/cocoa_bean_bag"
     }
   }
 }

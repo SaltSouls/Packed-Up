@@ -1,0 +1,37 @@
+{
+    "format_version": "1.9.0",
+    "author": "TwinSouls",
+    "credit": "Made with Blockbench",
+    "gui_light": "side",
+    "display": {
+        "thirdperson_righthand": {
+            "rotation": [73.5, 14.75, -0.25],
+            "translation": [0, -2.75, -1.5],
+            "scale": [0.5, 0.5, 0.5]
+        },
+        "thirdperson_lefthand": {
+            "rotation": [73.5, 14.75, -0.25],
+            "translation": [0, -2.75, -1.5],
+            "scale": [0.5, 0.5, 0.5]
+        },
+        "firstperson_righthand": {
+            "rotation": [0, 45, 0],
+            "scale": [0.5, 0.5, 0.5]
+        },
+        "firstperson_lefthand": {
+            "rotation": [0, 45, 0],
+            "scale": [0.5, 0.5, 0.5]
+        },
+        "ground": {
+            "translation": [0, 3, 0],
+            "scale": [0.35, 0.35, 0.35]
+        },
+        "gui": {
+            "rotation": [30, -135, 0],
+            "scale": [0.625, 0.625, 0.625]
+        },
+        "fixed": {
+            "scale": [0.75, 0.75, 0.75]
+        }
+    }
+}

@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.lighting.LightEngine;
 import salted.packedup.common.block.TurfBlock;
 import salted.packedup.common.block.TurfLayerBlock;
-import salted.packedup.common.registry.PUBlocks;
+import salted.packedup.common.registry.PURegistry;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -24,7 +24,7 @@ public class TurfUtils {
      * This allows for quick retrieval of the Turf type based on a {@link Block}.
      */
     private static final Map<Block, Turf> TURF_MAP = Arrays.stream(Turf.values())
-            .flatMap(turf -> Arrays.stream(new Block[]{turf.getTurfBlock(), turf.getTurfLayer()})
+            .flatMap(turf -> Arrays.stream(new Block[]{ turf.getTurfBlock(), turf.getTurfLayer() })
                     .map(block -> Map.entry(block, turf)))                // Create a Map entry for each block and its corresponding turf
             .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)); // Collect into a Map<Block, Turf>
 
@@ -104,9 +104,9 @@ public class TurfUtils {
      * Each Turf type has a corresponding {@link TurfBlock}, {@link TurfLayerBlock}, and source {@link Block}.
      */
     protected enum Turf {
-        GRASS(PUBlocks.GRASS_TURF.get(), PUBlocks.GRASS_TURF_LAYER.get(), Blocks.GRASS_BLOCK),
-        MYCELIUM(PUBlocks.MYCELIUM_TURF.get(), PUBlocks.MYCELIUM_TURF_LAYER.get(), Blocks.MYCELIUM),
-        PODZOL(PUBlocks.PODZOL_TURF.get(), PUBlocks.PODZOL_TURF_LAYER.get(), Blocks.PODZOL);
+        GRASS(PURegistry.GRASS_TURF.get(), PURegistry.GRASS_TURF_LAYER.get(), Blocks.GRASS_BLOCK),
+        MYCELIUM(PURegistry.MYCELIUM_TURF.get(), PURegistry.MYCELIUM_TURF_LAYER.get(), Blocks.MYCELIUM),
+        PODZOL(PURegistry.PODZOL_TURF.get(), PURegistry.PODZOL_TURF_LAYER.get(), Blocks.PODZOL);
 
         private final TurfBlock turfBlock;
         private final TurfLayerBlock turfLayer;

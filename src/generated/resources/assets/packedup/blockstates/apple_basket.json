@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "packedup:block/apple_basket"
+      "model": "packedup:block/basket/apple_basket"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "packedup:block/glow_berry_basket"
+      "model": "packedup:block/basket/glow_berry_basket"
     }
   }
 }

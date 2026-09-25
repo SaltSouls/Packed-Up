@@ -54,11 +54,27 @@ public class ConnectionHandler {
     }
 
     /**
+     * Determines the connection type of a block along its axis by checking neighboring blocks.
+     * @see #findNeighborsAlongAxis for neighbor checking implementation
+     */
+    public Part getAlongAxis(@NotNull LevelAccessor world, @NotNull BlockPos pos, @NotNull BlockState state, boolean right, boolean left, boolean middle) {
+        return determineConnectionType(findNeighborsAlongAxis(world, pos, state), state.getValue(AXIS), right, left, middle);
+    }
+
+    /**
      * Determines the connection type of a block along its axis by checking for specific block class.
      * @see #findNeighborsAlongAxis for neighbor checking implementation
      */
     public Part getAlongAxis(@NotNull LevelAccessor world, @NotNull BlockPos pos, @NotNull BlockState state, Class<?> clazz) {
         return determineConnectionType(findNeighborsAlongAxis(world, pos, state, clazz), state.getValue(AXIS));
+    }
+
+    /**
+     * Determines the connection type of a block along its axis by checking for specific block class.
+     * @see #findNeighborsAlongAxis for neighbor checking implementation
+     */
+    public Part getAlongAxis(@NotNull LevelAccessor world, @NotNull BlockPos pos, @NotNull BlockState state, Class<?> clazz, boolean right, boolean left, boolean middle) {
+        return determineConnectionType(findNeighborsAlongAxis(world, pos, state, clazz), state.getValue(AXIS), right, left, middle);
     }
 
     /**
@@ -164,12 +180,22 @@ public class ConnectionHandler {
     // ==============
 
     private Part determineConnectionType(BlockNeighbors neighbors, Direction.Axis axis) {
-        boolean hasFirst = neighbors.first() != null;
-        boolean hasSecond = neighbors.second() != null;
+        boolean hasFirst = neighbors.first != null;
+        boolean hasSecond = neighbors.second != null;
 
         if (hasFirst && hasSecond) return Part.MIDDLE;
         if (hasFirst) return axis == Direction.Axis.Y ? Part.BOTTOM : Part.RIGHT;
         if (hasSecond) return axis == Direction.Axis.Y ? Part.TOP : Part.LEFT;
+        return Part.SINGLE;
+    }
+
+    private Part determineConnectionType(BlockNeighbors neighbors, Direction.Axis axis, Boolean right, Boolean left, Boolean middle) {
+        boolean hasFirst = neighbors.first != null;
+        boolean hasSecond = neighbors.second != null;
+
+        if ((hasFirst && hasSecond) && middle) return Part.MIDDLE;
+        if (hasFirst && left) return axis == Direction.Axis.Y ? Part.BOTTOM : Part.RIGHT;
+        if (hasSecond && right) return axis == Direction.Axis.Y ? Part.TOP : Part.LEFT;
         return Part.SINGLE;
     }
 

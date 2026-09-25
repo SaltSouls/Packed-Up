@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "axis=x,shape=bottom": {
+      "model": "packedup:block/spool/purple_industrial_string_spool_horizontal",
+      "y": 270
+    },
+    "axis=x,shape=left": {
+      "model": "packedup:block/spool/purple_industrial_string_spool_horizontal_left",
+      "y": 270
+    },
+    "axis=x,shape=middle": {
+      "model": "packedup:block/spool/purple_industrial_string_spool_horizontal_middle",
+      "y": 270
+    },
+    "axis=x,shape=right": {
+      "model": "packedup:block/spool/purple_industrial_string_spool_horizontal_right",
+      "y": 270
+    },
+    "axis=x,shape=single": {
+      "model": "packedup:block/spool/purple_industrial_string_spool_horizontal",
+      "y": 270
+    },
+    "axis=x,shape=top": {
+      "model": "packedup:block/spool/purple_industrial_string_spool_horizontal",
+      "y": 270
+    },
+    "axis=y,shape=bottom": {
+      "model": "packedup:block/spool/purple_industrial_string_spool_vertical_lower"
+    },
+    "axis=y,shape=left": {
+      "model": "packedup:block/spool/purple_industrial_string_spool_vertical"
+    },
+    "axis=y,shape=middle": {
+      "model": "packedup:block/spool/purple_industrial_string_spool_vertical_middle"
+    },
+    "axis=y,shape=right": {
+      "model": "packedup:block/spool/purple_industrial_string_spool_vertical"
+    },
+    "axis=y,shape=single": {
+      "model": "packedup:block/spool/purple_industrial_string_spool_vertical"
+    },
+    "axis=y,shape=top": {
+      "model": "packedup:block/spool/purple_industrial_string_spool_vertical_upper"
+    },
+    "axis=z,shape=bottom": {
+      "model": "packedup:block/spool/purple_industrial_string_spool_horizontal"
+    },
+    "axis=z,shape=left": {
+      "model": "packedup:block/spool/purple_industrial_string_spool_horizontal_left"
+    },
+    "axis=z,shape=middle": {
+      "model": "packedup:block/spool/purple_industrial_string_spool_horizontal_middle"
+    },
+    "axis=z,shape=right": {
+      "model": "packedup:block/spool/purple_industrial_string_spool_horizontal_right"
+    },
+    "axis=z,shape=single": {
+      "model": "packedup:block/spool/purple_industrial_string_spool_horizontal"
+    },
+    "axis=z,shape=top": {
+      "model": "packedup:block/spool/purple_industrial_string_spool_horizontal"
+    }
+  }
+}
