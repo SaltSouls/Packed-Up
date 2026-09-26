@@ -27,9 +27,7 @@ public class PUItemModels extends PUItemBuilder {
                 .filter(i -> PackedUp.MODID.equals(ForgeRegistries.ITEMS.getKey(i).getNamespace()))
                 .collect(Collectors.toSet());
 
-        // ============================================================
         // Layered blocks
-        // ============================================================
         takeAll(items, PURegistry.PALLET.get().asItem())
                 .forEach(item -> quarterSlabBasedModel(item, NameUtils::palletLocation));
 
@@ -40,9 +38,7 @@ public class PUItemModels extends PUItemBuilder {
         };
         takeAll(items, turfLayerItems).forEach(item -> quarterSlabBasedModel(item, NameUtils::turfLocation));
 
-        // ============================================================
         // Books
-        // ============================================================
         Item[] defaultBookItems = {
                 PURegistry.BOOK_BUNDLE.get().asItem(),
                 PURegistry.BOOK_BUNDLE_SLAB.get().asItem()
@@ -56,16 +52,12 @@ public class PUItemModels extends PUItemBuilder {
             takeAll(items, set.getPile().asItem()).forEach(item -> quarterSlabBasedModel(item, NameUtils::bookLocation));
         }
 
-        // ============================================================
         // Industrial spools
-        // ============================================================
         for (var entry : PURegistry.COLORED_SPOOLS.values()) {
             takeAll(items, entry.get().asItem()).forEach(this::industrialSpoolBasedModel);
         }
 
-        // ============================================================
         // Category folders
-        // ============================================================
         categoryModels(items, NameUtils::crateLocation,
                 PURegistry.RESOURCE_CRATE_ENTRIES,
                 PURegistry.REINFORCED_CRATE_ENTRIES,
@@ -105,10 +97,6 @@ public class PUItemModels extends PUItemBuilder {
 
         takeAll(items, PURegistry.FLUID_GAUGE.get().asItem()).forEach(this::generatedModel);
 
-        // ============================================================
-        // Anything left has no item model rule. Fail with a clear message
-        // instead of guessing block/<name> and getting "model does not exist".
-        // ============================================================
         if (!items.isEmpty()) {
             throw new IllegalStateException("No item model rule for: "
                     + items.stream().map(NameUtils::itemName).sorted().toList()

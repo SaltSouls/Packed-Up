@@ -42,11 +42,6 @@ public class PUItemBuilder extends ItemModelProvider {
         withExistingParent(itemName(item), spoolLocation(itemName(item) + "_vertical"));
     }
 
-    /**
-     * Item model for a layered (quarter slab) block, using the block's first layer model.
-     *
-     * @param location Resolves the model folder, e.g. {@code NameUtils::palletLocation}.
-     */
     public void quarterSlabBasedModel(Item item, Function<String, ResourceLocation> location) {
         String name = itemName(item);
         if (name.contains("_layer")) { name = nameFromSplit(name, "_layer", true); }
@@ -57,22 +52,12 @@ public class PUItemBuilder extends ItemModelProvider {
         blockBasedModel(item, NameUtils::blockLocation);
     }
 
-    /**
-     * Item model that inherits from the block model in a category folder.
-     *
-     * @param location Resolves the model folder, e.g. {@code NameUtils::crateLocation}.
-     */
     public void blockBasedModel(Item item, Function<String, ResourceLocation> location) {
         withExistingParent(itemName(item), location.apply(itemName(item)));
     }
 
-    /**
-     * Generates block-based item models for every entry in the given category lists,
-     * pointing at the category's model folder.
-     */
     @SafeVarargs
-    protected final void categoryModels(Set<Item> items, Function<String, ResourceLocation> location,
-                                        List<RegistryEntry<? extends Block>>... categories) {
+    protected final void categoryModels(Set<Item> items, Function<String, ResourceLocation> location, List<RegistryEntry<? extends Block>>... categories) {
         for (List<RegistryEntry<? extends Block>> category : categories) {
             Item[] categoryItems = category.stream().map(e -> e.get().asItem()).toArray(Item[]::new);
             takeAll(items, categoryItems).forEach(item -> blockBasedModel(item, location));

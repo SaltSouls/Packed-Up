@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "packedup:drum_barrels"
+    },
+    "o": {
+      "tag": "forge:dyes/light_blue"
+    }
+  },
+  "pattern": [
+    "###",
+    "#o#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "item": "packedup:light_blue_drum_barrel"
+  },
+  "show_notification": true
+}

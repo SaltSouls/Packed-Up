@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "packedup:drum_barrels"
+    },
+    "o": {
+      "tag": "forge:dyes/brown"
+    }
+  },
+  "pattern": [
+    "###",
+    "#o#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "item": "packedup:brown_drum_barrel"
+  },
+  "show_notification": true
+}

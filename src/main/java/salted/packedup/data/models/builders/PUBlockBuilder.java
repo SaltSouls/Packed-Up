@@ -30,9 +30,6 @@ public class PUBlockBuilder extends BlockStateProvider {
         // so that I can separate the builders from the registration.
     }
 
-    // ============================================================
-    // Shared Utilities
-    // ============================================================
     public ModelFile existingModel(Block block) {
         return new ModelFile.ExistingModelFile(blockLocation(blockName(block)), models().existingFileHelper);
     }
@@ -60,14 +57,10 @@ public class PUBlockBuilder extends BlockStateProvider {
         return ConfiguredModel.allYRotations(model, 0, false);
     }
 
-    /** Exposes the protected getVariantBuilder for sub-builders. */
     public VariantBlockStateBuilder variantBuilder(Block block) {
         return getVariantBuilder(block);
     }
 
-    // ============================================================
-    // Shared Horizontal / Quarter-Slab Blockstate Logic
-    // ============================================================
     public void horizontalBlock(Block block, Function<BlockState, ModelFile> modelFunc, Property<?>... ignored) {
         getVariantBuilder(block).forAllStatesExcept(state -> ConfiguredModel.builder()
                 .modelFile(modelFunc.apply(state))
@@ -75,9 +68,6 @@ public class PUBlockBuilder extends BlockStateProvider {
                 .build(), ignored);
     }
 
-    /**
-     * @param folder The model folder under {@code block/}, including the trailing slash (e.g. {@code "pallet/"}).
-     */
     public void horizontalQuarterSlabBlock(HorizontalQuarterSlabBlock block, String folder, Property<?>... ignored) {
         getVariantBuilder(block).forAllStatesExcept(state -> {
             IntegerProperty layersProperty = block.getQuarterLayers();

@@ -8,6 +8,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import salted.packedup.PackedUp;
 import salted.packedup.common.registry.PURegistry;
@@ -23,7 +24,7 @@ public class PUBlockTags extends BlockTagsProvider {
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider provider) {
+    protected void addTags(HolderLookup.@NotNull Provider provider) {
         this.updateVanillaTags();
         this.registerModTags();
         this.registerEffectiveTools();
@@ -59,6 +60,24 @@ public class PUBlockTags extends BlockTagsProvider {
         tag(BlockTags.COMBINATION_STEP_SOUND_BLOCKS).add(
                 PURegistry.CRATE_LID.get(),
                 PURegistry.REINFORCED_CRATE_LID.get()
+        );
+
+        tag(BlockTags.NEEDS_STONE_TOOL)
+                .addTag(PUTags.REINFORCED_CRATE_BLOCKS)
+                .addTag(PUTags.DRUM_BARREL_BLOCKS)
+                .add(
+                        PURegistry.COPPER_PALLET.get(),
+                        PURegistry.IRON_PALLET.get()
+                );
+
+        tag(BlockTags.NEEDS_IRON_TOOL).add(
+                PURegistry.GOLD_PALLET.get(),
+                PURegistry.DIAMOND_PALLET.get(),
+                PURegistry.EMERALD_PALLET.get()
+        );
+
+        tag(BlockTags.NEEDS_DIAMOND_TOOL).add(
+                PURegistry.NETHERITE_PALLET.get()
         );
     }
 
@@ -125,7 +144,7 @@ public class PUBlockTags extends BlockTagsProvider {
             bookTag.add(set.bundle().get(), set.slab().get(), set.pile().get());
         }
 
-        var drumTag = tag(PUTags.DRUM_BARRELS);
+        var drumTag = tag(PUTags.DRUM_BARREL_BLOCKS);
         addGroup(drumTag, PURegistry.DRUM_BARREL_ENTRIES);
     }
 
@@ -148,7 +167,7 @@ public class PUBlockTags extends BlockTagsProvider {
                 .addTag(PUTags.REINFORCED_CRATE_BLOCKS)
                 .addTag(PUTags.RESOURCE_PILE_BLOCKS)
                 .addTag(PUTags.RESOURCE_PALLET_BLOCKS)
-                .addTag(PUTags.DRUM_BARRELS);
+                .addTag(PUTags.DRUM_BARREL_BLOCKS);
 
         tag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .addTag(PUTags.TURF_BLOCKS);

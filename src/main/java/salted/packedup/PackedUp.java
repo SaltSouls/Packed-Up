@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import salted.packedup.common.CommonSetup;
 import salted.packedup.common.Config;
 import salted.packedup.common.registry.PUCreativeTab;
+import salted.packedup.common.registry.PULangs;
 import salted.packedup.common.registry.PURegistry;
 import salted.packedup.common.registry.PUSounds;
 
@@ -36,6 +37,7 @@ public class PackedUp {
 
         PURegistry.register();
         PUSounds.register();
+        PULangs.register();
         PUCreativeTab.CREATIVE_TAB.register(modEventBus);
     }
 

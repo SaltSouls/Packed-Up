@@ -2,7 +2,6 @@ package salted.packedup.common.registry.helpers;
 
 import com.tterrag.registrate.Registrate;
 import com.tterrag.registrate.builders.BlockBuilder;
-import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import com.tterrag.registrate.util.nullness.NonNullBiFunction;
@@ -30,6 +29,7 @@ import salted.packedup.PackedUp;
 import salted.packedup.common.block.*;
 import salted.packedup.common.block.state.PUProperties;
 import salted.packedup.common.item.DrumBarrelItem;
+import salted.packedup.common.registry.PULangs;
 import salted.packedup.common.registry.PUSoundsTypes;
 import salted.packedup.common.registry.TabCategory;
 
@@ -38,60 +38,65 @@ import java.util.List;
 public class RegistryHelper extends Organizer {
     public static final Registrate REGISTRATE = Registrate.create(PackedUp.MODID);
 
-
     // ============================================================
     // Datagen Fixes
     // ============================================================
     protected static <T extends Block> BlockBuilder<T, Registrate> noDatagenItem(BlockBuilder<T, Registrate> builder) {
-        return builder.blockstate(NonNullBiConsumer.noop()).item().model(NonNullBiConsumer.noop()).build();
+        return named(builder).blockstate(NonNullBiConsumer.noop()).item().model(NonNullBiConsumer.noop()).build();
     }
 
     protected static <T extends Block, I extends BlockItem> BlockBuilder<T, Registrate> noDatagenItem(BlockBuilder<T, Registrate> builder, NonNullBiFunction<? super T, Item.Properties, ? extends I> factory) {
-        return builder.blockstate(NonNullBiConsumer.noop()).item(factory).model(NonNullBiConsumer.noop()).build();
+        return named(builder).blockstate(NonNullBiConsumer.noop()).item(factory).model(NonNullBiConsumer.noop()).build();
     }
 
+    private static <T extends Block> BlockBuilder<T, Registrate> named(BlockBuilder<T, Registrate> builder) {
+        String display = PULangs.name(builder.getName());
+        return display == null ? builder : builder.lang(display);
+    }
+
+    // ==========================
     // --- Loot Utilities ---
+    // ==========================
     private static LootTable.Builder slabLoot(Block block) {
         return LootTable.lootTable()
                 .withPool(LootPool.lootPool()
-                .setRolls(ConstantValue.exactly(1.0F))
-                .add(LootItem.lootTableItem(block)
-                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))
-                .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-                .setProperties(StatePropertiesPredicate.Builder.properties()
-                .hasProperty(BlockStateProperties.SLAB_TYPE, SlabType.DOUBLE))))));
+                        .setRolls(ConstantValue.exactly(1.0F))
+                        .add(LootItem.lootTableItem(block)
+                        .apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))
+                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                        .setProperties(StatePropertiesPredicate.Builder.properties()
+                        .hasProperty(BlockStateProperties.SLAB_TYPE, SlabType.DOUBLE))))));
     }
 
     protected static LootTable.Builder quarterSlabLoot(Block block) {
         return LootTable.lootTable()
                 .withPool(LootPool.lootPool()
-                .setRolls(ConstantValue.exactly(1.0F))
-                .add(LootItem.lootTableItem(block)
-                .apply(List.of(2, 3, 4), layers -> SetItemCountFunction
-                .setCount(ConstantValue.exactly(layers.floatValue()))
-                .when(LootItemBlockStatePropertyCondition
-                .hasBlockStateProperties(block)
-                .setProperties(StatePropertiesPredicate.Builder.properties()
-                .hasProperty(PUProperties.QUARTER_LAYERS, layers))))));
+                        .setRolls(ConstantValue.exactly(1.0F))
+                        .add(LootItem.lootTableItem(block)
+                        .apply(List.of(2, 3, 4), layers -> SetItemCountFunction
+                        .setCount(ConstantValue.exactly(layers.floatValue()))
+                        .when(LootItemBlockStatePropertyCondition
+                        .hasBlockStateProperties(block)
+                        .setProperties(StatePropertiesPredicate.Builder.properties()
+                        .hasProperty(PUProperties.QUARTER_LAYERS, layers))))));
     }
 
     private static LootTable.Builder drumLoot(Block block) {
         return LootTable.lootTable()
                 .withPool(LootPool.lootPool()
-                .setRolls(ConstantValue.exactly(1.0F))
-                .add(LootItem.lootTableItem(block)
-                .apply(CopyNbtFunction.copyData(ContextNbtProvider.BLOCK_ENTITY)
-                .copy("Tank", "BlockEntityTag.Tank")))
-                .when(ExplosionCondition.survivesExplosion()));
+                        .setRolls(ConstantValue.exactly(1.0F))
+                        .add(LootItem.lootTableItem(block)
+                        .apply(CopyNbtFunction.copyData(ContextNbtProvider.BLOCK_ENTITY)
+                        .copy("Tank", "BlockEntityTag.Tank")))
+                        .when(ExplosionCondition.survivesExplosion()));
     }
 
     // ============================================================
     // Simple Registration Types
     // ============================================================
-    protected static RegistryEntry<Block> resourceCrate(String name, NonNullSupplier<Block> base, MapColor color) {
+    protected static RegistryEntry<Block> resourceCrate(String name, MapColor color) {
         RegistryEntry<Block> entry = categorized(TabCategory.RESOURCE_CRATES,
                 noDatagenItem(REGISTRATE.block(name, Block::new)
-                        .initialProperties(base)
                         .properties(p -> p
                         .mapColor(color)
                         .strength(4.0F, 8.0F)
@@ -104,7 +109,6 @@ public class RegistryHelper extends Organizer {
     protected static RegistryEntry<Block> miscResourceCrate(String name, MapColor color, SoundType sound) {
         RegistryEntry<Block> entry = categorized(TabCategory.MISC_CRATES,
                 noDatagenItem(REGISTRATE.block(name, Block::new)
-                        .initialProperties(() -> Blocks.STONE)
                         .properties(p -> p
                         .mapColor(color)
                         .strength(4.0F, 8.0F)
@@ -117,7 +121,6 @@ public class RegistryHelper extends Organizer {
     protected static RegistryEntry<Block> miscCrate(String name, MapColor color, float hardness, float blast, SoundType sound) {
         RegistryEntry<Block> entry = categorized(TabCategory.MISC_CRATES,
                 noDatagenItem(REGISTRATE.block(name, Block::new)
-                        .initialProperties(() -> Blocks.STONE)
                         .properties(p -> p
                         .mapColor(color)
                         .strength(hardness, blast)
@@ -167,7 +170,6 @@ public class RegistryHelper extends Organizer {
     protected static RegistryEntry<Block> basket(String name, MapColor color, SoundType sound) {
         RegistryEntry<Block> entry = categorized(TabCategory.BASKETS,
                 noDatagenItem(REGISTRATE.block(name, Block::new)
-                        .initialProperties(() -> Blocks.STONE)
                         .properties(p -> p
                         .mapColor(color)
                         .strength(1.0F)
@@ -180,7 +182,6 @@ public class RegistryHelper extends Organizer {
     protected static RegistryEntry<Block> basket(String name, MapColor color, SoundType sound, int light) {
         RegistryEntry<Block> entry = categorized(TabCategory.BASKETS,
                 noDatagenItem(REGISTRATE.block(name, Block::new)
-                        .initialProperties(() -> Blocks.STONE)
                         .properties(p -> p
                         .mapColor(color)
                         .strength(1.0F)
@@ -206,7 +207,6 @@ public class RegistryHelper extends Organizer {
     protected static RegistryEntry<Block> produceBag(String name, MapColor color, SoundType sound) {
         RegistryEntry<Block> entry = categorized(TabCategory.PRODUCE_BAGS,
                 noDatagenItem(REGISTRATE.block(name, Block::new)
-                        .initialProperties(() -> Blocks.STONE)
                         .properties(p -> p
                         .mapColor(color)
                         .strength(1.0F)
@@ -219,7 +219,6 @@ public class RegistryHelper extends Organizer {
     protected static RegistryEntry<Block> miscBag(String name, MapColor color, SoundType sound) {
         RegistryEntry<Block> entry = categorized(TabCategory.MISC_BAGS,
                 noDatagenItem(REGISTRATE.block(name, Block::new)
-                        .initialProperties(() -> Blocks.STONE)
                         .properties(p -> p
                         .mapColor(color)
                         .strength(1.0F)
@@ -232,7 +231,6 @@ public class RegistryHelper extends Organizer {
     protected static RegistryEntry<Block> miscBag(String name, MapColor color, SoundType sound, int light) {
         RegistryEntry<Block> entry = categorized(TabCategory.MISC_BAGS,
                 noDatagenItem(REGISTRATE.block(name, Block::new)
-                        .initialProperties(() -> Blocks.STONE)
                         .properties(p -> p
                         .mapColor(color)
                         .strength(1.0F)
@@ -280,7 +278,7 @@ public class RegistryHelper extends Organizer {
 
     protected static RegistryEntry<HorizontalBlock> fireResistantPallet(String name, NonNullSupplier<Block> base, float hardness, float blast) {
         RegistryEntry<HorizontalBlock> entry = categorized(TabCategory.PALLETS,
-                REGISTRATE.block(name, HorizontalBlock::new)
+                named(REGISTRATE.block(name, HorizontalBlock::new))
                         .initialProperties(base)
                         .properties(p -> p.strength(hardness, blast))
                         .blockstate(NonNullBiConsumer.noop())
@@ -346,8 +344,9 @@ public class RegistryHelper extends Organizer {
                 noDatagenItem(REGISTRATE.block(name, DrumBarrelBlock::new)
                         .properties(p -> p
                         .mapColor(color)
-                        .sound(SoundType.METAL)
-                        .strength(3.0F, 6.0F))
+                        .sound(PUSoundsTypes.DRUM_BARREL)
+                        .strength(3.0F, 6.0F)
+                        .requiresCorrectToolForDrops())
                         .loot((lt, block) -> lt
                         .add(block, drumLoot(block))),
                         DrumBarrelItem::new).register());

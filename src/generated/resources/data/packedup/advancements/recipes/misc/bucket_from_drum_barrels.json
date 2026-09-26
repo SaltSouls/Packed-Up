@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_drum_barrels": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "packedup:drum_barrels"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:bucket_from_drum_barrels"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_drum_barrels",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:bucket_from_drum_barrels"
+    ]
+  },
+  "sends_telemetry_event": false
+}

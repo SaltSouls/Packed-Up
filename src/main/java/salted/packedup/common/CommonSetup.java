@@ -5,7 +5,7 @@ import salted.packedup.common.block.handlers.utils.FluidUtils;
 
 public class CommonSetup {
     public static void init(final FMLCommonSetupEvent event) {
-        event.enqueueWork(FluidUtils::buildBucketMap);
+        event.enqueueWork(FluidUtils::buildContainerMaps);
     }
 
 }

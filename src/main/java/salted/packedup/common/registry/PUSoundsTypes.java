@@ -110,4 +110,12 @@ public class PUSoundsTypes {
             () -> SoundEvents.CHISELED_BOOKSHELF_INSERT,
             () -> SoundEvents.BOOK_PUT,
             () -> SoundEvents.BOOK_PUT);
+    public static final SoundType DRUM_BARREL = new ForgeSoundType(
+            1.0F,
+            0.8F,
+            () -> SoundEvents.COPPER_BREAK,
+            () -> SoundEvents.NETHERITE_BLOCK_STEP,
+            () -> SoundEvents.COPPER_PLACE,
+            () -> SoundEvents.NETHERITE_BLOCK_HIT,
+            () -> SoundEvents.NETHERITE_BLOCK_FALL);
 }

@@ -21,9 +21,7 @@ public class BookModelBuilder {
         this.provider = provider;
     }
 
-    // ============================================================
     // Book Piles
-    // ============================================================
     private BlockModelBuilder bookPile(QuarterSlabBlock block, int layer, boolean isColored, boolean isAlt, int variant) {
         String name = blockName(block);
         String suffix = "_layer" + layer;
@@ -88,9 +86,7 @@ public class BookModelBuilder {
         }, ignored);
     }
 
-    // ============================================================
     // Book Bundles
-    // ============================================================
     private BlockModelBuilder bookBundle(HorizontalBlock block, boolean isColored, boolean isAlt, int variant) {
         String temp = blockName(block);
         String name = nameFromSplit(temp, "_bundle", true) + "_pile";
@@ -151,9 +147,7 @@ public class BookModelBuilder {
         });
     }
 
-    // ============================================================
     // Book Bundle Slabs
-    // ============================================================
     private BlockModelBuilder bookBundleSlab(HorizontalSlabBlock block, SlabType type, boolean isColored, boolean isAlt, int variant) {
         String temp = blockName(block);
         String name = nameFromSplit(temp, "_bundle", true) + "_pile";

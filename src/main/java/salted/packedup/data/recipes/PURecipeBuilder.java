@@ -3,6 +3,7 @@ package salted.packedup.data.recipes;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -14,14 +15,13 @@ import salted.packedup.PackedUp;
 import salted.packedup.common.registry.PURegistry;
 import salted.packedup.common.tag.PUTags;
 
+import java.util.Arrays;
 import java.util.function.Consumer;
 
 import static salted.packedup.data.utils.ConditionalUtils.hasItems;
-import static salted.packedup.data.utils.NameUtils.itemName;
-import static salted.packedup.data.utils.NameUtils.nameFromSplit;
+import static salted.packedup.data.utils.NameUtils.*;
 
 public class PURecipeBuilder extends RecipeProvider {
-    // Constants for recipe directories
     private static final String MISC_DIR = "recipes/misc/";
     private static final String DECORATIONS_DIR = "recipes/decorations/";
 
@@ -34,10 +34,6 @@ public class PURecipeBuilder extends RecipeProvider {
         // This is never used and shouldn't be used. It is only needed
         // so that I can separate the builders from the registration.
     }
-
-    // ============================================================
-    // General Pathing and Convenience Functions
-    // ============================================================
 
     /**
      * Creates a ResourceLocation for a recipe directory.
@@ -254,7 +250,20 @@ public class PURecipeBuilder extends RecipeProvider {
      * @param consumer The {@link FinishedRecipe} consumer.
      */
     protected static void simpleShapeless(ItemLike input, ItemLike output, boolean split, Consumer<FinishedRecipe> consumer) {
-        shapelessRecipe(input, output, consumer, split ? nameFromSplit(itemName(input.asItem()), itemName(output.asItem()), false) : "_" + itemName(input.asItem()));
+        shapelessRecipe(input, output, consumer, split ? nameFromSplit(itemName(input.asItem()), itemName(output.asItem()), false) : itemName(input.asItem()));
+    }
+
+    /**
+     * Creates a simple shapeless unpacking recipe.
+     *
+     * @param input    The input item tag ({@link TagKey<Item>}).
+     * @param output   The output item ({@link ItemLike}).
+     * @param split    Whether to split the product name.
+     * @param consumer The {@link FinishedRecipe} consumer.
+     */
+    protected static void simpleShapeless(TagKey<Item> input, ItemLike output, boolean split, Consumer<FinishedRecipe> consumer) {
+        String tagName = input.location().getPath().replace('/', '_');
+        shapelessRecipe(input, output, consumer, split ? nameFromSplit(tagName, itemName(output.asItem()), false) : tagName);
     }
 
     /**
@@ -267,8 +276,8 @@ public class PURecipeBuilder extends RecipeProvider {
      * @param consumer  The {@link FinishedRecipe} consumer.
      */
     protected static void simpleConditionalShapeless(ItemLike input, ItemLike output, boolean split, ICondition condition, Consumer<FinishedRecipe> consumer) {
-        String type = split ? nameFromSplit(itemName(input.asItem()), itemName(output.asItem()), false) : "_" + itemName(input.asItem());
-        String recipeName = itemName(output.asItem()) + "_from" + type;
+        String type = split ? nameFromSplit(itemName(input.asItem()), itemName(output.asItem()), false) : itemName(input.asItem());
+        String recipeName = itemName(output.asItem()) + "_from_" + stripUnderscores(type);
 
         ConditionalRecipe.builder().addCondition(condition)
                 .addRecipe(recipe -> simpleShapeless(input, output, split, recipe))
@@ -287,7 +296,23 @@ public class PURecipeBuilder extends RecipeProvider {
      */
     protected static void simpleShapeless(ItemLike input, ItemLike output, boolean before, String type, Consumer<FinishedRecipe> consumer) {
         String prefix = before ? nameFromSplit(itemName(input.asItem()), itemName(output.asItem()), true) : "";
-        shapelessRecipe(input, output, consumer, "_" + prefix + type);
+        shapelessRecipe(input, output, consumer, "_" + stripUnderscores(prefix + type));
+    }
+
+    /**
+     * Creates a simple shapeless unpacking recipe with a custom type.
+     *
+     * @param input    The input item tag ({@link TagKey<Item>}).
+     * @param output   The output item ({@link ItemLike}).
+     * @param before   Whether to split the product name before or after the type.
+     * @param type     The custom type for the recipe.
+     * @param consumer The {@link FinishedRecipe} consumer.
+     */
+    protected static void simpleShapeless(TagKey<Item> input, ItemLike output, boolean before, String type, Consumer<FinishedRecipe> consumer) {
+        String tagName = input.location().getPath().replace('/', '_');
+        String prefix = before ? nameFromSplit(tagName, itemName(output.asItem()), true) : "";
+
+        shapelessRecipe(input, output, consumer, "_" + stripUnderscores(prefix + type));
     }
 
     /**
@@ -302,7 +327,7 @@ public class PURecipeBuilder extends RecipeProvider {
      */
     protected static void simpleConditionalShapeless(ItemLike input, ItemLike output, boolean before, String type, ICondition condition, Consumer<FinishedRecipe> consumer) {
         String prefix = before ? nameFromSplit(itemName(input.asItem()), itemName(output.asItem()), true) : "";
-        String recipeName = itemName(output.asItem()) + "_from_" + prefix + type;
+        String recipeName = itemName(output.asItem()) + "_from_" + stripUnderscores(prefix + type);
 
         ConditionalRecipe.builder().addCondition(condition)
                 .addRecipe(recipe -> simpleShapeless(input, output, before, type, recipe))
@@ -341,7 +366,7 @@ public class PURecipeBuilder extends RecipeProvider {
     }
 
     // --------------------------
-    // Book Bundle Recipes
+    // Dyeing Recipes
     // --------------------------
 
     /**
@@ -362,11 +387,28 @@ public class PURecipeBuilder extends RecipeProvider {
                 .save(consumer);
     }
 
+    /**
+     * Creates a drum barrel dyeing recipe.
+     *
+     * @param dye      The dye tag.
+     * @param output   The output item ({@link ItemLike}).
+     * @param consumer The {@link FinishedRecipe} consumer.
+     */
+    protected static void drumBarrelDyeing(TagKey<Item> dye, ItemLike output, Consumer<FinishedRecipe> consumer) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, output, 8)
+                .pattern("###")
+                .pattern("#o#")
+                .pattern("###")
+                .define('#', PUTags.DRUM_BARRELS)
+                .define('o', dye)
+                .unlockedBy("has_book_bundle", hasItems(PURegistry.DRUM_BARREL.get().asItem()))
+                .save(consumer);
+    }
+    
     // --------------------------
     // Smelting Recipes
     // --------------------------
-
-
+    
     /**
      * Creates the various thatch cooking recipes.
      *
@@ -457,13 +499,24 @@ public class PURecipeBuilder extends RecipeProvider {
     }
 
     private static void shapelessRecipe(ItemLike input, ItemLike output, Consumer<FinishedRecipe> consumer, String suffix) {
-        buildShapelessRecipe(input, output, consumer, recipeDir(PackedUp.MODID, itemName(output.asItem()) + "_from_" + suffix));
+        buildShapelessRecipe(input, output, consumer, recipeDir(PackedUp.MODID, itemName(output.asItem()) + "_from_" + stripUnderscores(suffix)));
+    }
+
+    private static void shapelessRecipe(TagKey<Item> input, ItemLike output, Consumer<FinishedRecipe> consumer, String suffix) {
+        buildShapelessRecipe(input, output, consumer, recipeDir(PackedUp.MODID, itemName(output.asItem()) + "_from_" + stripUnderscores(suffix)));
     }
 
     private static void buildShapelessRecipe(ItemLike input, ItemLike output, Consumer<FinishedRecipe> consumer, ResourceLocation recipeName) {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, output, 9)
                 .requires(input)
                 .unlockedBy("has_" + itemName(input.asItem()), hasItems(input))
+                .save(consumer, recipeName);
+    }
+
+    private static void buildShapelessRecipe(TagKey<Item> input, ItemLike output, Consumer<FinishedRecipe> consumer, ResourceLocation recipeName) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, output, 9)
+                .requires(input)
+                .unlockedBy("has_" + input.location().getPath(), hasItems(input))
                 .save(consumer, recipeName);
     }
 

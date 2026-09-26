@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "packedup:drum_barrels"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "minecraft:bucket"
+  }
+}

@@ -90,7 +90,7 @@ public class PUBlockStates extends PUBlockBuilder {
             this.horizontalBlock(entry.get(), piles.resourcePile(entry.get()));
         }
 
-        // pallet (base)
+        // pallet
         this.horizontalQuarterSlabBlock(PURegistry.PALLET.get(), "pallet/", BlockStateProperties.WATERLOGGED);
 
         // resource pallets
@@ -98,11 +98,9 @@ public class PUBlockStates extends PUBlockBuilder {
             this.horizontalBlock(entry.get(), piles.resourcePallet(entry.get()));
         }
 
-        // default book bundle (weighted random variants)
+        // default book variants
         books.simpleBookBundle(PURegistry.BOOK_BUNDLE.get());
-        // default book bundle slab (weighted random variants)
         books.simpleBookBundleSlab(PURegistry.BOOK_BUNDLE_SLAB.get(), BlockStateProperties.WATERLOGGED);
-        // default book pile (weighted random variants)
         books.simpleBookPile(PURegistry.BOOK_PILE.get(), BlockStateProperties.WATERLOGGED);
 
         // colored book variants
@@ -134,4 +132,5 @@ public class PUBlockStates extends PUBlockBuilder {
             spools.simpleIndustrialSpool(entry.get(), BlockStateProperties.WATERLOGGED);
         }
     }
+
 }

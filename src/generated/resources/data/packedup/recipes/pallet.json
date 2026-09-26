@@ -5,14 +5,14 @@
     "#": {
       "tag": "minecraft:wooden_slabs"
     },
-    "l": {
+    "S": {
       "item": "minecraft:stick"
     }
   },
   "pattern": [
-    "lll",
+    "SSS",
     "###",
-    "lll"
+    "SSS"
   ],
   "result": {
     "count": 12,

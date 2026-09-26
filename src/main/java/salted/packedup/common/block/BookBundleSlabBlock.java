@@ -8,6 +8,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import org.jetbrains.annotations.NotNull;
 import salted.packedup.common.block.handlers.BundleHandler;
 
 public class BookBundleSlabBlock extends HorizontalSlabBlock {
@@ -16,8 +17,9 @@ public class BookBundleSlabBlock extends HorizontalSlabBlock {
         super(properties);
     }
 
+    @NotNull
     @Override
-    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    public InteractionResult use(@NotNull BlockState state, @NotNull Level world, @NotNull BlockPos pos, Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hit) {
         if (player.isCrouching()) { return InteractionResult.PASS; }
         Block block = this.asBlock();
 

@@ -7,6 +7,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 public class BookPileBlock extends HorizontalQuarterSlabBlock {
 
@@ -16,13 +17,14 @@ public class BookPileBlock extends HorizontalQuarterSlabBlock {
     }
 
     @Override
-    public boolean canSurvive(BlockState state, LevelReader world, BlockPos pos) {
+    public boolean canSurvive(@NotNull BlockState state, LevelReader world, BlockPos pos) {
         BlockState blockstate = world.getBlockState(pos.below());
         return Block.isFaceFull(blockstate.getCollisionShape(world, pos.below()), Direction.UP) || blockstate.is(this) && blockstate.getValue(LAYERS) == 4;
     }
 
+    @NotNull
     @Override
-    public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor world, BlockPos blockPos, BlockPos facingPos) {
+    public BlockState updateShape(BlockState state, @NotNull Direction facing, @NotNull BlockState facingState, @NotNull LevelAccessor world, @NotNull BlockPos blockPos, @NotNull BlockPos facingPos) {
         return !state.canSurvive(world, blockPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, facing, facingState, world, blockPos, facingPos);
     }
 

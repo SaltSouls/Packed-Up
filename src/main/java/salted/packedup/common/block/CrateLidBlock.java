@@ -130,7 +130,7 @@ public class CrateLidBlock extends Block implements SimpleWaterloggedBlock {
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.@NotNull Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
         builder.add(FACING, HALF, WATERLOGGED);
     }

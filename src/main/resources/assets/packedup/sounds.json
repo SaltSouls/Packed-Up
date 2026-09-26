@@ -10,5 +10,19 @@
     "sounds": [
       "packedup:block/drum/knock_full"
     ]
+  },
+  "block.drum_barrel.slosh": {
+    "subtitle": "subtitles.packedup.drum_barrel.slosh",
+    "sounds": [ { "name": "minecraft:item.bucket.empty", "type": "event" } ]
+  },
+  "block.drum_barrel.slosh_accent": {
+    "sounds": [ { "name": "minecraft:block.bubble_column.bubble_pop", "type": "event" } ]
+  },
+  "block.drum_barrel.warble": {
+    "subtitle": "subtitles.packedup.drum_barrel.warble",
+    "sounds": [ { "name": "minecraft:item.bucket.empty_lava", "type": "event" } ]
+  },
+  "block.drum_barrel.warble_accent": {
+    "sounds": [ { "name": "minecraft:block.lava.pop", "type": "event" } ]
   }
 }

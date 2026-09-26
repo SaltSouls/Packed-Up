@@ -29,18 +29,21 @@ public class ConnectedPillarBlock extends RotatedPillarBlock implements SimpleWa
         this.registerDefaultState(this.defaultBlockState().setValue(SHAPE, PillarShape.SINGLE));
     }
 
+    @NotNull
     @Override
     public RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
     }
 
+    @NotNull
     @Override
-    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext ctx) {
+    public VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter world, @NotNull BlockPos pos, @NotNull CollisionContext ctx) {
         return Shapes.block();
     }
 
+    @NotNull
     @Override
-    public VoxelShape getCollisionShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext ctx) {
+    public VoxelShape getCollisionShape(@NotNull BlockState state, @NotNull BlockGetter world, @NotNull BlockPos pos, @NotNull CollisionContext ctx) {
         return getShape(state, world, pos, ctx);
     }
 
@@ -57,7 +60,7 @@ public class ConnectedPillarBlock extends RotatedPillarBlock implements SimpleWa
 
     @NotNull
     @Override
-    public BlockState updateShape(@NotNull BlockState state, @NotNull Direction direction, @NotNull BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos) {
+    public BlockState updateShape(@NotNull BlockState state, @NotNull Direction direction, @NotNull BlockState neighborState, @NotNull LevelAccessor world, @NotNull BlockPos pos, @NotNull BlockPos neighborPos) {
         return getPillarShape(world, pos, state);
     }
 

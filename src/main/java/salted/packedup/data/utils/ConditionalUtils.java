@@ -24,6 +24,11 @@ public class ConditionalUtils {
         return InventoryChangeTrigger.TriggerInstance.hasItems(items);
     }
 
+    @Contract("_ -> new")
+    public static InventoryChangeTrigger.@NotNull TriggerInstance hasItems(TagKey<Item> tag) {
+        return inventoryTrigger(ItemPredicate.Builder.item().of(tag).build());
+    }
+
     // recipe conditionals
     public static ICondition modLoaded(String modID) {
         return new ModLoadedCondition(modID);

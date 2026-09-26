@@ -41,9 +41,7 @@ public class OverlayModelBuilder {
         return blockLocation(overlayFolder(baseName) + modelName).toString();
     }
 
-    // ============================================================
     // Overlay Full Blocks
-    // ============================================================
     public BlockModelBuilder simpleOverlayBlock(Block block, boolean tint) {
         String name = blockName(block);
         String parentModel;
@@ -69,9 +67,7 @@ public class OverlayModelBuilder {
                 .texture("overlay", overlayTexture(name, "_overlay"));
     }
 
-    // ============================================================
     // Turf Layers
-    // ============================================================
     private BlockModelBuilder turfBlock(QuarterSlabBlock block, int layer, boolean tint) {
         String name = nameFromSplit(blockName(block), "_layer", true);
         String topName = nameFromSplit(name, "_turf", true);
@@ -112,9 +108,7 @@ public class OverlayModelBuilder {
         }, ignored);
     }
 
-    // ============================================================
-    // Quarter Slab Blocks (podzol turf layer)
-    // ============================================================
+    // Quarter Slab Blocks
     private BlockModelBuilder quarterSlabBlock(QuarterSlabBlock block, int layer, boolean bottomTop) {
         String name = nameFromSplit(blockName(block), "_layer", true);
         String suffix = "_layer" + layer;
@@ -159,9 +153,7 @@ public class OverlayModelBuilder {
         }, ignored);
     }
 
-    // ============================================================
     // Grass Bale
-    // ============================================================
     public void grassBaleBlock(RotatedPillarBlock block) {
         String name = "bundle/" + blockName(block);
 
@@ -174,9 +166,7 @@ public class OverlayModelBuilder {
         });
     }
 
-    // ============================================================
     // Overlay Stairs
-    // ============================================================
     private BlockModelBuilder overlayStairBlock(StairBlock block, StairsShape shape, Half half) {
         String name = blockName(block);
         String parentBlock = nameFromSplit(name, "_stairs", true);
@@ -222,9 +212,7 @@ public class OverlayModelBuilder {
         }, BlockStateProperties.WATERLOGGED);
     }
 
-    // ============================================================
     // Overlay Slabs
-    // ============================================================
     private BlockModelBuilder overlaySlabBlock(SlabBlock block, SlabType type) {
         String name = blockName(block);
         String parentBlock = nameFromSplit(name, "_slab", true);

@@ -1,9 +1,7 @@
 package salted.packedup.common.registry.helpers;
 
-import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import salted.packedup.common.block.*;
@@ -69,9 +67,6 @@ public class Organizer {
     // ============================================================
     // Item Grouping
     // ============================================================
-
-
-
     public record ColoredBookSet(
             DyeColor color,
             RegistryEntry<BookBundleBlock> bundle,

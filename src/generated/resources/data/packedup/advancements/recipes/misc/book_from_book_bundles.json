@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_book_bundles": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "packedup:book_bundles"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "packedup:book_from_book_bundles"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_book_bundles",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "packedup:book_from_book_bundles"
+    ]
+  },
+  "sends_telemetry_event": false
+}

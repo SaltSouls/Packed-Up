@@ -51,6 +51,22 @@ public class NameUtils {
         return before ? (parts.length > 0 ? parts[0] : name) : (parts.length > 1 ? parts[1] : name);
     }
 
+    /**
+     * Strips trailing underscores from the given name
+     *
+     * @param name The original string to strip.
+     * @return     The name, with trailing underscores removed.
+     */
+    public static String stripUnderscores(String name) {
+        int start = 0;
+        int end = name.length();
+
+        while (start < end && name.charAt(start) == '_') start++;
+        while (end > start && name.charAt(end - 1) == '_') end--;
+
+        return name.substring(start, end);
+    }
+
     // ============================================================
     // Resource Location Functions
     // ============================================================
@@ -241,4 +257,5 @@ public class NameUtils {
     public static @NotNull ResourceLocation drumLocation(String path) {
         return blockLocation("drum/" + path);
     }
+
 }

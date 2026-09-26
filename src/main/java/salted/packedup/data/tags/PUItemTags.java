@@ -33,10 +33,13 @@ public class PUItemTags extends ItemTagsProvider {
                 Items.BONE,
                 Items.BAMBOO);
 
-        var builder = tag(PUTags.BOOK_BUNDLES);
-        builder.add(PURegistry.BOOK_BUNDLE.get().asItem());
+        var bookBuilder = tag(PUTags.BOOK_BUNDLES);
+        bookBuilder.add(PURegistry.BOOK_BUNDLE.get().asItem());
         for (Organizer.ColoredBookSet set : PURegistry.COLORED_BOOKS.values()) {
-            builder.add(set.bundle().get().asItem());
+            bookBuilder.add(set.bundle().get().asItem());
         }
+
+        var drumBuilder = tag(PUTags.DRUM_BARRELS);
+        PURegistry.DRUM_BARREL_ENTRIES.forEach(entry -> drumBuilder.add(entry.get().asItem()));
     }
 }

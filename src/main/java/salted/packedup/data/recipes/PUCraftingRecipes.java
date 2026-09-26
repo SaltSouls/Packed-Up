@@ -13,6 +13,7 @@ import org.jetbrains.annotations.NotNull;
 import salted.packedup.PackedUp;
 import salted.packedup.common.registry.PURegistry;
 import salted.packedup.common.registry.helpers.Organizer;
+import salted.packedup.common.tag.PUTags;
 
 import java.util.function.Consumer;
 
@@ -37,10 +38,7 @@ public class PUCraftingRecipes extends PURecipeBuilder {
         recipesUnique(consumer);
     }
 
-    // ============================================================
     // Recipe Categories
-    // ============================================================
-
     private void recipesCompacting(Consumer<FinishedRecipe> consumer) {
         // Produce Baskets
         registerBasketRecipes(consumer);
@@ -80,6 +78,12 @@ public class PUCraftingRecipes extends PURecipeBuilder {
 
         // Grass Bale
         registerGrassBaleRecipes(consumer);
+
+        // Grass Thatch
+        registerGrassThatchRecipes(consumer);
+
+        // Drum Barrels
+        registerDrumBarrelRecipes(consumer);
     }
 
     private void recipesModifiedVanilla(Consumer<FinishedRecipe> consumer) {
@@ -108,28 +112,27 @@ public class PUCraftingRecipes extends PURecipeBuilder {
 
         // Pallet
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, PURegistry.PALLET.get().asItem(), 12)
-                .pattern("lll")
+                .pattern("SSS")
                 .pattern("###")
-                .pattern("lll")
-                .define('l', Items.STICK)
+                .pattern("SSS")
+                .define('S', Items.STICK)
                 .define('#', ItemTags.WOODEN_SLABS)
                 .unlockedBy("has_wooden_slabs", has(ItemTags.WOODEN_SLABS))
                 .save(consumer);
 
-        // Colored Book Blocks
-        registerColoredBookBlockRecipes(consumer);
-
-        // Book Slabs
-        registerBookSlabRecipes(consumer);
-
-        // Grass Thatch
-        registerGrassThatchRecipes(consumer);
+        // Fluid Gauge
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, PURegistry.FLUID_GAUGE.get().asItem(), 1)
+                .pattern("G")
+                .pattern("#")
+                .pattern("I")
+                .define('G', Tags.Items.GLASS_PANES)
+                .define('#', Items.COMPARATOR)
+                .define('I', Tags.Items.INGOTS_IRON)
+                .unlockedBy("has_comparator", has(Items.COMPARATOR))
+                .save(consumer);
     }
 
-    // ============================================================
     // Helper Methods for Recipe Registration
-    // ============================================================
-
     private void registerBasketRecipes(Consumer<FinishedRecipe> consumer) {
         simpleCombined(PURegistry.SWEET_BERRY_BASKET.get().asItem(), Items.SWEET_BERRIES, false, "basket", consumer);
         simpleCombined(PURegistry.GLOW_BERRY_BASKET.get().asItem(), Items.GLOW_BERRIES, false, "basket", consumer);
@@ -227,18 +230,28 @@ public class PUCraftingRecipes extends PURecipeBuilder {
 
     private void registerBookBlockRecipes(Consumer<FinishedRecipe> consumer) {
         simpleCompact(Items.BOOK, PURegistry.BOOK_BUNDLE.get().asItem(), consumer);
-        for (Organizer.ColoredBookSet set : PURegistry.COLORED_BOOKS.values()) {
-            simpleShapeless(set.bundle().get().asItem(), Items.BOOK, false, consumer);
-        }
+        simpleShapeless(PUTags.BOOK_BUNDLES, Items.BOOK, false, consumer);
 
-        // Book blocks from pile
-        registerBookBlockFromPileRecipes(consumer);
-    }
-
-    private void registerBookBlockFromPileRecipes(Consumer<FinishedRecipe> consumer) {
+        // Book Bundle Recipes
         simpleSmallCompact(PURegistry.BOOK_PILE.get().asItem(), PURegistry.BOOK_BUNDLE.get().asItem(), consumer);
         for (Organizer.ColoredBookSet set : PURegistry.COLORED_BOOKS.values()) {
             simpleSmallCompact(set.getPile().asItem(), set.getBundle().asItem(), consumer);
+        }
+
+        // Book Slab Recipes
+        simpleSlab(PURegistry.BOOK_BUNDLE.get().asItem(), PURegistry.BOOK_BUNDLE_SLAB.get().asItem(), consumer);
+        for (Organizer.ColoredBookSet set : PURegistry.COLORED_BOOKS.values()) {
+            simpleSmallCompact(set.getBundle().asItem(), set.getSlab().asItem(), consumer);
+        }
+        // Book Slab from Pile Recipes
+        simpleStacked(PURegistry.BOOK_PILE.get().asItem(), PURegistry.BOOK_BUNDLE_SLAB.get().asItem(), consumer);
+        for (Organizer.ColoredBookSet set : PURegistry.COLORED_BOOKS.values()) {
+            simpleSmallCompact(set.getPile().asItem(), set.getSlab().asItem(), consumer);
+        }
+
+        // Colored Book Recipes
+        for (Organizer.ColoredBookSet set : PURegistry.COLORED_BOOKS.values()) {
+            bookBundleDyeing(set.getColor().getTag(), set.getBundle().asItem(), consumer);
         }
     }
 
@@ -247,7 +260,7 @@ public class PUCraftingRecipes extends PURecipeBuilder {
         simpleCombined(PURegistry.PODZOL_TURF.get().asItem(), Blocks.PODZOL, false, consumer);
         simpleCombined(PURegistry.MYCELIUM_TURF.get().asItem(), Blocks.MYCELIUM, false, consumer);
 
-        // Turf blocks from layer
+        // Turf Blocks from Layer
         simpleSmallCompact(PURegistry.GRASS_TURF_LAYER.get().asItem(), PURegistry.GRASS_TURF.get().asItem(), consumer);
         simpleSmallCompact(PURegistry.PODZOL_TURF_LAYER.get().asItem(), PURegistry.PODZOL_TURF.get().asItem(), consumer);
         simpleSmallCompact(PURegistry.MYCELIUM_TURF_LAYER.get().asItem(), PURegistry.MYCELIUM_TURF.get().asItem(), consumer);
@@ -258,33 +271,19 @@ public class PUCraftingRecipes extends PURecipeBuilder {
         simpleSmallCompact(Blocks.TALL_GRASS, PURegistry.GRASS_BALE.get().asItem(), consumer);
     }
 
-    private void registerColoredBookBlockRecipes(Consumer<FinishedRecipe> consumer) {
-        for (Organizer.ColoredBookSet set : PURegistry.COLORED_BOOKS.values()) {
-            bookBundleDyeing(set.getColor().getTag(), set.getBundle().asItem(), consumer);
-        }
-    }
-
-    private void registerBookSlabRecipes(Consumer<FinishedRecipe> consumer) {
-        simpleSlab(PURegistry.BOOK_BUNDLE.get().asItem(), PURegistry.BOOK_BUNDLE_SLAB.get().asItem(), consumer);
-        for (Organizer.ColoredBookSet set : PURegistry.COLORED_BOOKS.values()) {
-            simpleSmallCompact(set.getBundle().asItem(), set.getSlab().asItem(), consumer);
-        }
-
-        // Book bundle slab from pile
-        registerBookSlabFromPileRecipes(consumer);
-    }
-
-    private void registerBookSlabFromPileRecipes(Consumer<FinishedRecipe> consumer) {
-        simpleStacked(PURegistry.BOOK_PILE.get().asItem(), PURegistry.BOOK_BUNDLE_SLAB.get().asItem(), consumer);
-        for (Organizer.ColoredBookSet set : PURegistry.COLORED_BOOKS.values()) {
-            simpleSmallCompact(set.getPile().asItem(), set.getSlab().asItem(), consumer);
-        }
-    }
-
     private void registerGrassThatchRecipes(Consumer<FinishedRecipe> consumer) {
         simpleThatch(PURegistry.GRASS_BALE.get().asItem(), PURegistry.GRASS_THATCH.get().asItem(), consumer);
         simpleStairs(PURegistry.GRASS_THATCH.get().asItem(), PURegistry.GRASS_THATCH_STAIRS.get().asItem(), consumer);
         simpleSlab(PURegistry.GRASS_THATCH.get().asItem(), PURegistry.GRASS_THATCH_SLAB.get().asItem(), consumer);
+    }
+
+    private void registerDrumBarrelRecipes(Consumer<FinishedRecipe> consumer) {
+        simpleCompact(Items.BUCKET, PURegistry.DRUM_BARREL.get().asItem(), consumer);
+        simpleShapeless(PUTags.DRUM_BARRELS, Items.BUCKET, false, consumer);
+
+        // Colored Drum Barrel Recipes
+        Organizer.COLORED_DRUMS.forEach((color, drum) ->
+                drumBarrelDyeing(color.getTag(), drum.get().asItem(), consumer));
     }
 
 }

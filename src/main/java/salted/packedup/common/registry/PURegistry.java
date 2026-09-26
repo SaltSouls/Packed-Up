@@ -1,16 +1,9 @@
 package salted.packedup.common.registry;
 
-import com.tterrag.registrate.Registrate;
-import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
-import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
-import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
-import com.tterrag.registrate.util.nullness.NonNullBiFunction;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.material.MapColor;
 import salted.packedup.common.block.*;
@@ -131,18 +124,18 @@ public class PURegistry extends RegistryHelper {
     // ============================================================
     // Resource Crates
     // ============================================================
-    public static final RegistryEntry<Block> COBBLESTONE_CRATE = resourceCrate("cobblestone_crate", () -> Blocks.COBBLESTONE, MapColor.STONE);
-    public static final RegistryEntry<Block> COBBLED_DEEPSLATE_CRATE = resourceCrate("cobbled_deepslate_crate", () -> Blocks.COBBLED_DEEPSLATE, MapColor.DEEPSLATE);
-    public static final RegistryEntry<Block> ANDESITE_CRATE = resourceCrate("andesite_crate", () -> Blocks.STONE, MapColor.STONE);
-    public static final RegistryEntry<Block> DIORITE_CRATE = resourceCrate("diorite_crate", () -> Blocks.STONE, MapColor.QUARTZ);
-    public static final RegistryEntry<Block> GRANITE_CRATE = resourceCrate("granite_crate", () -> Blocks.STONE, MapColor.DIRT);
-    public static final RegistryEntry<Block> TUFF_CRATE = resourceCrate("tuff_crate", () -> Blocks.STONE, MapColor.TERRACOTTA_GRAY);
-    public static final RegistryEntry<Block> BLACKSTONE_CRATE = resourceCrate("blackstone_crate", () -> Blocks.STONE, MapColor.COLOR_BLACK);
-    public static final RegistryEntry<Block> BASALT_CRATE = resourceCrate("basalt_crate", () -> Blocks.STONE, MapColor.COLOR_BLACK);
-    public static final RegistryEntry<Block> NETHERRACK_CRATE = resourceCrate("netherrack_crate", () -> Blocks.STONE, MapColor.NETHER);
-    public static final RegistryEntry<Block> RAW_COPPER_CRATE = resourceCrate("raw_copper_crate", () -> Blocks.STONE, MapColor.COLOR_ORANGE);
-    public static final RegistryEntry<Block> RAW_IRON_CRATE = resourceCrate("raw_iron_crate", () -> Blocks.STONE, MapColor.RAW_IRON);
-    public static final RegistryEntry<Block> RAW_GOLD_CRATE = resourceCrate("raw_gold_crate", () -> Blocks.STONE, MapColor.GOLD);
+    public static final RegistryEntry<Block> COBBLESTONE_CRATE = resourceCrate("cobblestone_crate", MapColor.STONE);
+    public static final RegistryEntry<Block> COBBLED_DEEPSLATE_CRATE = resourceCrate("cobbled_deepslate_crate", MapColor.DEEPSLATE);
+    public static final RegistryEntry<Block> ANDESITE_CRATE = resourceCrate("andesite_crate", MapColor.STONE);
+    public static final RegistryEntry<Block> DIORITE_CRATE = resourceCrate("diorite_crate", MapColor.QUARTZ);
+    public static final RegistryEntry<Block> GRANITE_CRATE = resourceCrate("granite_crate", MapColor.DIRT);
+    public static final RegistryEntry<Block> TUFF_CRATE = resourceCrate("tuff_crate", MapColor.TERRACOTTA_GRAY);
+    public static final RegistryEntry<Block> BLACKSTONE_CRATE = resourceCrate("blackstone_crate", MapColor.COLOR_BLACK);
+    public static final RegistryEntry<Block> BASALT_CRATE = resourceCrate("basalt_crate", MapColor.COLOR_BLACK);
+    public static final RegistryEntry<Block> NETHERRACK_CRATE = resourceCrate("netherrack_crate", MapColor.NETHER);
+    public static final RegistryEntry<Block> RAW_COPPER_CRATE = resourceCrate("raw_copper_crate", MapColor.COLOR_ORANGE);
+    public static final RegistryEntry<Block> RAW_IRON_CRATE = resourceCrate("raw_iron_crate", MapColor.RAW_IRON);
+    public static final RegistryEntry<Block> RAW_GOLD_CRATE = resourceCrate("raw_gold_crate", MapColor.GOLD);
 
     // ============================================================
     // Reinforced Crates
@@ -207,7 +200,7 @@ public class PURegistry extends RegistryHelper {
     // ============================================================
     public static final RegistryEntry<FluidGaugeBlock> FLUID_GAUGE = fluidGauge("fluid_gauge");
 
-    public static final BlockEntityEntry<FluidGaugeBlockEntity> FLUID_GAUGE_BE = REGISTRATE
+    public static final BlockEntityEntry<FluidGaugeBlockEntity> FLUID_GAUGE_ENTITY = REGISTRATE
             .blockEntity("fluid_gauge", FluidGaugeBlockEntity::new)
             .validBlocks(FLUID_GAUGE)
             .register();

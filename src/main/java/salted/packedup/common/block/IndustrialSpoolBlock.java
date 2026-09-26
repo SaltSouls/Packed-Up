@@ -90,7 +90,7 @@ public class IndustrialSpoolBlock extends ConnectedPillarBlock implements Simple
 
     @NotNull
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext ctx) {
+    public BlockState getStateForPlacement(@NotNull BlockPlaceContext ctx) {
         Direction.Axis axis = ctx.getClickedFace().getAxis();
         BlockPos pos = ctx.getClickedPos();
         Level world = ctx.getLevel();
