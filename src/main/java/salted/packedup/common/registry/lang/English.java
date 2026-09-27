@@ -23,7 +23,6 @@ public class English extends Translations {
         name("book_bundle", "Bundle of Books");
         name("book_bundle_slab", "Half Bundle of Books");
         name("book_pile", "Pile of Books");
-
         for (DyeColor color : DyeColor.values()) {
             String path = color.getName();
             String dye = titleCase(path);
@@ -146,7 +145,10 @@ public class English extends Translations {
         // ============================================================
         name("drum_barrel", "Drum Barrel");
         for (DyeColor color : DyeColor.values()) {
-            name("block.packedup." + color.getName() + "_drum_barrel", titleCase(color.getName()) + " Drum Barrel");
+            String path = color.getName();
+            String dye = titleCase(path);
+
+            name(path + "_drum_barre;", dye + " Drum Barrel");
         }
 
         // ============================================================
@@ -156,7 +158,7 @@ public class English extends Translations {
         tooltip("drum_barrel.fluid", "Contains: %1$s");
         tooltip("fluid_gauge.title", "Fluid Container Info:");
         tooltip("fluid_gauge.empty", "Empty");
-        tooltip("fluid_gauge.unreadable", "No container");
+        tooltip("fluid_gauge.unreadable", "No Container");
         tooltip("fluid_gauge.fluid", "Contains: %1$s");
 
         // ============================================================
@@ -167,3 +169,5 @@ public class English extends Translations {
         subtitle("drum_barrel.warble", "Drum bubbles");
     }
 }
+
+

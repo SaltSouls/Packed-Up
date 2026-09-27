@@ -1,5 +1,7 @@
 package salted.packedup.common.registry.helpers;
 
+import net.minecraft.world.item.DyeColor;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 

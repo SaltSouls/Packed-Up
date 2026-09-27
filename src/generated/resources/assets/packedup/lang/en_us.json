@@ -171,5 +171,5 @@
   "tooltip.packedup.fluid_gauge.empty": "Empty",
   "tooltip.packedup.fluid_gauge.fluid": "Contains: %1$s",
   "tooltip.packedup.fluid_gauge.title": "Fluid Container Info:",
-  "tooltip.packedup.fluid_gauge.unreadable": "No container"
+  "tooltip.packedup.fluid_gauge.unreadable": "No Container"
 }

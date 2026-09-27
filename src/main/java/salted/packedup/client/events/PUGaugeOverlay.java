@@ -62,7 +62,6 @@ public class PUGaugeOverlay {
             return;
         }
 
-        // wall clock, since this runs per frame rather than per tick
         long now = System.currentTimeMillis();
         if (!gauge.getBlockPos().equals(lastGauge)) {
             lastGauge = gauge.getBlockPos();
@@ -133,7 +132,6 @@ public class PUGaugeOverlay {
         graphics.pose().popPose();
     }
 
-    /** Amount in gold, the rest in grey, the way a fill readout normally reads. */
     private static void amounts(GuiGraphics graphics, Font font, FluidStack fluid, int capacity, int x, int y, int alpha) {
         Component held = Component.literal(String.format("%,d", fluid.getAmount()) + "mB");
         Component slash = Component.literal(" / ");

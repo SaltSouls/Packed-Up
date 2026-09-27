@@ -68,5 +68,4 @@ public class PUPackResources extends PathPackResources {
                 .replace(' ', '_')
                 .replace("'", "");
     }
-
 }
