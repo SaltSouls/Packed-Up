@@ -5,6 +5,8 @@ Packed Up's code and its assets are licensed separately.
 - **Code** is licensed under the [GNU General Public License v3.0](LICENSE.md).
 - **Assets** listed below are **Copyright © TwinSouls. All Rights Reserved**, except for the permissions granted in this document. They are **not** covered by the GPL.
 
+---
+
 ## Covered Assets:
 
 The following files are covered by this asset license. In the source repository they are under `src/main/resources/`. In the mod jar they are at the same paths without that prefix.
