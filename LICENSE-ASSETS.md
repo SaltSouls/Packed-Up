@@ -16,6 +16,8 @@ The following files are covered by this asset license. In the source repository 
 
 > This license only covers original work by TwinSouls. Any parts of these assets that come from Minecraft or other mods remain the property of their respective owners.
 
+---
+
 ## Distribution Rules:
 
 ### What You Can Do Without Asking:
