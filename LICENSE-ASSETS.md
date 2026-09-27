@@ -32,4 +32,7 @@ The following files are covered by this asset license. In the source repository 
 - **Also accepted:** send a message to me on [CurseForge](https://www.curseforge.com/members/twinsouls).
 
 > Please include which assets you want to use, what project they're for, and a link to that project. Permission only counts if it's given in writing by me.
-If you're unsure whether something is allowed, ask. I'd rather answer a question than find my work somewhere it shouldn't be.
+
+---
+
+*If you're unsure whether something is allowed, ask. I'd rather answer a question than find my work somewhere it shouldn't be.*
